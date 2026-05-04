@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 2869,
+    "code": "11937",
+    "name": "CAPA ALMOFADA 45X45 DELUXE DECOR OUTONO",
+    "timestamp": "2026-04-30T11:35:48.305Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-02-16T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

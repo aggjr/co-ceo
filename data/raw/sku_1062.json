@@ -1,0 +1,60 @@
+{
+  "info": {
+    "id": 1062,
+    "code": "9192",
+    "name": "TEC. OXFORD LISO MARROM - 3.00 MT",
+    "timestamp": "2026-04-30T11:30:39.475Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 8,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 13.499999999999886,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 28,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.1368683772161603e-13,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 10,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 132,
+        "data_evento": "2024-04-29T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 19,
+        "data_evento": "2024-04-29T03:00:00.000Z",
+        "natureza": "Perda produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 63,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

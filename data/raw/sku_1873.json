@@ -1,0 +1,60 @@
+{
+  "info": {
+    "id": 1873,
+    "code": "K915",
+    "name": "PERSIANA 1.60X1.80 PVC LISA 915",
+    "timestamp": "2026-04-30T11:32:58.069Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2024-06-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-15T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2972,
+    "code": "12037",
+    "name": "TEC BLACK PVC LISO LEVE 1.40 MT PEROLA",
+    "timestamp": "2026-04-30T11:36:04.998Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 32,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

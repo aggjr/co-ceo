@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4180,
+    "code": "13317",
+    "name": "FAST FORRO TERGAL PEROLA 3.50X até2.68",
+    "timestamp": "2026-04-30T11:39:19.286Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-09T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

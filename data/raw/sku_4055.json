@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4055,
+    "code": "13193",
+    "name": "FAST WAVE TRANSL. SONHO BRANCO 2.50X até2.90",
+    "timestamp": "2026-04-30T11:38:59.722Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

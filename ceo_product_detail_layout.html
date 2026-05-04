@@ -1,0 +1,3816 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detalhe do produto · Layout de referência</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="data/catalog_grid.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #041225;
+      --bg-2: #07203e;
+      --bg-3: #0a2f5e;
+      --surface: rgba(9, 28, 56, 0.86);
+      --surface-2: rgba(12, 36, 70, 0.92);
+      --halo: rgba(35, 129, 244, 0.22);
+      --border: rgba(218, 177, 119, 0.55);
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --gold: #DAB177;
+      --gold-dim: rgba(218, 177, 119, 0.55);
+      --disponivel: #3b82f6;
+      --fisico: #94a3b8;
+      --rup: #0a0a0a;
+      --crit: #ef4444;
+      --abaixo: #fbbf24;
+      --mira: #22c55e;
+      --muito: #3b82f6;
+      --enc1: #c084fc;
+      --enc2: #7c3aed;
+      --enc3: #3b0764;
+      --legado: rgba(218, 177, 119, 0.55);
+      --radius: 14px;
+      --font: "DM Sans", system-ui, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body {
+      font-family: var(--font);
+      background:
+        radial-gradient(120% 80% at 50% -20%, rgba(28, 116, 220, 0.34) 0%, rgba(3, 16, 34, 0) 58%),
+        linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 45%, var(--bg) 100%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      padding: 10px 14px 12px;
+    }
+
+    /* —— Shell superior: navegação + identidade + loja —— */
+    .top-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      min-height: 40px;
+    }
+
+    .identity {
+      min-width: 0;
+      text-align: center;
+    }
+    .identity h1 {
+      margin: 0;
+      font-size: clamp(13px, 1.55vw, 16px);
+      font-weight: 600;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .main-area {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 10px;
+      overflow: hidden;
+    }
+    .stores-panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120% 100% at 20% 0%, rgba(35, 129, 244, 0.16) 0%, rgba(0, 0, 0, 0) 58%),
+        var(--surface);
+      padding: 10px;
+      min-height: 0;
+      overflow: auto;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 0 0 1px rgba(218, 177, 119, 0.18);
+    }
+    .stores-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .store-list { display: flex; flex-direction: column; gap: 6px; }
+    .store-item {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(4, 16, 34, 0.55);
+      color: var(--text);
+      padding: 8px 10px;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+    .store-item.active {
+      border-color: rgba(59, 130, 246, 0.55);
+      color: #dbeafe;
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.28);
+      background: rgba(17, 43, 78, 0.85);
+    }
+    .store-item.hub {
+      border-style: dashed;
+      color: var(--gold);
+    }
+
+    /* —— Faixa de insight: status em destaque + equação + atalhos —— */
+    .insight-strip {
+      display: grid;
+      grid-template-columns: minmax(108px, 0.95fr) minmax(130px, 1fr) repeat(6, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: 6px;
+      flex: 0 0 auto;
+    }
+
+    .pill-status {
+      --status-halo: rgba(34, 197, 94, 0.12);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120% 100% at 20% 0%, var(--halo) 0%, rgba(0, 0, 0, 0) 58%),
+        linear-gradient(145deg, var(--surface-2), var(--surface));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px 5px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pill-status::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, var(--status-halo), transparent 55%);
+      pointer-events: none;
+    }
+    .pill-status .label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      position: relative;
+      width: 100%;
+      text-align: center;
+    }
+    .pill-status .value {
+      font-size: clamp(16px, 2.3vw, 23px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+      text-align: center;
+    }
+    .pill-status.zone-ruptura { border-color: rgba(96, 165, 250, 0.42); --status-halo: rgba(96, 165, 250, 0.24); }
+    .pill-status.zone-ruptura .value {
+      color: #0a0a0a;
+      text-shadow: 0 0 1px rgba(241, 245, 249, 0.25);
+    }
+    .pill-status.zone-critico { border-color: rgba(239, 68, 68, 0.45); --status-halo: rgba(239, 68, 68, 0.24); }
+    .pill-status.zone-critico .value { color: #f87171; }
+    .pill-status.zone-abaixo { border-color: rgba(251, 191, 36, 0.45); --status-halo: rgba(251, 191, 36, 0.22); }
+    .pill-status.zone-abaixo .value { color: #fbbf24; }
+    .pill-status.zone-acima { border-color: rgba(34, 197, 94, 0.35); --status-halo: rgba(34, 197, 94, 0.22); }
+    .pill-status.zone-acima .value { color: var(--mira); }
+    .pill-status.zone-muito-acima { border-color: rgba(59, 130, 246, 0.45); --status-halo: rgba(59, 130, 246, 0.22); }
+    .pill-status.zone-muito-acima .value { color: #60a5fa; }
+    .pill-status.zone-enc1 { border-color: rgba(192, 132, 252, 0.45); --status-halo: rgba(192, 132, 252, 0.22); }
+    .pill-status.zone-enc1 .value { color: #c084fc; }
+    .pill-status.zone-enc2 { border-color: rgba(124, 58, 237, 0.45); --status-halo: rgba(124, 58, 237, 0.22); }
+    .pill-status.zone-enc2 .value { color: #a78bfa; }
+    .pill-status.zone-enc3 { border-color: rgba(76, 29, 149, 0.48); --status-halo: rgba(76, 29, 149, 0.22); }
+    .pill-status.zone-enc3 .value { color: #c4b5fd; }
+
+    .card-eq {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120% 100% at 20% 0%, rgba(35, 129, 244, 0.18) 0%, rgba(0, 0, 0, 0) 58%),
+        var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5px;
+      font-family: var(--mono);
+    }
+    .card-eq .eq {
+      font-size: clamp(15px, 2.2vw, 19px);
+      font-weight: 500;
+      color: #e2e8f0;
+      width: 100%;
+      text-align: center;
+    }
+    .card-eq .eq .d { color: var(--disponivel); }
+    .card-eq .eq .disp-pct {
+      color: #7dd3fc;
+      font-size: 0.78em;
+      margin-left: 4px;
+      opacity: 0.95;
+    }
+    .card-eq .sub {
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      font-family: var(--font);
+      width: 100%;
+      text-align: center;
+    }
+
+    .kpi .v .dem-eq {
+      font-family: var(--mono);
+      width: 100%;
+      text-align: center;
+    }
+    .kpi .v .dem-eq .eq {
+      font-size: clamp(13px, 1.85vw, 17px);
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+    .kpi .v .dem-eq .eq .dem-res {
+      color: #7dd3fc;
+    }
+    .kpi .v .dem-eq .sub {
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      font-family: var(--font);
+      width: 100%;
+      text-align: center;
+    }
+
+    .kpi {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120% 100% at 20% 0%, rgba(35, 129, 244, 0.16) 0%, rgba(0, 0, 0, 0) 58%),
+        var(--surface);
+      padding: 5px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 50px;
+    }
+    .kpi .v {
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+    .kpi .v .rep-line {
+      display: block;
+      line-height: 1.05;
+    }
+    .kpi .v .rep-hint {
+      display: block;
+      margin-top: 2px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .kpi .v .rep-prod-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 5px;
+      row-gap: 3px;
+      justify-items: center;
+      align-items: baseline;
+      width: 100%;
+      max-width: 17rem;
+      margin: 0 auto;
+      font-size: clamp(12px, 1.65vw, 16px);
+      line-height: 1.15;
+    }
+    .kpi .v .rep-prod-wrap .rep-op {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.92em;
+    }
+    .kpi .v .rep-prod-wrap .rep-loja-num {
+      cursor: help;
+      border-bottom: 1px dotted rgba(148, 163, 184, 0.45);
+      font-weight: 700;
+    }
+    .kpi .v .rep-prod-wrap .rep-lbl {
+      font-size: 0.62em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .kpi .v .rep-prod-wrap .rep-lbl-spacer {
+      min-width: 0.35em;
+      pointer-events: none;
+    }
+    .kpi .l {
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      line-height: 1.2;
+      width: 100%;
+      text-align: center;
+    }
+    .kpi.warn .v { color: #fca5a5; }
+
+    /* —— Gráfico —— */
+    .chart-wrap {
+      min-height: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(120% 120% at 50% -15%, rgba(35, 129, 244, 0.20) 0%, rgba(0, 0, 0, 0) 60%),
+        linear-gradient(180deg, rgba(12, 35, 68, 0.92) 0%, rgba(8, 24, 50, 0.92) 100%);
+      padding: 8px 10px 4px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 0 0 1px rgba(218, 177, 119, 0.22),
+        0 0 18px rgba(218, 177, 119, 0.12);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+    }
+    .chart-controls {
+      position: relative;
+      z-index: 2;
+      flex: 0 0 auto;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      padding: 2px 0 6px;
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: thin;
+    }
+    .chart-controls .preset-control,
+    .chart-controls .protect-control {
+      flex: 0 0 auto;
+      padding: 3px 6px;
+      gap: 4px;
+    }
+    .chart-controls .protect-control input[type="range"] {
+      width: 72px;
+      min-width: 64px;
+    }
+    .chart-controls .preset-control select {
+      max-width: 118px;
+      font-size: 10px;
+      padding: 3px 5px;
+    }
+    /* Painel análise · rede — comentado com o HTML; reativar em conjunto.
+    .chart-insight-panel {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      width: 100%;
+      max-height: min(200px, 34vh);
+      margin: 0 0 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      border: 1px solid rgba(218, 177, 119, 0.35);
+      background: rgba(4, 18, 37, 0.82);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+      pointer-events: auto;
+    }
+    */
+    .chart-canvas-area {
+      flex: 1 1 auto;
+      min-height: 220px;
+      position: relative;
+      width: 100%;
+    }
+    .chart-canvas-area.secondary {
+      flex: 0 0 auto;
+      min-height: 170px;
+      height: 190px;
+      margin-top: 8px;
+      border-top: 1px solid rgba(218, 177, 119, 0.2);
+      padding-top: 8px;
+    }
+    /* Sub-regras do painel "Análise · rede" — comentadas com o HTML.
+    .chart-insight-panel .chart-insight-head {
+      flex-shrink: 0;
+      padding: 8px 10px 6px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .chart-insight-panel .chart-insight-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 8px 10px 10px;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #cbd5e1;
+    }
+    .chart-insight-panel .chart-insight-body p {
+      margin: 0 0 8px;
+    }
+    .chart-insight-panel .chart-insight-body p:last-child {
+      margin-bottom: 0;
+    }
+    .chart-insight-panel .chart-insight-body strong {
+      color: #e8eef7;
+      font-weight: 600;
+    }
+    .chart-insight-panel .chart-insight-body .tag-loja {
+      color: #93c5fd;
+      font-weight: 600;
+    }
+    .chart-insight-panel .chart-insight-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    */
+    .protect-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(11, 15, 20, 0.65);
+      color: var(--muted);
+      backdrop-filter: blur(6px);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .protect-control input[type="range"] {
+      width: 92px;
+      accent-color: #3b82f6;
+      cursor: pointer;
+    }
+    .protect-control .val {
+      min-width: 40px;
+      text-align: right;
+      color: #cbd5e1;
+      font-family: var(--mono);
+    }
+    .protect-control .tag {
+      min-width: 32px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .preset-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(11, 15, 20, 0.65);
+      color: var(--muted);
+      backdrop-filter: blur(6px);
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .preset-control select {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: rgba(11, 15, 20, 0.82);
+      color: #cbd5e1;
+      padding: 4px 6px;
+      outline: none;
+      cursor: pointer;
+    }
+    .with-help { position: relative; }
+    .help-bubble {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      max-width: 240px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(6, 12, 22, 0.96);
+      color: #dbe4f1;
+      font-size: 11px;
+      line-height: 1.35;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 120ms ease, transform 120ms ease;
+      z-index: 5;
+    }
+    .with-help:hover .help-bubble {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .kpi-min .v {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .kpi-min .kpi-min-row {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      vertical-align: middle;
+      margin: 0 auto;
+    }
+    .kpi-min .kpi-min-stepper {
+      display: inline-flex;
+      align-items: stretch;
+      border-radius: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(12, 18, 28, 0.88);
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .kpi-min .kpi-min-stepper:focus-within {
+      border-color: rgba(59, 130, 246, 0.7);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    .kpi-min input[type="number"].kpi-min-field {
+      width: 44px;
+      min-width: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: #e2e8f0;
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      padding: 6px 4px;
+      outline: none;
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+    .kpi-min input[type="number"].kpi-min-field::-webkit-outer-spin-button,
+    .kpi-min input[type="number"].kpi-min-field::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .kpi-min .kpi-min-arrows {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 22px;
+      border-left: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(8, 14, 24, 0.65);
+    }
+    .kpi-min .kpi-min-arrows button {
+      flex: 1 1 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      font-size: 9px;
+      line-height: 1;
+      color: #cbd5e1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 16px;
+      transition: background 0.12s, color 0.12s;
+    }
+    .kpi-min .kpi-min-arrows button:hover {
+      background: rgba(59, 130, 246, 0.18);
+      color: #f8fafc;
+    }
+    .kpi-min .kpi-min-arrows button:active {
+      background: rgba(59, 130, 246, 0.28);
+    }
+    .kpi-min .kpi-min-arrows button + button {
+      border-top: 1px solid rgba(148, 163, 184, 0.22);
+    }
+    .kpi-min .kpi-min-unit {
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    /* Catálogo completo (todos os SKUs do legado em catalog_grid.js) */
+    .catalog-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: stretch;
+      justify-content: flex-end;
+      pointer-events: none;
+    }
+    .catalog-drawer.open {
+      display: flex;
+      pointer-events: auto;
+    }
+    .catalog-drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 8, 18, 0.72);
+      backdrop-filter: blur(3px);
+    }
+    .catalog-drawer-panel {
+      position: relative;
+      width: min(920px, 100vw);
+      max-width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, var(--bg-3) 0%, var(--bg) 100%);
+      border-left: 1px solid var(--border);
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .catalog-drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(218, 177, 119, 0.25);
+      flex-shrink: 0;
+    }
+    .catalog-drawer-head h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .catalog-drawer-head .sub {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .catalog-close {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(218, 177, 119, 0.35);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .catalog-close:hover {
+      background: var(--surface-2);
+    }
+    .catalog-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(218, 177, 119, 0.15);
+      flex-shrink: 0;
+    }
+    .catalog-toolbar input[type="search"],
+    .catalog-toolbar select {
+      font-family: var(--font);
+      font-size: 13px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(12, 18, 28, 0.92);
+      color: #e2e8f0;
+      padding: 8px 10px;
+      outline: none;
+    }
+    .catalog-toolbar input[type="search"] {
+      flex: 1 1 200px;
+      min-width: 160px;
+    }
+    .catalog-toolbar select {
+      min-width: 150px;
+    }
+    .catalog-toolbar .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+    .catalog-table-wrap {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;
+      padding: 0 8px 8px;
+    }
+    .catalog-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .catalog-table th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      padding: 10px 8px;
+      background: var(--bg-2);
+      color: var(--gold-dim);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 10px;
+      border-bottom: 1px solid rgba(218, 177, 119, 0.25);
+    }
+    .catalog-table td {
+      padding: 8px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      vertical-align: top;
+    }
+    .catalog-table tr {
+      cursor: pointer;
+    }
+    .catalog-table tr:hover td {
+      background: rgba(35, 129, 244, 0.08);
+    }
+    .catalog-table tr.row-inactive td {
+      opacity: 0.72;
+    }
+    .catalog-table tr.row-current td {
+      box-shadow: inset 3px 0 0 0 var(--disponivel);
+    }
+    .catalog-table .mono {
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .catalog-table .name-cell {
+      max-width: 280px;
+      line-height: 1.35;
+    }
+    .catalog-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .catalog-badge.off {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+    }
+    .catalog-badge.on {
+      background: rgba(34, 197, 94, 0.15);
+      color: #86efac;
+    }
+    .catalog-foot {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      border-top: 1px solid rgba(218, 177, 119, 0.2);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .catalog-foot button {
+      font-family: var(--font);
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .catalog-foot button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .catalog-empty {
+      padding: 48px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .chart-canvas-area canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    .chart-wrap .protect-control input[type="number"]#ltDaysInput {
+      width: 56px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(12, 18, 28, 0.88);
+      color: #e2e8f0;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      padding: 4px 6px;
+      outline: none;
+    }
+    .chart-wrap .protect-control input[type="number"]#ltDaysInput:focus {
+      border-color: rgba(59, 130, 246, 0.7);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    .chart-wrap .lt-days-reset {
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(12, 36, 70, 0.55);
+      color: var(--muted);
+      cursor: pointer;
+      margin-left: 2px;
+    }
+    .chart-wrap .lt-days-reset:hover {
+      color: var(--text);
+      border-color: rgba(218, 177, 119, 0.45);
+    }
+
+    @media (max-width: 1100px) {
+      .top-shell { grid-template-columns: 1fr; text-align: center; }
+      .main-area { grid-template-columns: 1fr; }
+      .stores-panel { max-height: 160px; }
+      .chart-controls {
+        justify-content: flex-start;
+      }
+      /* .chart-insight-panel { max-height: min(220px, 32vh); } */
+      .chart-canvas-area {
+        min-height: 180px;
+      }
+      .insight-strip {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: auto auto;
+      }
+      .pill-status { grid-column: span 2; }
+      .card-eq { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-shell">
+    <div class="identity">
+      <h1 id="titleLine">12159 · CORTINA LUX UNICA FLAME TRIGO 4.00X2.60</h1>
+    </div>
+  </header>
+
+  <section class="insight-strip" aria-label="Resumo operacional">
+    <div class="pill-status zone-acima" id="statusPill">
+      <span class="label">Status</span>
+      <span class="value" id="statusText">ACIMA</span>
+    </div>
+    <div class="card-eq">
+      <div class="eq"><span id="fis">3</span> − <span id="vit">1</span> = <span class="d" id="disp">2</span><span class="disp-pct" id="dispPct"></span></div>
+      <div class="sub">Físico − Vitrine = Disp.</div>
+    </div>
+    <div class="kpi warn"><div class="v" id="kRup">28,5%</div><div class="l">Tempo em ruptura</div></div>
+    <div class="kpi warn"><div class="v" id="kLost">88 un</div><div class="l">Vendas perdidas (qtde)</div></div>
+    <div class="kpi kpi-min">
+      <div class="v">
+        <div class="kpi-min-row">
+          <div class="kpi-min-stepper" role="group" aria-label="Estoque mínimo manual">
+            <input type="number" class="kpi-min-field" id="kMinInput" min="0" step="1" value="3" title="Ajuste manual do estoque mínimo" />
+            <div class="kpi-min-arrows">
+              <button type="button" id="kMinUp" tabindex="-1" aria-label="Aumentar estoque mínimo">▲</button>
+              <button type="button" id="kMinDown" tabindex="-1" aria-label="Diminuir estoque mínimo">▼</button>
+            </div>
+          </div>
+          <span class="kpi-min-unit">un</span>
+        </div>
+      </div>
+      <div class="l">Estoque mínimo manual</div>
+    </div>
+    <div class="kpi kpi-min">
+      <div class="v">
+        <div class="kpi-min-row">
+          <div class="kpi-min-stepper" role="group" aria-label="Estoque vitrine manual">
+            <input type="number" class="kpi-min-field" id="kVitInput" min="0" step="1" value="0" title="Ajuste manual do estoque vitrine" />
+            <div class="kpi-min-arrows">
+              <button type="button" id="kVitUp" tabindex="-1" aria-label="Aumentar estoque vitrine">▲</button>
+              <button type="button" id="kVitDown" tabindex="-1" aria-label="Diminuir estoque vitrine">▼</button>
+            </div>
+          </div>
+          <span class="kpi-min-unit">un</span>
+        </div>
+      </div>
+      <div class="l">Estoque vitrine manual</div>
+    </div>
+    <div class="kpi"><div class="v" id="kRepQ">4 un</div><div class="l" id="kRepLbl"></div></div>
+    <div class="kpi"><div class="v" id="kSug">2 un</div><div class="l">Sugestão legado</div></div>
+  </section>
+
+  <div class="main-area">
+    <aside class="stores-panel" aria-label="Navegação de unidades">
+      <div class="stores-title">Unidades e CD</div>
+      <div class="store-list" id="storeList">
+        <button type="button" class="store-item hub" data-store="CD SARON">CD SARON</button>
+      </div>
+    </aside>
+
+    <div class="chart-wrap">
+      <div class="chart-controls">
+        <label class="preset-control with-help">
+          <span class="tag">Modo</span>
+          <select id="presetSelect">
+            <option value="custom">Custom</option>
+            <option value="conservador">Conservador</option>
+            <option value="equilibrado">Equilibrado</option>
+            <option value="agressivo">Agressivo</option>
+          </select>
+          <span class="help-bubble">Escolhe um perfil pronto. Conservador reduz risco de excesso, Agressivo aumenta proteção contra falta.</span>
+        </label>
+        <label class="protect-control with-help">
+          <span class="tag">Lead time</span>
+          <input type="number" id="ltDaysInput" min="1" max="365" step="1" value="16" />
+          <span class="val" id="ltDaysVal">dias</span>
+          <button type="button" id="ltDaysReset" class="lt-days-reset" title="Voltar ao LT inferido/fallback para esta unidade">Auto</button>
+          <span class="help-bubble">Lead time deste produto nesta unidade (1 a 365 dias). Alimenta a Mira (base P100 → P150 nas zonas e no status) e as curvas; gravado por SKU e por loja. Em primeiro uso, o valor exibido segue o LT inferido (ou fallback). Use Auto para descartar o manual e voltar ao inferido. Os pré-ajustes de LT / volatilidade / sazonalidade foram calibrados para subir o alvo P150 e favorecer operação com disponível no ou abaixo dessa linha (ratio no status = disp÷P150).</span>
+        </label>
+
+        <label class="protect-control with-help">
+          <span class="tag">Resposta</span>
+          <input type="range" id="reactRange" min="8" max="90" step="1" value="30" />
+          <span class="val" id="reactVal">30d</span>
+          <span class="help-bubble">Velocidade de reação às mudanças de venda. Menor = reage rápido; maior = fica mais estável.</span>
+        </label>
+        <label class="protect-control with-help">
+          <span class="tag">Época</span>
+          <input type="range" id="seasonRange" min="0.00" max="0.80" step="0.01" value="0.45" />
+          <span class="val" id="seasonVal">0.45</span>
+          <span class="help-bubble">Peso do histórico da mesma época do ano passado. Maior valor reforça sazonalidade.</span>
+        </label>
+      </div>
+      <!-- Painel "Análise · rede" — UI desativada por ora; reativar junto ao CSS .chart-insight-panel e ao JS updateChartInsightPanel.
+      <aside class="chart-insight-panel" id="chartInsightPanel" aria-label="Análise comparativa da rede">
+        <div class="chart-insight-head">Análise · rede</div>
+        <div class="chart-insight-body" id="chartInsightBody"></div>
+      </aside>
+      -->
+      <div class="chart-canvas-area">
+        <canvas id="chart" role="img" aria-label="Série de estoque"></canvas>
+      </div>
+      <div class="chart-canvas-area secondary">
+        <canvas id="salesChart" role="img" aria-label="Vendas diárias e média móvel semanal"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div id="catalogDrawer" class="catalog-drawer" aria-hidden="true">
+    <div class="catalog-drawer-backdrop" id="catalogBackdrop"></div>
+    <div class="catalog-drawer-panel" role="dialog" aria-labelledby="catalogDrawerTitle">
+      <div class="catalog-drawer-head">
+        <div>
+          <h2 id="catalogDrawerTitle">Catálogo legado</h2>
+          <p class="sub">
+            Todos os produtos não excluídos no legado (<code>IndDeletado=0</code>), inclusive inativos e com vendas zeradas na rede.
+            Na URL use <code>?sku=</code> com o <strong>ID interno</strong> do produto ou <code>?code=</code> com o <strong>código ERP</strong> (ex.: <code>?code=12585</code>). Use <code>&amp;hub=1</code> para abrir já na vista <strong>CD/Fábrica</strong> (timeline do hub).
+          </p>
+        </div>
+        <button type="button" class="catalog-close" id="catalogClose" aria-label="Fechar">×</button>
+      </div>
+      <div class="catalog-toolbar">
+        <input type="search" id="catalogSearch" placeholder="ID interno, código ERP, nome, categoria…" autocomplete="off" />
+        <label class="meta" for="catalogFilterLegado" style="margin: 0; color: var(--muted); font-size: 12px">Legado</label>
+        <select id="catalogFilterLegado" aria-label="Filtro ativo no legado">
+          <option value="all">Ativos e inativos</option>
+          <option value="1">Somente ativos</option>
+          <option value="0">Somente inativos</option>
+        </select>
+        <label class="meta" for="catalogFilterVendas" style="margin: 0; color: var(--muted); font-size: 12px">Vendas</label>
+        <select id="catalogFilterVendas" aria-label="Filtro vendas rede">
+          <option value="all">Todas</option>
+          <option value="yes">Com movimento (&gt;0)</option>
+          <option value="no">Sem movimento (0)</option>
+        </select>
+        <span class="meta" id="catalogMetaLine"></span>
+      </div>
+      <div class="catalog-table-wrap">
+        <table class="catalog-table" id="catalogTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Vendas rede</th>
+              <th>Ruptura %</th>
+              <th>Legado</th>
+            </tr>
+          </thead>
+          <tbody id="catalogTbody"></tbody>
+        </table>
+        <div id="catalogEmpty" class="catalog-empty" style="display: none"></div>
+      </div>
+      <div class="catalog-foot">
+        <span id="catalogPageInfo"></span>
+        <div>
+          <button type="button" id="catalogPrev">Anterior</button>
+          <button type="button" id="catalogNext">Próxima</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const PAGE_SIZE = 200;
+      const paramsUrl = new URLSearchParams(window.location.search);
+      function readOptionalNumberParam(name) {
+        const raw = paramsUrl.get(name);
+        if (raw == null || raw === "") return null;
+        const n = Number(raw);
+        return Number.isFinite(n) ? n : null;
+      }
+      const skuFromUrl = paramsUrl.get("sku");
+      const codeFromUrl = paramsUrl.get("code");
+      const storeFromUrl = paramsUrl.get("store");
+      const transferQtyFromUrl = readOptionalNumberParam("transfer_qty");
+      const cdOutTotalFromUrl = readOptionalNumberParam("cd_out_total");
+      const transferDateFromUrl = paramsUrl.get("transfer_date");
+      const cdStatusFromUrl = paramsUrl.get("cd_status");
+      const destStoreFromUrl = paramsUrl.get("dest_store");
+      const coceoTotalFromUrl = readOptionalNumberParam("coceo_total");
+      const coceoBaseFromUrl = readOptionalNumberParam("coceo_base");
+      const coceoStoreFromUrl = readOptionalNumberParam("coceo_store");
+      const legacySuggestedFromUrl = readOptionalNumberParam("legacy_suggested");
+      const hubFromUrl = (function () {
+        const h = paramsUrl.get("hub");
+        if (h == null || h === "") return false;
+        const v = String(h).trim().toLowerCase();
+        return v === "1" || v === "true" || v === "cd" || v === "fab" || v === "fabrica" || v === "fábrica";
+      })();
+
+      function resolveSkuFromUrl() {
+        if (typeof CATALOG_GRID !== "undefined" && CATALOG_GRID && CATALOG_GRID.length) {
+          const codeTrim = codeFromUrl != null ? String(codeFromUrl).trim() : "";
+          if (codeTrim) {
+            for (let i = 0; i < CATALOG_GRID.length; i++) {
+              const r = CATALOG_GRID[i];
+              if (String(r.code) === codeTrim) return String(r.id);
+            }
+          }
+        }
+        if (skuFromUrl && /^\d+$/.test(String(skuFromUrl))) return String(skuFromUrl);
+        return "3104";
+      }
+
+      const SKU = resolveSkuFromUrl();
+      const transferContext = {
+        active:
+          transferQtyFromUrl != null ||
+          cdOutTotalFromUrl != null ||
+          Boolean(transferDateFromUrl),
+        transferQty: transferQtyFromUrl,
+        cdOutTotal: cdOutTotalFromUrl,
+        transferDate: transferDateFromUrl ? String(transferDateFromUrl) : null,
+        cdStatus: cdStatusFromUrl ? String(cdStatusFromUrl) : null,
+        destStore: destStoreFromUrl ? String(destStoreFromUrl) : null,
+      };
+
+      (function initCatalogDrawer() {
+        const drawer = document.getElementById("catalogDrawer");
+        const btn = document.getElementById("btnCatalog");
+        const backdrop = document.getElementById("catalogBackdrop");
+        const closeBtn = document.getElementById("catalogClose");
+        const searchEl = document.getElementById("catalogSearch");
+        const filLegado = document.getElementById("catalogFilterLegado");
+        const filVendas = document.getElementById("catalogFilterVendas");
+        const tbody = document.getElementById("catalogTbody");
+        const emptyEl = document.getElementById("catalogEmpty");
+        const metaLine = document.getElementById("catalogMetaLine");
+        const pageInfo = document.getElementById("catalogPageInfo");
+        const prevBtn = document.getElementById("catalogPrev");
+        const nextBtn = document.getElementById("catalogNext");
+        if (!drawer || !btn || !tbody) return;
+
+        let catalogRows =
+          typeof CATALOG_GRID !== "undefined" && CATALOG_GRID && CATALOG_GRID.length
+            ? CATALOG_GRID.slice()
+            : [];
+        catalogRows.sort(function (a, b) {
+          return Number(a.id) - Number(b.id);
+        });
+        let filtered = [];
+        let page = 0;
+        let searchDebounce = null;
+
+        function setOpen(on) {
+          drawer.classList.toggle("open", on);
+          drawer.setAttribute("aria-hidden", on ? "false" : "true");
+          if (on) {
+            if (searchEl) searchEl.focus();
+            renderCatalogPage();
+          }
+        }
+
+        function applyFilters() {
+          const q = (searchEl && searchEl.value ? searchEl.value : "").trim().toLowerCase();
+          const leg = filLegado ? String(filLegado.value) : "all";
+          const vend = filVendas ? String(filVendas.value) : "all";
+
+          filtered = [];
+          for (let i = 0; i < catalogRows.length; i++) {
+            const r = catalogRows[i];
+            const la = r.legacyAtivo;
+            const activeLegacy = la === undefined || la === null ? true : Boolean(la);
+            if (leg === "1" && !activeLegacy) continue;
+            if (leg === "0" && activeLegacy) continue;
+            const ts = Number(r.totalSales) || 0;
+            if (vend === "yes" && ts <= 0) continue;
+            if (vend === "no" && ts > 0) continue;
+            if (q) {
+              const blob = [r.id, r.code, r.name, r.category, r.subcategory]
+                .map(function (x) {
+                  return x == null ? "" : String(x).toLowerCase();
+                })
+                .join(" ");
+              if (blob.indexOf(q) < 0) continue;
+            }
+            filtered.push(r);
+          }
+          filtered.sort(function (a, b) {
+            return Number(a.id) - Number(b.id);
+          });
+          page = 0;
+          renderCatalogPage();
+        }
+
+        function renderCatalogPage() {
+          if (!catalogRows.length) {
+            tbody.innerHTML = "";
+            if (emptyEl) {
+              emptyEl.style.display = "block";
+              emptyEl.innerHTML =
+                "Não foi possível carregar <code>data/catalog_grid.js</code>. Rode no projeto: <code>npm run sync:catalog-grid</code> e recarregue.";
+            }
+            if (metaLine) metaLine.textContent = "";
+            if (pageInfo) pageInfo.textContent = "";
+            if (prevBtn) prevBtn.disabled = true;
+            if (nextBtn) nextBtn.disabled = true;
+            return;
+          }
+          if (emptyEl) emptyEl.style.display = "none";
+          const total = filtered.length;
+          const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+          if (page >= pages) page = pages - 1;
+          const start = page * PAGE_SIZE;
+          const slice = filtered.slice(start, start + PAGE_SIZE);
+          if (metaLine) metaLine.textContent = total + " produto(s) no filtro · " + catalogRows.length + " no legado";
+
+          const frag = document.createDocumentFragment();
+          for (let i = 0; i < slice.length; i++) {
+            const r = slice[i];
+            const tr = document.createElement("tr");
+            const laRow = r.legacyAtivo;
+            const activeRow = laRow === undefined || laRow === null ? true : Boolean(laRow);
+            if (!activeRow) tr.className = "row-inactive";
+            if (String(r.id) === String(SKU)) tr.className += (tr.className ? " " : "") + "row-current";
+            const rupt = r.rupture != null && Number.isFinite(Number(r.rupture)) ? Number(r.rupture).toFixed(1) : "—";
+            const vend = Number(r.totalSales) || 0;
+            tr.innerHTML =
+              '<td class="mono">' +
+              escapeHtml(String(r.id)) +
+              '</td><td class="mono">' +
+              escapeHtml(String(r.code || "")) +
+              '</td><td class="name-cell">' +
+              escapeHtml(String(r.name || "")) +
+              '</td><td>' +
+              escapeHtml(String(r.category || "")) +
+              (r.subcategory && r.subcategory !== "-" ? " · " + escapeHtml(String(r.subcategory)) : "") +
+              '</td><td class="mono">' +
+              escapeHtml(String(vend)) +
+              '</td><td class="mono">' +
+              escapeHtml(String(rupt)) +
+              '</td><td>' +
+              (activeRow
+                ? '<span class="catalog-badge on">ATIVO</span>'
+                : '<span class="catalog-badge off">INATIVO</span>') +
+              "</td>";
+            tr.addEventListener("click", function () {
+              const u = new URL(window.location.href);
+              u.searchParams.set("sku", String(r.id));
+              u.searchParams.delete("code");
+              window.location.href = u.href;
+            });
+            frag.appendChild(tr);
+          }
+          tbody.innerHTML = "";
+          tbody.appendChild(frag);
+
+          if (pageInfo) pageInfo.textContent = total ? "Linhas " + (start + 1) + "–" + Math.min(start + PAGE_SIZE, total) + " de " + total : "Nenhum resultado";
+          if (prevBtn) prevBtn.disabled = page <= 0;
+          if (nextBtn) nextBtn.disabled = page >= pages - 1;
+        }
+
+        function escapeHtml(s) {
+          return s
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          setOpen(true);
+        });
+        if (backdrop) backdrop.addEventListener("click", function () {
+          setOpen(false);
+        });
+        if (closeBtn) closeBtn.addEventListener("click", function () {
+          setOpen(false);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && drawer.classList.contains("open")) setOpen(false);
+        });
+        if (searchEl) {
+          searchEl.addEventListener("input", function () {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(applyFilters, 160);
+          });
+        }
+        if (filLegado) filLegado.addEventListener("change", applyFilters);
+        if (filVendas) filVendas.addEventListener("change", applyFilters);
+        if (prevBtn)
+          prevBtn.addEventListener("click", function () {
+            if (page > 0) {
+              page--;
+              renderCatalogPage();
+            }
+          });
+        if (nextBtn)
+          nextBtn.addEventListener("click", function () {
+            const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+            if (page < pages - 1) {
+              page++;
+              renderCatalogPage();
+            }
+          });
+
+        applyFilters();
+      })();
+      const DEFAULT_STORE = "Barreiro";
+      const WINDOW = 56;
+      const LT_DEFAULT_MEAN = 14;
+      const LT_DEFAULT_SIGMA = 2;
+      const LT_MAX_LOOKAHEAD_DAYS = 35;
+      const LT_EFFECTIVE_SIGMA_WEIGHT = 0.45;
+      const LT_EFFECTIVE_SIGMA_CAP_RATIO = 0.35;
+      const LT_EFFECTIVE_MAX_RETAIL_DAYS = 30;
+      const LT_EFFECTIVE_MAX_CD_DAYS = 45;
+      const STRUCTURED_MIN_STORES_SAME_DAY = 3;
+      const STRUCTURED_MIN_INBOUND_QTY = 2;
+      // LT por SKU + loja (dias). Regra operacional: LT efetivo usa mean + sigma ponderado/capado para reduzir excesso.
+      const LT_BY_SKU_STORE = {
+        "3104": {
+          Babita: { mean: 14, sigma: 2 },
+          G2: { mean: 14, sigma: 2 },
+          Betim: { mean: 14, sigma: 2 },
+          "Venda Nova": { mean: 14, sigma: 2 },
+          Barreiro: { mean: 14, sigma: 2 },
+          Tupis: { mean: 14, sigma: 2 },
+          Guaranis: { mean: 14, sigma: 2 },
+          "Eldorado 2": { mean: 14, sigma: 2 },
+          /* CD: LT de *reposição do estoque do CD* (não LT de loja). Ideal: pipeline a partir de 2 liberações consecutivas do mesmo SKU (fábrica ou compra). */
+          Fábrica: { mean: 21, sigma: 7 },
+          __CD__: { mean: 21, sigma: 7 },
+        },
+      };
+      const MIRA_EMA_HALF_LIFE_DAYS = 30;
+      const ENCALHE_NEAR_PCT = 0.16;
+      const ENCALHE_NEAR_ABS = 1.5;
+      const ENCALHE_HOLD_DAYS = 4;
+
+      const pad = (n) => String(n).padStart(2, "0");
+      const toBR = (iso) => {
+        const [y, m, d] = iso.split("-");
+        return `${pad(d)}/${pad(m)}/${y}`;
+      };
+
+      function weekday(iso) {
+        return new Date(iso + "T12:00:00").getDay();
+      }
+      function clampToYesterdayNonSunday() {
+        const d = new Date();
+        d.setHours(12, 0, 0, 0);
+        d.setDate(d.getDate() - 1);
+        while (d.getDay() === 0) d.setDate(d.getDate() - 1);
+        return d.toISOString().slice(0, 10);
+      }
+      function filterTimelineChartWindow(timeline, opts) {
+        if (!timeline || !timeline.length) return [];
+        const years = opts.years != null ? opts.years : 2;
+        const excludeSun = opts.excludeSundays !== false;
+        const anchor = opts.anchorDate || clampToYesterdayNonSunday();
+        const anchorD = new Date(anchor + "T12:00:00");
+        const startD = new Date(anchorD);
+        startD.setFullYear(startD.getFullYear() - years);
+        return timeline.filter((row) => {
+          const d = new Date(row.date + "T12:00:00");
+          if (d < startD || d > anchorD) return false;
+          if (excludeSun && weekday(row.date) === 0) return false;
+          return true;
+        });
+      }
+
+      function quantileSorted(sorted, p) {
+        if (!sorted.length) return 0;
+        const idx = Math.min(sorted.length - 1, Math.max(0, Math.floor(p * (sorted.length - 1))));
+        return sorted[idx];
+      }
+      function stdDev(vals, mean) {
+        if (!vals.length) return 0;
+        const m = Number.isFinite(mean) ? mean : vals.reduce((a, b) => a + b, 0) / vals.length;
+        let s = 0;
+        for (let i = 0; i < vals.length; i++) s += Math.pow(vals[i] - m, 2);
+        return Math.sqrt(s / vals.length);
+      }
+      function robustMeanCapped(values, q) {
+        if (!values.length) return 0;
+        const sorted = [...values].sort((a, b) => a - b);
+        const hi = quantileSorted(sorted, Math.max(0.5, Math.min(0.99, Number(q) || 0.95)));
+        let sum = 0;
+        for (let i = 0; i < values.length; i++) sum += Math.min(Number(values[i]) || 0, hi);
+        return sum / values.length;
+      }
+      function computeOperationalLtEffective(mean, sigma, mode) {
+        const m = Math.max(1, Number(mean) || LT_DEFAULT_MEAN);
+        const s = Math.max(0, Number(sigma) || 0);
+        const sigmaCap = Math.max(1, m * LT_EFFECTIVE_SIGMA_CAP_RATIO);
+        const sigmaEff = Math.min(s, sigmaCap);
+        const raw = m + sigmaEff * LT_EFFECTIVE_SIGMA_WEIGHT;
+        const hardMax = mode === "cd" ? LT_EFFECTIVE_MAX_CD_DAYS : LT_EFFECTIVE_MAX_RETAIL_DAYS;
+        return Math.max(1, Math.min(hardMax, raw));
+      }
+      function daysBetweenIso(a, b) {
+        const da = new Date(a + "T12:00:00");
+        const db = new Date(b + "T12:00:00");
+        return Math.max(0, Math.round((db - da) / 86400000));
+      }
+      function listRetailStoreKeys(results, cdKey) {
+        const exclude = new Set(["Fábrica", "CD SARON"]);
+        if (cdKey) exclude.add(cdKey);
+        return Object.keys(results || {}).filter(function (s) {
+          if (exclude.has(s)) return false;
+          const b = results[s];
+          return b && Array.isArray(b.timeline) && b.timeline.length;
+        });
+      }
+      /** Alinhar a lib/closed_retail_stores.js (chaves normalizadas). */
+      function isClosedRetailStoreUi(storeName) {
+        const k = normalizeNameBasic(storeName);
+        return k === "carijos";
+      }
+      /**
+       * Na vista CD/Fábrica: % tempo em ruptura só da rede de lojas abertas (sem CD/hub),
+       * ponderado pelo volume de vendas na janela do gráfico em cada loja (sem peso → média simples).
+       */
+      function computeRetailNetworkRuptureRatePct(bundle, cdKey, windowOpts) {
+        const results = (bundle && bundle.results) || {};
+        const stores = listRetailStoreKeys(results, cdKey).filter(function (s) {
+          return !isClosedRetailStoreUi(s);
+        });
+        let wSum = 0;
+        let wrSum = 0;
+        let rSimple = 0;
+        let nSimple = 0;
+        for (let si = 0; si < stores.length; si++) {
+          const key = stores[si];
+          let tlRaw;
+          try {
+            tlRaw = getTimeline(bundle, key);
+          } catch (e) {
+            continue;
+          }
+          const tl = filterTimelineChartWindow(tlRaw, windowOpts);
+          if (!tl.length) continue;
+          const mStore = getMetrics(bundle, key);
+          const vit = Math.max(0, Number(mStore.vitrine) || 0);
+          const disp = buildCanonicalStockSeries(tl, vit, true).disponivel;
+          const ruptureDays = disp.reduce(function (acc, v) {
+            return acc + (Number(v) <= 0 ? 1 : 0);
+          }, 0);
+          const rPct = (ruptureDays / tl.length) * 100;
+          let salesSum = 0;
+          for (let j = 0; j < tl.length; j++) {
+            salesSum += Math.max(0, Number(tl[j].sales) || 0);
+          }
+          if (salesSum > 0) {
+            wSum += salesSum;
+            wrSum += salesSum * rPct;
+          } else {
+            rSimple += rPct;
+            nSimple++;
+          }
+        }
+        if (wSum > 0) return wrSum / wSum;
+        if (nSimple > 0) return rSimple / nSimple;
+        return 0;
+      }
+      function inferLtByStore(bundle) {
+        const results = (bundle && bundle.results) || {};
+        const cdKey = resolveCdStoreKey(results);
+        const stores = listRetailStoreKeys(results, cdKey);
+        const byDateStores = new Map();
+        const inboundByStore = {};
+
+        for (let si = 0; si < stores.length; si++) {
+          const store = stores[si];
+          const tl = ((results[store] || {}).timeline || []).slice().sort((a, b) => String(a.date).localeCompare(String(b.date)));
+          const inb = [];
+          for (let i = 0; i < tl.length; i++) {
+            if (i === 0) {
+              inb.push(0);
+              continue;
+            }
+            const prevPhys = Number(tl[i - 1].physicalStock);
+            const curPhys = Number(tl[i].physicalStock);
+            const sales = Number(tl[i].sales);
+            const prevEff = Number.isFinite(prevPhys) ? prevPhys : 0;
+            const curEff = Number.isFinite(curPhys) ? curPhys : 0;
+            const salesEff = Number.isFinite(sales) ? Math.max(0, sales) : 0;
+            const inbound = Math.max(0, curEff - (prevEff - salesEff));
+            inb.push(inbound);
+            if (inbound > 0) {
+              const d = String(tl[i].date);
+              if (!byDateStores.has(d)) byDateStores.set(d, new Set());
+              byDateStores.get(d).add(store);
+            }
+          }
+          inboundByStore[store] = { timeline: tl, inbound: inb };
+        }
+
+        const routeWeekdays = new Set();
+        const weekdayCounts = new Array(7).fill(0);
+        const allInboundDates = Array.from(byDateStores.keys());
+        for (let i = 0; i < allInboundDates.length; i++) {
+          const wd = new Date(allInboundDates[i] + "T12:00:00").getDay();
+          weekdayCounts[wd]++;
+        }
+        const avgWd = allInboundDates.length ? allInboundDates.length / 7 : 0;
+        for (let wd = 0; wd < 7; wd++) {
+          if (weekdayCounts[wd] >= avgWd * 1.15 && weekdayCounts[wd] >= 2) routeWeekdays.add(wd);
+        }
+
+        const out = {};
+        for (let si = 0; si < stores.length; si++) {
+          const store = stores[si];
+          const pack = inboundByStore[store];
+          const tl = pack.timeline;
+          const inb = pack.inbound;
+          const structured = new Array(tl.length).fill(false);
+          let structuredCount = 0;
+          let adHocCount = 0;
+
+          for (let i = 0; i < tl.length; i++) {
+            const q = Number(inb[i]) || 0;
+            if (q <= 0) continue;
+            const d = String(tl[i].date);
+            const wd = new Date(d + "T12:00:00").getDay();
+            const storesSameDay = byDateStores.has(d) ? byDateStores.get(d).size : 0;
+            const isStructured =
+              q >= STRUCTURED_MIN_INBOUND_QTY &&
+              (storesSameDay >= STRUCTURED_MIN_STORES_SAME_DAY || routeWeekdays.has(wd));
+            structured[i] = isStructured;
+            if (isStructured) structuredCount++;
+            else adHocCount++;
+          }
+
+          const ltSamples = [];
+          for (let i = 1; i < tl.length; i++) {
+            const prevAvail = Number(tl[i - 1].availableStock);
+            const curAvail = Number(tl[i].availableStock);
+            if (!(Number.isFinite(prevAvail) && Number.isFinite(curAvail))) continue;
+            const ruptureStart = prevAvail > 0 && curAvail <= 0;
+            if (!ruptureStart) continue;
+            let jFound = -1;
+            const maxJ = Math.min(tl.length - 1, i + LT_MAX_LOOKAHEAD_DAYS);
+            for (let j = i + 1; j <= maxJ; j++) {
+              const a = Number(tl[j].availableStock);
+              if (!(Number.isFinite(a) && a > 0)) continue;
+              if (structured[j] || (Number(inb[j]) || 0) > 0) {
+                jFound = j;
+                break;
+              }
+            }
+            if (jFound > i) ltSamples.push(daysBetweenIso(String(tl[i].date), String(tl[jFound].date)));
+          }
+
+          const mean = ltSamples.length ? Math.max(1, robustMeanCapped(ltSamples, 0.85)) : LT_DEFAULT_MEAN;
+          const sigma = ltSamples.length >= 3 ? Math.max(0.5, stdDev(ltSamples, mean)) : LT_DEFAULT_SIGMA;
+          const effective = computeOperationalLtEffective(mean, sigma, "retail");
+          out[store] = {
+            mean,
+            sigma,
+            effective: effective,
+            samples: ltSamples.length,
+            structuredCount,
+            adHocCount,
+          };
+        }
+        return out;
+      }
+      function getLtParams(sku, storeName, inferredMap) {
+        const inf = (inferredMap && inferredMap[storeName]) || null;
+        if (inf && Number.isFinite(inf.mean) && Number.isFinite(inf.sigma)) {
+          return {
+            mean: inf.mean,
+            sigma: inf.sigma,
+            effective: inf.effective,
+            samples: inf.samples || 0,
+            structuredCount: inf.structuredCount || 0,
+            adHocCount: inf.adHocCount || 0,
+            source: "inferred",
+          };
+        }
+        const skuMap = LT_BY_SKU_STORE[String(sku)] || {};
+        const p = skuMap[storeName] || {};
+        const mean = Number.isFinite(Number(p.mean)) ? Number(p.mean) : LT_DEFAULT_MEAN;
+        const sigma = Number.isFinite(Number(p.sigma)) ? Math.max(0, Number(p.sigma)) : LT_DEFAULT_SIGMA;
+        return {
+          mean,
+          sigma,
+          effective: computeOperationalLtEffective(mean, sigma, "retail"),
+          samples: 0,
+          structuredCount: 0,
+          adHocCount: 0,
+          source: "fallback",
+        };
+      }
+      /* LT do CD = lead time de *reposição do CD* para atender lojas: por produto, a partir de duas liberações consecutivas (mesmo SKU) na fábrica ou em compra — não reutiliza LT inferido de loja. */
+      function getCdLtParams(sku, metrics, cdStoreKey) {
+        const m = metrics || {};
+        const obj =
+          m.cdReplenishmentLtFromReleases ||
+          m.cdReleaseLt ||
+          m.releaseLeadTime ||
+          m.liberacaoCompraLt ||
+          null;
+        if (obj && typeof obj === "object") {
+          const mean = Number(obj.mean);
+          const sigma = Number.isFinite(Number(obj.sigma)) ? Number(obj.sigma) : 0;
+          if (Number.isFinite(mean) && mean > 0) {
+            return {
+              mean: mean,
+              sigma: Math.max(0, sigma),
+              effective: computeOperationalLtEffective(mean, Math.max(0, sigma), "cd"),
+              samples: Number(obj.samples) || 0,
+              structuredCount: 0,
+              adHocCount: 0,
+              source: "release_bundle",
+            };
+          }
+        }
+        const single = Number(m.cdReleaseLeadTimeDays ?? m.releaseLeadTimeDays ?? m.ltLiberacaoCompra);
+        if (Number.isFinite(single) && single > 0) {
+          return {
+            mean: single,
+            sigma: 0,
+            effective: computeOperationalLtEffective(single, 0, "cd"),
+            samples: 0,
+            structuredCount: 0,
+            adHocCount: 0,
+            source: "release_bundle",
+          };
+        }
+        const skuMap = LT_BY_SKU_STORE[String(sku)] || {};
+        const p = skuMap[cdStoreKey] || skuMap.__CD__ || {};
+        const mean = Number.isFinite(Number(p.mean)) ? Number(p.mean) : LT_DEFAULT_MEAN;
+        const sigma = Number.isFinite(Number(p.sigma)) ? Math.max(0, Number(p.sigma)) : LT_DEFAULT_SIGMA;
+        return {
+          mean: mean,
+          sigma: sigma,
+          effective: computeOperationalLtEffective(mean, sigma, "cd"),
+          samples: 0,
+          structuredCount: 0,
+          adHocCount: 0,
+          source: "cd_fallback",
+        };
+      }
+
+      const LT_DAYS_MIN = 1;
+      const LT_DAYS_MAX = 365;
+      function clampLeadTimeDays(d) {
+        const n = Math.round(Number(d));
+        if (!Number.isFinite(n)) return Math.max(LT_DAYS_MIN, Math.min(LT_DAYS_MAX, Math.round(LT_DEFAULT_MEAN + LT_DEFAULT_SIGMA)));
+        return Math.max(LT_DAYS_MIN, Math.min(LT_DAYS_MAX, n));
+      }
+      function getManualLeadTimeDays(storeName) {
+        const t = loadUserTuning(storeName);
+        if (t.leadTimeDays == null || t.leadTimeDays === "") return null;
+        const ld = Number(t.leadTimeDays);
+        if (!Number.isFinite(ld)) return null;
+        return clampLeadTimeDays(ld);
+      }
+      function operationalLeadTimeDaysRetail(sku, storeName, inferredMap) {
+        const man = getManualLeadTimeDays(storeName);
+        if (man != null) return man;
+        const ltSt = getLtParams(sku, storeName, inferredMap);
+        return clampLeadTimeDays(ltSt.effective);
+      }
+      function operationalLeadTimeDaysCd(sku, cdStoreName, metrics, inferredMap) {
+        const man = getManualLeadTimeDays(cdStoreName);
+        if (man != null) return man;
+        const ltSt = getCdLtParams(sku, metrics, cdStoreName);
+        return clampLeadTimeDays(ltSt.effective);
+      }
+
+      /**
+       * Quando `systemPhysicalStock` (ERP / histórico legado) existe no dia, ele governa físico e disponível
+       * (disp = max(0, físico − vitrine)). Caso contrário, mantém motor do bundle.
+       * @param {boolean} retailProxyPhysical — em loja, se físico motor vier zerado, usa disponível como proxy (como antes).
+       */
+      function buildCanonicalStockSeries(timeline, vitrineNum, retailProxyPhysical) {
+        const vit = Math.max(0, Number(vitrineNum) || 0);
+        const n = timeline.length;
+        const disponivel = new Array(n);
+        for (let i = 0; i < n; i++) {
+          const d = timeline[i];
+          const sys = Number(d.systemPhysicalStock);
+          if (Number.isFinite(sys)) {
+            disponivel[i] = Math.max(0, Math.max(0, sys) - vit);
+          } else {
+            const a = Number(d.availableStock);
+            disponivel[i] = Number.isFinite(a) ? a : 0;
+          }
+        }
+        const fisico = new Array(n);
+        for (let i = 0; i < n; i++) {
+          const d = timeline[i];
+          const sys = Number(d.systemPhysicalStock);
+          if (Number.isFinite(sys)) {
+            fisico[i] = Math.max(0, sys);
+            continue;
+          }
+          const p = Number(d.physicalStock);
+          const a = Number(disponivel[i]);
+          if (
+            retailProxyPhysical &&
+            (!Number.isFinite(p) || Math.abs(p) <= 1e-9) &&
+            Number.isFinite(a) &&
+            Math.abs(a) > 1e-9
+          ) {
+            fisico[i] = a;
+          } else {
+            fisico[i] = Number.isFinite(p) ? p : 0;
+          }
+        }
+        return { disponivel, fisico };
+      }
+
+      function timelineWithCanonicalAvailable(timeline, disponivel) {
+        return timeline.map(function (d, i) {
+          return Object.assign({}, d, { availableStock: disponivel[i] });
+        });
+      }
+
+      /* Demanda por loja alinhada ao card do detalhe: tuning da própria loja, curva Mira (P100→P150 protegido), lacuna P150−disp e piso mínimo (não usar globals do CD).
+         Não usar atalho por metrics.estoqueSugestao — o card Sug.−Dis=Dem. do detalhe vem da Mira; o legado desincronizado zerava a soma "Lojas" no CD. */
+      function retailPositiveDemandPerStore(bundle, storeKey, windowOpts, inferredMap) {
+        const timeline = filterTimelineChartWindow(getTimeline(bundle, storeKey), windowOpts);
+        if (!timeline.length) return 0;
+        const m = getMetrics(bundle, storeKey);
+        return runWithMiraTuning(loadUserTuning(storeKey), function () {
+          const vit = Math.max(0, Number(m.vitrine) || 0);
+          const { disponivel } = buildCanonicalStockSeries(timeline, vit, true);
+          const timelineMira = timelineWithCanonicalAvailable(timeline, disponivel);
+          const sales = timeline.map((d) => {
+            const s = Number(d.sales);
+            return Number.isFinite(s) && s >= 0 ? s : 0;
+          });
+          const metrics = m;
+          const ltDaysOperational = operationalLeadTimeDaysRetail(SKU, storeKey, inferredMap);
+          const p100 = computeMira100(timelineMira, WINDOW, ltDaysOperational);
+          const riskPack = computeVolatilityProtectionMultiplier(sales, disponivel, p100);
+          const ltSafetyFactor = Number.isFinite(userLtSafetyMultiplier) ? userLtSafetyMultiplier : LT_SAFETY_DEFAULT;
+          const p100WithLtSafety = scaleMira(p100, ltSafetyFactor);
+          const finalProtectionFactor = Math.max(
+            VOL_PROTECTION_MIN,
+            Math.min(VOL_PROTECTION_CAP, riskPack.factor)
+          );
+          const p100Protected = scaleMira(p100WithLtSafety, finalProtectionFactor);
+          const p150Protected = scaleMira(p100Protected, 1.5);
+          const idxToday = Math.max(0, timeline.length - 1);
+          const dispToday = Number(disponivel[idxToday]) || 0;
+          const p150Today = Number(p150Protected[idxToday]) || 0;
+          let baseRepShown = Math.max(0, Math.round(p150Today - dispToday));
+          const minByMetric = Number(metrics.minStock);
+          const curveClass = resolveStoreCurveClass(metrics, sales, disponivel, p100Protected);
+          const minByCurve = getDefaultMinByCurve(curveClass);
+          const minComputed = Number.isFinite(minByMetric) && minByMetric > 0 ? Math.round(minByMetric) : minByCurve;
+          const tStore = loadUserTuning(storeKey);
+          const minFinal =
+            tStore.minStockManual != null && tStore.minStockManual !== "" && Number.isFinite(Number(tStore.minStockManual))
+              ? Math.max(0, Math.round(Number(tStore.minStockManual)))
+              : minComputed;
+          let demR = baseRepShown;
+          if (demR < minFinal) demR = Math.max(0, minFinal - demR);
+          return demR;
+        });
+      }
+      function sumRetailPositiveStockDemand(bundle, retailKeys, windowOpts, inferredMap) {
+        let s = 0;
+        for (let i = 0; i < retailKeys.length; i++) {
+          s += retailPositiveDemandPerStore(bundle, retailKeys[i], windowOpts, inferredMap);
+        }
+        return s;
+      }
+      function scaleMira(arr, k) {
+        return arr.map((v) => (v == null ? null : v * k));
+      }
+      function smoothEma(series, halfLifeDays) {
+        const out = new Array(series.length).fill(null);
+        const hl = Math.max(1, Number(halfLifeDays) || 1);
+        const alpha = 1 - Math.exp(Math.log(0.5) / hl);
+        let prev = null;
+        for (let i = 0; i < series.length; i++) {
+          const v = Number(series[i]);
+          if (!Number.isFinite(v)) {
+            out[i] = prev;
+            continue;
+          }
+          if (prev == null || !Number.isFinite(prev)) {
+            prev = v;
+          } else {
+            prev = alpha * v + (1 - alpha) * prev;
+          }
+          out[i] = prev;
+        }
+        return out;
+      }
+      function computeMira100(timeline, windowDays, leadTimeDays) {
+        const W = windowDays;
+        const LTd = leadTimeDays;
+        const SHORT_RUPTURE_HOLD_DAYS = 15;
+        const ALPHA_OBS = 0.22; // atualização quando há observação válida
+        const HOLD_DECAY = 0.003; // quase mantém durante ruptura curta
+        const LONG_RUPTURE_DECAY = 0.03; // depois de 15 dias decai de verdade
+        const PRIOR_BLEND = 0.35; // peso do prior legado para evitar subestimação extrema
+        const PRIOR_FLOOR_RATIO = 0.55; // piso mínimo relativo ao prior diário
+        const SEASON_BLEND = Math.max(0, Math.min(0.8, Number(userSeasonBlend) || 0)); // peso da sazonalidade anual de calendário
+        const SEASON_RADIUS_DAYS = 42; // proximidade no calendário anual
+        const SEASON_RECENCY_HALF_LIFE_DAYS = 260; // inclinação: anos recentes pesam mais
+        const PREV_YEAR_BOOST = 1.35; // ano passado pesa mais que anos antigos
+        const RUPTURE_FLOOR_LOOKBACK = 90; // dias para piso dinâmico anti-colapso
+        const RUPTURE_FLOOR_RATIO = 0.24; // fração da demanda recente para manter inércia
+        const n = timeline.length;
+        const demandDaily = new Array(n).fill(null);
+        const dayMs = 86400000;
+        const dateMs = timeline.map((r) => new Date(String(r.date) + "T12:00:00").getTime());
+        const doy = timeline.map((r) => {
+          const d = new Date(String(r.date) + "T12:00:00");
+          const y0 = new Date(d.getFullYear(), 0, 0);
+          return Math.floor((d - y0) / dayMs);
+        });
+        const circularDist = (a, b) => {
+          const d = Math.abs(a - b);
+          return Math.min(d, 366 - d);
+        };
+
+        const baselineSales = [];
+        const priorDailyArr = [];
+        for (let i = 0; i < n; i++) {
+          const avail = Number(timeline[i].availableStock);
+          const s = Number(timeline[i].sales);
+          if (Number.isFinite(avail) && avail > 0 && Number.isFinite(s) && s >= 0) baselineSales.push(s);
+          const p100Legacy = Number(timeline[i].p100);
+          if (Number.isFinite(p100Legacy) && p100Legacy > 0 && Number.isFinite(LTd) && LTd > 0) {
+            priorDailyArr.push(p100Legacy / LTd);
+          }
+        }
+        const baselineMuRaw = robustMeanP95(baselineSales);
+        const priorDaily = priorDailyArr.length ? robustMeanP95(priorDailyArr) : null;
+        const baselineMu =
+          priorDaily != null
+            ? Math.max(0.05, (1 - PRIOR_BLEND) * baselineMuRaw + PRIOR_BLEND * priorDaily)
+            : Math.max(0.05, baselineMuRaw);
+
+        let prev = baselineMu;
+        let ruptureStreak = 0;
+        for (let i = 0; i < n; i++) {
+          const i0 = Math.max(0, i - W + 1);
+          const slice = timeline.slice(i0, i + 1);
+          const cleanSales = [];
+          for (let j = 0; j < slice.length; j++) {
+            const a = Number(slice[j].availableStock);
+            const s = Number(slice[j].sales);
+            if (Number.isFinite(a) && a > 0 && Number.isFinite(s) && s >= 0) cleanSales.push(s);
+          }
+          let obs = cleanSales.length ? robustMeanP95(cleanSales) : baselineMu;
+
+          let seasonNum = 0;
+          let seasonDen = 0;
+          for (let j = 0; j < i; j++) {
+            const a = Number(timeline[j].availableStock);
+            const s = Number(timeline[j].sales);
+            if (!(Number.isFinite(a) && a > 0 && Number.isFinite(s) && s >= 0)) continue;
+            const dd = circularDist(doy[i], doy[j]);
+            if (dd > SEASON_RADIUS_DAYS) continue;
+            const ageDays = Math.max(1, Math.round((dateMs[i] - dateMs[j]) / dayMs));
+            let w = Math.max(0.02, 1 - dd / (SEASON_RADIUS_DAYS + 1));
+            const recW = Math.exp((Math.log(0.5) / SEASON_RECENCY_HALF_LIFE_DAYS) * ageDays);
+            w *= recW;
+            if (ageDays >= 320 && ageDays <= 410) w *= PREV_YEAR_BOOST;
+            seasonNum += w * s;
+            seasonDen += w;
+          }
+          if (seasonDen > 0) {
+            const seasonObs = seasonNum / seasonDen;
+            obs = (1 - SEASON_BLEND) * obs + SEASON_BLEND * seasonObs;
+          }
+
+          const p100LegacyToday = Number(timeline[i].p100);
+          const priorToday =
+            Number.isFinite(p100LegacyToday) && p100LegacyToday > 0 && LTd > 0
+              ? p100LegacyToday / LTd
+              : priorDaily;
+          if (priorToday != null && Number.isFinite(priorToday)) {
+            const floorByPrior = priorToday * PRIOR_FLOOR_RATIO;
+            obs = Math.max(obs, floorByPrior);
+            obs = (1 - PRIOR_BLEND) * obs + PRIOR_BLEND * priorToday;
+          }
+
+          const avail = Number(timeline[i].availableStock);
+          if (Number.isFinite(avail) && avail > 0) {
+            ruptureStreak = 0;
+            prev = (1 - ALPHA_OBS) * prev + ALPHA_OBS * obs;
+          } else {
+            const f0 = Math.max(0, i - RUPTURE_FLOOR_LOOKBACK + 1);
+            const recent = [];
+            for (let k = f0; k <= i; k++) {
+              const a2 = Number(timeline[k].availableStock);
+              const s2 = Number(timeline[k].sales);
+              if (Number.isFinite(a2) && a2 > 0 && Number.isFinite(s2) && s2 >= 0) recent.push(s2);
+            }
+            const recentFloor = recent.length ? Math.max(0.02, robustMeanP95(recent) * RUPTURE_FLOOR_RATIO) : 0.02;
+            ruptureStreak++;
+            if (ruptureStreak <= SHORT_RUPTURE_HOLD_DAYS) {
+              prev = Math.max(recentFloor, prev * (1 - HOLD_DECAY));
+            } else {
+              prev = Math.max(recentFloor * 0.7, prev * (1 - LONG_RUPTURE_DECAY));
+            }
+          }
+          demandDaily[i] = prev;
+        }
+        const miraRaw = demandDaily.map((d) => d * LTd);
+        // Suavização leve para evitar oscilações/agulhadas em poucos dias.
+        const hl = Math.max(8, Math.min(90, Number(userReactHalfLife) || MIRA_EMA_HALF_LIFE_DAYS));
+        return smoothEma(miraRaw, hl);
+      }
+      function robustMeanP95(values) {
+        if (!values.length) return 0;
+        const sorted = [...values].sort((a, b) => a - b);
+        const hi = quantileSorted(sorted, 0.95);
+        let sum = 0;
+        for (const v of values) sum += Math.min(v, hi);
+        return sum / values.length;
+      }
+      // Amplia proteção por volatilidade, com trava para não inflar estoque/ROI.
+      function computeVolatilityProtectionMultiplier(sales, available, baseP100) {
+        const n = Math.min(sales.length, available.length, baseP100.length);
+        if (!n) return { factor: 1, cv: 0, roiGuard: 1 };
+        const valid = [];
+        for (let i = 0; i < n; i++) {
+          const a = Number(available[i]);
+          const s = Number(sales[i]);
+          if (Number.isFinite(a) && a > 0 && Number.isFinite(s) && s >= 0) valid.push(s);
+        }
+        const mu = robustMeanP95(valid);
+        const sd = valid.length >= 3 ? stdDev(valid, mu) : 0;
+        const cv = mu > 1e-6 ? sd / mu : 0;
+        const clamp01 = (x) => Math.max(0, Math.min(1, x));
+        // Volatilidade relevante acima de ~0.45 de CV.
+        const volSignal = clamp01((cv - 0.45) / 1.1);
+
+        const tail = Math.min(75, n);
+        let over = 0;
+        let rup = 0;
+        let counted = 0;
+        for (let i = n - tail; i < n; i++) {
+          const a = Number(available[i]);
+          const p = Number(baseP100[i]);
+          if (!(Number.isFinite(a) && Number.isFinite(p) && p > 0)) continue;
+          counted++;
+          if (a <= 0) rup++;
+          if (a > p * 1.8) over++;
+        }
+        const rupRate = counted ? rup / counted : 0;
+        const overRate = counted ? over / counted : 0;
+        // Trava de ROI: excesso de estoque reduz ganho de proteção; ruptura recente recupera parte.
+        const roiGuard = Math.max(0.2, Math.min(1, 1 - overRate * 0.8 + rupRate * 0.35));
+        const factor = 1 + 0.32 * volSignal * roiGuard; // até ~+32% (alvo P150 mais alto em volátil)
+        return { factor, cv, roiGuard };
+      }
+      function resolveStoreCurveClass(metrics, sales, available, p100Series) {
+        const m = metrics || {};
+        const raw =
+          m.curva ||
+          m.curve ||
+          m.abc ||
+          m.abcClass ||
+          m.classificacao ||
+          m.classification ||
+          null;
+        const cls = String(raw || "").trim().toUpperCase();
+        if (cls === "A" || cls === "B" || cls === "C") return cls;
+
+        // Fallback: inferência leve por demanda recente sem ruptura.
+        const n = Math.min(sales.length, available.length, p100Series.length);
+        const vals = [];
+        for (let i = Math.max(0, n - 120); i < n; i++) {
+          const a = Number(available[i]);
+          const s = Number(sales[i]);
+          if (Number.isFinite(a) && a > 0 && Number.isFinite(s) && s >= 0) vals.push(s);
+        }
+        const muSales = vals.length ? robustMeanP95(vals) : 0;
+        const pRef = n ? Number(p100Series[n - 1]) || 0 : 0;
+        const score = Math.max(muSales, pRef / 14); // aproxima demanda diária
+        if (score >= 0.8) return "A";
+        if (score >= 0.35) return "B";
+        return "C";
+      }
+      function getDefaultMinByCurve(curveClass) {
+        const c = String(curveClass || "").toUpperCase();
+        if (c === "A") return 3;
+        if (c === "B") return 2;
+        return 1;
+      }
+      /** pct = (disponível / P150) × 100 — faixa “ABAIXO” ou melhor ⇒ disp ≤ P150. */
+      function resolveStatusByPct(pct) {
+        if (pct < 10) return { text: "RUPTURA", cls: "zone-ruptura" };
+        if (pct < 50) return { text: "CRÍTICO", cls: "zone-critico" };
+        if (pct < 100) return { text: "ABAIXO", cls: "zone-abaixo" };
+        if (pct < 150) return { text: "ACIMA", cls: "zone-acima" };
+        if (pct < 200) return { text: "MUITO ACIMA", cls: "zone-muito-acima" };
+        if (pct < 400) return { text: "ENCALHADO 1", cls: "zone-enc1" };
+        if (pct < 800) return { text: "ENCALHADO 2", cls: "zone-enc2" };
+        return { text: "ENCALHADO 3", cls: "zone-enc3" };
+      }
+      function shouldShowByProximityOrPass(curve, refs) {
+        for (let i = 0; i < curve.length; i++) {
+          const c = Number(curve[i]);
+          if (!Number.isFinite(c)) continue;
+          for (let r = 0; r < refs.length; r++) {
+            const v = Number(refs[r][i]);
+            if (!Number.isFinite(v)) continue;
+            if (v >= c) return true;
+            const nearBand = Math.max(1, Math.abs(c) * 0.1);
+            if (Math.abs(v - c) <= nearBand) return true;
+          }
+        }
+        return false;
+      }
+      function maskCurveByRelevance(curve, refs, nearPct, nearAbs, holdDays) {
+        const n = curve.length;
+        const hit = new Array(n).fill(false);
+        for (let i = 0; i < n; i++) {
+          const c = Number(curve[i]);
+          if (!Number.isFinite(c)) continue;
+          const band = Math.max(nearAbs, Math.abs(c) * nearPct);
+          for (let r = 0; r < refs.length; r++) {
+            const v = Number(refs[r][i]);
+            if (!Number.isFinite(v)) continue;
+            if (Math.abs(v - c) <= band) {
+              hit[i] = true;
+              break;
+            }
+          }
+        }
+        const out = new Array(n).fill(null);
+        for (let i = 0; i < n; i++) {
+          let relevant = false;
+          const i0 = Math.max(0, i - holdDays);
+          const i1 = Math.min(n - 1, i + holdDays);
+          for (let j = i0; j <= i1; j++) {
+            if (hit[j]) {
+              relevant = true;
+              break;
+            }
+          }
+          out[i] = relevant ? curve[i] : null;
+        }
+        return out;
+      }
+      function maxFinite(arr) {
+        let m = -Infinity;
+        for (let i = 0; i < arr.length; i++) {
+          const v = Number(arr[i]);
+          if (Number.isFinite(v) && v > m) m = v;
+        }
+        return Number.isFinite(m) ? m : 0;
+      }
+      function setRepCardStoreOnly(sugQty, disQty, demQty) {
+        const el = document.getElementById("kRepQ");
+        const lbl = document.getElementById("kRepLbl");
+        if (!el) return;
+        const s = sugQty.toLocaleString("pt-BR");
+        const d = disQty.toLocaleString("pt-BR");
+        const m = demQty.toLocaleString("pt-BR");
+        el.innerHTML =
+          '<div class="dem-eq">' +
+          '<div class="eq">' +
+          s +
+          " − " +
+          d +
+          " = " +
+          '<span class="dem-res">' +
+          m +
+          "</span></div>" +
+          '<div class="sub">Sug. − Dis = Dem.</div>' +
+          "</div>";
+        if (lbl) lbl.textContent = "";
+      }
+      function loadSkuScript(id) {
+        return new Promise(function (resolve, reject) {
+          const old = document.getElementById("sku-data-loader");
+          if (old) old.remove();
+          try {
+            delete window.APOLLO_NETWORK_DATA;
+          } catch (e) {}
+          const s = document.createElement("script");
+          s.id = "sku-data-loader";
+          s.src = "data/js/sku_" + id + ".js";
+          s.onload = function () {
+            if (!window.APOLLO_NETWORK_DATA) return reject(new Error("APOLLO_NETWORK_DATA ausente"));
+            resolve(window.APOLLO_NETWORK_DATA);
+          };
+          s.onerror = function () {
+            reject(new Error("Falha ao carregar " + s.src));
+          };
+          document.head.appendChild(s);
+        });
+      }
+      function loadBundle(id) {
+        if (location.protocol === "file:") return loadSkuScript(id);
+        return fetch("data/processed/sku_" + id + ".json")
+          .then((r) => (r.ok ? r.json() : loadSkuScript(id)))
+          .catch(() => loadSkuScript(id));
+      }
+      function normalizeNameBasic(v) {
+        return String(v || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+      function appendOrReplaceTimelinePoint(timeline, row) {
+        if (!Array.isArray(timeline)) return false;
+        const date = String(row.date || "");
+        if (!date) return false;
+        const point = {
+          date: date,
+          physicalStock: Number(row.physicalStock) || 0,
+          legacyStock: Number(row.physicalStock) || 0,
+          availableStock: Number(row.availableStock) || 0,
+          sales: Number(row.sales) || 0,
+          instantaneousDemand: 0,
+          currentLT: 0,
+          p10: 0,
+          p50: 0,
+          p80: 0,
+          p100: 0,
+          p150: 0,
+          p300: 0,
+          p600: 0,
+        };
+        let replaced = false;
+        let changed = false;
+        for (let i = 0; i < timeline.length; i++) {
+          if (String(timeline[i].date) === date) {
+            const prev = timeline[i] || {};
+            if (
+              Number(prev.physicalStock) !== Number(point.physicalStock) ||
+              Number(prev.legacyStock) !== Number(point.legacyStock) ||
+              Number(prev.availableStock) !== Number(point.availableStock) ||
+              Number(prev.sales) !== Number(point.sales)
+            ) {
+              changed = true;
+            }
+            timeline[i] = Object.assign({}, prev, point);
+            replaced = true;
+            break;
+          }
+        }
+        if (!replaced) {
+          timeline.push(point);
+          changed = true;
+        }
+        timeline.sort(function (a, b) {
+          return String(a.date).localeCompare(String(b.date));
+        });
+        return changed;
+      }
+      function findStoreKeyByName(results, wantedName) {
+        const keys = Object.keys(results || {});
+        if (!keys.length) return null;
+        const wanted = normalizeNameBasic(wantedName);
+        for (let i = 0; i < keys.length; i++) {
+          if (normalizeNameBasic(keys[i]) === wanted) return keys[i];
+        }
+        for (let i = 0; i < keys.length; i++) {
+          const k = normalizeNameBasic(keys[i]);
+          if (k.indexOf(wanted) >= 0 || wanted.indexOf(k) >= 0) return keys[i];
+        }
+        return null;
+      }
+      function resolveLegacyStoreKeyForBundle(bundle) {
+        const results = (bundle && bundle.results) || {};
+        const allStores = Object.keys(results);
+        const CD_NAMES = new Set(["Fábrica", "CD SARON"]);
+        const stores = allStores.filter(function (s) {
+          return !CD_NAMES.has(s);
+        });
+        const cdKey = resolveCdStoreKey(results);
+        let current = DEFAULT_STORE;
+        const storeFromUrlResolved = storeFromUrl ? findStoreKeyByName(results, storeFromUrl) : null;
+        if (storeFromUrlResolved) current = storeFromUrlResolved;
+        else if (hubFromUrl && cdKey) current = cdKey;
+        const resultStores = new Set(stores);
+        if (cdKey) resultStores.add(cdKey);
+        if (!resultStores.has(current)) {
+          const firstStore = stores[0];
+          if (firstStore) current = firstStore;
+        }
+        const isHub = Boolean(cdKey && current === cdKey);
+        return { storeKey: current, isHub: isHub };
+      }
+      function refreshBundleWithLegacyYesterday(bundle, skuId, retailStoreForLegacy) {
+        const results = (bundle && bundle.results) || {};
+        if (!Object.keys(results).length) return Promise.resolve({ patched: false, reason: "empty_bundle" });
+        let endpoint =
+          "http://127.0.0.1:8787/legacy/sku-live?sku=" +
+          encodeURIComponent(String(skuId)) +
+          "&_ts=" +
+          Date.now();
+        if (retailStoreForLegacy != null && String(retailStoreForLegacy).trim() !== "") {
+          endpoint += "&store=" + encodeURIComponent(String(retailStoreForLegacy).trim());
+        }
+        return fetch(endpoint, { cache: "no-store" })
+          .then(function (r) {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.json();
+          })
+          .then(function (payload) {
+            if (!payload || !payload.ok || !payload.data || !Array.isArray(payload.data.snapshots)) {
+              return { patched: false, reason: "invalid_payload" };
+            }
+            const snapshots = payload.data.snapshots;
+            let patchedCount = 0;
+            for (let i = 0; i < snapshots.length; i++) {
+              const s = snapshots[i];
+              const key = findStoreKeyByName(results, s.store_name);
+              if (!key) continue;
+              const block = results[key];
+              if (!block || !Array.isArray(block.timeline)) continue;
+              if (appendOrReplaceTimelinePoint(block.timeline, s)) patchedCount++;
+            }
+            const history = Array.isArray(payload.data.history) ? payload.data.history : [];
+            let historyPoints = 0;
+            const byStoreHist = {};
+            for (let i = 0; i < history.length; i++) {
+              const h = history[i];
+              const key = findStoreKeyByName(results, h.store_name);
+              if (!key) continue;
+              const date = String(h.date || "");
+              const p = Math.max(0, Number(h.physicalStock));
+              if (!date || !Number.isFinite(p)) continue;
+              if (!byStoreHist[key]) byStoreHist[key] = [];
+              byStoreHist[key].push({ date: date, p: p });
+            }
+            const histKeys = Object.keys(byStoreHist);
+            for (let hi = 0; hi < histKeys.length; hi++) {
+              byStoreHist[histKeys[hi]].sort(function (a, b) {
+                return String(a.date).localeCompare(String(b.date));
+              });
+            }
+            for (let hk = 0; hk < histKeys.length; hk++) {
+              const key = histKeys[hk];
+              const block = results[key];
+              if (!block || !Array.isArray(block.timeline)) continue;
+              const points = byStoreHist[key];
+              let pi = 0;
+              let carry = null;
+              for (let j = 0; j < block.timeline.length; j++) {
+                const dStr = String(block.timeline[j].date || "");
+                while (pi < points.length && String(points[pi].date) <= dStr) {
+                  carry = points[pi].p;
+                  pi++;
+                }
+                if (carry != null && Number.isFinite(carry)) {
+                  const prevSys = Number(block.timeline[j].systemPhysicalStock);
+                  if (!Number.isFinite(prevSys) || Math.abs(prevSys - carry) > 1e-9) {
+                    block.timeline[j].systemPhysicalStock = carry;
+                    historyPoints++;
+                  }
+                }
+              }
+            }
+            return {
+              patched: patchedCount > 0,
+              patchedCount: patchedCount,
+              historyPoints: historyPoints,
+              refDate: payload.data.ref_date || null,
+              legacyProduction: payload.data.legacy_production || null,
+            };
+          })
+          .catch(function () {
+            return { patched: false, reason: "bridge_unavailable" };
+          });
+      }
+      function resolveCdStoreKey(results) {
+        if (!results) return null;
+        const preferred = ["Fábrica", "CD SARON", "Fabrica"];
+        for (let i = 0; i < preferred.length; i++) {
+          const k = preferred[i];
+          const b = results[k];
+          if (b && Array.isArray(b.timeline) && b.timeline.length) return k;
+        }
+        const keys = Object.keys(results);
+        for (let i = 0; i < keys.length; i++) {
+          const key = keys[i];
+          const low = String(key).toLowerCase();
+          if (low.indexOf("fábrica") >= 0 || low.indexOf("fabrica") >= 0 || low.indexOf("cd") >= 0) {
+            const b = results[key];
+            if (b && Array.isArray(b.timeline) && b.timeline.length) return key;
+          }
+        }
+        return null;
+      }
+      function getTimeline(bundle, storeName) {
+        const root = bundle.results || bundle;
+        const block = root[storeName];
+        if (!block || !block.timeline) throw new Error('Loja "' + storeName + '" sem timeline.');
+        return block.timeline;
+      }
+      function getMetrics(bundle, storeName) {
+        const root = bundle.results || bundle;
+        const block = root[storeName] || {};
+        return block.metrics || {};
+      }
+
+      const ctx = document.getElementById("chart").getContext("2d");
+      const ctxSales = document.getElementById("salesChart").getContext("2d");
+      const commonStock = {
+        pointRadius: 0,
+        pointHoverRadius: 6,
+        pointHitRadius: 16,
+        stepped: true,
+        tension: 0,
+        spanGaps: true,
+        order: 20,
+      };
+      /* Zonas: só k·miraBase; tension 0 evita Bézier independente por série (quebrava proporções). */
+      const commonZone = {
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        pointHitRadius: 0,
+        tension: 0,
+        spanGaps: true,
+        order: 20,
+      };
+
+      const IDX_DISP = 0;
+      const IDX_FIS = 1;
+      const IDX_LEG = 2;
+      const IDX_SYS = 3;
+      const IDX_ZONE_FIRST = 4;
+      const IDX_ZONE_LAST = 11;
+
+      let _nearestPluginLock = false;
+      const pluginNearestRelevantZone = {
+        id: "nearestRelevantZone",
+        afterEvent(chart, args) {
+          if (_nearestPluginLock) return;
+          const ev = args.event;
+          if (!ev) return;
+          const native = ev.native || ev;
+          const type = native.type || ev.type;
+          if (type === "mouseout" || type === "mouseleave" || type === "touchend" || type === "touchcancel") {
+            _nearestPluginLock = true;
+            try {
+              chart.setActiveElements([], ev);
+              chart.update("none");
+            } finally {
+              _nearestPluginLock = false;
+            }
+            return;
+          }
+          if (type !== "mousemove" && type !== "touchmove") return;
+
+          let pos;
+          if (Chart.helpers && typeof Chart.helpers.getRelativePosition === "function") {
+            pos = Chart.helpers.getRelativePosition(native, chart);
+          } else if (native.offsetX != null && native.offsetY != null) {
+            pos = { x: native.offsetX, y: native.offsetY };
+          } else {
+            const rect = chart.canvas.getBoundingClientRect();
+            pos = { x: native.clientX - rect.left, y: native.clientY - rect.top };
+          }
+
+          const items = chart.getElementsAtEventForMode(ev, "index", { intersect: false }, false);
+          if (!items || !items.length) {
+            _nearestPluginLock = true;
+            try {
+              chart.setActiveElements([], ev);
+              chart.update("none");
+            } finally {
+              _nearestPluginLock = false;
+            }
+            return;
+          }
+
+          const dataIndex = items[0].index;
+          const ds = chart.data.datasets;
+          const dispVal = ds[IDX_DISP].data[dataIndex];
+          const ref =
+            typeof dispVal === "number" && !Number.isNaN(dispVal)
+              ? dispVal
+              : typeof ds[IDX_FIS].data[dataIndex] === "number"
+                ? ds[IDX_FIS].data[dataIndex]
+                : ds[IDX_LEG].data[dataIndex];
+
+          let bestZoneDi = null;
+          let bestZoneDist = Infinity;
+          if (typeof ref === "number" && !Number.isNaN(ref)) {
+            for (let di = IDX_ZONE_FIRST; di <= IDX_ZONE_LAST; di++) {
+              if (!chart.isDatasetVisible(di)) continue;
+              const zv = ds[di].data[dataIndex];
+              if (typeof zv !== "number" || Number.isNaN(zv)) continue;
+              const d = Math.abs(zv - ref);
+              if (d < bestZoneDist) {
+                bestZoneDist = d;
+                bestZoneDi = di;
+              }
+            }
+          }
+
+          const candidates = [IDX_DISP, IDX_FIS, IDX_LEG, IDX_SYS];
+          if (bestZoneDi != null) candidates.push(bestZoneDi);
+
+          const yScale = chart.scales.y;
+          let winDi = null;
+          let winDist = Infinity;
+          for (let i = 0; i < candidates.length; i++) {
+            const di = candidates[i];
+            if (!chart.isDatasetVisible(di)) continue;
+            const v = ds[di].data[dataIndex];
+            if (typeof v !== "number" || Number.isNaN(v)) continue;
+            const yP = yScale.getPixelForValue(v);
+            const dist = Math.abs(yP - pos.y);
+            if (dist < winDist) {
+              winDist = dist;
+              winDi = di;
+            }
+          }
+
+          if (winDi == null) return;
+
+          _nearestPluginLock = true;
+          try {
+            chart.setActiveElements([{ datasetIndex: winDi, index: dataIndex }], ev);
+            chart.update("none");
+          } finally {
+            _nearestPluginLock = false;
+          }
+        },
+      };
+      let chart = null;
+      let salesChart = null;
+      let bundleRef = null;
+      let currentStore = DEFAULT_STORE;
+      let inferredLtMap = {};
+      let legacySuggestionQty = null;
+      let legacySuggestionBatch = null;
+      let legacyLiveRequestId = 0;
+      const legacyLivePatchedKeys = new Set();
+      let userLtSafetyMultiplier = 1.85;
+
+      let userReactHalfLife = MIRA_EMA_HALF_LIFE_DAYS;
+      let userSeasonBlend = 0.45;
+      let userMinStockManual = null;
+      let userVitrineManual = null;
+      let userLeadTimeDays = null;
+      let userPreset = "custom";
+      const PRESET_MAP = {
+        "conservative": { ltSafetyMultiplier: 1.45, reactHalfLife: 26, seasonBlend: 0.48 },
+        "standard": { ltSafetyMultiplier: 1.85, reactHalfLife: 32, seasonBlend: 0.52 },
+        "aggressive": { ltSafetyMultiplier: 2.0, reactHalfLife: 40, seasonBlend: 0.58 },
+      };
+      const LT_SAFETY_DEFAULT = 1.85;
+      const LT_SAFETY_MIN = 1.0;
+      const LT_SAFETY_MAX = 2.0;
+      function legacyCacheKeyForStore(storeName, cdKey) {
+        if (cdKey && String(storeName || "") === String(cdKey)) return "__hub__";
+        return "store:" + String(storeName || "").trim();
+      }
+      const VOL_PROTECTION_MIN = 0.92;
+      const VOL_PROTECTION_CAP = 1.68;
+      function movingAverage(arr, windowSize) {
+        const w = Math.max(1, Number(windowSize) || 1);
+        const out = new Array(arr.length).fill(0);
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          const v = Number(arr[i]);
+          const vv = Number.isFinite(v) ? v : 0;
+          sum += vv;
+          if (i >= w) {
+            const old = Number(arr[i - w]);
+            sum -= Number.isFinite(old) ? old : 0;
+          }
+          const div = i + 1 < w ? i + 1 : w;
+          out[i] = div > 0 ? sum / div : 0;
+        }
+        return out;
+      }
+      function getTuningStorageKey(storeName) {
+        return "apollo.tuning." + String(SKU) + "." + String(storeName || DEFAULT_STORE);
+      }
+      function loadUserTuning(storeName) {
+        const base = {
+          ltSafetyMultiplier: 1.85,
+          reactHalfLife: 32,
+          seasonBlend: 0.52,
+          minStockManual: null,
+          vitrineManual: null,
+          leadTimeDays: null,
+          preset: "standard",
+        };
+        try {
+          const raw = localStorage.getItem(getTuningStorageKey(storeName));
+          if (raw) {
+            const obj = JSON.parse(raw);
+            if (obj && typeof obj === "object") {
+              const out = { ...base };
+              const ltSafety = Number(obj.ltSafetyMultiplier);
+              const rh = Number(obj.reactHalfLife);
+              const sb = Number(obj.seasonBlend);
+              const ms = Number(obj.minStockManual);
+              const vm = Number(obj.vitrineManual);
+              const pr = String(obj.preset || "custom");
+              if (Number.isFinite(ltSafety)) out.ltSafetyMultiplier = Math.max(LT_SAFETY_MIN, Math.min(LT_SAFETY_MAX, ltSafety));
+              if (Number.isFinite(rh)) out.reactHalfLife = Math.max(8, Math.min(90, rh));
+              if (Number.isFinite(sb)) out.seasonBlend = Math.max(0, Math.min(0.8, sb));
+              if (obj.minStockManual == null || obj.minStockManual === "") out.minStockManual = null;
+              else if (Number.isFinite(ms)) out.minStockManual = Math.max(0, Math.round(ms));
+              if (obj.vitrineManual == null || obj.vitrineManual === "") out.vitrineManual = null;
+              else if (Number.isFinite(vm)) out.vitrineManual = Math.max(0, Math.round(vm));
+              if (Object.prototype.hasOwnProperty.call(obj, "leadTimeDays")) {
+                if (obj.leadTimeDays == null || obj.leadTimeDays === "") out.leadTimeDays = null;
+                else {
+                  const ld = Number(obj.leadTimeDays);
+                  if (Number.isFinite(ld)) out.leadTimeDays = Math.max(LT_DAYS_MIN, Math.min(LT_DAYS_MAX, Math.round(ld)));
+                  else out.leadTimeDays = null;
+                }
+              }
+              out.preset = PRESET_MAP[pr] ? pr : "custom";
+              return out;
+            }
+          }
+        } catch (_) {}
+        return base;
+      }
+      function saveUserTuning(storeName) {
+        try {
+          const payload = {
+            ltSafetyMultiplier: userLtSafetyMultiplier,
+            reactHalfLife: userReactHalfLife,
+            seasonBlend: userSeasonBlend,
+            minStockManual: userMinStockManual,
+            vitrineManual: userVitrineManual,
+            leadTimeDays: userLeadTimeDays,
+            preset: userPreset,
+          };
+          localStorage.setItem(getTuningStorageKey(storeName), JSON.stringify(payload));
+        } catch (_) {}
+      }
+      function escAttr(str) {
+        return String(str || "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;");
+      }
+      function runWithMiraTuning(tuning, fn) {
+        const back = {
+          userReactHalfLife: userReactHalfLife,
+          userSeasonBlend: userSeasonBlend,
+          userLtSafetyMultiplier: userLtSafetyMultiplier,
+        };
+        const tr = tuning || {};
+        userReactHalfLife = Number.isFinite(Number(tr.reactHalfLife)) ? tr.reactHalfLife : MIRA_EMA_HALF_LIFE_DAYS;
+        userSeasonBlend = Number.isFinite(Number(tr.seasonBlend)) ? Math.max(0, Math.min(0.8, tr.seasonBlend)) : 0.52;
+        userLtSafetyMultiplier = Number.isFinite(Number(tr.ltSafetyMultiplier))
+          ? Math.max(LT_SAFETY_MIN, Math.min(LT_SAFETY_MAX, tr.ltSafetyMultiplier))
+          : LT_SAFETY_DEFAULT;
+        try {
+          return fn();
+        } finally {
+          userReactHalfLife = back.userReactHalfLife;
+          userSeasonBlend = back.userSeasonBlend;
+          userLtSafetyMultiplier = back.userLtSafetyMultiplier;
+        }
+      }
+      function buildLojaDemandTooltip(bundle, retailKeys, chartWindowOpts, inferredLtMap) {
+        const lines = ["Lojas com demanda estimada > 0:"];
+        const pairs = [];
+        for (let i = 0; i < retailKeys.length; i++) {
+          const k = retailKeys[i];
+          const q = retailPositiveDemandPerStore(bundle, k, chartWindowOpts, inferredLtMap);
+          pairs.push({ k: k, q: q });
+        }
+        const positive = pairs.filter(function (p) {
+          return p.q > 0;
+        });
+        positive.sort(function (a, b) {
+          if (b.q !== a.q) return b.q - a.q;
+          return String(a.k).localeCompare(String(b.k));
+        });
+        for (let j = 0; j < positive.length; j++) {
+          lines.push(positive[j].k + ": " + positive[j].q + " un");
+        }
+        if (!retailKeys.length) lines.push("(sem timelines de loja no bundle)");
+        else if (!positive.length) lines.push("(nenhuma loja acima de 0 un)");
+        return lines.join("\n");
+      }
+      function setRepCardRetailProd(cdGap, lojasSum, total, tooltip) {
+        const el = document.getElementById("kRepQ");
+        const lbl = document.getElementById("kRepLbl");
+        if (!el) return;
+        if (lbl) lbl.textContent = "";
+        const tip = tooltip ? ' title="' + escAttr(tooltip) + '"' : "";
+        el.innerHTML =
+          '<span class="rep-line rep-prod-wrap">' +
+          '<span class="rep-cd-num">' +
+          cdGap.toLocaleString("pt-BR") +
+          "</span>" +
+          '<span class="rep-op"> + </span>' +
+          '<span class="rep-loja-num rep-loja"' +
+          tip +
+          ">" +
+          lojasSum.toLocaleString("pt-BR") +
+          "</span>" +
+          '<span class="rep-op"> = </span>' +
+          '<span class="rep-tot-num">' +
+          total.toLocaleString("pt-BR") +
+          "</span>" +
+          '<span class="rep-lbl">CD</span>' +
+          '<span class="rep-lbl-spacer" aria-hidden="true"></span>' +
+          '<span class="rep-lbl">Lojas</span>' +
+          '<span class="rep-lbl-spacer" aria-hidden="true"></span>' +
+          '<span class="rep-lbl">Prod.</span>' +
+          "</span>";
+      }
+      let yBaseMin = null;
+      let yBaseMax = null;
+      let yViewMin = null;
+      let yViewMax = null;
+      let xBaseMin = null;
+      let xBaseMax = null;
+      let xViewMin = null;
+      let xViewMax = null;
+      const panState = {
+        dragging: false,
+        mode: null, // "plot" | "xband" | "yband"
+        startPxX: 0,
+        startPxY: 0,
+        startXMin: 0,
+        startXMax: 0,
+        startYMin: 0,
+        startYMax: 0,
+      };
+
+      function applyYWindow() {
+        if (!chart) return;
+        const y = chart.options.scales.y;
+        y.min = yViewMin;
+        y.max = yViewMax;
+        chart.update();
+      }
+      function applyXWindow() {
+        if (!chart) return;
+        const x = chart.options.scales.x;
+        x.min = xViewMin;
+        x.max = xViewMax;
+        chart.update();
+      }
+      function clampXWindow() {
+        if (xBaseMin == null || xBaseMax == null) return;
+        const baseRange = xBaseMax - xBaseMin;
+        const range = Math.max(1, xViewMax - xViewMin);
+        if (range >= baseRange) {
+          xViewMin = xBaseMin;
+          xViewMax = xBaseMax;
+          return;
+        }
+        if (xViewMin < xBaseMin) {
+          const d = xBaseMin - xViewMin;
+          xViewMin += d;
+          xViewMax += d;
+        }
+        if (xViewMax > xBaseMax) {
+          const d = xViewMax - xBaseMax;
+          xViewMin -= d;
+          xViewMax -= d;
+        }
+        xViewMin = Math.max(xBaseMin, xViewMin);
+        xViewMax = Math.min(xBaseMax, xViewMax);
+      }
+      function clampYWindow() {
+        if (yBaseMin == null || yBaseMax == null) return;
+        const baseRange = yBaseMax - yBaseMin;
+        const range = Math.max(0.5, yViewMax - yViewMin);
+        if (range >= baseRange) {
+          yViewMin = yBaseMin;
+          yViewMax = yBaseMax;
+          return;
+        }
+        if (yViewMin < yBaseMin) {
+          const d = yBaseMin - yViewMin;
+          yViewMin += d;
+          yViewMax += d;
+        }
+        if (yViewMax > yBaseMax) {
+          const d = yViewMax - yBaseMax;
+          yViewMin -= d;
+          yViewMax -= d;
+        }
+        yViewMin = Math.max(yBaseMin, yViewMin);
+        yViewMax = Math.min(yBaseMax, yViewMax);
+      }
+      function getCanvasPos(evt) {
+        const rect = chart.canvas.getBoundingClientRect();
+        return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+      }
+      function installPanZoomHandlers() {
+        if (!chart) return;
+        const canvas = chart.canvas;
+        canvas.style.cursor = "default";
+
+        canvas.onmousedown = function (ev) {
+          if (!chart) return;
+          const pos = getCanvasPos(ev);
+          const area = chart.chartArea;
+          if (!area) return;
+          const inPlot = pos.x >= area.left && pos.x <= area.right && pos.y >= area.top && pos.y <= area.bottom;
+          const inXBand = pos.y > area.bottom && pos.x >= area.left && pos.x <= area.right;
+          const inYBand = pos.x < area.left && pos.y >= area.top && pos.y <= area.bottom;
+          if (!(inPlot || inXBand || inYBand)) return;
+          panState.dragging = true;
+          panState.mode = inPlot ? "plot" : inXBand ? "xband" : "yband";
+          panState.startPxX = pos.x;
+          panState.startPxY = pos.y;
+          panState.startXMin = xViewMin;
+          panState.startXMax = xViewMax;
+          panState.startYMin = yViewMin;
+          panState.startYMax = yViewMax;
+          if (panState.mode === "plot") canvas.style.cursor = "grabbing";
+          else if (panState.mode === "xband") canvas.style.cursor = "ew-resize";
+          else canvas.style.cursor = "ns-resize";
+        };
+        window.onmouseup = function () {
+          if (!chart) return;
+          panState.dragging = false;
+          panState.mode = null;
+          chart.canvas.style.cursor = "default";
+        };
+        canvas.onmousemove = function (ev) {
+          if (!chart) return;
+          const pos = getCanvasPos(ev);
+          const area = chart.chartArea;
+          if (!area) return;
+          if (!panState.dragging) {
+            const inPlot = pos.x >= area.left && pos.x <= area.right && pos.y >= area.top && pos.y <= area.bottom;
+            const inXBand = pos.y > area.bottom && pos.x >= area.left && pos.x <= area.right;
+            const inYBand = pos.x < area.left && pos.y >= area.top && pos.y <= area.bottom;
+            if (inXBand) canvas.style.cursor = "ew-resize";
+            else if (inYBand) canvas.style.cursor = "ns-resize";
+            else if (inPlot) canvas.style.cursor = "default";
+            else canvas.style.cursor = "default";
+            return;
+          }
+          const dx = pos.x - panState.startPxX;
+          const dy = pos.y - panState.startPxY;
+          const plotW = Math.max(1, area.right - area.left);
+          const plotH = Math.max(1, area.bottom - area.top);
+          const xRange = panState.startXMax - panState.startXMin;
+          const yRange = panState.startYMax - panState.startYMin;
+          if (panState.mode === "plot") {
+            xViewMin = panState.startXMin - (dx / plotW) * xRange;
+            xViewMax = panState.startXMax - (dx / plotW) * xRange;
+            yViewMin = panState.startYMin + (dy / plotH) * yRange;
+            yViewMax = panState.startYMax + (dy / plotH) * yRange;
+          } else if (panState.mode === "xband") {
+            const zoom = Math.exp((-dx / plotW) * 1.8);
+            const next = Math.max(6, xRange * zoom);
+            const center = (panState.startXMin + panState.startXMax) / 2;
+            xViewMin = center - next / 2;
+            xViewMax = center + next / 2;
+            yViewMin = panState.startYMin;
+            yViewMax = panState.startYMax;
+          } else if (panState.mode === "yband") {
+            const zoom = Math.exp((dy / plotH) * 1.8);
+            const next = Math.max(0.8, yRange * zoom);
+            const center = (panState.startYMin + panState.startYMax) / 2;
+            yViewMin = center - next / 2;
+            yViewMax = center + next / 2;
+            xViewMin = panState.startXMin;
+            xViewMax = panState.startXMax;
+          }
+          clampXWindow();
+          clampYWindow();
+          xViewMin = Math.round(xViewMin);
+          xViewMax = Math.round(xViewMax);
+          const x = chart.options.scales.x;
+          const y = chart.options.scales.y;
+          x.min = xViewMin;
+          x.max = xViewMax;
+          y.min = yViewMin;
+          y.max = yViewMax;
+          chart.update("none");
+        };
+        canvas.onwheel = function (ev) {
+          if (!chart) return;
+          const pos = getCanvasPos(ev);
+          const area = chart.chartArea;
+          if (!area) return;
+          const inYBand = pos.x < area.left && pos.y >= area.top && pos.y <= area.bottom;
+          const inXBand = pos.y > area.bottom && pos.x >= area.left && pos.x <= area.right;
+          const inPlot = pos.x >= area.left && pos.x <= area.right && pos.y >= area.top && pos.y <= area.bottom;
+          if (!(inYBand || inXBand || inPlot)) return;
+          ev.preventDefault();
+          // Pinça (trackpad/touch com 2 dedos): zoom simultâneo em X e Y.
+          if (ev.ctrlKey) {
+            const zoomIn = ev.deltaY < 0;
+            const factor = zoomIn ? 0.86 : 1.16;
+            const xRange = Math.max(1, xViewMax - xViewMin);
+            const yRange = Math.max(0.5, yViewMax - yViewMin);
+            const xRel = (Math.max(area.left, Math.min(area.right, pos.x)) - area.left) / Math.max(1, area.right - area.left);
+            const yRel = (Math.max(area.top, Math.min(area.bottom, pos.y)) - area.top) / Math.max(1, area.bottom - area.top);
+            const xCenter = xViewMin + xRange * xRel;
+            const yCenter = yViewMax - yRange * yRel;
+            const xNext = xRange * factor;
+            const yNext = yRange * factor;
+            xViewMin = Math.round(xCenter - xNext * xRel);
+            xViewMax = Math.round(xCenter + xNext * (1 - xRel));
+            yViewMin = yCenter - yNext * (1 - yRel);
+            yViewMax = yCenter + yNext * yRel;
+            clampXWindow();
+            clampYWindow();
+            const x = chart.options.scales.x;
+            const y = chart.options.scales.y;
+            x.min = xViewMin;
+            x.max = xViewMax;
+            y.min = yViewMin;
+            y.max = yViewMax;
+            chart.update();
+            return;
+          }
+          const zoomIn = ev.deltaY < 0;
+          const factor = zoomIn ? 0.86 : 1.16;
+
+          if (inXBand || inPlot) {
+            const xRange = Math.max(1, xViewMax - xViewMin);
+            const rel = (Math.max(area.left, Math.min(area.right, pos.x)) - area.left) / Math.max(1, area.right - area.left);
+            const center = xViewMin + xRange * rel;
+            const next = xRange * factor;
+            xViewMin = Math.round(center - next * rel);
+            xViewMax = Math.round(center + next * (1 - rel));
+            clampXWindow();
+          }
+          if (inYBand || inPlot) {
+            const yRange = Math.max(0.5, yViewMax - yViewMin);
+            const rel = (Math.max(area.top, Math.min(area.bottom, pos.y)) - area.top) / Math.max(1, area.bottom - area.top);
+            const center = yViewMax - yRange * rel;
+            const next = yRange * factor;
+            yViewMin = center - next * (1 - rel);
+            yViewMax = center + next * rel;
+            clampYWindow();
+          }
+          const x = chart.options.scales.x;
+          const y = chart.options.scales.y;
+          x.min = xViewMin;
+          x.max = xViewMax;
+          y.min = yViewMin;
+          y.max = yViewMax;
+          chart.update();
+        };
+      }
+
+      /* Painel "Análise · rede" — lógica desativada com o HTML; restaurar o bloco e a chamada updateChartInsightPanel em renderForStore.
+      function escapeInsightHtml(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+      function medianNumeric(arr) {
+        const s = arr
+          .filter(function (x) {
+            return Number.isFinite(x);
+          })
+          .sort(function (a, b) {
+            return a - b;
+          });
+        if (!s.length) return 0;
+        const m = Math.floor(s.length / 2);
+        return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+      }
+      function detectRapidSellthroughOnTimeline(tl) {
+        if (!tl || tl.length < 28) return null;
+        const recent = tl.slice(Math.max(0, tl.length - 110));
+        const n = recent.length;
+        let peak = 0;
+        for (let i = 0; i < n; i++) {
+          const ph = Number(recent[i].physicalStock) || 0;
+          if (ph > peak) peak = ph;
+        }
+        if (peak < 4) return null;
+        for (let i = 0; i < n - 4; i++) {
+          const p0 = Number(recent[i].physicalStock) || 0;
+          if (p0 < peak * 0.75) continue;
+          for (let j = i + 3; j <= Math.min(i + 22, n - 1); j++) {
+            const pj = Number(recent[j].physicalStock) || 0;
+            if (pj > peak * 0.42) continue;
+            let sold = 0;
+            for (let k = i; k <= j; k++) sold += Number(recent[k].sales) || 0;
+            if (sold >= Math.max(0.22 * peak, 0.45)) {
+              return { peak: peak, days: j - i, sold: sold };
+            }
+          }
+        }
+        return null;
+      }
+      function updateChartInsightPanel(bundle, currentStoreName, windowOpts, cdKey, isCdView) {
+        const el = document.getElementById("chartInsightBody");
+        if (!el) return;
+        if (!bundle || !bundle.results) {
+          el.innerHTML = "<p>Dados indisponíveis.</p>";
+          return;
+        }
+        const results = bundle.results;
+        const retailKeys = listRetailStoreKeys(results, cdKey);
+        if (!retailKeys.length) {
+          el.innerHTML = "<p>Sem lojas de varejo no bundle para comparar.</p>";
+          return;
+        }
+        const rows = [];
+        for (let i = 0; i < retailKeys.length; i++) {
+          const key = retailKeys[i];
+          let tl;
+          try {
+            tl = filterTimelineChartWindow(getTimeline(bundle, key), windowOpts);
+          } catch (e) {
+            continue;
+          }
+          if (!tl.length) continue;
+          const recent = tl.slice(Math.max(0, tl.length - 120));
+          let sumS = 0;
+          let daysAvail = 0;
+          let rup = 0;
+          for (let j = 0; j < recent.length; j++) {
+            const a = Number(recent[j].availableStock);
+            const s = Number(recent[j].sales) || 0;
+            sumS += s;
+            if (a > 0) daysAvail++;
+            if (a <= 0) rup++;
+          }
+          const denom = daysAvail > recent.length * 0.2 ? Math.max(1, daysAvail) : Math.max(1, recent.length);
+          const vel = sumS / denom;
+          const rupPct = (rup / recent.length) * 100;
+          const m = getMetrics(bundle, key);
+          const lostU = Number(m.lostUnits) || 0;
+          rows.push({ store: key, vel: vel, rupPct: rupPct, lostU: lostU, sumS: sumS });
+        }
+        if (!rows.length) {
+          el.innerHTML = "<p>Timelines de loja incompletos para análise.</p>";
+          return;
+        }
+        const vels = rows.map(function (r) {
+          return r.vel;
+        });
+        const med = medianNumeric(vels);
+        const parts = [];
+        parts.push(
+          "<p><strong>Vista:</strong> " +
+            escapeInsightHtml(currentStoreName) +
+            (isCdView ? " <span style=\"opacity:.85\">(hub)</span>" : "") +
+            "</p>"
+        );
+        let fastCount = 0;
+        for (let fi = 0; fi < retailKeys.length; fi++) {
+          let tlF;
+          try {
+            tlF = filterTimelineChartWindow(getTimeline(bundle, retailKeys[fi]), windowOpts);
+          } catch (eF) {
+            continue;
+          }
+          if (detectRapidSellthroughOnTimeline(tlF)) fastCount++;
+        }
+        const fastShare = retailKeys.length ? fastCount / retailKeys.length : 0;
+        if (!isCdView && retailKeys.indexOf(currentStoreName) >= 0) {
+          let tlCur;
+          try {
+            tlCur = filterTimelineChartWindow(getTimeline(bundle, currentStoreName), windowOpts);
+          } catch (eC) {
+            tlCur = [];
+          }
+          const hitCur = detectRapidSellthroughOnTimeline(tlCur);
+          if (hitCur) {
+            parts.push(
+              "<p><strong>Consumo rápido nesta loja:</strong> o físico chegou a ~<strong>" +
+                Math.round(hitCur.peak) +
+                " un</strong> e caiu com venda em ~<strong>" +
+                hitCur.days +
+                " dias</strong> — típico de <strong>SKU de giro veloz</strong>, com boa rentabilidade de capital e <strong>risco de falta</strong> se a recompra não acompanhar. <strong>Sugestão:</strong> ir <strong>aumentando o estoque mínimo</strong> e/ou o <strong>lote de reposição</strong> à medida que as vendas se confirmarem, em passos curtos, para não “apagar o fogo” só depois da ruptura.</p>"
+            );
+          }
+        }
+        if (fastShare >= 0.34 && fastCount >= 2 && retailKeys.length >= 3) {
+          parts.push(
+            "<p><strong>Giro rápido na rede:</strong> em várias lojas o padrão é <strong>entrada + esvaziamento em poucos dias</strong> — demanda de consumo relativamente rápida. Vale <strong>escalar cobertura com as vendas</strong> (mínimo e pedido) para capturar margem com <strong>baixo risco de encalhe</strong>, em vez de manter estoque “justo” demais.</p>"
+          );
+        } else if (isCdView && fastCount >= Math.max(2, Math.ceil(retailKeys.length * 0.3))) {
+          parts.push(
+            "<p><strong>Rede puxando rápido do hub:</strong> várias lojas mostram ciclos curtos de esvaziamento após reposição. Reforce <strong>antecipação de compra/CD</strong> e avalie <strong>subir parâmetros de cobertura</strong> conforme o giro se repetir — prioriza disponibilidade sem inflar ocioso de uma vez.</p>"
+          );
+        }
+        if (med > 0.02) {
+          const under = rows.filter(function (r) {
+            return r.vel < med * 0.42;
+          });
+          const over = rows.filter(function (r) {
+            return r.vel > med * 1.65;
+          });
+          if (under.length === 1) {
+            parts.push(
+              "<p>A loja <span class=\"tag-loja\">" +
+                escapeInsightHtml(under[0].store) +
+                "</span> está <strong>bem abaixo</strong> da mediana de giro (últimos ~120d) da rede. Pode ser exposição, vitrine, preço local ou ruptura frequente — vale checar PDV antes de concluir que o produto “não vende”.</p>"
+            );
+          } else if (under.length >= 2) {
+            parts.push(
+              "<p>Várias lojas <strong>abaixo</strong> da mediana de giro. Compare exposição e disponibilidade entre elas; o padrão pode ser operacional, não falta de demanda do SKU.</p>"
+            );
+          }
+          if (over.length >= 1 && under.length === 0 && rows.length >= 3) {
+            const top = over.slice().sort(function (a, b) {
+              return b.vel - a.vel;
+            })[0];
+            parts.push(
+              "<p><span class=\"tag-loja\">" +
+                escapeInsightHtml(top.store) +
+                "</span> lidera o giro na rede neste recorte — útil como <strong>referência</strong> de exposição e reposição.</p>"
+            );
+          }
+        }
+        const avgRup =
+          rows.reduce(function (a, r) {
+            return a + r.rupPct;
+          }, 0) / rows.length;
+        const sumLost = rows.reduce(function (a, r) {
+          return a + r.lostU;
+        }, 0);
+        if (avgRup > 24 && med > 0.035) {
+          parts.push(
+            "<p>Rede com <strong>ruptura frequente</strong> no período com giro não nulo — tende a pedir <strong>mais cobertura</strong> (pedido / ponto de reposição), não só “mais propaganda”.</p>"
+          );
+        }
+        if (sumLost > rows.length * 2 && med > 0.03) {
+          parts.push(
+            "<p>Soma de <strong>vendas perdidas</strong> nas lojas é alta frente ao giro — sinal de que <strong>compra ou política de estoque</strong> pode estar <strong>atrás da demanda</strong> que o histórico mostra.</p>"
+          );
+        }
+        if (isCdView) {
+          let cdTl;
+          try {
+            cdTl = filterTimelineChartWindow(getTimeline(bundle, currentStoreName), windowOpts);
+          } catch (e2) {
+            cdTl = [];
+          }
+          if (cdTl.length >= 40) {
+            const tail = cdTl.slice(-75);
+            let drops = 0;
+            for (let i = 1; i < tail.length; i++) {
+              const prev = Number(tail[i - 1].physicalStock) || 0;
+              const cur = Number(tail[i].physicalStock) || 0;
+              const s = Number(tail[i].sales) || 0;
+              if (prev > 4 && cur < prev * 0.5 && s > 0.15) drops++;
+            }
+            if (drops >= 6) {
+              parts.push(
+                "<p>No hub, o físico costuma <strong>cair em degraus</strong> com saídas — típico de <strong>rodagem rápida para lojas</strong>. Se a rede comprime estoque, antecipe reabastecimento.</p>"
+              );
+            }
+          }
+        }
+        if (parts.length <= 1) {
+          parts.push(
+            "<p>Pouca dispersão entre lojas ou dados curtos neste recorte. Use a barra lateral para inspecionar unidades e o gráfico para rupturas pontuais.</p>"
+          );
+        }
+        parts.push(
+          "<p class=\"chart-insight-note\">Resumo heurístico a partir dos timelines do bundle; complemente com visita à loja e indicadores comerciais locais.</p>"
+        );
+        el.innerHTML = parts.join("");
+      }
+      */
+
+      function renderForStore(storeName) {
+        const resultsRoot = (bundleRef && bundleRef.results) || {};
+        const cdKey = resolveCdStoreKey(resultsRoot);
+        const isCdView = Boolean(cdKey && storeName === cdKey);
+        const chartWindowOpts = { years: 2, excludeSundays: true };
+
+        const timelineRaw = getTimeline(bundleRef, storeName);
+        const metrics = getMetrics(bundleRef, storeName);
+        const timeline = filterTimelineChartWindow(timelineRaw, chartWindowOpts);
+        const labels = timeline.map((d) => d.date);
+        const brLabels = labels.map(toBR);
+
+        const vitrineFromMetric = Math.max(0, Number(metrics.vitrine) || 0);
+        const vitrine =
+          userVitrineManual != null && userVitrineManual !== "" && Number.isFinite(Number(userVitrineManual))
+            ? Math.max(0, Math.round(Number(userVitrineManual)))
+            : vitrineFromMetric;
+        const canon = buildCanonicalStockSeries(timeline, vitrine, !isCdView);
+        const disponivel = canon.disponivel;
+        const fisico = canon.fisico;
+        const legado = fisico.slice();
+        const fisicoSistema = timeline.map((d) => {
+          const v = Number(d.systemPhysicalStock);
+          if (!Number.isFinite(v)) return null;
+          return Math.max(0, v);
+        });
+        const sales = timeline.map((d) => {
+          const s = Number(d.sales);
+          return Number.isFinite(s) && s >= 0 ? s : 0;
+        });
+
+        let ltParams;
+        let p100;
+        let ltDaysOperational = 0;
+        const timelineMira = timelineWithCanonicalAvailable(timeline, disponivel);
+        if (isCdView) {
+          ltParams = getCdLtParams(SKU, metrics, storeName);
+          ltDaysOperational = operationalLeadTimeDaysCd(SKU, storeName, metrics, inferredLtMap);
+          /* Curvas da vista CD/Fábrica: Mira na própria timeline do CD com o LT operacional (manual ou inferido).
+             A soma Σ lojas era insensível ao LT do CD e deixava o gráfico igual ao mudar só o lead time do hub. */
+          p100 = computeMira100(timelineMira, WINDOW, ltDaysOperational);
+        } else {
+          ltParams = getLtParams(SKU, storeName, inferredLtMap);
+          ltDaysOperational = operationalLeadTimeDaysRetail(SKU, storeName, inferredLtMap);
+          p100 = computeMira100(timelineMira, WINDOW, ltDaysOperational);
+        }
+        const riskPack = computeVolatilityProtectionMultiplier(sales, disponivel, p100);
+        const ltSafetyFactor = Number.isFinite(userLtSafetyMultiplier) ? userLtSafetyMultiplier : LT_SAFETY_DEFAULT;
+        const p100WithLtSafety = scaleMira(p100, ltSafetyFactor);
+        const finalProtectionFactor = Math.max(
+          VOL_PROTECTION_MIN,
+          Math.min(VOL_PROTECTION_CAP, riskPack.factor)
+        );
+        const p100Protected = scaleMira(p100WithLtSafety, finalProtectionFactor);
+        const p10 = scaleMira(p100Protected, 0.1);
+        const p50 = scaleMira(p100Protected, 0.5);
+        const p150 = scaleMira(p100Protected, 1.5);
+        const p200 = scaleMira(p100Protected, 2.0);
+        const p400 = scaleMira(p100Protected, 4.0);
+        const p800 = scaleMira(p100Protected, 8.0);
+        const enc3 = scaleMira(p100Protected, 16.0);
+        const showEnc1ByDefault = shouldShowByProximityOrPass(p400, [disponivel, fisico, legado]);
+        const showEnc2ByDefault = shouldShowByProximityOrPass(p800, [disponivel, fisico, legado]);
+        const showEnc3ByDefault = shouldShowByProximityOrPass(enc3, [disponivel, fisico, legado]);
+
+        const idxToday = Math.max(0, timeline.length - 1);
+        const dispToday = Number(disponivel[idxToday]) || 0;
+        const fisToday = Number(fisico[idxToday]) || 0;
+        const p150Today = Number(p150[idxToday]) || 0;
+        const engineP150Row = Number(timeline[idxToday].p150);
+        const p150DenomStatus = Math.max(
+          p150Today,
+          Number.isFinite(engineP150Row) && engineP150Row > 0 ? engineP150Row : 0,
+          1e-9
+        );
+        const pctToday =
+          p150DenomStatus > 0 ? (dispToday / p150DenomStatus) * 100 : dispToday > 0 ? Infinity : 0;
+        const todayStatus = resolveStatusByPct(pctToday);
+
+        const ruptureDays = disponivel.reduce((acc, v) => acc + (Number(v) <= 0 ? 1 : 0), 0);
+        let ruptureRate;
+        if (isCdView) {
+          ruptureRate = computeRetailNetworkRuptureRatePct(bundleRef, cdKey, chartWindowOpts);
+        } else {
+          ruptureRate = timeline.length ? (ruptureDays / timeline.length) * 100 : 0;
+        }
+        const salesNoRupt = sales.filter((_, i) => Number(disponivel[i]) > 0);
+        const avgSalesNoRupt = robustMeanP95(salesNoRupt);
+        let lostUnits = 0;
+        for (let i = 0; i < timeline.length; i++) {
+          if (Number(disponivel[i]) > 0) continue;
+          lostUnits += Math.max(0, avgSalesNoRupt - sales[i]);
+        }
+        if (ruptureDays > 0 && lostUnits < 1) lostUnits = Math.max(1, avgSalesNoRupt * ruptureDays * 0.2);
+
+        document.getElementById("statusText").textContent = todayStatus.text;
+        document.getElementById("statusPill").className = "pill-status " + todayStatus.cls;
+        document.getElementById("kRup").textContent = ruptureRate.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%";
+        document.getElementById("kLost").textContent = Math.round(lostUnits).toLocaleString("pt-BR") + " un";
+        const minByMetric = Number(metrics.minStock);
+        const curveClass = resolveStoreCurveClass(metrics, sales, disponivel, p100Protected);
+        const minByCurve = getDefaultMinByCurve(curveClass);
+        const minComputed = Number.isFinite(minByMetric) && minByMetric > 0 ? Math.round(minByMetric) : minByCurve;
+        const minFinal =
+          userMinStockManual != null && userMinStockManual !== "" && Number.isFinite(Number(userMinStockManual))
+            ? Math.max(0, Math.round(Number(userMinStockManual)))
+            : minComputed;
+        const kMinInputEl = document.getElementById("kMinInput");
+        if (kMinInputEl) kMinInputEl.value = String(minFinal);
+        const kVitInputEl = document.getElementById("kVitInput");
+        if (kVitInputEl) kVitInputEl.value = String(vitrine);
+        const baseRepShown = Math.max(0, Math.round(p150Today - dispToday));
+        const retailKeysNet = listRetailStoreKeys(resultsRoot, cdKey);
+        let reposicaoComparavel = baseRepShown;
+        if (isCdView) {
+          /* Mira no CD: referência P150 (protegida); soma demanda das lojas; total nunca abaixo do estoque mínimo (piso no termo CD para manter CD+Lojas=Prod). */
+          const xLojas = sumRetailPositiveStockDemand(bundleRef, retailKeysNet, chartWindowOpts, inferredLtMap);
+          const rawSum = baseRepShown + xLojas;
+          const yTotal = Math.max(minFinal, rawSum);
+          const cdDisplay = baseRepShown + (yTotal - rawSum);
+          reposicaoComparavel = yTotal;
+          const tipCd = buildLojaDemandTooltip(bundleRef, retailKeysNet, chartWindowOpts, inferredLtMap);
+          setRepCardRetailProd(cdDisplay, xLojas, yTotal, tipCd);
+        } else {
+          let demR = baseRepShown;
+          if (demR < minFinal) demR = Math.max(0, minFinal - demR);
+          reposicaoComparavel = demR;
+          const disR = Math.round(dispToday);
+          const sugR = demR + disR;
+          setRepCardStoreOnly(sugR, disR, demR);
+        }
+        if (isCdView && Number.isFinite(coceoTotalFromUrl) && Number.isFinite(coceoBaseFromUrl) && Number.isFinite(coceoStoreFromUrl)) {
+          let qb = Math.max(0, Math.round(coceoBaseFromUrl));
+          const qs = Math.max(0, Math.round(coceoStoreFromUrl));
+          let qt = Math.max(0, Math.round(coceoTotalFromUrl));
+          const rawUrl = qb + qs;
+          qt = Math.max(minFinal, rawUrl, qt);
+          qb = qb + (qt - rawUrl);
+          reposicaoComparavel = qt;
+          const tipUrl = buildLojaDemandTooltip(bundleRef, retailKeysNet, chartWindowOpts, inferredLtMap);
+          setRepCardRetailProd(qb, qs, qt, tipUrl);
+        }
+        const sugestaoLegado =
+          Number.isFinite(legacySuggestedFromUrl)
+            ? Math.round(legacySuggestedFromUrl)
+            : (Number.isFinite(Number(legacySuggestionQty)) ? Math.round(Number(legacySuggestionQty)) : null);
+        const statusPct = Number.isFinite(pctToday) ? pctToday : 0;
+        document.getElementById("kSug").textContent = sugestaoLegado != null ? sugestaoLegado + " un" : "--";
+        const fisStrip = Math.round(fisToday);
+        const dispStrip = Math.round(dispToday);
+        const vitStrip = Math.max(0, fisStrip - dispStrip);
+        document.getElementById("fis").textContent = String(fisStrip);
+        document.getElementById("vit").textContent = String(vitStrip);
+        document.getElementById("disp").textContent = String(dispStrip);
+        const dispPctEl = document.getElementById("dispPct");
+        if (dispPctEl) {
+          dispPctEl.textContent =
+            " (" +
+            statusPct.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) +
+            "%)";
+        }
+
+        const info = bundleRef.info || {};
+        const baseTitle = (info.code || "12159") + " · " + (info.name || "Produto");
+        document.getElementById("titleLine").textContent = baseTitle + " · " + storeName;
+        const divergencia = sugestaoLegado != null ? Math.round(reposicaoComparavel - sugestaoLegado) : null;
+        const divergenciaTxt =
+          divergencia == null
+            ? "Divergência (reposição - sugestão legado): n/d"
+            : "Divergência (reposição - sugestão legado): " +
+              (divergencia > 0 ? "+" : "") +
+              divergencia.toLocaleString("pt-BR") +
+              " un";
+        const statusPctTxt = "Status vs Mira150 protegido: " + statusPct.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%";
+        const sub = document.getElementById("subTitle");
+        if (sub && transferContext.active) {
+          const parts = [];
+          if (transferContext.transferQty != null) parts.push("Entrada loja (transferência): " + Math.round(transferContext.transferQty) + " un");
+          if (transferContext.cdOutTotal != null) parts.push("Saída total CD na transferência: " + Math.round(transferContext.cdOutTotal) + " un");
+          if (transferContext.transferDate) {
+            const d = new Date(transferContext.transferDate);
+            parts.push("Data transferência: " + (Number.isNaN(d.getTime()) ? transferContext.transferDate : d.toLocaleString("pt-BR")));
+          }
+          if (transferContext.cdStatus) parts.push("Status atual do CD: " + transferContext.cdStatus);
+          if (transferContext.destStore && isCdView) parts.push("Loja destino: " + transferContext.destStore);
+          if (legacySuggestionBatch) parts.push("Lote legado: " + legacySuggestionBatch);
+          parts.push(statusPctTxt);
+          parts.push(divergenciaTxt);
+          sub.textContent = parts.join(" · ");
+        } else if (sub) {
+          sub.textContent = statusPctTxt + " · " + divergenciaTxt;
+        }
+
+        const yFocusMaxRaw = Math.max(
+          maxFinite(disponivel),
+          maxFinite(fisico),
+          maxFinite(legado),
+          maxFinite(fisicoSistema),
+          maxFinite(p200)
+        );
+        const yFocusMax = Math.max(6, Math.ceil((yFocusMaxRaw + 1) * 1.12));
+        const yFocusMinRaw = Math.min(
+          0,
+          Math.min.apply(null, disponivel.concat(fisico, legado, fisicoSistema).filter((v) => Number.isFinite(v)))
+        );
+        const yFocusMin = Math.floor(yFocusMinRaw - 0.8);
+        yBaseMin = yFocusMin;
+        yBaseMax = yFocusMax;
+        yViewMin = yFocusMin;
+        yViewMax = yFocusMax;
+        xBaseMin = 0;
+        xBaseMax = Math.max(0, labels.length - 1);
+        xViewMin = xBaseMin;
+        xViewMax = xBaseMax;
+
+        const datasets = [
+          { label: "Disponível", data: disponivel, borderColor: "#3b82f6", backgroundColor: "transparent", borderWidth: 3.5, ...commonStock },
+          { label: "Físico", data: fisico, borderColor: "#f1f5f9", borderDash: [4, 4], borderWidth: 2, ...commonStock },
+          { label: "Legado oficial", data: legado, borderColor: "#8b5cf6", borderDash: [6, 4], borderWidth: 1.2, ...commonStock },
+          { label: "Físico sistema (hist)", data: fisicoSistema, borderColor: "#f97316", borderDash: [2, 2], borderWidth: 1.5, ...commonStock },
+          { label: "RUPTURA", data: p10, borderColor: "#000000", backgroundColor: "rgba(0, 0, 0, 0.6)", borderWidth: 2.5, fill: "start", ...commonZone },
+          { label: "CRÍTICO", data: p50, borderColor: "#ef4444", borderWidth: 1.2, ...commonZone },
+          { label: "ABAIXO", data: p100Protected, borderColor: "#fbbf24", borderWidth: 1.25, ...commonZone },
+          { label: "ACIMA", data: p150, borderColor: "#10b981", borderWidth: 1.2, ...commonZone },
+          { label: "MUITO ACIMA", data: p200, borderColor: "#38bdf8", borderWidth: 1.2, ...commonZone },
+          { label: "ENCALHADO 1", data: p400, borderColor: "#a78bfa", borderWidth: 1.2, hidden: !showEnc1ByDefault, ...commonZone, spanGaps: true },
+          { label: "ENCALHADO 2", data: p800, borderColor: "#7c3aed", borderWidth: 1.2, hidden: !showEnc2ByDefault, ...commonZone, spanGaps: true },
+          { label: "ENCALHADO 3", data: enc3, borderColor: "#4c1d95", borderDash: [3, 3], borderWidth: 1.2, hidden: !showEnc3ByDefault, ...commonZone, spanGaps: true },
+        ];
+        if (chart) chart.destroy();
+        chart = new Chart(ctx, {
+          type: "line",
+          data: { labels: brLabels, datasets },
+          plugins: [pluginNearestRelevantZone],
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: "nearest", intersect: false, axis: "xy" },
+            hover: { mode: "nearest", intersect: false, axis: "xy" },
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: { boxWidth: 10, boxHeight: 10, padding: 10, font: { size: 10, family: "'DM Sans'" }, usePointStyle: true },
+              },
+              tooltip: {
+                mode: "nearest",
+                intersect: false,
+                axis: "xy",
+                filter: (ctx) => {
+                  const active = chart.getActiveElements();
+                  if (!active || !active.length) return false;
+                  return ctx.datasetIndex === active[0].datasetIndex && ctx.dataIndex === active[0].index;
+                },
+                animation: { duration: 120 },
+                titleFont: { family: "'DM Sans'", size: 12, weight: "600" },
+                bodyFont: { family: "'JetBrains Mono'", size: 13 },
+                displayColors: true,
+                boxPadding: 6,
+                callbacks: {
+                  title: (items) => (items[0] ? String(items[0].label) : ""),
+                  label: (ctx) => {
+                    const v = ctx.parsed.y;
+                    const lbl = ctx.dataset.label || "";
+                    const intSeries = lbl.startsWith("Disponível") || lbl.startsWith("Físico") || lbl.startsWith("Legado");
+                    const s = typeof v === "number"
+                      ? intSeries
+                        ? String(Math.round(v))
+                        : v.toLocaleString("pt-BR", { maximumFractionDigits: 3 })
+                      : String(v);
+                    return `${lbl}: ${s}`;
+                  },
+                  footer: () => "",
+                },
+              },
+            },
+            scales: {
+              x: {
+                ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8, color: "#cbd5e1", font: { size: 10 } },
+                grid: { color: "rgba(218, 177, 119, 0.045)", lineWidth: 0.55, drawBorder: false },
+                border: { color: "rgba(248, 250, 252, 0.35)", width: 0.8 },
+              },
+              y: {
+                min: yViewMin,
+                max: yViewMax,
+                grid: { color: "rgba(218, 177, 119, 0.045)", lineWidth: 0.55, drawBorder: false },
+                ticks: { color: "#cbd5e1", font: { size: 10 } },
+                border: { color: "rgba(248, 250, 252, 0.35)", width: 0.8 },
+              },
+            },
+          },
+        });
+        const salesMm6 = movingAverage(sales, 6);
+        if (salesChart) salesChart.destroy();
+        salesChart = new Chart(ctxSales, {
+          type: "line",
+          data: {
+            labels: brLabels,
+            datasets: [
+              {
+                label: "Vendas diárias",
+                data: sales,
+                borderColor: "#f59e0b",
+                backgroundColor: "rgba(245, 158, 11, 0.12)",
+                borderWidth: 1.5,
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                tension: 0,
+                spanGaps: true,
+              },
+              {
+                label: "MM6 (semanal)",
+                data: salesMm6,
+                borderColor: "#fb7185",
+                backgroundColor: "transparent",
+                borderWidth: 2.2,
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                tension: 0.18,
+                spanGaps: true,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: "index", intersect: false },
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: { boxWidth: 10, boxHeight: 10, padding: 10, font: { size: 10, family: "'DM Sans'" }, usePointStyle: true },
+              },
+              tooltip: {
+                mode: "index",
+                intersect: false,
+                callbacks: {
+                  title: (items) => (items[0] ? String(items[0].label) : ""),
+                  label: (ctxTip) => {
+                    const v = Number(ctxTip.parsed.y || 0);
+                    return `${ctxTip.dataset.label}: ${v.toLocaleString("pt-BR", { maximumFractionDigits: 2 })}`;
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 8, color: "#cbd5e1", font: { size: 10 } },
+                grid: { color: "rgba(218, 177, 119, 0.04)", lineWidth: 0.5, drawBorder: false },
+                border: { color: "rgba(248, 250, 252, 0.30)", width: 0.8 },
+              },
+              y: {
+                min: 0,
+                ticks: { color: "#cbd5e1", font: { size: 10 } },
+                grid: { color: "rgba(218, 177, 119, 0.04)", lineWidth: 0.5, drawBorder: false },
+                border: { color: "rgba(248, 250, 252, 0.30)", width: 0.8 },
+              },
+            },
+          },
+        });
+
+        chart.setDatasetVisibility(4, true);
+        chart.setDatasetVisibility(5, true);
+        chart.setDatasetVisibility(6, true);
+        chart.setDatasetVisibility(7, true);
+        chart.setDatasetVisibility(8, true); // MUITO ACIMA sempre visível
+        chart.setDatasetVisibility(9, showEnc1ByDefault);
+        chart.setDatasetVisibility(10, showEnc2ByDefault);
+        chart.setDatasetVisibility(11, showEnc3ByDefault);
+        chart.update();
+        installPanZoomHandlers();
+
+        const _ltDaysIn = document.getElementById("ltDaysInput");
+        const _ltDaysLab = document.getElementById("ltDaysVal");
+        if (_ltDaysIn) _ltDaysIn.value = String(ltDaysOperational);
+        if (_ltDaysLab) _ltDaysLab.textContent = "dias";
+        // updateChartInsightPanel(bundleRef, storeName, chartWindowOpts, cdKey, isCdView);
+      }
+
+      Chart.defaults.color = "#94a3b8";
+      Chart.defaults.borderColor = "rgba(218, 177, 119, 0.12)";
+      const ltDaysInputEl = document.getElementById("ltDaysInput");
+      const ltDaysValEl = document.getElementById("ltDaysVal");
+      const ltDaysResetEl = document.getElementById("ltDaysReset");
+
+      const reactRangeEl = document.getElementById("reactRange");
+      const reactValEl = document.getElementById("reactVal");
+      const seasonRangeEl = document.getElementById("seasonRange");
+      const seasonValEl = document.getElementById("seasonVal");
+      const kMinInputEl = document.getElementById("kMinInput");
+      const kVitInputEl = document.getElementById("kVitInput");
+      const presetSelectEl = document.getElementById("presetSelect");
+      const setPreset = function (presetName, shouldRender) {
+        const p = PRESET_MAP[presetName];
+        if (!p) return;
+        userPreset = presetName;
+        userLtSafetyMultiplier = p.ltSafetyMultiplier;
+
+        userReactHalfLife = p.reactHalfLife;
+        userSeasonBlend = p.seasonBlend;
+        saveUserTuning(currentStore);
+        syncProtectionUi();
+        if (shouldRender && bundleRef) renderForStore(currentStore);
+      };
+      const syncProtectionUi = function () {
+        if (reactValEl) reactValEl.textContent = Math.round(userReactHalfLife) + "d";
+        if (reactRangeEl) reactRangeEl.value = String(Math.round(userReactHalfLife));
+        if (seasonValEl) seasonValEl.textContent = userSeasonBlend.toFixed(2);
+        if (seasonRangeEl) seasonRangeEl.value = String(userSeasonBlend.toFixed(2));
+        if (presetSelectEl) presetSelectEl.value = userPreset;
+      };
+      let ltDaysInputDebounce = null;
+      if (ltDaysInputEl) {
+        const applyLtDaysFromInput = function () {
+          const raw = Number(ltDaysInputEl.value);
+          if (!Number.isFinite(raw)) return;
+          userLeadTimeDays = Math.max(LT_DAYS_MIN, Math.min(LT_DAYS_MAX, Math.round(raw)));
+          ltDaysInputEl.value = String(userLeadTimeDays);
+          userPreset = "custom";
+          saveUserTuning(currentStore);
+          syncProtectionUi();
+          if (bundleRef) renderForStore(currentStore);
+        };
+        ltDaysInputEl.addEventListener("change", applyLtDaysFromInput);
+        ltDaysInputEl.addEventListener("input", function () {
+          clearTimeout(ltDaysInputDebounce);
+          ltDaysInputDebounce = setTimeout(applyLtDaysFromInput, 200);
+        });
+        ltDaysInputEl.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter") {
+            ev.preventDefault();
+            clearTimeout(ltDaysInputDebounce);
+            applyLtDaysFromInput();
+          }
+        });
+      }
+      if (ltDaysResetEl) {
+        ltDaysResetEl.addEventListener("click", function () {
+          if (ltDaysInputDebounce) clearTimeout(ltDaysInputDebounce);
+          userLeadTimeDays = null;
+          userPreset = "custom";
+          saveUserTuning(currentStore);
+          syncProtectionUi();
+          if (bundleRef) renderForStore(currentStore);
+        });
+      }
+
+      if (reactRangeEl) {
+        reactRangeEl.addEventListener("input", function () {
+          const v = Number(this.value);
+          userReactHalfLife = Number.isFinite(v) ? Math.max(8, Math.min(90, v)) : MIRA_EMA_HALF_LIFE_DAYS;
+          userPreset = "custom";
+          saveUserTuning(currentStore);
+          syncProtectionUi();
+          if (bundleRef) renderForStore(currentStore);
+        });
+      }
+      if (seasonRangeEl) {
+        seasonRangeEl.addEventListener("input", function () {
+          const v = Number(this.value);
+          userSeasonBlend = Number.isFinite(v) ? Math.max(0, Math.min(0.8, v)) : 0.45;
+          userPreset = "custom";
+          saveUserTuning(currentStore);
+          syncProtectionUi();
+          if (bundleRef) renderForStore(currentStore);
+        });
+      }
+      if (presetSelectEl) {
+        presetSelectEl.addEventListener("change", function () {
+          const v = String(this.value || "custom");
+          if (v === "custom") {
+            userPreset = "custom";
+            saveUserTuning(currentStore);
+            syncProtectionUi();
+            return;
+          }
+          setPreset(v, true);
+        });
+      }
+      const kMinUpEl = document.getElementById("kMinUp");
+      const kMinDownEl = document.getElementById("kMinDown");
+      const kVitUpEl = document.getElementById("kVitUp");
+      const kVitDownEl = document.getElementById("kVitDown");
+      function applyKMinFromField() {
+        if (!kMinInputEl) return;
+        const v = Number(kMinInputEl.value);
+        if (!Number.isFinite(v) || v < 0) {
+          userMinStockManual = null;
+          kMinInputEl.value = "";
+        } else {
+          userMinStockManual = Math.round(v);
+          kMinInputEl.value = String(userMinStockManual);
+        }
+        userPreset = "custom";
+        saveUserTuning(currentStore);
+        if (bundleRef) renderForStore(currentStore);
+      }
+      function nudgeKMin(delta) {
+        if (!kMinInputEl) return;
+        let cur = Number(kMinInputEl.value);
+        if (!Number.isFinite(cur) || cur < 0) cur = userMinStockManual != null ? Number(userMinStockManual) : 0;
+        cur = Math.max(0, Math.round(cur) + delta);
+        userMinStockManual = cur;
+        kMinInputEl.value = String(cur);
+        userPreset = "custom";
+        saveUserTuning(currentStore);
+        if (bundleRef) renderForStore(currentStore);
+      }
+      if (kMinInputEl) {
+        kMinInputEl.addEventListener("change", applyKMinFromField);
+      }
+      if (kMinUpEl) {
+        kMinUpEl.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          nudgeKMin(1);
+        });
+      }
+      if (kMinDownEl) {
+        kMinDownEl.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          nudgeKMin(-1);
+        });
+      }
+      function applyKVitFromField() {
+        if (!kVitInputEl) return;
+        const v = Number(kVitInputEl.value);
+        if (!Number.isFinite(v) || v < 0) {
+          userVitrineManual = null;
+          kVitInputEl.value = "";
+        } else {
+          userVitrineManual = Math.round(v);
+          kVitInputEl.value = String(userVitrineManual);
+        }
+        userPreset = "custom";
+        saveUserTuning(currentStore);
+        if (bundleRef) renderForStore(currentStore);
+      }
+      function nudgeKVit(delta) {
+        if (!kVitInputEl) return;
+        let cur = Number(kVitInputEl.value);
+        if (!Number.isFinite(cur) || cur < 0) cur = userVitrineManual != null ? Number(userVitrineManual) : 0;
+        cur = Math.max(0, Math.round(cur) + delta);
+        userVitrineManual = cur;
+        kVitInputEl.value = String(cur);
+        userPreset = "custom";
+        saveUserTuning(currentStore);
+        if (bundleRef) renderForStore(currentStore);
+      }
+      if (kVitInputEl) {
+        kVitInputEl.addEventListener("change", applyKVitFromField);
+      }
+      if (kVitUpEl) {
+        kVitUpEl.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          nudgeKVit(1);
+        });
+      }
+      if (kVitDownEl) {
+        kVitDownEl.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          nudgeKVit(-1);
+        });
+      }
+      syncProtectionUi();
+
+
+      const storeListEl = document.getElementById("storeList");
+      if (storeListEl) {
+        storeListEl.addEventListener("click", function (ev) {
+          const btn = ev.target.closest(".store-item");
+          if (!btn) return;
+          const all = storeListEl.querySelectorAll(".store-item");
+          for (let i = 0; i < all.length; i++) all[i].classList.remove("active");
+          btn.classList.add("active");
+          let storeName = btn.getAttribute("data-store") || "";
+          if (btn.classList.contains("hub")) {
+            const cdKey = bundleRef ? resolveCdStoreKey(bundleRef.results || {}) : null;
+            if (!cdKey) {
+              document.getElementById("titleLine").textContent =
+                "CD/Fábrica: nenhuma chave com timeline no bundle (esperado: Fábrica).";
+              return;
+            }
+            storeName = cdKey;
+          }
+          currentStore = storeName || DEFAULT_STORE;
+          const t = loadUserTuning(currentStore);
+          userLtSafetyMultiplier = t.ltSafetyMultiplier;
+          userReactHalfLife = t.reactHalfLife;
+          userSeasonBlend = t.seasonBlend;
+          userMinStockManual = t.minStockManual;
+          userVitrineManual = t.vitrineManual;
+          userLeadTimeDays = t.leadTimeDays;
+          userPreset = t.preset || "custom";
+          syncProtectionUi();
+          try {
+            renderForStore(currentStore);
+          } catch (e) {
+            document.getElementById("titleLine").textContent =
+              "Erro ao renderizar loja " + currentStore + " · " + String((e && e.message) || e || "");
+          }
+          if (bundleRef) {
+            const cdKeySide = resolveCdStoreKey(bundleRef.results || {});
+            const storeForLegacyFetch = currentStore;
+            const retailLegacy =
+              cdKeySide && storeForLegacyFetch === cdKeySide ? null : storeForLegacyFetch;
+            const liveCacheKey = legacyCacheKeyForStore(storeForLegacyFetch, cdKeySide);
+            if (legacyLivePatchedKeys.has(liveCacheKey)) return;
+            const seq = ++legacyLiveRequestId;
+            refreshBundleWithLegacyYesterday(bundleRef, SKU, retailLegacy)
+              .then(function (live) {
+                if (seq !== legacyLiveRequestId) return;
+                if (currentStore !== storeForLegacyFetch) return;
+                const prevQty = legacySuggestionQty;
+                const prevBatch = legacySuggestionBatch;
+                if (live && live.legacyProduction) {
+                  legacySuggestionQty = Number(live.legacyProduction.suggested_qty);
+                  legacySuggestionBatch =
+                    live.legacyProduction.batch_id != null ? String(live.legacyProduction.batch_id) : null;
+                } else {
+                  legacySuggestionQty = null;
+                  legacySuggestionBatch = null;
+                }
+                if (live && (live.patched || Number(live.historyPoints || 0) > 0)) {
+                  legacyLivePatchedKeys.add(liveCacheKey);
+                }
+                const changedLegacySuggestion = legacySuggestionQty !== prevQty || legacySuggestionBatch !== prevBatch;
+                const changedTimeline = Boolean(live && (live.patched || Number(live.historyPoints || 0) > 0));
+                if (!changedLegacySuggestion && !changedTimeline) return;
+                try {
+                  renderForStore(currentStore);
+                } catch (e2) {
+                  document.getElementById("titleLine").textContent =
+                    "Erro ao atualizar legado · " + String((e2 && e2.message) || e2 || "");
+                }
+              })
+              .catch(function () {});
+          }
+        });
+      }
+
+      loadBundle(SKU)
+        .then(function (bundle) {
+          const leg = resolveLegacyStoreKeyForBundle(bundle);
+          return refreshBundleWithLegacyYesterday(
+            bundle,
+            SKU,
+            leg.isHub ? null : leg.storeKey
+          ).then(function (live) {
+            return { bundle: bundle, live: live, leg: leg };
+          });
+        })
+        .then(function (ctxPayload) {
+          const bundle = ctxPayload.bundle;
+          const live = ctxPayload.live || {};
+          const leg = ctxPayload.leg || { isHub: false, storeKey: null };
+          bundleRef = bundle;
+          inferredLtMap = inferLtByStore(bundleRef);
+          if (live && live.legacyProduction) {
+            legacySuggestionQty = Number(live.legacyProduction.suggested_qty);
+            legacySuggestionBatch =
+              live.legacyProduction.batch_id != null ? String(live.legacyProduction.batch_id) : null;
+          } else {
+            legacySuggestionQty = null;
+            legacySuggestionBatch = null;
+          }
+          if (live && (live.patched || Number(live.historyPoints || 0) > 0)) {
+            const cacheKey = legacyCacheKeyForStore(leg.storeKey, leg.isHub ? leg.storeKey : null);
+            legacyLivePatchedKeys.add(cacheKey);
+          }
+          if (live.patched) {
+            const note = " · legado D-1 aplicado em " + String(live.patchedCount || 0) + " unidades";
+            const subtitle = document.getElementById("subTitle");
+            if (subtitle) subtitle.textContent = (subtitle.textContent || "") + note;
+          }
+          const results = (bundle && bundle.results) || {};
+          const allStores = Object.keys(results);
+          const CD_NAMES = new Set(["Fábrica", "CD SARON"]);
+          const stores = allStores.filter((s) => !CD_NAMES.has(s));
+          const cdKey = resolveCdStoreKey(results);
+          const storeFromUrlResolved = storeFromUrl ? findStoreKeyByName(results, storeFromUrl) : null;
+          if (storeFromUrlResolved) {
+            currentStore = storeFromUrlResolved;
+          } else if (hubFromUrl && cdKey) {
+            currentStore = cdKey;
+          }
+          const storeList = document.getElementById("storeList");
+          if (storeList) {
+            const hubBtn = storeList.querySelector(".store-item.hub");
+            storeList.innerHTML = "";
+            if (hubBtn) {
+              hubBtn.className = "store-item hub" + (cdKey && currentStore === cdKey ? " active" : "");
+              storeList.appendChild(hubBtn);
+            }
+            for (let i = 0; i < stores.length; i++) {
+              const s = stores[i];
+              const b = document.createElement("button");
+              b.type = "button";
+              b.className = "store-item" + (s === currentStore ? " active" : "");
+              b.setAttribute("data-store", s);
+              b.textContent = s;
+              storeList.appendChild(b);
+            }
+          }
+          const resultStores = new Set(stores);
+          if (cdKey) resultStores.add(cdKey);
+          if (!resultStores.has(currentStore)) {
+            const firstStore = stores[0];
+            if (firstStore) currentStore = firstStore;
+          }
+          const t = loadUserTuning(currentStore);
+          userLtSafetyMultiplier = t.ltSafetyMultiplier;
+          userReactHalfLife = t.reactHalfLife;
+          userSeasonBlend = t.seasonBlend;
+          userMinStockManual = t.minStockManual;
+          userVitrineManual = t.vitrineManual;
+          userLeadTimeDays = t.leadTimeDays;
+          userPreset = t.preset || "custom";
+          syncProtectionUi();
+          try {
+            renderForStore(currentStore);
+          } catch (e) {
+            const fallbackStore = Object.keys((bundle && bundle.results) || {})[0];
+            if (fallbackStore && fallbackStore !== currentStore) {
+              currentStore = fallbackStore;
+              const tf = loadUserTuning(currentStore);
+              userLtSafetyMultiplier = tf.ltSafetyMultiplier;
+              userReactHalfLife = tf.reactHalfLife;
+              userSeasonBlend = tf.seasonBlend;
+              userMinStockManual = tf.minStockManual;
+              userVitrineManual = tf.vitrineManual;
+              userLeadTimeDays = tf.leadTimeDays;
+              userPreset = tf.preset || "custom";
+              syncProtectionUi();
+              renderForStore(currentStore);
+            } else {
+              throw e;
+            }
+          }
+        })
+        .catch(function (err) {
+          const msg = (err && err.message) ? String(err.message) : String(err || "");
+          document.getElementById("titleLine").textContent =
+            "Falha ao carregar bundle do produto ID " +
+            SKU +
+            " (data/js/sku_" +
+            SKU +
+            ".js). " +
+            (msg ? "Detalhe: " + msg + " · " : "") +
+            "Abra o Catálogo para escolher outro SKU ou rode o pipeline (npm run sync:apollo-full).";
+        });
+    })();
+  </script>
+</body>
+</html>

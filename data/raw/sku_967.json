@@ -1,0 +1,96 @@
+{
+  "info": {
+    "id": 967,
+    "code": "17",
+    "name": "TEC BLACK PVC LISO 1.40 MT AZUL BB",
+    "timestamp": "2026-04-30T11:30:23.723Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 300,
+        "data_evento": "2024-02-23T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 74.60000000000002,
+        "data_evento": "2024-02-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 105.00000000000006,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 38.00000000000003,
+        "data_evento": "2024-05-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 7.6,
+        "data_evento": "2024-06-17T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 65.6,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 28.599999999999966,
+        "data_evento": "2024-08-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 47.99999999999994,
+        "data_evento": "2024-09-25T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3.000000000000057,
+        "data_evento": "2024-12-04T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2025-02-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2025-03-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.999999999999943,
+        "data_evento": "2025-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 112.00000000000006,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

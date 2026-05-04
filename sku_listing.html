@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSpin - Monitor de SKUs Críticos</title>
+    <link rel="stylesheet" href="sku_listing.css">
+</head>
+<body>
+    <header>
+        <h1>Estoque Crítico</h1>
+        <p class="subtitle">SKUs com menos de 10 unidades em fábrica</p>
+    </header>
+
+    <main class="container">
+        <table class="sku-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Produto</th>
+                    <th>Estoque</th>
+                    <th>Vendas (Geral)</th>
+                </tr>
+            </thead>
+            <tbody id="sku-body">
+                <!-- Data will be injected here -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Import data -->
+    <script src="data/replenishment_balance.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.getElementById('sku-body');
+            
+            if (typeof APOLLO_REPLENISHMENT_DATA === 'undefined') {
+                body.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 2rem;">Erro ao carregar dados.</td></tr>';
+                return;
+            }
+
+            const skus = Object.values(APOLLO_REPLENISHMENT_DATA);
+            
+            // Filter: estoque < 10
+            const criticalSkus = skus.filter(sku => sku.factoryStock < 10);
+
+            if (criticalSkus.length === 0) {
+                body.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 2rem;">Nenhum SKU crítico encontrado.</td></tr>';
+                return;
+            }
+
+            criticalSkus.forEach((sku, index) => {
+                const row = document.createElement('tr');
+                row.className = 'sku-row';
+                row.style.animationDelay = `${index * 0.05}s`;
+                
+                row.innerHTML = `
+                    <td class="sku-id">#${sku.id}</td>
+                    <td class="sku-name" title="${sku.name}">${sku.name}</td>
+                    <td class="sku-stock">${sku.factoryStock.toFixed(0)}</td>
+                    <td class="sku-sales">${sku.totalSales.toLocaleString('pt-BR')}</td>
+                `;
+                
+                body.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

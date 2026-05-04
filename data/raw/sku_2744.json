@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 2744,
+    "code": "11810",
+    "name": "DUPLEX 2,60X1,80 BORD L RAMO FOLHAS PER/PEROLA",
+    "timestamp": "2026-04-30T11:35:26.551Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-16T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

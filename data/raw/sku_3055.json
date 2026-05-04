@@ -1,0 +1,80 @@
+{
+  "info": {
+    "id": 3055,
+    "code": "12115",
+    "name": "TAPETE 0,90X1,40 VS OMEGA LARANJA",
+    "timestamp": "2026-04-30T11:36:18.679Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

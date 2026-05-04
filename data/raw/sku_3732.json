@@ -1,0 +1,1882 @@
+{
+  "info": {
+    "id": 3732,
+    "code": "12903",
+    "name": "CORTINA LUX DUAL LINHO BORDADO TRIGOS PRATA 4.00X2.60",
+    "timestamp": "2026-04-30T11:38:08.722Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-19T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-25T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-28T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-28T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Fábrica": [
+      {
+        "quantidade": 30,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-24T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-27T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-03-06T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-06T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-06T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-03-06T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-10T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-03-19T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-25T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 10,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-03-28T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-22T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 8,
+        "data_evento": "2025-04-22T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-29T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-05-05T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-12T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-12T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 8,
+        "data_evento": "2025-05-16T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-19T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-05-21T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-22T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-26T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-05T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-06-09T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-09T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-09T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2025-06-18T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-23T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-23T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-30T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-07T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2025-07-10T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 4,
+        "data_evento": "2025-07-10T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-10T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-17T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-21T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-24T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2025-07-31T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2025-08-07T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-07T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-08-11T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2025-08-11T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-13T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-13T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-19T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-21T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-25T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-01T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-01T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 7,
+        "data_evento": "2025-09-03T03:00:00.000Z",
+        "natureza": "Entrada Produção",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-11T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-02T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Eldorado 2": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-24T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-09T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-24T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-18T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-08-11T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-13T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-11-03T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-11-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-24T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-11-03T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-10T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-12T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-22T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-06T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-10T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-01T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-25T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-24T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-24T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-16T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-22T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-18T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-01T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-21T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-09-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-19T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-19T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-25T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-11-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-27T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-03-10T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-04-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-12T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-09T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-24T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-18T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-26T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-01T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-29T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-10-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-10-11T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-02T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-07-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-07T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-21T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-25T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Tupis": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-02-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-13T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-31T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-05-05T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-19T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-03T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-08T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-12-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

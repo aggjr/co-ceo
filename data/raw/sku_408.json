@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 408,
+    "code": "10838",
+    "name": "JOGO DE CAMA QUEEN 150 FIOS SIMPLES DELICATA 3PS",
+    "timestamp": "2026-04-30T11:28:41.899Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 409,
+    "code": "10839",
+    "name": "JOGO DE CAMA SOLT 150 FIOS SIMPLES DELICATA 2PS",
+    "timestamp": "2026-04-30T11:28:42.061Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

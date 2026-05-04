@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1939,
+    "code": "K561",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 561",
+    "timestamp": "2026-04-30T11:33:09.286Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

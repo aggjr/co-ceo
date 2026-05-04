@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 4217,
+    "code": "13354",
+    "name": "TOALHA DE MESA RUSTICA 1,40X1,40 BT",
+    "timestamp": "2026-04-30T11:39:24.903Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 2,
+        "data_evento": "2025-12-16T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-12-16T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

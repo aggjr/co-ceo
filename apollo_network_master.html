@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Apollo Network Master | v21.1</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-surface: #1e293b;
+            --border-ui: #334155;
+            --disponivel: #3b82f6; 
+            --fisico: #94a3b8;     
+            --critico: #ef4444;
+            --abaixo: #fbbf24;
+            --mira: #10b981;
+            --muito-acima: #3b82f6;
+            --encalhado-400: #8b5cf6;
+            --encalhado-800: #4c1d95;
+            --text-main: #f1f5f9;
+        }
+        * { box-sizing: border-box; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Outfit', sans-serif; margin: 0; padding: 10px; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+        .header { flex: 0 0 auto; text-align: center; border-bottom: 2px solid var(--border-ui); padding-bottom: 8px; margin-bottom: 12px; }
+        .header h1 { font-size: 20px; font-weight: 600; margin: 0; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+        .store-selector { 
+            background: transparent; color: var(--disponivel); border: 1px solid var(--border-ui); 
+            font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 600; 
+            padding: 2px 10px; border-radius: 4px; outline: none; margin-left: 10px; cursor: pointer; 
+        }
+        .store-selector option { background: var(--bg-main); color: #fff; }
+        
+        /* Product Search */
+        .product-search-wrap { position: relative; display: inline-block; }
+        .product-search-input { background: #0f172a; color: #60a5fa; border: 1px solid var(--border-ui); font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600; padding: 2px 10px; border-radius: 4px; outline: none; cursor: text; width: 480px; letter-spacing: 0.3px; }
+        .product-search-input::placeholder { color: #334155; font-weight: 400; }
+        .product-dropdown { position: absolute; top: 100%; left: 0; min-width: 480px; background: #1e293b; border: 1px solid var(--border-ui); border-radius: 0 0 8px 8px; max-height: 280px; overflow-y: auto; z-index: 999; display: none; }
+        .product-item { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #334155; font-size: 12px; text-align: left; }
+        .product-item:hover { background: #334155; }
+        .product-item .pid { color: #60a5fa; font-weight: 600; margin-right: 10px; }
+        
+        .chart-container { flex: 1 1 auto; min-height: 0; background: var(--bg-surface); padding: 12px; border-radius: 12px; border: 1px solid var(--border-ui); margin-bottom: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .footer-grid { flex: 0 0 auto; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; width: 100%; }
+        .info-card { background: var(--bg-surface); padding: 8px 3px; border-radius: 10px; border: 1px solid var(--border-ui); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 65px; }
+        .equation-mini { display: flex; align-items: baseline; justify-content: center; gap: 2px; width: 100%; }
+        .eq-mini-val { font-size: 15px; font-weight: 600; text-align: center; }
+        .eq-mini-sign { font-size: 10px; color: var(--fisico); }
+        .health-tag { font-size: 7.5px; font-weight: 600; padding: 1px 3px; border-radius: 4px; margin-left: 1px; }
+        .card-value { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+        .card-label { font-size: 7px; color: var(--fisico); text-transform: uppercase; letter-spacing: 0.7px; text-align: center; font-weight: 600; }
+        .legend-strip { flex: 0 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; font-size: 9px; text-transform: uppercase; }
+        .legend-item { display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s; padding: 4px 8px; border-radius: 6px; background: rgba(255,255,255,0.03); }
+        .legend-item:hover { background: rgba(255,255,255,0.1); }
+        .legend-item.hidden { opacity: 0.2; text-decoration: line-through; filter: grayscale(1); }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .line { width: 22px; height: 0; border-top: 2px solid transparent; border-radius: 1px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <button onclick="window.location.href='apollo_grid.html'" style="cursor:pointer; background:#3b82f6; color:white; border:none; padding:8px 16px; border-radius:6px; margin-right:12px; font-family:'Outfit'; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:1px; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">⬅ CATÁLOGO</button>
+            <button type="button" onclick="(function(){ const u=new URLSearchParams(location.search); const id=u.get('sku'); if(id) location.href='model_curves_master.html?sku='+encodeURIComponent(id); else location.href='model_curves_master.html'; })()" style="cursor:pointer; background:#0f766e; color:white; border:none; padding:8px 14px; border-radius:6px; margin-right:10px; font-family:'Outfit'; font-weight:600; font-size:12px;">CURVAS MIRA</button>
+            <button type="button" onclick="window.location.href='cd_purchase_plan.html'" style="cursor:pointer; background:#0369a1; color:white; border:none; padding:8px 14px; border-radius:6px; margin-right:20px; font-family:'Outfit'; font-weight:600; font-size:12px;">PLANO CD</button>
+            <span id="productTitle">Carregando Produto...</span>
+            <span style="font-size: 10px; color: gold; margin-left:10px;">[ENGINE v21.1]</span> | 
+            <select id="storeSelector" class="store-selector" onchange="switchStore(this.value)">
+                <!-- Preenchido via Javascript -->
+            </select>
+        </h1>
+    </div>
+    <div class="chart-container"><canvas id="apolloChart"></canvas></div>
+    <div class="legend-strip" id="customLegend">
+        <div class="legend-item" id="leg-0" onclick="toggleDataset(0, this)"><div class="line" style="height: 2px; background: var(--disponivel); border-top:none; box-shadow: 0 0 8px var(--disponivel);"></div> DISPONÍVEL</div>
+        <div class="legend-item" id="leg-1" onclick="toggleDataset(1, this)"><div class="line" style="border-top: 2px dotted var(--fisico);"></div> FÍSICO (ROI)</div>
+        <div class="legend-item" id="leg-legacy" onclick="toggleDataset(2, this)"><div class="line" style="border-top: 2px dashed #fde047;"></div> LEGADO OFICIAL</div>
+        <div class="legend-item" id="leg-rup" onclick="toggleDataset(3, this)"><div class="dot" style="background: #333; border: 1px solid #999;"></div> RUPTURA (P10)</div>
+        <div class="legend-item" id="leg-p50" onclick="toggleDataset(4, this)"><div class="dot" style="background: var(--critico);"></div> CRÍTICO (P50)</div>
+        <div class="legend-item" id="leg-p80" onclick="toggleDataset(5, this)"><div class="dot" style="background: var(--abaixo);"></div> ABAIXO (P80)</div>
+        <div class="legend-item" id="leg-p100" onclick="toggleDataset(6, this)"><div class="dot" style="background: var(--mira);"></div> ACIMA (P100)</div>
+        <div class="legend-item" id="leg-p150" onclick="toggleDataset(7, this)"><div class="dot" style="background: var(--muito-acima);"></div> MUITO ACIMA (P150)</div>
+        <div class="legend-item" id="leg-p300" onclick="toggleDataset(8, this)"><div class="dot" style="background: #c084fc;"></div> ENCALHADO 1 (P300)</div>
+        <div class="legend-item" id="leg-p600" onclick="toggleDataset(9, this)"><div class="dot" style="background: var(--encalhado-400);"></div> ENCALHADO 2 (P600)</div>
+    </div>
+    <div class="footer-grid">
+        <div class="info-card">
+            <div class="equation-mini">
+                <div class="eq-mini-val" id="val-fisico" style="color: var(--fisico);">--</div>
+                <div class="eq-mini-sign">-</div>
+                <div class="eq-mini-val" id="val-vitrine" style="color: var(--fisico);">--</div>
+                <div class="eq-mini-sign">=</div>
+                <div class="eq-mini-val" id="val-disponivel" style="color: var(--disponivel);">--</div>
+                <span id="health-pct" class="health-tag">--</span>
+            </div>
+            <div class="card-label">FÍSICO - VITRINE = DISP.</div>
+        </div>
+        <div class="info-card" id="status-card" style="border-width: 2px; transition: all 0.3s;">
+            <div class="card-value" id="val-status">--</div>
+            <div class="card-label">STATUS OPERACIONAL</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-ruptura" style="color: var(--critico);">--</div>
+            <div class="card-label">TEMPO EM RUPTURA</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-lost" style="color: var(--critico);">--</div>
+            <div class="card-label">VENDAS PERDIDAS (QTDE)</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-min-user" style="color: #94a3b8;">--</div>
+            <div class="card-label">ESTOQUE MÍNIMO MANUAL</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-ideal" style="color: var(--mira);">--</div>
+            <div class="card-label">QUANTIDADE REPOSIÇÃO</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-repor" style="color: #60a5fa;">--</div>
+            <div class="card-label">ESTOQUE SUGESTÃO</div>
+        </div>
+    </div>
+<script>
+    let mainChart;
+    let currentDataScript = null;
+
+    function formatDate(dateStr) { const [y, m, d] = dateStr.split('-'); return `${d}/${m}/${y}`; }
+    
+    // O seletor combobox foi desativado em favor da arquitetura Master/Detail View
+
+    function toggleDataset(index, element) { 
+        const isVisible = mainChart.isDatasetVisible(index); 
+        mainChart.setDatasetVisibility(index, !isVisible); 
+        mainChart.update(); 
+        element.classList.toggle('hidden', isVisible);
+        element.style.opacity = element.classList.contains('hidden') ? '0.3' : '1';
+    }
+    
+    function switchStore(storeName) {
+        if (!window.APOLLO_NETWORK_DATA || !window.APOLLO_NETWORK_DATA.results) return;
+        const data = window.APOLLO_NETWORK_DATA.results[storeName];
+        if(!data) return;
+
+        // MAPA DE CORES: 8 status oficiais — REGRAS SAGRADAS DEFINITIVAS
+        const statusColors = {
+            "RUPTURA":     "#111111",              // Preta
+            "CRÍTICO":     "var(--critico)",       // Vermelha
+            "ABAIXO":      "var(--abaixo)",        // Amarela
+            "ACIMA":       "var(--mira)",          // Verde
+            "MUITO ACIMA": "var(--muito-acima)",   // Azul
+            "ENCALHADO 1": "#c084fc",              // Lilás
+            "ENCALHADO 2": "var(--encalhado-400)", // Roxa
+            "ENCALHADO 3": "var(--encalhado-800)"  // Roxa Escura
+        };
+
+        const lastDayObj = data.timeline[data.timeline.length - 1] || { p10:0, p50:0, p80:0, p150:0, p300:0, p600:0 };
+        const avail = data.metrics.currentAvailable || 0;
+        
+        let calcStatus = "RUPTURA";
+        if (avail >= lastDayObj.p10 && avail < lastDayObj.p50) calcStatus = "CRÍTICO";
+        else if (avail >= lastDayObj.p50 && avail < lastDayObj.p80) calcStatus = "ABAIXO";
+        else if (avail >= lastDayObj.p80 && avail <= lastDayObj.p150) calcStatus = "ACIMA";
+        else if (avail > lastDayObj.p150 && avail <= lastDayObj.p300) calcStatus = "MUITO ACIMA";
+        else if (avail > lastDayObj.p300 && avail <= lastDayObj.p600) calcStatus = "ENCALHADO 1";
+        else if (avail > lastDayObj.p600) calcStatus = "ENCALHADO 2";
+
+        const stockHealth = data.metrics.estoqueReposicao > 0 ? (avail / data.metrics.estoqueReposicao) * 100 : 0;
+
+        document.getElementById('val-fisico').innerText = Math.round(data.metrics.currentPhysical || 0);
+        document.getElementById('val-vitrine').innerText = data.metrics.vitrine || 0;
+        document.getElementById('val-disponivel').innerText = Math.round(avail);
+        document.getElementById('health-pct').innerText = stockHealth.toFixed(1) + '%';
+        const sColor = statusColors[calcStatus] || '#fff';
+        document.getElementById('health-pct').style.backgroundColor = sColor + '22';
+        document.getElementById('health-pct').style.color = sColor;
+        document.getElementById('val-status').innerText = calcStatus;
+        document.getElementById('val-status').style.color = sColor;
+        document.getElementById('status-card').style.borderColor = sColor;
+        document.getElementById('val-ruptura').innerText = (data.metrics.ruptureRate || 0).toFixed(1) + '%';
+        document.getElementById('val-lost').innerText = data.metrics.lostUnits !== undefined ? Math.ceil(data.metrics.lostUnits) + ' un' : '--';
+        document.getElementById('val-min-user').innerText = data.metrics.minStock !== undefined ? data.metrics.minStock + ' un' : '--';
+        
+        if (storeName === 'Fábrica' && data.metrics.estoqueReposicaoProprio !== undefined) {
+            document.getElementById('val-ideal').innerText = `${data.metrics.estoqueReposicaoProprio} + ${data.metrics.pulsoRede} = ${data.metrics.estoqueReposicao}`;
+            document.getElementById('val-ideal').style.fontSize = '12px'; // Ajuste para caber a fórmula
+        } else {
+            document.getElementById('val-ideal').innerText = (data.metrics.estoqueReposicao || 0) + ' un';
+            document.getElementById('val-ideal').style.fontSize = '15px';
+        }
+        
+        const sugVal = data.metrics.estoqueSugestao || 0;
+        const reporEl = document.getElementById('val-repor');
+        reporEl.innerText = sugVal + ' un';
+        reporEl.style.color = (sugVal > 0) ? "#ef4444" : "#60a5fa"; // Vermelho se precisa receber (Déficit), Azul se pode doar (Excesso)
+
+        const timeline = data.timeline;
+        let legacyMismatchDays = 0;
+        for (const t of timeline) {
+            if (t.legacyStock != null && Math.round(Number(t.legacyStock)) !== Math.round(Number(t.physicalStock)))
+                legacyMismatchDays++;
+        }
+        if (legacyMismatchDays > 0) {
+            console.warn(`[STOCKSPIN] ${storeName}: LEGADO≠FÍSICO em ${legacyMismatchDays} dia(s). Revisar extração ou ERP.`);
+        }
+
+        const maxAvail = Math.max(...timeline.map(t => t.availableStock).filter(v => !isNaN(v)));
+        const lastDay = timeline[timeline.length - 1];
+        if (!lastDay) return; // Guard: timeline vazia
+        
+        let showUpTo = 150; 
+        if (lastDay.p300 && maxAvail >= lastDay.p150) showUpTo = 300;
+        if (lastDay.p600 && maxAvail >= lastDay.p300) showUpTo = 600;
+        if (lastDay.p600 && maxAvail >= lastDay.p600) showUpTo = 9999;
+
+        
+        // TODOS os botões visíveis e clicáveis. Se não for recomendado (X > showUpTo), fica esmaecido.
+        const setLeg = (id, recommended, actualVal) => {
+            const el = document.getElementById(id);
+            if (actualVal > showUpTo) el.classList.add('hidden');
+            else el.classList.remove('hidden');
+            
+            el.style.opacity       = el.classList.contains('hidden') ? '0.3' : '1';
+            el.style.cursor        = 'pointer';
+            el.style.pointerEvents = 'auto'; 
+        };
+        setLeg('leg-rup',  true, 0);
+        setLeg('leg-p50',  true, 50);
+        setLeg('leg-p80',  true, 80);
+        setLeg('leg-p100', true, 100);
+        setLeg('leg-p150', showUpTo >= 150, 150);
+        setLeg('leg-p300', showUpTo >= 300, 300);
+        setLeg('leg-p600', showUpTo >= 600, 600);
+
+        renderChart(timeline, showUpTo);
+    } // end switchStore
+
+    function renderChart(timeline, showUpTo) {
+        if(mainChart) mainChart.destroy();
+        
+        const isHidden = (id) => document.getElementById(id).classList.contains('hidden');
+
+        const datasetsArray = [
+            { hidden: isHidden('leg-0'), label: 'DISP', data: timeline.map(t => t.availableStock), borderColor: '#3b82f6', borderWidth: 3.5, stepped: true, z: 50, pointRadius: 0 },
+            { hidden: isHidden('leg-1'), label: 'FIS', data: timeline.map(t => t.physicalStock), borderColor: '#94a3b8', borderWidth: 1, borderDash: [3, 3], pointRadius: 0, stepped: true, z: 45 },
+            { hidden: isHidden('leg-legacy'), label: 'LEGADO', data: timeline.map(t => t.physicalStock), borderColor: '#fde047', borderWidth: 1.5, borderDash: [5, 5], pointRadius: 0, stepped: true, z: 48 },
+            { hidden: isHidden('leg-rup'), label: 'RUP_10', data: timeline.map(t => t.p10), borderColor: '#000000', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: 'start', backgroundColor: 'rgba(0, 0, 0, 0.6)', z: 40 },
+            { hidden: isHidden('leg-p50'), label: 'P50', data: timeline.map(t => t.p50), borderColor: '#ef4444', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+            { hidden: isHidden('leg-p80'), label: 'P80', data: timeline.map(t => t.p80), borderColor: '#fbbf24', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+            { hidden: isHidden('leg-p100'), label: 'P100', data: timeline.map(t => t.p100), borderColor: '#10b981', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+            { hidden: isHidden('leg-p150'), label: 'P150', data: timeline.map(t => t.p150), borderColor: '#3b82f6', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+            { hidden: isHidden('leg-p300'), label: 'P300', data: timeline.map(t => t.p300), borderColor: '#8b5cf6', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+            { hidden: isHidden('leg-p600'), label: 'P600', data: timeline.map(t => t.p600), borderColor: '#4c1d95', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 }
+        ];
+
+        const ctx = document.getElementById('apolloChart').getContext('2d');
+        mainChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeline.map(t => formatDate(t.date)),
+                datasets: datasetsArray
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'nearest', intersect: false, axis: 'xy' },
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#94a3b8', autoSkip: true, maxTicksLimit: 12, font: { size: 9, weight: '600' } }, border: { color: '#ffffff', width: 1 } },
+                    y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#94a3b8', font: { size: 9, weight: '600' } }, border: { color: '#ffffff', width: 1 } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        mode: 'nearest',
+                        intersect: false,
+                        axis: 'xy',
+                        callbacks: {
+                            title: (items) => (items[0] ? String(items[0].label) : ''),
+                            label: (ctx) => {
+                                const v = ctx.parsed.y;
+                                const lab = ctx.dataset.label || '';
+                                const intOnly = lab === 'DISP' || lab === 'FIS' || lab === 'LEGADO';
+                                const s = typeof v === 'number'
+                                    ? (intOnly ? String(Math.round(v)) : v.toLocaleString('pt-BR', { maximumFractionDigits: 3 }))
+                                    : String(v);
+                                return lab + ': ' + s;
+                            },
+                            footer: () => '',
+                        },
+                    },
+                },
+            }
+        });
+    }
+
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const skuId = urlParams.get('sku');
+        
+        if (!skuId) {
+            window.location.href = 'apollo_grid.html';
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = `data/js/sku_${skuId}.js`;
+        script.onload = function() {
+            if (typeof APOLLO_NETWORK_DATA === 'undefined' || !APOLLO_NETWORK_DATA.results) {
+                alert('Dados não processados ou vazios.');
+                window.location.href = 'apollo_grid.html';
+                return;
+            }
+            
+            const info = APOLLO_NETWORK_DATA.info;
+            document.getElementById('productTitle').innerText = `${info.code} - ${info.name}`;
+            document.getElementById('productTitle').style.display = 'inline';
+
+            const stores = Object.keys(APOLLO_NETWORK_DATA.results);
+            if (stores.length === 0) return;
+            
+            const storeSelector = document.getElementById('storeSelector');
+            storeSelector.innerHTML = stores.map(s => `<option value="${s}">${s.toUpperCase()}</option>`).join('');
+            
+            const firstStoreKey = stores.includes('Fábrica') ? 'Fábrica' : stores[0];
+            storeSelector.value = firstStoreKey;
+            switchStore(firstStoreKey);
+        };
+        script.onerror = function() {
+            alert('Arquivo do produto não encontrado (' + skuId + ').');
+            window.location.href = 'apollo_grid.html';
+        };
+        document.head.appendChild(script);
+    };
+</script>
+</body>
+</html>

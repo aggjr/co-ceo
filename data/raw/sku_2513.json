@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2513,
+    "code": "11557",
+    "name": "COBRE LEITO QUEEN LINHA BRONZE ESTAMPADO",
+    "timestamp": "2026-04-30T11:34:46.019Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-01-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

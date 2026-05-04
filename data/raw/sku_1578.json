@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 1578,
+    "code": "9931",
+    "name": "TAPETE 0,45X0,60 MARKA TAPETECO",
+    "timestamp": "2026-04-30T11:32:09.028Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-12-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

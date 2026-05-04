@@ -1,0 +1,120 @@
+{
+  "info": {
+    "id": 2262,
+    "code": "11460",
+    "name": "TEC BLACK PVC DOUBLE 1.40 MT NUDE",
+    "timestamp": "2026-04-30T11:34:04.639Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 70.2,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 54,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 371.1999999999997,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 54,
+        "data_evento": "2023-04-25T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 53.99999999999991,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 86.4,
+        "data_evento": "2023-05-24T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 86.4,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 98.8,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 54,
+        "data_evento": "2023-06-14T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 315.4,
+        "data_evento": "2023-06-14T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 453.80000000000064,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 57,
+        "data_evento": "2023-08-02T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 86.4,
+        "data_evento": "2023-08-09T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 114,
+        "data_evento": "2023-08-09T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 54,
+        "data_evento": "2023-08-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 54,
+        "data_evento": "2023-08-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 365.4000000000001,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 9.094947017729282e-13,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

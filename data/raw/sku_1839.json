@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1839,
+    "code": "K525",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 525",
+    "timestamp": "2026-04-30T11:32:52.552Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

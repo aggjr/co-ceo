@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1884,
+    "code": "K941",
+    "name": "PERSIANA 1.60X1.80 PVC TEXTURIZADA 941",
+    "timestamp": "2026-04-30T11:32:59.853Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

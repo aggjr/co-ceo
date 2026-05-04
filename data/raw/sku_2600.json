@@ -1,0 +1,438 @@
+{
+  "info": {
+    "id": 2600,
+    "code": "11664",
+    "name": "TEC VOIL GLACE BRANCO 2.80 MT",
+    "timestamp": "2026-04-30T11:35:00.462Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 14.500000000000043,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 302.69999999999993,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 46.5,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 68,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2023-07-07T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 103.20000000000002,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 63.599999999999994,
+        "data_evento": "2023-08-18T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 63.599999999999994,
+        "data_evento": "2023-08-18T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 80.70000000000007,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2023-09-12T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2023-09-13T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2023-09-21T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 172.8999999999999,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2023-10-10T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2023-10-10T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2023-10-20T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 47.000000000000185,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.618527782440651e-14,
+        "data_evento": "2023-10-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2023-11-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 274.29999999999995,
+        "data_evento": "2023-11-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2023-12-07T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 33.6,
+        "data_evento": "2023-12-13T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 109.30000000000018,
+        "data_evento": "2023-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.4,
+        "data_evento": "2024-01-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 222.5,
+        "data_evento": "2024-01-08T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 53,
+        "data_evento": "2024-01-12T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 10,
+        "data_evento": "2024-01-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 129.7,
+        "data_evento": "2024-01-29T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 129.7,
+        "data_evento": "2024-01-29T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 166.79999999999933,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 9.4,
+        "data_evento": "2024-02-06T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 25.200000000000003,
+        "data_evento": "2024-02-21T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 7.800000000000068,
+        "data_evento": "2024-02-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 29.9,
+        "data_evento": "2024-03-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2024-03-08T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 12,
+        "data_evento": "2024-03-08T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2.9,
+        "data_evento": "2024-03-08T03:00:00.000Z",
+        "natureza": "Perda produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 31.799999999999997,
+        "data_evento": "2024-03-15T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 33.6,
+        "data_evento": "2024-03-20T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 18.050000000000367,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 193,
+        "data_evento": "2024-04-10T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 25.200000000000003,
+        "data_evento": "2024-04-19T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.1368683772161603e-13,
+        "data_evento": "2024-04-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 25.200000000000003,
+        "data_evento": "2024-05-10T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 16.800000000000097,
+        "data_evento": "2024-05-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 50.400000000000006,
+        "data_evento": "2024-06-18T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 12.4,
+        "data_evento": "2024-06-25T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 47.699999999999996,
+        "data_evento": "2024-06-25T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 176.30000000000052,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2024-07-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 11.6,
+        "data_evento": "2024-07-19T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.2,
+        "data_evento": "2024-07-31T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 18.3,
+        "data_evento": "2024-08-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 25.200000000000003,
+        "data_evento": "2024-08-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 70.25000000000037,
+        "data_evento": "2024-08-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 58.800000000000004,
+        "data_evento": "2024-09-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.3999999999997215,
+        "data_evento": "2024-09-25T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 37.1,
+        "data_evento": "2024-10-28T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2024-10-30T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2024-10-31T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 21.2,
+        "data_evento": "2024-11-27T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 162.22000000000028,
+        "data_evento": "2024-12-04T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2024-12-10T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.200000000000344,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3.836930773104541e-13,
+        "data_evento": "2025-02-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 7.105427357601002e-14,
+        "data_evento": "2025-03-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 31.37999999999994,
+        "data_evento": "2025-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2.8421709430404007e-13,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 76.40000000000018,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5.400124791776761e-13,
+        "data_evento": "2025-08-01T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

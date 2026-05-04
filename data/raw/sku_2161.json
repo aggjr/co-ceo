@@ -1,0 +1,32 @@
+{
+  "info": {
+    "id": 2161,
+    "code": "11404",
+    "name": "TAPETE 1,00X1,40 MARKA OLIVIA",
+    "timestamp": "2026-04-30T11:33:47.597Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-11T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "info": {
+    "id": 928,
+    "code": "10561",
+    "name": "TEC. CHEFFRON EST RUST VERMELHO - 2.95 MT",
+    "timestamp": "2026-04-30T11:30:17.368Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 3.623767952376511e-13,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3.623767952376511e-13,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 9.237055564881302e-14,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 36,
+        "data_evento": "2023-06-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 19.199999999999456,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 137.4000000000001,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 33,
+        "data_evento": "2023-08-11T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 17,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 87.4,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 0.09999999999990905,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 0.09999999999999964,
+        "data_evento": "2023-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 36,
+        "data_evento": "2024-01-18T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 36.00000000000055,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3.6415315207705135e-13,
+        "data_evento": "2024-02-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3.6415315207705135e-13,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 9.059419880941277e-14,
+        "data_evento": "2024-04-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 36,
+        "data_evento": "2024-04-29T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 36.00000000000009,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

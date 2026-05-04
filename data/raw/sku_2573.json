@@ -1,0 +1,86 @@
+{
+  "info": {
+    "id": 2573,
+    "code": "11641",
+    "name": "UNICA 2,90X1,80 JACQ MESSINA DOHLER BEGE",
+    "timestamp": "2026-04-30T11:34:55.515Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-10T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-10T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-01-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-15T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

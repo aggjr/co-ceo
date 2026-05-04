@@ -1,0 +1,60 @@
+{
+  "info": {
+    "id": 2687,
+    "code": "11757",
+    "name": "CORTA LUZ 4,00X2,60 EST FOLHAGEM VERDE",
+    "timestamp": "2026-04-30T11:35:17.132Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-25T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-06-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-08-10T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "info": {
+    "id": 1896,
+    "code": "K990",
+    "name": "PERSIANA 1.60X1.80 PVC TEXTURIZADA 990",
+    "timestamp": "2026-04-30T11:33:01.791Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2024-05-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2023-11-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

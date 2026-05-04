@@ -1,0 +1,48 @@
+{
+  "info": {
+    "id": 3323,
+    "code": "54",
+    "name": "TEC. CORTA LUZ EST. FLORAL VERDE 2.80 MT",
+    "timestamp": "2026-04-30T11:37:03.487Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 103.7,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 30,
+        "data_evento": "2023-12-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42,
+        "data_evento": "2023-12-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 20,
+        "data_evento": "2023-12-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 63,
+        "data_evento": "2023-12-05T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 51.3,
+        "data_evento": "2023-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+/* ============================================
+   Version Display
+   ============================================ */
+
+.version-display-global {
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 0.7;
+    z-index: 99999;
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font-main);
+    font-weight: 500;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    transition: opacity 0.2s ease;
+}
+
+.version-display-global:hover {
+    opacity: 1;
+}
+
+/* Version in modals */
+.dialog-overlay .version-display {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.3);
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font-main);
+}
+
+/* Version in custom modals */
+.modal-overlay .version-display {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.3);
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font-main);
+}

@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 3107,
+    "code": "12164",
+    "name": "TEC MICROFIBRA LILAS 1,60 MT",
+    "timestamp": "2026-04-30T11:36:26.504Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 127.3,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 42,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 85.3,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

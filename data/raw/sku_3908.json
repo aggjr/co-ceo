@@ -1,0 +1,120 @@
+{
+  "info": {
+    "id": 3908,
+    "code": "13048",
+    "name": "ABRAÇADEIRA FRANJAS INOX PRATA 2 PÇS",
+    "timestamp": "2026-04-30T11:38:36.511Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-03T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-26T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-13T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Fábrica": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-09T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-12T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

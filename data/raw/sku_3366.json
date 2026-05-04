@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 3366,
+    "code": "12478",
+    "name": "PUFF RETRO BASE DE FERRO 35 X 35 X 48 VERDE",
+    "timestamp": "2026-04-30T11:37:10.666Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-11-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-04-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-06-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-07-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

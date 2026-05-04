@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 885,
+    "code": "10173",
+    "name": "TEC CORTA LUZ LINHO KAKI 2.80 MT",
+    "timestamp": "2026-04-30T11:30:10.247Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 8.200000000000045,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

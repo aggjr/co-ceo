@@ -1,0 +1,90 @@
+{
+  "info": {
+    "id": 1059,
+    "code": "9189",
+    "name": "TEC. OXFORD LISO CARAMELO - 3.00 MT",
+    "timestamp": "2026-04-30T11:30:38.996Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 6.750155989720952e-14,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6.750155989720952e-14,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.618527782440651e-14,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3.872457909892546e-13,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 14.799999999999955,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.1,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2.3092638912203256e-14,
+        "data_evento": "2023-10-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2.3092638912203256e-14,
+        "data_evento": "2023-11-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.100000000000023,
+        "data_evento": "2023-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.1,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 9.059419880941277e-14,
+        "data_evento": "2024-04-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2.3092638912203256e-14,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

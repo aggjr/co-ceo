@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mira + zonas (2 anos)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --panel: #121922;
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --gold: #dab177;
+      --mira: #22c55e;
+      --border: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      padding: 14px 18px 20px;
+    }
+    header { margin-bottom: 12px; }
+    h1 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+    .sub { font-size: 12px; color: var(--muted); max-width: 900px; line-height: 1.45; }
+    .panel {
+      flex: 1;
+      min-height: 420px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      position: relative;
+    }
+    #err {
+      color: #f87171;
+      font-size: 13px;
+      margin-top: 10px;
+      max-width: 720px;
+    }
+    .meta {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: pre-wrap;
+      font-family: ui-monospace, monospace;
+    }
+    canvas { max-height: 72vh; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mira + todas as zonas — 2 anos</h1>
+    <p class="sub">
+      A <strong>mira P100</strong> vem de vendas robustas × LT; as demais curvas são <strong>k × mira</strong> (motor v17: 0,1 · 0,5 · 0,8 · 1,5 · 3 · 6; mais <strong>P200 = 2×</strong> entre 150% e 300%).
+      Traçado <strong>linear</strong> (<code>tension: 0</code>) nas zonas para manter proporções exatas. <strong>Disponível / Físico / Legado</strong> vêm da timeline (legado = físico).
+      Vendas: exclui-se <code>availableStock &lt; 0</code> da média; <strong>P95</strong> nos picos; fallback se poucos dias “limpos”.
+      Produto <strong>12159</strong> usa id interno <strong>3104</strong> — use <code>?code=12159</code> ou <code>?sku=3104</code>.
+      Exemplo Barreiro: <code>?code=12159&amp;store=Barreiro</code>.
+      Com <strong>file://</strong> os dados vêm de <code>data/js/sku_*.js</code> (igual ao Apollo). Com <strong>http://</strong> tenta primeiro <code>data/processed/sku_*.json</code> e, se falhar, o mesmo <code>.js</code>.
+    </p>
+  </header>
+  <div class="panel"><canvas id="c"></canvas></div>
+  <div id="err"></div>
+  <pre class="meta" id="meta"></pre>
+
+  <script>
+    (function () {
+      function weekday(iso) {
+        return new Date(iso + "T12:00:00").getDay();
+      }
+      function clampToLastNonSunday(iso) {
+        let d = new Date(iso + "T12:00:00");
+        while (d.getDay() === 0) d.setDate(d.getDate() - 1);
+        return d.toISOString().slice(0, 10);
+      }
+      function filterTimelineChartWindow(timeline, opts) {
+        if (!timeline || !timeline.length) return [];
+        const years = opts.years != null ? opts.years : 2;
+        const excludeSun = opts.excludeSundays !== false;
+        const lastRaw = opts.anchorDate || timeline[timeline.length - 1].date;
+        const anchor = clampToLastNonSunday(lastRaw);
+        const anchorD = new Date(anchor + "T12:00:00");
+        const startD = new Date(anchorD);
+        startD.setFullYear(startD.getFullYear() - years);
+        return timeline.filter((row) => {
+          const d = new Date(row.date + "T12:00:00");
+          if (d < startD || d > anchorD) return false;
+          if (excludeSun && weekday(row.date) === 0) return false;
+          return true;
+        });
+      }
+
+      function quantileSorted(sorted, p) {
+        if (!sorted.length) return 0;
+        const idx = Math.min(sorted.length - 1, Math.max(0, Math.floor(p * (sorted.length - 1))));
+        return sorted[idx];
+      }
+
+      /**
+       * Mira diária = (média robusta das vendas no dia na janela) × LT.
+       * - Ignora domingos (já filtrados na timeline).
+       * - Ignora dias com availableStock < 0 na média de vendas (ruptura distorce).
+       * - Se na janela houver poucos dias “sem ruptura”, usa-se fallback: todas as vendas da janela (ainda com P95), para não zerar a mira.
+       * - Winsorização alta: cada venda ≤ P95 das vendas da janela (após filtro ruptura).
+       */
+      function computeMira100(timeline, windowDays, leadTimeDays) {
+        const W = windowDays;
+        const LT = leadTimeDays;
+        const MIN_DAYS = 5;
+        const n = timeline.length;
+        const out = new Array(n);
+        let fallbackWindows = 0;
+        for (let i = 0; i < n; i++) {
+          const i0 = Math.max(0, i - W + 1);
+          const slice = timeline.slice(i0, i + 1);
+          const salesNoRupture = [];
+          for (const day of slice) {
+            const avail = Number(day.availableStock);
+            if (Number.isNaN(avail)) continue;
+            if (avail < 0) continue;
+            const s = Number(day.sales);
+            if (!Number.isNaN(s) && s >= 0) salesNoRupture.push(s);
+          }
+          let salesUse = salesNoRupture;
+          if (salesNoRupture.length < MIN_DAYS) {
+            const allSales = [];
+            for (const day of slice) {
+              const s = Number(day.sales);
+              if (!Number.isNaN(s) && s >= 0) allSales.push(s);
+            }
+            if (allSales.length > 0) {
+              salesUse = allSales;
+              fallbackWindows++;
+            }
+          }
+          if (salesUse.length === 0) {
+            out[i] = null;
+            continue;
+          }
+          const sorted = [...salesUse].sort((a, b) => a - b);
+          const hi = quantileSorted(sorted, 0.95);
+          let sum = 0;
+          let cnt = 0;
+          for (const s of salesUse) {
+            sum += Math.min(s, hi);
+            cnt++;
+          }
+          const mu = cnt ? sum / cnt : 0;
+          out[i] = mu * LT;
+        }
+        return { series: out, fallbackWindows: fallbackWindows };
+      }
+
+      function formatBR(iso) {
+        const [y, m, d] = iso.split("-");
+        return `${d}/${m}/${y}`;
+      }
+
+      const ERP_TO_SKU = { "12159": "3104", "755": "621" };
+      const params = new URLSearchParams(location.search);
+      const codeParam = params.get("code");
+      const sku =
+        params.get("sku") ||
+        (codeParam && ERP_TO_SKU[String(codeParam).trim()]) ||
+        "3104";
+      const store = params.get("store") || "Barreiro";
+      const WINDOW = Number(params.get("w")) || 56;
+      const LT = Number(params.get("lt")) || 14;
+
+      const errEl = document.getElementById("err");
+      const metaEl = document.getElementById("meta");
+
+      function getTimeline(bundle, storeName) {
+        const root = bundle.results || bundle;
+        const block = root[storeName];
+        if (!block || !block.timeline) {
+          throw new Error('Loja "' + storeName + '" ou timeline ausente.');
+        }
+        return block.timeline;
+      }
+
+      function loadSkuScript(id) {
+        return new Promise(function (resolve, reject) {
+          const old = document.getElementById("sku-data-loader");
+          if (old) old.remove();
+          try {
+            delete window.APOLLO_NETWORK_DATA;
+          } catch (e) {}
+          const s = document.createElement("script");
+          s.id = "sku-data-loader";
+          s.src = "data/js/sku_" + id + ".js";
+          s.onload = function () {
+            if (!window.APOLLO_NETWORK_DATA) {
+              reject(new Error("APOLLO_NETWORK_DATA não definido após carregar " + s.src));
+              return;
+            }
+            resolve(window.APOLLO_NETWORK_DATA);
+          };
+          s.onerror = function () {
+            reject(new Error("Não foi possível carregar " + s.src + " (caminho relativo à pasta do HTML)."));
+          };
+          document.head.appendChild(s);
+        });
+      }
+
+      function loadBundle(id) {
+        if (location.protocol === "file:") {
+          return loadSkuScript(id);
+        }
+        return fetch("data/processed/sku_" + id + ".json")
+          .then(function (r) {
+            if (r.ok) return r.json();
+            return loadSkuScript(id);
+          })
+          .catch(function () {
+            return loadSkuScript(id);
+          });
+      }
+
+      function renderChart(bundle) {
+        errEl.textContent = "";
+        const raw = getTimeline(bundle, store);
+        const tl = filterTimelineChartWindow(raw, { years: 2, excludeSundays: true });
+        if (tl.length < WINDOW + 5) {
+          errEl.textContent = "Aviso: poucos pontos após filtro 2 anos / sem domingos.";
+        }
+
+        const info = bundle.info || {};
+        const miraOut = computeMira100(tl, WINDOW, LT);
+        const mira = miraOut.series;
+        function scaleMira(arr, k) {
+          return arr.map(function (v) {
+            return v == null ? null : v * k;
+          });
+        }
+        const p10 = scaleMira(mira, 0.1);
+        const p50z = scaleMira(mira, 0.5);
+        const p80z = scaleMira(mira, 0.8);
+        const p150z = scaleMira(mira, 1.5);
+        const p200z = scaleMira(mira, 2.0);
+        const p300z = scaleMira(mira, 3.0);
+        const p600z = scaleMira(mira, 6.0);
+        const disp = tl.map(function (d) {
+          return Number(d.availableStock);
+        });
+        const fis = tl.map(function (d) {
+          return Number(d.physicalStock);
+        });
+        const leg = fis.slice();
+        const labels = tl.map(function (d) {
+          return formatBR(d.date);
+        });
+        const ruptSkip = raw.filter(function (d) {
+          return Number(d.availableStock) < 0;
+        }).length;
+        const source =
+          location.protocol === "file:"
+            ? "data/js/sku_" + sku + ".js"
+            : "data/processed/sku_" + sku + ".json ou .js";
+
+        metaEl.textContent =
+          "Fonte: " +
+          source +
+          "\nERP: " +
+          (info.code || "—") +
+          " | id interno: " +
+          (info.id != null ? info.id : sku) +
+          " | " +
+          (info.name || "") +
+          "\nLoja: " +
+          store +
+          "\nPontos no gráfico: " +
+          tl.length +
+          " | Janela W=" +
+          WINDOW +
+          "d | LT=" +
+          LT +
+          "d" +
+          "\nDias com availableStock<0 na base bruta (ruptura): " +
+          ruptSkip +
+          "\nJanelas em que caiu no fallback (poucos dias sem ruptura): " +
+          miraOut.fallbackWindows +
+          " (nessas janelas a média usa todas as vendas + P95).";
+
+        const zoneOpts = { tension: 0, pointRadius: 0, spanGaps: true };
+        const stockOpts = { tension: 0, pointRadius: 0, spanGaps: true, stepped: true };
+
+        const ctx = document.getElementById("c").getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              { label: "P10 (10% mira)", data: p10, borderColor: "#111111", borderWidth: 1, ...zoneOpts },
+              { label: "P50 (50% mira)", data: p50z, borderColor: "#ef4444", borderWidth: 1, ...zoneOpts },
+              { label: "P80 (80% mira)", data: p80z, borderColor: "#fbbf24", borderWidth: 1, ...zoneOpts },
+              {
+                label: "P100 — mira",
+                data: mira,
+                borderColor: "#22c55e",
+                borderWidth: 2.2,
+                ...zoneOpts,
+              },
+              { label: "P150 (150% mira)", data: p150z, borderColor: "#3b82f6", borderWidth: 1, ...zoneOpts },
+              { label: "P200 (200% mira)", data: p200z, borderColor: "#06b6d4", borderWidth: 1, ...zoneOpts },
+              { label: "P300 (300% mira)", data: p300z, borderColor: "#8b5cf6", borderWidth: 1, ...zoneOpts },
+              { label: "P600 (600% mira)", data: p600z, borderColor: "#4c1d95", borderWidth: 1, ...zoneOpts },
+              {
+                label: "Legado (= físico)",
+                data: leg,
+                borderColor: "rgba(218, 177, 119, 0.65)",
+                borderDash: [5, 4],
+                borderWidth: 1.2,
+                ...stockOpts,
+              },
+              {
+                label: "Físico (ROI)",
+                data: fis,
+                borderColor: "#94a3b8",
+                borderDash: [4, 3],
+                borderWidth: 2,
+                ...stockOpts,
+              },
+              {
+                label: "Disponível",
+                data: disp,
+                borderColor: "#3b82f6",
+                borderWidth: 3.5,
+                ...stockOpts,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: "nearest", intersect: false, axis: "x" },
+            plugins: {
+              legend: {
+                labels: { color: "#cbd5e1", font: { size: 9 }, boxWidth: 8, padding: 8 },
+              },
+              tooltip: {
+                mode: "nearest",
+                intersect: false,
+                callbacks: {
+                  label: function (ctx) {
+                    const v = ctx.parsed.y;
+                    if (v == null) return "—";
+                    const lab = ctx.dataset.label || "";
+                    const intSeries =
+                      lab.startsWith("Disponível") ||
+                      lab.startsWith("Físico") ||
+                      lab.startsWith("Legado");
+                    const s = intSeries
+                      ? String(Math.round(v))
+                      : v.toLocaleString("pt-BR", { maximumFractionDigits: 3 });
+                    return lab + ": " + s + " u";
+                  },
+                },
+              },
+              title: {
+                display: true,
+                text:
+                  (info.code ? info.code + " · " : "") +
+                  (info.name ? info.name.slice(0, 36) + " · " : "") +
+                  store +
+                  " · zonas = k×mira · 2 anos",
+                color: "#94a3b8",
+                font: { size: 12 },
+              },
+            },
+            scales: {
+              x: {
+                ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 14, color: "#94a3b8" },
+                grid: { color: "rgba(218,177,119,0.06)", lineWidth: 0.55 },
+              },
+              y: {
+                title: { display: true, text: "Unidades", color: "#64748b", font: { size: 11 } },
+                ticks: { color: "#94a3b8" },
+                grid: { color: "rgba(218,177,119,0.06)", lineWidth: 0.55 },
+              },
+            },
+          },
+        });
+      }
+
+      loadBundle(sku)
+        .then(renderChart)
+        .catch(function (e) {
+          errEl.textContent = String(e.message || e);
+        });
+    })();
+  </script>
+</body>
+</html>

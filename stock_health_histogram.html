@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saúde do estoque · Histogramas por unidade</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #041225;
+      --bg-2: #07203e;
+      --surface: rgba(9, 28, 56, 0.86);
+      --border: rgba(218, 177, 119, 0.55);
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --gold: #dab177;
+      --gold-bright: #f5cf96;
+      --radius: 14px;
+      --font: "DM Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: var(--font);
+      background:
+        radial-gradient(120% 80% at 50% -20%, rgba(28, 116, 220, 0.22) 0%, rgba(3, 16, 34, 0) 55%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      padding: 10px 14px 12px;
+      min-height: 100vh;
+    }
+    .top-shell {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .filter-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+      gap: 10px 16px;
+      align-items: stretch;
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .filter-split {
+        grid-template-columns: 1fr;
+      }
+    }
+    .filter-split.filter-split--no-scope {
+      grid-template-columns: 1fr;
+    }
+    .filter-split__part {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+    .filter-split__part--primary {
+      justify-content: center;
+    }
+    .filter-split__part--secondary {
+      justify-content: center;
+      gap: 10px;
+    }
+    .filter-split__part--secondary .mix-filter-bar {
+      flex: 0 0 auto;
+    }
+    .toolbar-hint {
+      font-size: 11px;
+      color: rgba(251, 191, 36, 0.9);
+      display: none;
+      margin: 0;
+    }
+    .toolbar-hint.is-visible {
+      display: block;
+    }
+    .main-area {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 10px;
+    }
+    .stores-panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 10px;
+      overflow: auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(218, 177, 119, 0.12);
+    }
+    .stores-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .store-list { display: flex; flex-direction: column; gap: 6px; }
+    .store-item {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(4, 16, 34, 0.55);
+      color: var(--text);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .store-item:hover { border-color: rgba(218, 177, 119, 0.45); }
+    .store-item.active {
+      border-color: rgba(59, 130, 246, 0.55);
+      color: #dbeafe;
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.28);
+      background: rgba(17, 43, 78, 0.85);
+    }
+    .store-item.hub {
+      border-style: dashed;
+      color: var(--gold);
+    }
+    .store-item.total-all {
+      border-style: solid;
+      border-color: rgba(218, 177, 119, 0.72);
+      color: var(--gold-bright);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    .store-item.total-all.active {
+      border-color: rgba(59, 130, 246, 0.65);
+      color: #dbeafe;
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.28);
+      background: rgba(17, 43, 78, 0.85);
+    }
+    .charts-wrap {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(12, 35, 68, 0.55);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 420px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .charts-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+    }
+    @media (max-width: 1000px) {
+      .main-area { grid-template-columns: 1fr; }
+      .charts-split { grid-template-columns: 1fr; }
+    }
+    .chart-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      border: 1px solid rgba(218, 177, 119, 0.25);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(4, 18, 37, 0.5);
+    }
+    .chart-panel h2 {
+      margin: 0 0 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+    }
+    .chart-axis-note {
+      margin: -4px 0 8px;
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.35;
+    }
+    .chart-panel .canvas-box {
+      flex: 1;
+      min-height: 220px;
+      position: relative;
+    }
+    .meta-line {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 4px;
+    }
+    .err-box {
+      padding: 20px;
+      color: #fca5a5;
+      text-align: center;
+    }
+    .total-scope-bar {
+      display: none;
+      width: 100%;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 14px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(218, 177, 119, 0.35);
+      background: rgba(4, 18, 37, 0.65);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .total-scope-bar .scope-label { font-weight: 600; color: var(--gold-bright); }
+    .total-scope-bar .scope-btns {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .total-scope-bar button.scope-btn {
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(9, 28, 56, 0.9);
+      color: #93c5fd;
+      cursor: pointer;
+    }
+    .total-scope-bar button.scope-btn[aria-pressed="true"] {
+      background: rgba(218, 177, 119, 0.22);
+      color: var(--gold);
+      border-color: rgba(218, 177, 119, 0.65);
+    }
+    .total-scope-bar button.scope-btn:hover {
+      border-color: rgba(218, 177, 119, 0.5);
+      color: var(--gold-bright);
+    }
+    .mix-filter-bar {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 14px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(218, 177, 119, 0.28);
+      background: rgba(4, 18, 37, 0.55);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .mix-filter-bar .mix-label { font-weight: 600; color: var(--gold-bright); }
+    .mix-filter-bar .mix-btns {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mix-filter-bar button.mix-btn {
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(9, 28, 56, 0.9);
+      color: #93c5fd;
+      cursor: pointer;
+    }
+    .mix-filter-bar button.mix-btn[aria-pressed="true"] {
+      background: rgba(218, 177, 119, 0.22);
+      color: var(--gold);
+      border-color: rgba(218, 177, 119, 0.65);
+    }
+  </style>
+</head>
+<body>
+  <header class="top-shell">
+    <div class="filter-split">
+      <div class="filter-split__part filter-split__part--primary" aria-label="Escopo agregado">
+        <div id="totalScopeBar" class="total-scope-bar" role="group" aria-label="Escopo do TOTAL">
+          <span class="scope-label">TOTAL · escopo</span>
+          <div class="scope-btns">
+            <button type="button" class="scope-btn" id="totalScopeRetail" aria-pressed="true">Só lojas (sem CD/Fábrica)</button>
+            <button type="button" class="scope-btn" id="totalScopeFull" aria-pressed="false">Rede completa (com hub)</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-split__part filter-split__part--secondary" aria-label="Filtros de catálogo e importância">
+        <div id="mixFilterBar" class="mix-filter-bar" role="group" aria-label="Filtro de mix">
+          <span class="mix-label">Cadastro no histograma</span>
+          <div class="mix-btns">
+            <button type="button" class="mix-btn" id="mixAllBtn" aria-pressed="true">Todos (grid ativo)</button>
+            <button type="button" class="mix-btn" id="mixAtivoBtn" aria-pressed="false">Só cadastro Ativo</button>
+          </div>
+        </div>
+        <div id="importanceBar" class="mix-filter-bar" role="group" aria-label="Filtro por importância">
+          <span class="mix-label">Universo (score volume · build top-important)</span>
+          <div class="mix-btns">
+            <button type="button" class="mix-btn" id="impAllBtn" aria-pressed="true">Todos os SKUs</button>
+            <button type="button" class="mix-btn" id="imp30Btn" aria-pressed="false">Top 30</button>
+            <button type="button" class="mix-btn" id="imp100Btn" aria-pressed="false">Top 100</button>
+          </div>
+        </div>
+        <p class="toolbar-hint" id="importanceHint" aria-live="polite"></p>
+      </div>
+    </div>
+  </header>
+  <span id="unitTitle" hidden aria-hidden="true">—</span>
+
+  <div class="main-area">
+    <aside class="stores-panel" aria-label="Unidades">
+      <div class="stores-title">Unidades e CD</div>
+      <div class="store-list" id="storeList"></div>
+    </aside>
+    <div class="charts-wrap">
+      <div class="charts-split">
+        <section class="chart-panel" aria-label="Quantidades">
+          <h2>Saúde do estoque em quantidades</h2>
+          <p class="chart-axis-note">Eixo Y linear: 1 unidade = 1 SKU (a altura da barra corresponde ao número de SKUs na faixa).</p>
+          <div class="canvas-box"><canvas id="chartQty" aria-label="Histograma em quantidade"></canvas></div>
+        </section>
+        <section class="chart-panel" aria-label="Capital em estoque">
+          <h2>Capital em estoque (R$)</h2>
+          <p class="chart-axis-note">Preço de venda do legado (tabela produto, coluna detectada no build) × estoque físico do último dia, por faixa e por loja.</p>
+          <div class="canvas-box"><canvas id="chartFin" aria-label="Histograma capital em estoque R$"></canvas></div>
+        </section>
+      </div>
+      <p class="meta-line" id="zeroBarsHint" style="display: none; color: #fbbf24; max-width: 920px; margin-left: auto; margin-right: auto"></p>
+      <p class="meta-line" id="footerMeta"></p>
+    </div>
+  </div>
+
+  <!-- Dados embutidos pelo build (funciona em file://); fetch só como fallback em http. -->
+  <script src="data/client/stock_health_histogram.js"></script>
+  <script>
+    (function () {
+      const STATUS_ORDER = [
+        "RUPTURA",
+        "CRÍTICO",
+        "ABAIXO",
+        "ACIMA",
+        "MUITO ACIMA",
+        "ENCALHADO 1",
+        "ENCALHADO 2",
+        "ENCALHADO 3",
+      ];
+      const BAR_COLORS = [
+        "rgba(0, 0, 0, 0.78)",
+        "rgba(239, 68, 68, 0.85)",
+        "rgba(251, 191, 36, 0.9)",
+        "rgba(16, 185, 129, 0.88)",
+        "rgba(56, 189, 248, 0.88)",
+        "rgba(167, 139, 250, 0.9)",
+        "rgba(124, 58, 237, 0.88)",
+        "rgba(76, 29, 149, 0.9)",
+      ];
+      const BORDER_COLORS = [
+        "#334155",
+        "#ef4444",
+        "#f59e0b",
+        "#10b981",
+        "#38bdf8",
+        "#a78bfa",
+        "#7c3aed",
+        "#4c1d95",
+      ];
+
+      let dataRef = null;
+      let currentStore = "";
+      const STORE_TOTAL = "TOTAL";
+      let chartQty = null;
+      let chartFin = null;
+      const LS_TOTAL_HUB = "stockHealthTotalIncludesHub";
+      const LS_MIX_ATIVO = "stockHealthOnlyCadastroAtivo";
+      let totalIncludesHubStores = false;
+      let onlyCadastroAtivoMix = false;
+      try {
+        totalIncludesHubStores = localStorage.getItem(LS_TOTAL_HUB) === "1";
+        onlyCadastroAtivoMix = localStorage.getItem(LS_MIX_ATIVO) === "1";
+      } catch (_) {
+        totalIncludesHubStores = false;
+        onlyCadastroAtivoMix = false;
+      }
+
+      const LS_IMPORTANCE = "stockHealthImportanceLimit";
+      let importanceLimit = null;
+      let importanceIdSet = null;
+      let importanceBuiltForLimit = null;
+      let importanceLoadError = null;
+      let catalogAtivoSet = null;
+      let catalogAtivoPromise = null;
+
+      function readImportanceFromLs() {
+        try {
+          const v = localStorage.getItem(LS_IMPORTANCE);
+          if (v === "30" || v === "100") return Number(v);
+        } catch (_) {}
+        return null;
+      }
+      importanceLimit = readImportanceFromLs();
+
+      function loadScriptDynamic(src) {
+        return new Promise(function (resolve, reject) {
+          try {
+            const abs = new URL(src, window.location.href).href;
+            if (document.querySelector('script[data-dyn="' + abs.replace(/"/g, "") + '"]')) {
+              resolve();
+              return;
+            }
+            const s = document.createElement("script");
+            s.src = src;
+            s.async = true;
+            s.dataset.dyn = abs;
+            s.onload = function () {
+              resolve();
+            };
+            s.onerror = function () {
+              reject(new Error("Falha ao carregar " + src));
+            };
+            document.head.appendChild(s);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      }
+
+      async function ensureImportanceSet() {
+        importanceLoadError = null;
+        if (importanceLimit == null) {
+          importanceIdSet = null;
+          importanceBuiltForLimit = null;
+          return;
+        }
+        if (importanceBuiltForLimit === importanceLimit && importanceIdSet) return;
+        importanceIdSet = new Set();
+        try {
+          await loadScriptDynamic("data/client/sku_top_important.js");
+        } catch (e) {
+          importanceLoadError = (e && e.message) || String(e);
+          importanceBuiltForLimit = null;
+          return;
+        }
+        const pack = window.SKU_TOP_IMPORTANT;
+        const rows = pack && Array.isArray(pack.top_100_by_volume) ? pack.top_100_by_volume : [];
+        const n = Math.min(importanceLimit, rows.length);
+        for (let i = 0; i < n; i++) {
+          const id = Number(rows[i].id);
+          if (Number.isFinite(id) && id > 0) importanceIdSet.add(id);
+        }
+        if (importanceIdSet.size === 0) {
+          importanceLoadError =
+            "Sem lista Top N. Na raiz do projeto: npm run build:top-important (gera data/client/sku_top_important.js).";
+          importanceBuiltForLimit = null;
+          return;
+        }
+        importanceBuiltForLimit = importanceLimit;
+      }
+
+      async function ensureCatalogAtivoSet() {
+        if (!onlyCadastroAtivoMix || importanceLimit == null) return;
+        if (catalogAtivoPromise) {
+          await catalogAtivoPromise;
+          return;
+        }
+        if (catalogAtivoSet !== null) return;
+        catalogAtivoPromise = loadScriptDynamic("data/catalog_grid.js")
+          .then(function () {
+            const next = new Set();
+            const g = window.CATALOG_GRID || [];
+            for (let i = 0; i < g.length; i++) {
+              const row = g[i];
+              if (String(row.cadastroEstado || "").trim() === "Ativo") {
+                const id = Number(row.id);
+                if (Number.isFinite(id) && id > 0) next.add(id);
+              }
+            }
+            catalogAtivoSet = next;
+          })
+          .catch(function (e) {
+            importanceLoadError = (e && e.message) || String(e);
+            catalogAtivoSet = new Set();
+          })
+          .finally(function () {
+            catalogAtivoPromise = null;
+          });
+        await catalogAtivoPromise;
+      }
+
+      async function refreshAuxiliaryDataForFilters() {
+        await ensureImportanceSet();
+        if (importanceLimit != null && onlyCadastroAtivoMix) await ensureCatalogAtivoSet();
+      }
+
+      function idPassesFilters(id) {
+        const n = Number(id);
+        if (!Number.isFinite(n) || n <= 0) return false;
+        if (importanceLimit != null) {
+          if (!importanceIdSet || !importanceIdSet.has(n)) return false;
+        }
+        if (onlyCadastroAtivoMix && importanceLimit != null) {
+          if (catalogAtivoSet === null || !catalogAtivoSet.has(n)) return false;
+        }
+        return true;
+      }
+
+      function filterStoreBlockToSeries(b) {
+        const counts = {};
+        const fin = {};
+        for (let i = 0; i < STATUS_ORDER.length; i++) {
+          const k = STATUS_ORDER[i];
+          const arr = (b.sku_ids_by_status && b.sku_ids_by_status[k]) || [];
+          const filt = arr.filter(idPassesFilters);
+          counts[k] = filt.length;
+          const baseC =
+            onlyCadastroAtivoMix && importanceLimit == null && b.counts_cadastro_ativo
+              ? Number(b.counts_cadastro_ativo[k]) || 0
+              : Number(b.counts[k]) || 0;
+          const baseF =
+            onlyCadastroAtivoMix && importanceLimit == null && b.financial_mass_cadastro_ativo
+              ? Number(b.financial_mass_cadastro_ativo[k]) || 0
+              : Number(b.financial_mass[k]) || 0;
+          fin[k] = baseC > 0 ? (baseF * filt.length) / baseC : 0;
+        }
+        return { counts: counts, financial_mass: fin };
+      }
+
+      function aggregateFilteredSeriesAcrossStores(includeHub) {
+        const counts = {};
+        const fin = {};
+        for (let i = 0; i < STATUS_ORDER.length; i++) {
+          counts[STATUS_ORDER[i]] = 0;
+          fin[STATUS_ORDER[i]] = 0;
+        }
+        const names = dataRef.stores || [];
+        for (let i = 0; i < names.length; i++) {
+          const nm = names[i];
+          if (!includeHub && isHubStoreName(nm)) continue;
+          const b = dataRef.by_store[nm];
+          if (!b) continue;
+          const s = filterStoreBlockToSeries(b);
+          for (let j = 0; j < STATUS_ORDER.length; j++) {
+            const k = STATUS_ORDER[j];
+            counts[k] += Number(s.counts[k]) || 0;
+            fin[k] += Number(s.financial_mass[k]) || 0;
+          }
+        }
+        return { counts: counts, financial_mass: fin };
+      }
+
+      function pickSeriesFromBlockPrecomputed(b) {
+        if (!b) return null;
+        if (onlyCadastroAtivoMix && b.counts_cadastro_ativo && b.financial_mass_cadastro_ativo) {
+          return { counts: b.counts_cadastro_ativo, financial_mass: b.financial_mass_cadastro_ativo };
+        }
+        return { counts: b.counts, financial_mass: b.financial_mass };
+      }
+
+      function computeSeriesForCurrentView() {
+        if (importanceLimit != null) {
+          if (importanceLoadError || !importanceIdSet || importanceIdSet.size === 0) return null;
+          if (onlyCadastroAtivoMix && catalogAtivoSet === null) return null;
+          if (currentStore === STORE_TOTAL) {
+            return aggregateFilteredSeriesAcrossStores(totalIncludesHubStores);
+          }
+          const b = dataRef.by_store[currentStore];
+          return b ? filterStoreBlockToSeries(b) : null;
+        }
+        const block = getCurrentStoreBlock();
+        return pickSeriesFromBlockPrecomputed(block);
+      }
+
+      function isHubStoreName(name) {
+        const n = String(name || "");
+        return n === "Fábrica" || n === "CD SARON" || /fábrica|fabrica/i.test(n);
+      }
+
+      function fmtInt(n) {
+        return Number(n || 0).toLocaleString("pt-BR");
+      }
+
+      function fmtBRL(n, frac) {
+        const x = Number(n) || 0;
+        const f = frac != null ? frac : x < 1000 ? 2 : 0;
+        return x.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: f });
+      }
+
+      function fmtFinAxis(n) {
+        const x = Number(n) || 0;
+        if (x === 0) return "R$ 0";
+        if (x < 1) return fmtBRL(x, 4);
+        return fmtBRL(x, x >= 100000 ? 0 : 2);
+      }
+
+      /**
+       * Histograma da esquerda (quantidades): escala linear, sem folga no topo — o máximo do eixo Y é o maior
+       * valor entre as faixas, para que N SKUs leiam N no eixo (10 → barra até 10, 100 → até 100).
+       */
+      function openCatalogByStatus(statusLabel) {
+        const status = String(statusLabel || "").trim();
+        if (!status) return;
+        const store = currentStore || STORE_TOTAL;
+        const scope =
+          store === STORE_TOTAL ? (totalIncludesHubStores ? "full" : "retail") : "single";
+        const href =
+          "apollo_grid.html?source=stock_health" +
+          "&status=" +
+          encodeURIComponent(status) +
+          "&store=" +
+          encodeURIComponent(store) +
+          "&scope=" +
+          encodeURIComponent(scope);
+        window.location.href = href;
+      }
+
+      function chartOptionsForSeries(isQty, series) {
+        const maxVal = Math.max.apply(null, [0].concat(series));
+        let yScale = { beginAtZero: true, grid: { color: "rgba(218, 177, 119, 0.06)" } };
+        if (isQty) {
+          yScale.type = "linear";
+          yScale.grace = 0;
+          if (maxVal <= 0) {
+            yScale.suggestedMax = 10;
+            yScale.ticks = {
+              color: "#94a3b8",
+              font: { size: 10 },
+              stepSize: 1,
+              precision: 0,
+              callback: function (v) {
+                return fmtInt(v);
+              },
+            };
+          } else {
+            yScale.max = maxVal;
+            const tickCfg = {
+              color: "#94a3b8",
+              font: { size: 10 },
+              precision: 0,
+              callback: function (v) {
+                return fmtInt(v);
+              },
+            };
+            if (maxVal <= 50) {
+              tickCfg.stepSize = 1;
+            } else {
+              tickCfg.maxTicksLimit = 14;
+            }
+            yScale.ticks = tickCfg;
+          }
+        } else {
+          if (maxVal <= 0) {
+            yScale.suggestedMax = 1;
+            yScale.ticks = {
+              color: "#94a3b8",
+              font: { size: 10 },
+              callback: function (v) {
+                return fmtFinAxis(v);
+              },
+            };
+          } else {
+            yScale.suggestedMax = maxVal * 1.12;
+            yScale.ticks = {
+              color: "#94a3b8",
+              font: { size: 10 },
+              callback: function (v) {
+                return fmtFinAxis(v);
+              },
+            };
+          }
+        }
+        return {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: {
+            padding: { top: isQty ? 18 : 36 },
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function (ctx) {
+                  const v = ctx.raw;
+                  if (isQty) return fmtInt(v) + " SKUs";
+                  return fmtBRL(v, 2) + " (preço legado × físico)";
+                },
+              },
+            },
+          },
+          onClick: function (_evt, elements, chart) {
+            if (!elements || !elements.length || !chart || !chart.data || !chart.data.labels) return;
+            const idx = elements[0].index;
+            const status = chart.data.labels[idx];
+            if (status) openCatalogByStatus(status);
+          },
+          scales: {
+            x: {
+              ticks: { color: "#94a3b8", maxRotation: 45, minRotation: 35, font: { size: 9 } },
+              grid: { color: "rgba(218, 177, 119, 0.06)" },
+            },
+            y: yScale,
+          },
+        };
+      }
+
+      function destroyCharts() {
+        if (chartQty) {
+          chartQty.destroy();
+          chartQty = null;
+        }
+        if (chartFin) {
+          chartFin.destroy();
+          chartFin = null;
+        }
+      }
+
+      /**
+       * Rótulos acima das barras:
+       * esq.: % do total de SKUs na loja (soma das 8 faixas);
+       * dir.: 1ª linha % do capital na loja; 2ª linha valor R$ da faixa (Σ das 8 = rodapé).
+       */
+      function createHistogramBarLabelPlugin(isQty, totalForPct) {
+        return {
+          id: "histogramBarValueLabels",
+          afterDatasetsDraw: function (chart) {
+            const area = chart.chartArea;
+            if (!area) return;
+            const ctx = chart.ctx;
+            const ds = chart.data.datasets[0];
+            const meta = chart.getDatasetMeta(0);
+            if (!meta || !meta.data || !meta.data.length) return;
+            ctx.save();
+            ctx.textAlign = "center";
+            ctx.textBaseline = "bottom";
+            for (let i = 0; i < meta.data.length; i++) {
+              const el = meta.data[i];
+              const v = Number(ds.data[i]) || 0;
+              if (v === 0) continue;
+              const x = el.x;
+              const y = el.y;
+              if (isQty) {
+                ctx.font = '600 10px "DM Sans", system-ui, sans-serif';
+                const pct = totalForPct > 0 ? (100 * v) / totalForPct : 0;
+                const text =
+                  pct.toLocaleString("pt-BR", { maximumFractionDigits: 1, minimumFractionDigits: 0 }) + "%";
+                const labelY = Math.max(area.top + 2, y - 5);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "rgba(4, 16, 34, 0.92)";
+                ctx.strokeText(text, x, labelY);
+                ctx.fillStyle = "#f8fafc";
+                ctx.fillText(text, x, labelY);
+              } else {
+                const pct = totalForPct > 0 ? (100 * v) / totalForPct : 0;
+                const pctStr =
+                  pct.toLocaleString("pt-BR", { maximumFractionDigits: 1, minimumFractionDigits: 0 }) + "%";
+                const moneyStr = fmtBRL(v, 2);
+                const lineGap = 12;
+                let moneyY = Math.max(area.top + 22, y - 2);
+                let pctY = moneyY - lineGap;
+                if (pctY < area.top + 2) {
+                  pctY = area.top + 2;
+                  moneyY = Math.min(pctY + lineGap, y - 2);
+                }
+                function drawLine(str, yPos, fontPx, lw) {
+                  ctx.font = '600 ' + fontPx + 'px "DM Sans", system-ui, sans-serif';
+                  ctx.lineWidth = lw;
+                  ctx.strokeStyle = "rgba(4, 16, 34, 0.92)";
+                  ctx.strokeText(str, x, yPos);
+                  ctx.fillStyle = "#f8fafc";
+                  ctx.fillText(str, x, yPos);
+                }
+                drawLine(pctStr, pctY, 10, 2.5);
+                drawLine(moneyStr, moneyY, 9, 2.2);
+              }
+            }
+            ctx.restore();
+          },
+        };
+      }
+
+      function hasCadastroAtivoSeries() {
+        const names = dataRef && dataRef.stores ? dataRef.stores : [];
+        for (let i = 0; i < names.length; i++) {
+          const b = dataRef.by_store[names[i]];
+          if (b && b.counts_cadastro_ativo && b.financial_mass_cadastro_ativo) return true;
+        }
+        return false;
+      }
+
+      function aggregateAllStoresBlock(includeHub) {
+        const counts = {};
+        const fin = {};
+        const countsA = {};
+        const finA = {};
+        for (let i = 0; i < STATUS_ORDER.length; i++) {
+          counts[STATUS_ORDER[i]] = 0;
+          fin[STATUS_ORDER[i]] = 0;
+          countsA[STATUS_ORDER[i]] = 0;
+          finA[STATUS_ORDER[i]] = 0;
+        }
+        let excluded = 0;
+        let skipped = 0;
+        const names = dataRef.stores || [];
+        for (let i = 0; i < names.length; i++) {
+          const nm = names[i];
+          if (!includeHub && isHubStoreName(nm)) continue;
+          const b = dataRef.by_store[nm];
+          if (!b) continue;
+          for (let j = 0; j < STATUS_ORDER.length; j++) {
+            const k = STATUS_ORDER[j];
+            counts[k] += Number(b.counts[k]) || 0;
+            fin[k] += Number(b.financial_mass[k]) || 0;
+            if (b.counts_cadastro_ativo && b.financial_mass_cadastro_ativo) {
+              countsA[k] += Number(b.counts_cadastro_ativo[k]) || 0;
+              finA[k] += Number(b.financial_mass_cadastro_ativo[k]) || 0;
+            }
+          }
+          excluded += Number(b.excluded_discontinued_ruptura) || 0;
+          skipped += Number(b.skipped) || 0;
+        }
+        return {
+          counts: counts,
+          financial_mass: fin,
+          counts_cadastro_ativo: countsA,
+          financial_mass_cadastro_ativo: finA,
+          excluded_discontinued_ruptura: excluded,
+          skipped: skipped,
+        };
+      }
+
+      function getCurrentStoreBlock() {
+        if (!dataRef) return null;
+        if (currentStore === STORE_TOTAL) return aggregateAllStoresBlock(totalIncludesHubStores);
+        return dataRef.by_store[currentStore] || null;
+      }
+
+      function syncTotalScopeBar() {
+        const bar = document.getElementById("totalScopeBar");
+        const retail = document.getElementById("totalScopeRetail");
+        const full = document.getElementById("totalScopeFull");
+        const split = document.querySelector(".filter-split");
+        const partPrimary = document.querySelector(".filter-split__part--primary");
+        if (!bar || !retail || !full) return;
+        const show = currentStore === STORE_TOTAL;
+        bar.style.display = show ? "flex" : "none";
+        if (partPrimary) partPrimary.style.display = show ? "" : "none";
+        if (split) split.classList.toggle("filter-split--no-scope", !show);
+        if (show) {
+          retail.setAttribute("aria-pressed", totalIncludesHubStores ? "false" : "true");
+          full.setAttribute("aria-pressed", totalIncludesHubStores ? "true" : "false");
+        }
+      }
+
+      function renderCharts() {
+        if (!dataRef || !currentStore) return;
+        const block = getCurrentStoreBlock();
+        if (!block) return;
+        const series = computeSeriesForCurrentView();
+        const impHint = document.getElementById("importanceHint");
+        if (!series) {
+          if (impHint && importanceLimit != null) {
+            impHint.textContent =
+              importanceLoadError || "A carregar filtros (Top N / catálogo)… Recarregue se ficar preso.";
+            impHint.classList.add("is-visible");
+          }
+          return;
+        }
+        if (impHint) {
+          impHint.textContent = "";
+          impHint.classList.remove("is-visible");
+        }
+        const qty = STATUS_ORDER.map((k) => Number(series.counts[k]) || 0);
+        const fin = STATUS_ORDER.map((k) => Number(series.financial_mass[k]) || 0);
+        let sumQ = 0;
+        let sumF = 0;
+        for (let i = 0; i < qty.length; i++) {
+          sumQ += qty[i];
+          sumF += fin[i];
+        }
+        destroyCharts();
+        const ctxQ = document.getElementById("chartQty").getContext("2d");
+        const ctxF = document.getElementById("chartFin").getContext("2d");
+        chartQty = new Chart(ctxQ, {
+          type: "bar",
+          plugins: [createHistogramBarLabelPlugin(true, sumQ)],
+          data: {
+            labels: STATUS_ORDER,
+            datasets: [
+              {
+                data: qty,
+                backgroundColor: BAR_COLORS,
+                borderColor: BORDER_COLORS,
+                borderWidth: 1.2,
+              },
+            ],
+          },
+          options: chartOptionsForSeries(true, qty),
+        });
+        chartFin = new Chart(ctxF, {
+          type: "bar",
+          plugins: [createHistogramBarLabelPlugin(false, sumF)],
+          data: {
+            labels: STATUS_ORDER,
+            datasets: [
+              {
+                data: fin,
+                backgroundColor: BAR_COLORS,
+                borderColor: BORDER_COLORS,
+                borderWidth: 1.2,
+              },
+            ],
+          },
+          options: chartOptionsForSeries(false, fin),
+        });
+        const ex = block.excluded_discontinued_ruptura || 0;
+        const sk = block.skipped || 0;
+        const hintEl = document.getElementById("zeroBarsHint");
+        if (sumQ === 0 && sumF === 0) {
+          hintEl.style.display = "block";
+          let msg =
+            "Nesta unidade as faixas estão todas a zero (quantidades e capital R$). " +
+            "As barras só aparecem quando existe contagem ou massa nessa faixa.";
+          const lim = dataRef && dataRef.build_limit;
+          const used = dataRef && Number(dataRef.sku_files_used) || 0;
+          const afterCat =
+            dataRef && dataRef.sku_files_after_catalog_filter != null
+              ? Number(dataRef.sku_files_after_catalog_filter)
+              : used;
+          const catN = dataRef && dataRef.catalog && dataRef.catalog.active_sku_id_count != null
+            ? Number(dataRef.catalog.active_sku_id_count)
+            : null;
+          if (lim != null && lim > 0) {
+            msg +=
+              " Este ficheiro foi gerado com --limit: só " +
+              fmtInt(used) +
+              " SKU(s) entraram no cálculo (amostra), não os " +
+              fmtInt(afterCat) +
+              " ativos com bundle em data/js";
+            if (catN != null && Number.isFinite(catN)) {
+              msg += " nem os " + fmtInt(catN) + " IDs ativos no catálogo";
+            }
+            msg +=
+              ". Por isso o total nas barras não reflete «toda a empresa». Regere com npm run build:stock-health. " +
+              "Se mesmo assim esta unidade ficar a zero, experimente outra loja.";
+          } else {
+            msg +=
+              " Pode ser RUPTURA toda expurgada como descontinuada nesta unidade ou falta de timeline — experimente outra loja.";
+          }
+          hintEl.textContent = msg;
+        } else {
+          hintEl.style.display = "none";
+          hintEl.textContent = "";
+        }
+        let foot =
+          "SKUs nas faixas (soma barras): " +
+          fmtInt(sumQ) +
+          " · Σ capital estoque: " +
+          fmtBRL(sumF, 2) +
+          " · RUPTURA expurgada (descontinuados): " +
+          fmtInt(ex) +
+          " · linhas ignoradas (sem timeline/status): " +
+          fmtInt(sk);
+        if (currentStore === STORE_TOTAL) {
+          foot +=
+            totalIncludesHubStores
+              ? " · TOTAL: soma em todas as unidades (inclui CD/Fábrica)."
+              : " · TOTAL: só lojas — CD/Fábrica fora do somatório (alterne «Rede completa» para incluir o hub).";
+        }
+        if (onlyCadastroAtivoMix && hasCadastroAtivoSeries()) {
+          foot += " · Filtro: só SKUs com cadastro «Ativo» no catálogo (mix).";
+        }
+        if (importanceLimit != null && importanceIdSet && importanceIdSet.size) {
+          foot += " · Universo: Top " + importanceLimit + " por score (volume) em sku_top_important.";
+        }
+        document.getElementById("footerMeta").textContent = foot;
+        syncTotalScopeBar();
+        syncMixFilterBar();
+        syncImportanceBar();
+      }
+
+      let mixFilterWired = false;
+      function syncMixFilterBar() {
+        const bar = document.getElementById("mixFilterBar");
+        const allB = document.getElementById("mixAllBtn");
+        const ativoB = document.getElementById("mixAtivoBtn");
+        if (!bar || !allB || !ativoB) return;
+        const ok = hasCadastroAtivoSeries();
+        bar.style.display = ok ? "flex" : "none";
+        if (!ok) return;
+        allB.setAttribute("aria-pressed", onlyCadastroAtivoMix ? "false" : "true");
+        ativoB.setAttribute("aria-pressed", onlyCadastroAtivoMix ? "true" : "false");
+        if (!mixFilterWired) {
+          mixFilterWired = true;
+          allB.addEventListener("click", function () {
+            onlyCadastroAtivoMix = false;
+            catalogAtivoSet = null;
+            try {
+              localStorage.setItem(LS_MIX_ATIVO, "0");
+            } catch (_) {}
+            void afterMixOrImportanceChange();
+          });
+          ativoB.addEventListener("click", function () {
+            onlyCadastroAtivoMix = true;
+            catalogAtivoSet = null;
+            try {
+              localStorage.setItem(LS_MIX_ATIVO, "1");
+            } catch (_) {}
+            void afterMixOrImportanceChange();
+          });
+        }
+      }
+
+      let importanceFilterWired = false;
+      function syncImportanceBar() {
+        const allB = document.getElementById("impAllBtn");
+        const b30 = document.getElementById("imp30Btn");
+        const b100 = document.getElementById("imp100Btn");
+        if (!allB || !b30 || !b100) return;
+        allB.setAttribute("aria-pressed", importanceLimit == null ? "true" : "false");
+        b30.setAttribute("aria-pressed", importanceLimit === 30 ? "true" : "false");
+        b100.setAttribute("aria-pressed", importanceLimit === 100 ? "true" : "false");
+        if (!importanceFilterWired) {
+          importanceFilterWired = true;
+          allB.addEventListener("click", function () {
+            importanceLimit = null;
+            importanceBuiltForLimit = null;
+            importanceIdSet = null;
+            catalogAtivoSet = null;
+            try {
+              localStorage.removeItem(LS_IMPORTANCE);
+            } catch (_) {}
+            void afterMixOrImportanceChange();
+          });
+          b30.addEventListener("click", function () {
+            importanceLimit = 30;
+            importanceBuiltForLimit = null;
+            importanceIdSet = null;
+            catalogAtivoSet = null;
+            try {
+              localStorage.setItem(LS_IMPORTANCE, "30");
+            } catch (_) {}
+            void afterMixOrImportanceChange();
+          });
+          b100.addEventListener("click", function () {
+            importanceLimit = 100;
+            importanceBuiltForLimit = null;
+            importanceIdSet = null;
+            catalogAtivoSet = null;
+            try {
+              localStorage.setItem(LS_IMPORTANCE, "100");
+            } catch (_) {}
+            void afterMixOrImportanceChange();
+          });
+        }
+      }
+
+      async function afterMixOrImportanceChange() {
+        await refreshAuxiliaryDataForFilters();
+        renderCharts();
+      }
+
+      async function applyData(data) {
+        dataRef = data;
+        if (onlyCadastroAtivoMix && !hasCadastroAtivoSeries()) {
+          onlyCadastroAtivoMix = false;
+          try {
+            localStorage.removeItem(LS_MIX_ATIVO);
+          } catch (_) {}
+        }
+        const stores = data.stores || [];
+        if (!stores.length) throw new Error("Sem lojas nos dados.");
+        currentStore = STORE_TOTAL;
+        buildSidebar(stores);
+        document.querySelectorAll("#storeList .store-item").forEach(function (n) {
+          n.classList.toggle("active", n.getAttribute("data-store") === currentStore);
+        });
+        const ut = document.getElementById("unitTitle");
+        if (ut) {
+          ut.textContent =
+            currentStore === STORE_TOTAL && !totalIncludesHubStores ? "TOTAL · só lojas" : currentStore;
+        }
+        wireTotalScopeButtonsOnce();
+        await refreshAuxiliaryDataForFilters();
+        renderCharts();
+      }
+
+      let totalScopeButtonsWired = false;
+      function wireTotalScopeButtonsOnce() {
+        if (totalScopeButtonsWired) return;
+        const retail = document.getElementById("totalScopeRetail");
+        const full = document.getElementById("totalScopeFull");
+        if (!retail || !full) return;
+        totalScopeButtonsWired = true;
+        retail.addEventListener("click", function () {
+          totalIncludesHubStores = false;
+          try {
+            localStorage.setItem(LS_TOTAL_HUB, "0");
+          } catch (_) {}
+          const u1 = document.getElementById("unitTitle");
+          if (u1) u1.textContent = "TOTAL · só lojas";
+          void afterMixOrImportanceChange();
+        });
+        full.addEventListener("click", function () {
+          totalIncludesHubStores = true;
+          try {
+            localStorage.setItem(LS_TOTAL_HUB, "1");
+          } catch (_) {}
+          const u2 = document.getElementById("unitTitle");
+          if (u2) u2.textContent = STORE_TOTAL;
+          void afterMixOrImportanceChange();
+        });
+      }
+
+      function buildSidebar(stores) {
+        const el = document.getElementById("storeList");
+        el.innerHTML = "";
+        const totalBtn = document.createElement("button");
+        totalBtn.type = "button";
+        totalBtn.className = "store-item total-all";
+        totalBtn.setAttribute("data-store", STORE_TOTAL);
+        totalBtn.textContent = STORE_TOTAL;
+        totalBtn.addEventListener("click", function () {
+          currentStore = STORE_TOTAL;
+          el.querySelectorAll(".store-item").forEach(function (n) {
+            n.classList.toggle("active", n.getAttribute("data-store") === STORE_TOTAL);
+          });
+          const u3 = document.getElementById("unitTitle");
+          if (u3) u3.textContent = totalIncludesHubStores ? STORE_TOTAL : "TOTAL · só lojas";
+          void afterMixOrImportanceChange();
+        });
+        el.appendChild(totalBtn);
+        for (let i = 0; i < stores.length; i++) {
+          const name = stores[i];
+          const btn = document.createElement("button");
+          btn.type = "button";
+          const isHub = name === "Fábrica" || name === "CD SARON" || /fábrica|fabrica/i.test(String(name));
+          btn.className = "store-item" + (isHub ? " hub" : "");
+          btn.setAttribute("data-store", name);
+          btn.textContent = name;
+          btn.addEventListener("click", function () {
+            currentStore = name;
+            el.querySelectorAll(".store-item").forEach(function (n) {
+              n.classList.toggle("active", n.getAttribute("data-store") === name);
+            });
+            const u4 = document.getElementById("unitTitle");
+            if (u4) u4.textContent = name;
+            void afterMixOrImportanceChange();
+          });
+          el.appendChild(btn);
+        }
+      }
+
+      function showErr(msg) {
+        document.querySelector(".charts-wrap").innerHTML =
+          '<div class="err-box">' + String(msg) + "</div>";
+      }
+
+      if (window.STOCK_HEALTH_HISTOGRAM_DATA && typeof window.STOCK_HEALTH_HISTOGRAM_DATA === "object") {
+        void applyData(window.STOCK_HEALTH_HISTOGRAM_DATA).catch(function (e) {
+          showErr((e && e.message) || e);
+        });
+      } else {
+        fetch("data/client/stock_health_histogram.json", { cache: "no-store" })
+          .then(function (r) {
+            if (!r.ok) throw new Error("JSON em falta. Rode: npm run build:stock-health");
+            return r.json();
+          })
+          .then(function (d) {
+            return applyData(d);
+          })
+          .catch(function (e) {
+            showErr(
+              (e && e.message) ||
+                e ||
+                "Não foi possível carregar dados. Gere data/client/stock_health_histogram.js com npm run build:stock-health. Se abriu o HTML em file://, use o .js gerado (ou um servidor HTTP local)."
+            );
+          });
+      }
+    })();
+  </script>
+</body>
+</html>

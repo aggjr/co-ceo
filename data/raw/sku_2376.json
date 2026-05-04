@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2376,
+    "code": "9544",
+    "name": "COLCHA QUEEN 2,30X2,30 OURO PRETO AZUL ROYAL",
+    "timestamp": "2026-04-30T11:34:23.447Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-08T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

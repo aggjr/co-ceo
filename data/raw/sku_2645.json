@@ -1,0 +1,54 @@
+{
+  "info": {
+    "id": 2645,
+    "code": "11713",
+    "name": "DARKEN 2,60X1,80 VOIL XADREZ PEROLA",
+    "timestamp": "2026-04-30T11:35:10.143Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-05-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 3,
+        "data_evento": "2023-05-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-25T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-22T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

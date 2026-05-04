@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2392,
+    "code": "9760",
+    "name": "MANTA CASAL 2,05X2,30 VENTURA AMERICA AZUL COBALTO",
+    "timestamp": "2026-04-30T11:34:26.029Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

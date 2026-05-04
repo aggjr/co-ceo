@@ -1,0 +1,84 @@
+{
+  "info": {
+    "id": 1017,
+    "code": "9101",
+    "name": "TEC CORTA LUZ LINHO MARROM 2.80 MT",
+    "timestamp": "2026-04-30T11:30:32.103Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 23.799999999999997,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 16.8,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 46.9,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6.1999999999999105,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 9.237055564881302e-14,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 20.30000000000009,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 23.59999999999991,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2024-02-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 20.9,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 3.623767952376511e-13,
+        "data_evento": "2024-04-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 20.900000000000546,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

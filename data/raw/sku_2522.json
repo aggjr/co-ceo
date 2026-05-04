@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2522,
+    "code": "11578",
+    "name": "COBRE LEITO KING LINHA OURO LISO",
+    "timestamp": "2026-04-30T11:34:47.459Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

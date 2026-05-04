@@ -1,0 +1,34 @@
+{
+  "info": {
+    "id": 2694,
+    "code": "11761",
+    "name": "UNICA 4,00X2,60 MANDRAS MARROM",
+    "timestamp": "2026-04-30T11:35:18.251Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

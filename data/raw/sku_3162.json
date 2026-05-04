@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 3162,
+    "code": "12285",
+    "name": "TAPETE 0,40X0,60 KAP BANHEIRO HAPPY",
+    "timestamp": "2026-04-30T11:36:35.819Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 3,
+        "data_evento": "2023-07-25T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

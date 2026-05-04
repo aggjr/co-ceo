@@ -1,0 +1,102 @@
+{
+  "info": {
+    "id": 1015,
+    "code": "9099",
+    "name": "TEC CORTA LUZ LINHO CINZA 2.80 MT",
+    "timestamp": "2026-04-30T11:30:31.782Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 54.900000000000006,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 21,
+        "data_evento": "2023-04-20T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2023-04-25T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 17.500000000000043,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 14.700000000000001,
+        "data_evento": "2023-05-17T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.6,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 29.400000000000002,
+        "data_evento": "2023-06-07T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 19.600000000000545,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 4.618527782440651e-14,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.618527782440651e-14,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.618527782440651e-14,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 0.7999999999999545,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 14,
+        "data_evento": "2023-11-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2024-01-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

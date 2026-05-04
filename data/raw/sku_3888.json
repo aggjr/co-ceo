@@ -1,0 +1,58 @@
+{
+  "info": {
+    "id": 3888,
+    "code": "13014",
+    "name": "CORTINA OUTLET -G6-",
+    "timestamp": "2026-04-30T11:38:33.446Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-10T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Fábrica": [
+      {
+        "quantidade": 2,
+        "data_evento": "2025-06-11T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-28T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

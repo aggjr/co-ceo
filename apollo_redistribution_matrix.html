@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo | Matriz de Redistribuição de Rede</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070b14;
+            --bg-panel: #0f172a;
+            --bg-card: #151c2e;
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+            
+            /* Status Colors from UI Reference */
+            --status-ruptura: #000000;
+            --status-critico: #ef4444;
+            --status-abaixo: #f59e0b;
+            --status-ideal: #22c55e;
+            --status-sobra: #22d3ee;
+            
+            --gold: #facc15;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            padding: 1rem 2rem;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; text-transform: uppercase; }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .title-section h1 { font-size: 1.6rem; color: var(--gold); margin-bottom: 0.2rem; font-weight: 700; }
+        .title-section p { color: var(--text-muted); font-size: 0.85rem; }
+
+        .header-actions { display: flex; gap: 0.75rem; }
+
+        .btn-toggle {
+            background: #1e293b;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-toggle.active.donor {
+            background: rgba(34, 211, 238, 0.2);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+        }
+
+        .btn-toggle.active.receiver {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--status-critico);
+            border-color: var(--status-critico);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        .filters-bar {
+            background: var(--bg-panel);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-end;
+            border: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .filter-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .filter-group label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; }
+        .filter-group input, .filter-group select {
+            background: #070b14;
+            border: 1px solid var(--border);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.8rem;
+            min-width: 180px;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 0.5rem;
+            padding-bottom: 2px;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .btn-primary { background-color: var(--gold); color: #000; }
+        .btn-primary:hover { background-color: #eab308; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(250, 204, 21, 0.2); }
+        
+        .btn-outline { background: transparent; border-color: var(--border); color: var(--text-main); }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
+
+        .summary-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-value { font-size: 1.2rem; font-weight: 700; font-family: 'Outfit'; }
+
+        .matrix-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        .matrix-link:hover {
+            color: var(--gold);
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .sku-code .matrix-link { color: var(--accent); }
+        .cd-val .matrix-link { color: var(--accent); }
+
+        .matrix-container {
+            background: var(--bg-panel);
+            border-radius: 8px;
+            overflow: auto;
+            max-height: calc(100vh - 320px);
+            border: 1px solid var(--border);
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.8rem;
+        }
+
+        th {
+            background: #0f172a;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.7rem;
+        }
+
+        th:first-child, td:first-child { position: sticky; left: 0; z-index: 11; background: #0f172a; min-width: 70px; border-right: 1px solid var(--border); }
+        th:nth-child(2), td:nth-child(2) { position: sticky; left: 70px; z-index: 11; background: #0f172a; min-width: 280px; border-right: 2px solid var(--border); text-align: left; }
+
+        td {
+            padding: 0.6rem 0.5rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tr:hover td { background-color: rgba(255, 255, 255, 0.02); }
+
+        .sku-code { font-family: monospace; color: var(--accent); font-weight: 700; font-size: 0.75rem; }
+        .sku-name { color: var(--text-main); font-weight: 400; line-height: 1.2; }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            min-width: 55px;
+            text-align: center;
+        }
+
+        .badge-abaixo { background: transparent; color: var(--status-abaixo); border: 1px solid var(--status-abaixo); }
+        .badge-acima { background: transparent; color: var(--status-ideal); border: 1px solid var(--status-ideal); }
+        .badge-sobra { background: transparent; color: var(--status-sobra); border: 1px solid var(--status-sobra); }
+        .badge-critico { background: var(--status-critico); color: white; }
+        .badge-ruptura { background: var(--status-ruptura); color: #ef4444; border: 1px solid #ef4444; }
+
+        .status-cell { padding: 0.4rem; transition: transform 0.1s; }
+        .val-display { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+        .suggest-pill {
+            font-size: 0.6rem;
+            background: rgba(34, 211, 238, 0.15);
+            color: var(--accent);
+            border-radius: 4px;
+            padding: 1px 3px;
+            font-weight: 600;
+        }
+
+        .cd-col { border-right: 2px solid var(--border); background: rgba(99, 102, 241, 0.05) !important; }
+        .cd-val { color: var(--accent); font-weight: 700; font-size: 1rem; }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        .loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-dark); z-index: 1000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            gap: 1rem;
+        }
+        .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-header">
+        <div class="title-section">
+            <h1>Matriz de Redistribuição de Rede</h1>
+            <p>Cruzamento de Demanda x Sobra | Algoritmo Fair Share CD v2.0</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-outline" id="exportBtn">Exportar Excel</button>
+            <button class="btn btn-primary" onclick="window.location.reload()">Sincronizar Rede</button>
+        </div>
+    </div>
+
+    <div class="summary-stats">
+        <div class="stat-card">
+            <div class="stat-label">SKUs ANALISADOS</div>
+            <div id="statTotalSkus" class="stat-value">0</div>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--status-ruptura)">
+            <div class="stat-label">RUPTURAS NA REDE</div>
+            <div id="statRuptures" class="stat-value">0</div>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--status-critico)">
+            <div class="stat-label">NÍVEL CRÍTICO</div>
+            <div id="statCritical" class="stat-value">0</div>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--status-sobra)">
+            <div class="stat-label">SOBRAS (REDISTRIBUÍVEL)</div>
+            <div id="statSurplus" class="stat-value">0</div>
+        </div>
+    </div>
+
+    <div class="filters-bar">
+        <div class="filter-group" style="flex: 1.5;">
+            <label>Pesquisar Produto</label>
+            <input type="text" id="searchInput" placeholder="Busque por código ou nome..." oninput="filterMatrix()">
+        </div>
+        
+        <div class="filter-group">
+            <label>Unidade de Origem (Doador)</label>
+            <select id="originFilter" onchange="filterMatrix()">
+                <option value="all">Todas as Origens</option>
+                <option value="CD">CD (Matriz)</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Unidade de Destino (Recebedor)</label>
+            <select id="destFilter" onchange="filterMatrix()">
+                <option value="all">Todos os Destinos</option>
+            </select>
+        </div>
+
+        <div class="toggle-group">
+            <button id="toggleDonor" class="btn-toggle donor" onclick="toggleMode('donor')">
+                <span id="donorIcon">⭕</span> SOMENTE DOADOR
+            </button>
+            <button id="toggleReceiver" class="btn-toggle receiver" onclick="toggleMode('receiver')">
+                <span id="receiverIcon">⭕</span> SOMENTE RECEBEDOR
+            </button>
+        </div>
+    </div>
+
+    <div class="matrix-container">
+        <table id="matrixTable">
+            <thead>
+                <tr id="headerRow">
+                    <th>Cód.</th>
+                    <th>Nome do Produto</th>
+                    <th>CD (Doador)</th>
+                    <!-- Lojas serão injetadas aqui -->
+                </tr>
+            </thead>
+            <tbody id="matrixBody">
+                <!-- Dados serão injetados aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p style="font-family: Outfit; font-weight: 600; color: var(--gold); letter-spacing: 0.1em;">APOLLO INTELLIGENCE ENGINE</p>
+        <p style="font-size: 0.7rem; color: var(--text-muted);">Processando balanço de rede e fair share...</p>
+    </div>
+
+    <script src="data/replenishment_balance.js"></script>
+    <script>
+        const STORES = [
+            "Guaranis", "Eldorado 2", "G2", "Betim", "Carijós", 
+            "Venda Nova", "Barreiro", "Babita", "Tupis"
+        ];
+
+        let state = {
+            onlyDonor: false,
+            onlyReceiver: false
+        };
+
+        function initMatrix() {
+            // Simular tempo de processamento para o "WOW" effect
+            setTimeout(() => {
+                const headerRow = document.getElementById('headerRow');
+                const originFilter = document.getElementById('originFilter');
+                const destFilter = document.getElementById('destFilter');
+
+                STORES.forEach(store => {
+                    const th = document.createElement('th');
+                    th.textContent = store;
+                    headerRow.appendChild(th);
+
+                    // Preencher selects
+                    const optO = document.createElement('option');
+                    optO.value = store; optO.textContent = store;
+                    originFilter.appendChild(optO);
+
+                    const optD = document.createElement('option');
+                    optD.value = store; optD.textContent = store;
+                    destFilter.appendChild(optD);
+                });
+
+                renderMatrix();
+                document.getElementById('loadingOverlay').style.opacity = '0';
+                setTimeout(() => document.getElementById('loadingOverlay').style.display = 'none', 500);
+            }, 1200);
+        }
+
+        function toggleMode(mode) {
+            if (mode === 'donor') {
+                state.onlyDonor = !state.onlyDonor;
+                document.getElementById('toggleDonor').classList.toggle('active', state.onlyDonor);
+                document.getElementById('donorIcon').textContent = state.onlyDonor ? '🔘' : '⭕';
+            } else {
+                state.onlyReceiver = !state.onlyReceiver;
+                document.getElementById('toggleReceiver').classList.toggle('active', state.onlyReceiver);
+                document.getElementById('receiverIcon').textContent = state.onlyReceiver ? '🔘' : '⭕';
+            }
+            filterMatrix();
+        }
+
+        function getBadgeClass(available) {
+            if (available <= -2) return 'badge-ruptura';
+            if (available === -1) return 'badge-critico';
+            if (available === 0) return 'badge-abaixo';
+            if (available === 1) return 'badge-acima';
+            return 'badge-sobra';
+        }
+
+        function getStatusLabel(available) {
+            if (available <= -2) return 'RUPTURA';
+            if (available === -1) return 'CRÍTICO';
+            if (available === 0) return 'ABAIXO';
+            if (available === 1) return 'IDEAL';
+            return 'SOBRA';
+        }
+
+        function calculateFairShareDistribution(sku) {
+            const factoryAvail = sku.factoryStock;
+            const needs = sku.storesNeeded;
+            const stores = Object.keys(needs);
+            const totalNeeded = stores.reduce((acc, s) => acc + needs[s], 0);
+
+            if (totalNeeded === 0 || factoryAvail <= 0) return {};
+
+            const allocations = {};
+            if (factoryAvail >= totalNeeded) {
+                stores.forEach(s => allocations[s] = needs[s]);
+            } else {
+                const ratio = factoryAvail / totalNeeded;
+                let allocatedSum = 0;
+                stores.forEach(s => {
+                    allocations[s] = Math.floor(needs[s] * ratio);
+                    allocatedSum += allocations[s];
+                });
+
+                let remainder = factoryAvail - allocatedSum;
+                const sortedStores = stores.sort((a, b) => needs[b] - needs[a]);
+                let i = 0;
+                while (remainder > 0 && i < sortedStores.length) {
+                    if (allocations[sortedStores[i]] < needs[sortedStores[i]]) {
+                        allocations[sortedStores[i]]++;
+                        remainder--;
+                    }
+                    i++;
+                }
+            }
+            return allocations;
+        }
+
+        function renderMatrix() {
+            const body = document.getElementById('matrixBody');
+            body.innerHTML = '';
+
+            let totalRuptures = 0, totalCritical = 0, totalSurplus = 0, totalSkus = 0;
+
+            for (const id in APOLLO_REPLENISHMENT_DATA) {
+                const sku = APOLLO_REPLENISHMENT_DATA[id];
+                totalSkus++;
+
+                const tr = document.createElement('tr');
+                tr.setAttribute('data-id', id);
+                tr.setAttribute('data-name', sku.name.toLowerCase());
+                tr.setAttribute('data-code', sku.code);
+
+                const distribution = calculateFairShareDistribution(sku);
+
+                tr.innerHTML = `
+                    <td class="sku-code">
+                        <a href="ceo_product_detail_layout.html?code=${sku.code}" class="matrix-link">${sku.code}</a>
+                    </td>
+                    <td class="sku-name-cell">
+                        <div class="sku-name">${sku.name}</div>
+                    </td>
+                    <td class="cd-col">
+                        <div class="cd-val">
+                            <a href="ceo_product_detail_layout.html?code=${sku.code}&hub=1" class="matrix-link">
+                                ${sku.factoryStock > 0 ? '+' + sku.factoryStock : '0'}
+                            </a>
+                        </div>
+                    </td>
+                `;
+
+                STORES.forEach(store => {
+                    const avail = sku.networkAvailable[store] || 0;
+                    const badgeClass = getBadgeClass(avail);
+                    const label = getStatusLabel(avail);
+                    const suggestion = distribution[store] ? `<div class="suggest-pill">Entrar: ${distribution[store]}u</div>` : '';
+                    
+                    if (avail <= -2) totalRuptures++;
+                    if (avail === -1) totalCritical++;
+                    if (avail > 1) totalSurplus++;
+
+                    const td = document.createElement('td');
+                    td.className = `status-cell`;
+                    td.setAttribute('data-status', label.toLowerCase());
+                    td.innerHTML = `
+                        <div class="val-display">
+                            <a href="ceo_product_detail_layout.html?code=${sku.code}&store=${encodeURIComponent(store)}" class="matrix-link">
+                                ${avail}
+                            </a>
+                        </div>
+                        <div class="badge ${badgeClass}">${label}</div>
+                        ${suggestion}
+                    `;
+                    tr.appendChild(td);
+                });
+
+                body.appendChild(tr);
+            }
+
+            document.getElementById('statTotalSkus').textContent = totalSkus;
+            document.getElementById('statRuptures').textContent = totalRuptures;
+            document.getElementById('statCritical').textContent = totalCritical;
+            document.getElementById('statSurplus').textContent = totalSurplus;
+        }
+
+        function filterMatrix() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const origin = document.getElementById('originFilter').value;
+            const dest = document.getElementById('destFilter').value;
+            const rows = document.querySelectorAll('#matrixBody tr');
+
+            rows.forEach(row => {
+                const skuId = row.getAttribute('data-id');
+                const sku = APOLLO_REPLENISHMENT_DATA[skuId];
+                const name = row.getAttribute('data-name');
+                const code = row.getAttribute('data-code');
+                const matchesSearch = name.includes(search) || code.includes(search);
+                
+                let matchesOrigin = true;
+                if (origin !== 'all') {
+                    if (origin === 'CD') {
+                        matchesOrigin = sku.factoryStock > 0;
+                    } else {
+                        matchesOrigin = (sku.networkAvailable[origin] || 0) > 1; // Sobra
+                    }
+                }
+
+                let matchesDest = true;
+                if (dest !== 'all') {
+                    matchesDest = (sku.networkAvailable[dest] || 0) < 0; // Demanda
+                }
+
+                let matchesDonorToggle = true;
+                if (state.onlyDonor) {
+                    // SKU tem sobra em algum lugar ou CD tem estoque
+                    const hasAnySobra = Object.values(sku.networkAvailable).some(v => v > 1) || sku.factoryStock > 0;
+                    matchesDonorToggle = hasAnySobra;
+                }
+
+                let matchesReceiverToggle = true;
+                if (state.onlyReceiver) {
+                    // SKU tem demanda em algum lugar
+                    const hasAnyDemand = Object.values(sku.networkAvailable).some(v => v < 0);
+                    matchesReceiverToggle = hasAnyDemand;
+                }
+
+                row.style.display = (matchesSearch && matchesOrigin && matchesDest && matchesDonorToggle && matchesReceiverToggle) ? '' : 'none';
+            });
+        }
+
+        function exportToExcel() {
+            let csv = "Codigo;Produto;CD;" + STORES.join(";") + "\n";
+            const rows = document.querySelectorAll('#matrixBody tr');
+            rows.forEach(row => {
+                if (row.style.display !== 'none') {
+                    let rowData = [
+                        row.querySelector('.sku-code').textContent,
+                        row.querySelector('.sku-name').textContent.replace(/;/g, ','),
+                        row.querySelector('.cd-val').textContent
+                    ];
+                    row.querySelectorAll('.val-display').forEach(td => rowData.push(td.textContent));
+                    csv += rowData.join(";") + "\n";
+                }
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url); link.setAttribute("download", "Apollo_Redistribuicao_Rede.csv");
+            link.style.visibility = 'hidden'; document.body.appendChild(link);
+            link.click(); document.body.removeChild(link);
+        }
+
+        document.getElementById('exportBtn').onclick = exportToExcel;
+        window.onload = initMatrix;
+    </script>
+</body>
+</html>

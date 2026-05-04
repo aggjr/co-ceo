@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 2867,
+    "code": "11935",
+    "name": "CAPA ALMOFADA 45X45 DELUXE DECOR FOLHAS",
+    "timestamp": "2026-04-30T11:35:47.989Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-12-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-02-16T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

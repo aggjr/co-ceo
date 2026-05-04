@@ -1,0 +1,32 @@
+{
+  "info": {
+    "id": 1871,
+    "code": "K913",
+    "name": "PERSIANA 1.60X1.80 PVC LISA 913",
+    "timestamp": "2026-04-30T11:32:57.743Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 3,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

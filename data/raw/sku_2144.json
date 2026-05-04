@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 2144,
+    "code": "11387",
+    "name": "TAPETE 0,45X0,60 MARKA JOANA",
+    "timestamp": "2026-04-30T11:33:44.867Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-18T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-20T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

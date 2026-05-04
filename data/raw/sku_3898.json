@@ -1,0 +1,50 @@
+{
+  "info": {
+    "id": 3898,
+    "code": "13039",
+    "name": "ABRAÇADEIRA TRANÇAS PEROLA 2 PÇS",
+    "timestamp": "2026-04-30T11:38:34.976Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-03T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

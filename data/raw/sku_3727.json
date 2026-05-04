@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3727,
+    "code": "12862",
+    "name": "CORTINA SEM BAINHA 4",
+    "timestamp": "2026-04-30T11:38:07.883Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1570,
+    "code": "9685",
+    "name": "TAPETE 0,42X0,75 J&C FRANJAS",
+    "timestamp": "2026-04-30T11:32:07.709Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

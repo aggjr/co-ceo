@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matriz rede · todos os produtos × lojas</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --panel: #121922;
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --border: rgba(255,255,255,0.1);
+      --crit: #f87171;
+      --warn: #fbbf24;
+      --ok: #4ade80;
+      --exc: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 14px 16px 24px;
+    }
+    h1 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
+    .sub { font-size: 12px; color: var(--muted); max-width: 920px; line-height: 1.45; margin-bottom: 14px; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    label { font-size: 11px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+    input, select {
+      background: #0d1219;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      min-width: 140px;
+    }
+    input[type="file"] { min-width: 220px; font-size: 11px; }
+    button {
+      background: #1e3a5f;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    button:hover { background: #2563eb; }
+    .meta { font-size: 11px; color: var(--muted); margin-bottom: 10px; font-family: ui-monospace, monospace; white-space: pre-wrap; }
+    .table-wrap {
+      overflow: auto;
+      max-height: calc(100vh - 220px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+    table { border-collapse: collapse; width: 100%; font-size: 12px; }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th {
+      position: sticky;
+      top: 0;
+      background: #1a2433;
+      z-index: 1;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    tr:hover td { background: rgba(255,255,255,0.03); }
+    .p-CRÍTICO { color: var(--crit); font-weight: 600; }
+    .p-ATENÇÃO { color: var(--warn); font-weight: 600; }
+    .p-EQUILIBRADO { color: var(--ok); }
+    .p-EXCESSO { color: var(--exc); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .link-mira { color: #60a5fa; text-decoration: none; font-size: 11px; }
+    .link-mira:hover { text-decoration: underline; }
+    #err { color: var(--crit); font-size: 13px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <p style="margin:0 0 8px;font-size:12px;"><a href="model_curves_master.html" style="color:#60a5fa;">Curvas modelo Mira (novo)</a></p>
+  <h1>Matriz loja × produto (sugestão de rede)</h1>
+  <p class="sub">
+    Carrega <code>data/client/network_matrix.json</code> gerado por
+    <code>node build_client_network_matrix.js</code>. Em arquivo local, o navegador pode bloquear
+    <code>fetch</code>; use &quot;Abrir JSON…&quot; ou sirva a pasta do projeto com um servidor HTTP
+    (por exemplo <code>npx --yes serve .</code> na raiz do projeto).
+  </p>
+  <div class="toolbar">
+    <label>Loja
+      <select id="fStore"><option value="">(todas)</option></select>
+    </label>
+    <label>Prioridade
+      <select id="fPri">
+        <option value="">(todas)</option>
+        <option>CRÍTICO</option>
+        <option>ATENÇÃO</option>
+        <option>EQUILIBRADO</option>
+        <option>EXCESSO</option>
+      </select>
+    </label>
+    <label>Só falta (sugestão &gt; 0)
+      <select id="fNeed">
+        <option value="">não filtrar</option>
+        <option value="1">sim</option>
+      </select>
+    </label>
+    <label>Ocultar CD/Fábrica
+      <select id="fHideF">
+        <option value="1">sim</option>
+        <option value="">não</option>
+      </select>
+    </label>
+    <label>Busca (código ou nome)
+      <input id="fQ" type="search" placeholder="ex: 12159 ou CORTINA" />
+    </label>
+    <label>Máx. linhas
+      <input id="fLimit" type="number" value="500" min="50" max="20000" step="50" />
+    </label>
+    <button type="button" id="btnApply">Aplicar filtros</button>
+    <label style="min-width: 240px;">Abrir JSON…
+      <input type="file" id="filePick" accept=".json,application/json" />
+    </label>
+  </div>
+  <div class="meta" id="meta"></div>
+  <div id="err"></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Produto</th>
+          <th>Loja</th>
+          <th class="num">Disp.</th>
+          <th class="num">Alvo</th>
+          <th class="num">Sugestão</th>
+          <th class="num">Ruptura %</th>
+          <th>Prioridade</th>
+          <th>Ação</th>
+          <th>Mira</th>
+        </tr>
+      </thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+
+  <script>
+    (function () {
+      var bundle = null;
+
+      function setErr(msg) {
+        document.getElementById("err").textContent = msg || "";
+      }
+
+      function fillStores(rows) {
+        var sel = document.getElementById("fStore");
+        var seen = {};
+        rows.forEach(function (r) {
+          seen[r.store] = true;
+        });
+        var names = Object.keys(seen).sort();
+        names.forEach(function (n) {
+          var o = document.createElement("option");
+          o.value = n;
+          o.textContent = n;
+          sel.appendChild(o);
+        });
+      }
+
+      function esc(s) {
+        return String(s == null ? "" : s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function render() {
+        if (!bundle || !bundle.rows) return;
+        var rows = bundle.rows;
+        var store = document.getElementById("fStore").value;
+        var pri = document.getElementById("fPri").value;
+        var need = document.getElementById("fNeed").value;
+        var hideF = document.getElementById("fHideF").value;
+        var q = document.getElementById("fQ").value.trim().toLowerCase();
+        var limit = parseInt(document.getElementById("fLimit").value, 10) || 500;
+
+        var out = [];
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          if (store && r.store !== store) continue;
+          if (pri && r.prioridade !== pri) continue;
+          if (need && !(r.sugestao_unidades > 0)) continue;
+          if (hideF && r.is_factory_or_cd) continue;
+          if (q) {
+            var blob = (r.erp_code + " " + r.product_name).toLowerCase();
+            if (blob.indexOf(q) === -1) continue;
+          }
+          out.push(r);
+          if (out.length >= limit) break;
+        }
+
+        var tb = document.getElementById("tb");
+        tb.innerHTML = "";
+        out.forEach(function (r) {
+          var tr = document.createElement("tr");
+          var sku = r.sku_internal_id;
+          var mira =
+            "model_curves_master.html?sku=" +
+            encodeURIComponent(sku) +
+            "&store=" +
+            encodeURIComponent(r.store);
+          tr.innerHTML =
+            "<td>" +
+            esc(r.erp_code) +
+            "</td>" +
+            "<td>" +
+            esc((r.product_name || "").slice(0, 56)) +
+            (r.product_name && r.product_name.length > 56 ? "…" : "") +
+            "</td>" +
+            "<td>" +
+            esc(r.store) +
+            "</td>" +
+            '<td class="num">' +
+            esc(r.disponivel) +
+            "</td>" +
+            '<td class="num">' +
+            esc(r.alvo_p150) +
+            "</td>" +
+            '<td class="num">' +
+            esc(r.sugestao_unidades) +
+            "</td>" +
+            '<td class="num">' +
+            (r.ruptura_pct != null ? Number(r.ruptura_pct).toFixed(2) : "—") +
+            "</td>" +
+            '<td class="p-' +
+            esc(r.prioridade) +
+            '">' +
+            esc(r.prioridade) +
+            "</td>" +
+            "<td>" +
+            esc(r.acao_sugerida) +
+            "</td>" +
+            '<td><a class="link-mira" href="' +
+            esc(mira) +
+            '">curvas</a></td>';
+          tb.appendChild(tr);
+        });
+
+        document.getElementById("meta").textContent =
+          (bundle.meta ? JSON.stringify(bundle.meta, null, 2) : "") +
+          "\n---\nMostrando " +
+          out.length +
+          " linhas (limite " +
+          limit +
+          ").";
+      }
+
+      function onBundle(data) {
+        bundle = data;
+        document.getElementById("fStore").innerHTML = '<option value="">(todas)</option>';
+        fillStores(bundle.rows);
+        setErr("");
+        render();
+      }
+
+      document.getElementById("btnApply").addEventListener("click", render);
+      document.getElementById("fStore").addEventListener("change", render);
+      document.getElementById("fPri").addEventListener("change", render);
+      document.getElementById("fNeed").addEventListener("change", render);
+      document.getElementById("fHideF").addEventListener("change", render);
+      document.getElementById("fQ").addEventListener("change", render);
+
+      document.getElementById("filePick").addEventListener("change", function (ev) {
+        var f = ev.target.files && ev.target.files[0];
+        if (!f) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          try {
+            onBundle(JSON.parse(reader.result));
+          } catch (e) {
+            setErr("JSON inválido: " + e.message);
+          }
+        };
+        reader.readAsText(f, "UTF-8");
+      });
+
+      fetch("data/client/network_matrix.json")
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status + " " + r.statusText);
+          return r.json();
+        })
+        .then(onBundle)
+        .catch(function (e) {
+          setErr("Não carregou network_matrix.json automaticamente: " + e.message + " — use «Abrir JSON…».");
+        });
+    })();
+  </script>
+</body>
+</html>

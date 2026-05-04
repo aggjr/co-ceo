@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1930,
+    "code": "K1034",
+    "name": "PERSIANA 1.50x1.70 TEC BLACK-OUT 1034",
+    "timestamp": "2026-04-30T11:33:07.819Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-15T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

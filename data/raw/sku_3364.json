@@ -1,0 +1,44 @@
+{
+  "info": {
+    "id": 3364,
+    "code": "12475",
+    "name": "PUFF RETRO BASE DE FERRO 35 X 35 X 48 PEROLA",
+    "timestamp": "2026-04-30T11:37:10.349Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-11-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-12-04T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-11-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2024-10-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

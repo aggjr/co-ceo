@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4064,
+    "code": "13207",
+    "name": "FAST WAVE TRANSL. FLAME TRIGO 2.00X até2.90",
+    "timestamp": "2026-04-30T11:39:01.121Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-12-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

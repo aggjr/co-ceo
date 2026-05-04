@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "description": "Contrato de chaves JSON gerados/consumidos pelo pipeline STOCKSPIN → CO-CEO. Alinhar código e front com estas listas reduz erros de campo inexistente.",
+  "environment": {
+    "legacy_mysql": {
+      "required": [
+        "LEGACY_MYSQL_HOST",
+        "LEGACY_MYSQL_USER",
+        "LEGACY_MYSQL_PASSWORD",
+        "LEGACY_MYSQL_DATABASE"
+      ],
+      "optional": [
+        "LEGACY_MYSQL_PORT",
+        "LEGACY_MYSQL_SSL",
+        "LEGACY_MYSQL_SSL_REJECT_UNAUTHORIZED"
+      ],
+      "config_module": "coceo_db_config.js",
+      "node_api": "assertLegacyConfig()"
+    },
+    "ceo_analytics_mysql": {
+      "variables": [
+        "CEO_MYSQL_HOST",
+        "CEO_MYSQL_PORT",
+        "CEO_MYSQL_USER",
+        "CEO_MYSQL_PASSWORD",
+        "CEO_MYSQL_DATABASE"
+      ],
+      "fallback_to_local": "LOCAL_MYSQL_* quando CEO_* omitidos",
+      "config_module": "coceo_db_config.js",
+      "default_database": "ceo"
+    },
+    "co_ceo_app_backend": {
+      "variables": ["DB_HOST", "DB_USER", "DB_PASSWORD", "DB_NAME"],
+      "default_database": "co_ceo_db",
+      "path": "coceo_software_template/backend"
+    }
+  },
+  "mysql_schemas": {
+    "legacy": {
+      "purpose": "ERP / core STOCKSPIN (produto, movimentacao, ativo, etc.)",
+      "name_source": "LEGACY_MYSQL_DATABASE",
+      "schema_dump_script": "npm run map:legacy-schema → data/mapping/schema_report_legacy.generated.md"
+    },
+    "ceo": {
+      "purpose": "Camada analítica e bundles por SKU",
+      "migrations": [
+        "sql/ceo/001_init_schema.sql",
+        "sql/ceo/002_cd_daily_aggregate.sql",
+        "sql/ceo/003_operational_decision_layer.sql"
+      ],
+      "tables": [
+        "engine_run",
+        "daily_stock_snapshot",
+        "learned_parameter",
+        "replenishment_suggestion",
+        "cd_daily_aggregate",
+        "source_sync_state",
+        "recalc_request",
+        "stock_curve_daily",
+        "sku_store_daily_finance",
+        "stock_health_daily",
+        "top_product_daily_snapshot"
+      ],
+      "multi_tenant_note": "Tabelas atuais não carregam tenant_id; um único schema ceo por ambiente — não misturar clientes no mesmo banco."
+    },
+    "co_ceo_db": {
+      "purpose": "Multi-tenant da aplicação CO-CEO",
+      "init_sql": "coceo_software_template/database/init_co_ceo_db.sql",
+      "tenant_legacy_link": "tenants.legacy_db_name deve coincidir com LEGACY_MYSQL_DATABASE do deploy desse tenant"
+    }
+  },
+  "artifacts": {
+    "data/client/network_matrix.json": {
+      "root_keys": ["meta", "rows"],
+      "row_keys": [
+        "sku_internal_id",
+        "erp_code",
+        "product_name",
+        "store",
+        "is_factory_or_cd",
+        "disponivel",
+        "fisico",
+        "vitrine",
+        "min_stock",
+        "alvo_p150",
+        "sugestao_unidades",
+        "ruptura_pct",
+        "unidades_perdidas_estimadas",
+        "prioridade",
+        "acao_sugerida",
+        "data_file"
+      ],
+      "producer": "build_client_network_matrix.js (script npm: build:client-matrix)"
+    },
+    "data/catalog_grid.js": {
+      "format": "const CATALOG_GRID = [ ... ];",
+      "row_keys": [
+        "id",
+        "code",
+        "name",
+        "category",
+        "subcategory",
+        "legacyAtivo",
+        "rupture",
+        "totalSales"
+      ],
+      "consumer": "scripts/build_cd_purchase_plan.js"
+    },
+    "data/client/cd_purchase_plan.json": {
+      "root_keys": [
+        "generated_at",
+        "source",
+        "stats",
+        "filter_options",
+        "all_product_classification",
+        "category_summary",
+        "rows"
+      ],
+      "source_object_keys": [
+        "network_matrix_path",
+        "catalog_grid_path",
+        "legacy_category_map_rows",
+        "legacy_category_tree_rows",
+        "ceo_dates",
+        "legacy_cd_factory_suggestion_rows",
+        "legacy_sales_window",
+        "legacy_sales_rows_by_sku_store"
+      ],
+      "plan_row_keys": [
+        "sku_internal_id",
+        "erp_code",
+        "product_name",
+        "category",
+        "subcategory",
+        "category_source",
+        "fora_mix",
+        "demanda_total_cd",
+        "lojas_com_demanda",
+        "demanda_media_loja",
+        "ruptura_media_pct",
+        "ruptura_max_pct",
+        "ruptura_ponderada_vendas_pct",
+        "status_urgencia",
+        "status_source",
+        "prioridade",
+        "sugestao_compra_legacy",
+        "total_em_producao_legacy",
+        "quantidade_vendida",
+        "valor_bruto_vendas",
+        "margem_contribuicao_total",
+        "lojas"
+      ],
+      "plan_loja_keys": [
+        "store",
+        "demanda",
+        "ruptura_pct",
+        "prioridade",
+        "quantidade_vendida",
+        "valor_bruto_vendas",
+        "margem_contribuicao_total"
+      ],
+      "producer": "scripts/build_cd_purchase_plan.js (npm run build:cd-plan)"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1456,
+    "code": "10523",
+    "name": "COBRE LEITO KIT SOLT ESSENCIAL 2PC",
+    "timestamp": "2026-04-30T11:31:44.918Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

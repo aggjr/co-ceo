@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2394,
+    "code": "9741",
+    "name": "MANTA CASAL 2,05X2,30 VENTURA LOSANGO AZUL COBALTO",
+    "timestamp": "2026-04-30T11:34:26.348Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

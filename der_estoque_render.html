@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true, theme: 'dark'});</script>
+    <style>
+        body { background-color: #0b0e14; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 40px; }
+        .mermaid { background: #161b22; padding: 30px; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+erDiagram
+    ESTOQUE {
+        bigint Id PK
+        bigint IdAtivo FK
+        double Disponivel
+        double Reservado
+        double Ideal
+        double Minimo
+        double Maximo
+    }
+
+    MOVIMENTACAO {
+        bigint Id PK
+        bigint IdAtivo FK
+        double Quantidade
+        datetime DataMovimentacao
+        int Status
+    }
+
+    TRANSFERENCIA_ITEM {
+        bigint Id PK
+        bigint IdTransferencia FK
+        bigint IdAtivo FK
+        double Quantidade
+    }
+
+    LISTA_PRODUCAO_ITEM {
+        bigint Id PK
+        bigint IdListaProducao FK
+        bigint IdAtivo FK
+        double QtdSugerida
+    }
+
+    PEDIDO_ITEM {
+        bigint Id PK
+        bigint IdPedido FK
+        bigint IdProduto FK
+        double Quantidade
+    }
+
+    LANCAMENTO {
+        bigint Id PK
+        bigint IdAtivo FK
+        double Quantidade
+        int IdTipoMovimentacao
+    }
+
+    ESTOQUE ||--o{ MOVIMENTACAO : "vendas"
+    ESTOQUE ||--o{ TRANSFERENCIA_ITEM : "transito"
+    ESTOQUE ||--o{ LISTA_PRODUCAO_ITEM : "producao"
+    ESTOQUE ||--o{ LANCAMENTO : "ajustes"
+    PEDIDO_ITEM }o--|| ESTOQUE : "abastece"
+    </div>
+</body>
+</html>

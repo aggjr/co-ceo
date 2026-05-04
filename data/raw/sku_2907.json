@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 2907,
+    "code": "11975",
+    "name": "TEC TAFETA AMASSADO BRANCO 2.80 MT",
+    "timestamp": "2026-04-30T11:35:54.423Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 33.599999999999994,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 36.39999999999998,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 24,
+        "data_evento": "2023-06-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 16,
+        "data_evento": "2023-06-16T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 14,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

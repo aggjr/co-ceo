@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3790,
+    "code": "12856",
+    "name": "CABECEIRA CASAL 21 BOTÍES SUEDE/CORINO",
+    "timestamp": "2026-04-30T11:38:18.024Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

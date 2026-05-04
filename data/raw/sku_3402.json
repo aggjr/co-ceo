@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 3402,
+    "code": "59",
+    "name": "TEC. ESTAMPADO OXFORD FLORAL TRIGO 1.50 MT",
+    "timestamp": "2026-04-30T11:37:16.709Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 300,
+        "data_evento": "2024-01-03T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 120,
+        "data_evento": "2024-02-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2.0999999999999943,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 28,
+        "data_evento": "2024-05-28T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

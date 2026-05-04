@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1566,
+    "code": "9686",
+    "name": "PASSADEIRA 0,42X1,50 J&C GEOMETRICO",
+    "timestamp": "2026-04-30T11:32:07.057Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

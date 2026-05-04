@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2849,
+    "code": "11927",
+    "name": "TEC POLIESTER RAFIA ROSE 3,00 MT",
+    "timestamp": "2026-04-30T11:35:45.017Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 9.799999999999956,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

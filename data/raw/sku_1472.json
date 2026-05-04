@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1472,
+    "code": "10878",
+    "name": "MANTA P/ SOFA 2,30X1,40 MAZE CONCRETO",
+    "timestamp": "2026-04-30T11:31:47.824Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-05-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

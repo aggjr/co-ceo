@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1720,
+    "code": "11100",
+    "name": "PORTA TRAVESSEIRO PRIVILEGIO ESTAMPADO",
+    "timestamp": "2026-04-30T11:32:33.019Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-08T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

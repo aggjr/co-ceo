@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 4233,
+    "code": "12193",
+    "name": "ACESSORIOS EM GERAL",
+    "timestamp": "2026-04-30T11:39:27.384Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

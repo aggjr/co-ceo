@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1574,
+    "code": "9919",
+    "name": "TAPETE 0,45X0,60 MARKA PELO BEGE",
+    "timestamp": "2026-04-30T11:32:08.366Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

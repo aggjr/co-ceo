@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 2003,
+    "code": "11259",
+    "name": "CAPA ALMOFADA 45X45 PATCH CLEAN CORAL",
+    "timestamp": "2026-04-30T11:33:20.526Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

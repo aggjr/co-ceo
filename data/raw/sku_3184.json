@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 3184,
+    "code": "12309",
+    "name": "BUCHA DUOPOWER 6MM (PCTE/100)",
+    "timestamp": "2026-04-30T11:36:39.659Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 5,
+        "data_evento": "2023-08-25T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

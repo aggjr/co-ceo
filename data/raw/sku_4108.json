@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 4108,
+    "code": "13252",
+    "name": "FAST WAVE DUAL MIAMI BEGE 2.00X até2.90",
+    "timestamp": "2026-04-30T11:39:08.019Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

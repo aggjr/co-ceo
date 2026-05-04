@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1454,
+    "code": "10524",
+    "name": "COBRE LEITO KIT CASAL ESSENCIAL 3PC",
+    "timestamp": "2026-04-30T11:31:44.597Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2025-02-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

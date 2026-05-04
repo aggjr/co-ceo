@@ -1,0 +1,46 @@
+{
+  "info": {
+    "id": 1473,
+    "code": "10052",
+    "name": "MANTA P/ SOFA 1,40X1,40 MEDALHAO BEGE",
+    "timestamp": "2026-04-30T11:31:47.983Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2024-01-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 2,
+        "data_evento": "2024-07-24T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-07-26T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-09-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

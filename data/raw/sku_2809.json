@@ -1,0 +1,54 @@
+{
+  "info": {
+    "id": 2809,
+    "code": "11876",
+    "name": "TEC. MICROFIBRA VERMELHO 2.25 MT",
+    "timestamp": "2026-04-30T11:35:38.366Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 8,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 18,
+        "data_evento": "2023-06-07T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 52,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 30,
+        "data_evento": "2023-07-14T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 80,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 90,
+        "data_evento": "2023-08-02T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 40,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

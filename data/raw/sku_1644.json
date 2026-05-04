@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1644,
+    "code": "10991",
+    "name": "CAPA COLCHAO CASAL ESP PAN SERENA 30CM",
+    "timestamp": "2026-04-30T11:32:20.258Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-08T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

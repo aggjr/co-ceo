@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2347,
+    "code": "10228",
+    "name": "CAPA COLCHAO CASAL PORT LISO 30CM CHOCO",
+    "timestamp": "2026-04-30T11:34:18.767Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-11T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

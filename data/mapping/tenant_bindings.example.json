@@ -1,0 +1,19 @@
+{
+  "$schema_note": "Copie para tenant_bindings.local.json (não commitar) ou use só como referência.",
+  "deployments": [
+    {
+      "tenant_id": 1,
+      "tenant_slug": "demo",
+      "name": "Cliente demonstração",
+      "contact_email": "admin@demo.coceo",
+      "legacy_note": "Sandbox — sem LEGACY_MYSQL obrigatório para telas de teste."
+    },
+    {
+      "tenant_id": 2,
+      "tenant_slug": "saron-cortinas",
+      "name": "SARON CORTINAS",
+      "legacy_env_database_key": "LEGACY_MYSQL_DATABASE",
+      "comment": "Tenant real; legacy_db_name deve ser igual ao LEGACY_MYSQL_DATABASE no .env da raiz stockspin."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 2946,
+    "code": "12013",
+    "name": "KIT BASTAO TABACO 19MM 3,00 (INTEIRO)",
+    "timestamp": "2026-04-30T11:36:00.747Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 36,
+        "data_evento": "2023-10-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 36,
+        "data_evento": "2023-12-16T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-01-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

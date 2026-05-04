@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO-CEO · DER e Modelo de Operação dos Dados</title>
+  <style>
+    :root {
+      --bg: #041225;
+      --bg2: #0a2241;
+      --panel: rgba(8, 24, 48, 0.92);
+      --line: rgba(218, 177, 119, 0.35);
+      --text: #e8eef7;
+      --muted: #9fb0c8;
+      --gold: #dab177;
+      --accent: #93c5fd;
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --font: "DM Sans", "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(100% 70% at 50% -20%, rgba(45, 114, 214, 0.24), transparent 55%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+      padding: 20px;
+    }
+    .wrap { max-width: 1400px; margin: 0 auto; }
+    h1, h2, h3 { margin: 0 0 10px; color: var(--gold); }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; margin-top: 18px; }
+    h3 { font-size: 16px; }
+    p, li { color: var(--muted); line-height: 1.45; }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 1100px) { .grid2 { grid-template-columns: 1fr; } }
+    .chip {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      color: #0b1730;
+      background: var(--gold);
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-right: 8px;
+    }
+    .chip.blue { background: var(--accent); }
+    .chip.green { background: #7de3c3; }
+    .small { font-size: 12px; color: var(--muted); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 9px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      color: var(--gold);
+      background: rgba(218, 177, 119, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .ok { color: var(--ok); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .mono { font-family: "Consolas", "Courier New", monospace; color: #d4e2f7; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .flow .node {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      background: rgba(10, 30, 58, 0.75);
+      min-height: 90px;
+    }
+    @media (max-width: 1200px) { .flow { grid-template-columns: 1fr 1fr; } }
+    svg { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: rgba(4, 20, 40, 0.65); }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>CO-CEO · DER e Modelo de Operação de Dados</h1>
+    <p>
+      Documento técnico-operacional para consolidação do software de decisão CO-CEO.
+      Mostra o <strong>DER das tabelas legadas e analíticas</strong>, além de <strong>como os dados são puxados do legado</strong>,
+      transformados e publicados nas telas.
+    </p>
+
+    <div class="card">
+      <span class="chip">Escopo</span>
+      <span class="chip blue">MySQL Legado + Schema ceo</span>
+      <span class="chip green">Artefatos JSON/JS das telas</span>
+      <p class="small">
+        Baseado nos scripts ativos do repositório: <span class="mono">apollo_enterprise_miner.js</span>,
+        <span class="mono">apollo_enterprise_engine.js</span>, <span class="mono">scripts/seed_ceo_ranked_skus.js</span>,
+        <span class="mono">scripts/build_cd_purchase_plan.js</span>, <span class="mono">scripts/build_stock_health_histogram.js</span>,
+        <span class="mono">scripts/legacy_live_bridge_server.js</span>, <span class="mono">scripts/build_legacy_ops_mapping.js</span>.
+      </p>
+    </div>
+
+    <h2>1) Modelo Operacional (fim a fim)</h2>
+    <div class="card">
+      <div class="flow">
+        <div class="node">
+          <h3>1. Extração Legado</h3>
+          <p><span class="mono">apollo_enterprise_miner.js</span></p>
+          <p>Puxa <span class="mono">produto</span>, <span class="mono">movimentacao</span>, <span class="mono">tipomovimentacao</span>, <span class="mono">unidadenegocio</span>, <span class="mono">ativo</span> e grava <span class="mono">data/raw/sku_*.json</span>.</p>
+        </div>
+        <div class="node">
+          <h3>2. Motor Apollo</h3>
+          <p><span class="mono">apollo_enterprise_engine.js</span></p>
+          <p>Enriquece físico diário com <span class="mono">ativoposicaoestoque</span> (carry-forward) e gera bundles em <span class="mono">data/js/sku_*.js</span>.</p>
+        </div>
+        <div class="node">
+          <h3>3. Ingestão Analítica</h3>
+          <p><span class="mono">seed_ceo_ranked_skus.js</span></p>
+          <p>Cria ranking e povoa schema <span class="mono">ceo</span> em <span class="mono">daily_stock_snapshot</span> + <span class="mono">cd_daily_aggregate</span> (com <span class="mono">engine_run</span>).</p>
+        </div>
+        <div class="node">
+          <h3>4. Produtos Analíticos</h3>
+          <p><span class="mono">build_cd_purchase_plan.js</span>, <span class="mono">build_stock_health_histogram.js</span>, <span class="mono">build_top_important_skus.js</span></p>
+          <p>Combinam legado + ceo + bundles e publicam JSON/JS para telas.</p>
+        </div>
+        <div class="node">
+          <h3>5. Consumo em Tela</h3>
+          <p><span class="mono">ceo_product_detail_layout.html</span>, <span class="mono">cd_purchase_plan.html</span>, <span class="mono">stock_health_histogram.html</span>, <span class="mono">apollo_grid.html</span>.</p>
+          <p>Bridge live opcional: <span class="mono">legacy_live_bridge_server.js</span> para D-1 e histórico físico por SKU.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h2>2) DER · Domínio Legado (origem)</h2>
+        <div class="card">
+          <svg viewBox="0 0 980 620" role="img" aria-label="DER legado">
+            <defs>
+              <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                <polygon points="0,0 10,4 0,8" fill="#93c5fd"></polygon>
+              </marker>
+            </defs>
+            <!-- Produto -->
+            <rect x="30" y="40" width="240" height="95" rx="10" fill="#0f2a50" stroke="#dab177"/>
+            <text x="45" y="65" fill="#dab177" font-size="16" font-weight="700">produto</text>
+            <text x="45" y="86" fill="#cfe0f8" font-size="12">PK: Id</text>
+            <text x="45" y="103" fill="#cfe0f8" font-size="12">ErpCodigo, IdExterno, Descricao</text>
+            <text x="45" y="120" fill="#cfe0f8" font-size="12">IndDeletado, IndAtivo</text>
+
+            <!-- Ativo -->
+            <rect x="350" y="40" width="260" height="110" rx="10" fill="#0f2a50" stroke="#dab177"/>
+            <text x="365" y="65" fill="#dab177" font-size="16" font-weight="700">ativo</text>
+            <text x="365" y="86" fill="#cfe0f8" font-size="12">PK: Id</text>
+            <text x="365" y="103" fill="#cfe0f8" font-size="12">FK: IdProduto → produto.Id</text>
+            <text x="365" y="120" fill="#cfe0f8" font-size="12">FK: IdUnidadeNegocio → unidadenegocio.IdUnidadeNegocio</text>
+            <text x="365" y="137" fill="#cfe0f8" font-size="12">IndDeletado</text>
+
+            <!-- Unidade -->
+            <rect x="690" y="40" width="250" height="95" rx="10" fill="#0f2a50" stroke="#dab177"/>
+            <text x="705" y="65" fill="#dab177" font-size="16" font-weight="700">unidadenegocio</text>
+            <text x="705" y="86" fill="#cfe0f8" font-size="12">PK: IdUnidadeNegocio</text>
+            <text x="705" y="103" fill="#cfe0f8" font-size="12">NomeFantasia</text>
+            <text x="705" y="120" fill="#cfe0f8" font-size="12">metadados operacionais</text>
+
+            <!-- ativototalizador -->
+            <rect x="350" y="190" width="260" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="365" y="215" fill="#93c5fd" font-size="16" font-weight="700">ativototalizador</text>
+            <text x="365" y="236" fill="#cfe0f8" font-size="12">FK: IdAtivo → ativo.Id</text>
+            <text x="365" y="253" fill="#cfe0f8" font-size="12">EstoqueDisponivel, EstoqueVitrine</text>
+            <text x="365" y="270" fill="#cfe0f8" font-size="12">SugestaoCompra, TotalEmProducao</text>
+
+            <!-- ativoposicaoestoque -->
+            <rect x="30" y="190" width="290" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="45" y="215" fill="#93c5fd" font-size="16" font-weight="700">ativoposicaoestoque</text>
+            <text x="45" y="236" fill="#cfe0f8" font-size="12">FK: IdAtivo → ativo.Id</text>
+            <text x="45" y="253" fill="#cfe0f8" font-size="12">DataMovimentacao</text>
+            <text x="45" y="270" fill="#cfe0f8" font-size="12">PosicaoEstoque (snapshot físico)</text>
+
+            <!-- movimentacao -->
+            <rect x="30" y="340" width="290" height="120" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="45" y="365" fill="#93c5fd" font-size="16" font-weight="700">movimentacao</text>
+            <text x="45" y="386" fill="#cfe0f8" font-size="12">PK: Id</text>
+            <text x="45" y="403" fill="#cfe0f8" font-size="12">FK: IdAtivo → ativo.Id</text>
+            <text x="45" y="420" fill="#cfe0f8" font-size="12">FK: IdTipoMovimentacao → tipomovimentacao.Id</text>
+            <text x="45" y="437" fill="#cfe0f8" font-size="12">FK: IdUnidadeNegocio → unidadenegocio.IdUnidadeNegocio</text>
+            <text x="45" y="454" fill="#cfe0f8" font-size="12">Quantidade, DataMovimentacao, Preco*</text>
+
+            <!-- tipo -->
+            <rect x="350" y="340" width="260" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="365" y="365" fill="#93c5fd" font-size="16" font-weight="700">tipomovimentacao</text>
+            <text x="365" y="386" fill="#cfe0f8" font-size="12">PK: Id</text>
+            <text x="365" y="403" fill="#cfe0f8" font-size="12">IndVenda, AdicionaEstoque, SubtraiEstoque</text>
+            <text x="365" y="420" fill="#cfe0f8" font-size="12">Nome</text>
+
+            <!-- precos -->
+            <rect x="690" y="190" width="250" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="705" y="215" fill="#93c5fd" font-size="16" font-weight="700">historicopreco</text>
+            <text x="705" y="236" fill="#cfe0f8" font-size="12">FK: IdProduto → produto.Id</text>
+            <text x="705" y="253" fill="#cfe0f8" font-size="12">PrecoVenda, PrecoCusto, vigência</text>
+            <text x="705" y="270" fill="#cfe0f8" font-size="12">fallback de preço/custo</text>
+
+            <rect x="690" y="340" width="250" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="705" y="365" fill="#93c5fd" font-size="16" font-weight="700">historicoprecoundnegocio</text>
+            <text x="705" y="386" fill="#cfe0f8" font-size="12">FK: IdAtivo → ativo.Id</text>
+            <text x="705" y="403" fill="#cfe0f8" font-size="12">PrecoVenda, PrecoCusto, vigência</text>
+            <text x="705" y="420" fill="#cfe0f8" font-size="12">prioridade de preço por unidade</text>
+
+            <!-- lista produção -->
+            <rect x="350" y="490" width="260" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="365" y="515" fill="#93c5fd" font-size="16" font-weight="700">listaproducaoitem</text>
+            <text x="365" y="536" fill="#cfe0f8" font-size="12">IdListaProducao, IdProduto, IdUnidadeNegocio</text>
+            <text x="365" y="553" fill="#cfe0f8" font-size="12">QtdSugerida, TotalEmProducao</text>
+            <text x="365" y="570" fill="#cfe0f8" font-size="12">DataCriacao/DataAlteracao</text>
+
+            <!-- categoria -->
+            <rect x="30" y="490" width="290" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="45" y="515" fill="#93c5fd" font-size="16" font-weight="700">categoria + produtocategoria</text>
+            <text x="45" y="536" fill="#cfe0f8" font-size="12">categoria.Id / categoria.IdParent</text>
+            <text x="45" y="553" fill="#cfe0f8" font-size="12">produtocategoria.IdProduto + IdCategoria</text>
+            <text x="45" y="570" fill="#cfe0f8" font-size="12">classificação por categoria/subcategoria</text>
+
+            <!-- transfer -->
+            <rect x="690" y="490" width="250" height="95" rx="10" fill="#103459" stroke="#93c5fd"/>
+            <text x="705" y="515" fill="#93c5fd" font-size="16" font-weight="700">transferencia + transferenciaitem</text>
+            <text x="705" y="536" fill="#cfe0f8" font-size="12">IdTransferencia, IdProduto</text>
+            <text x="705" y="553" fill="#cfe0f8" font-size="12">IdAtivoOrigem / IdAtivoDestino</text>
+            <text x="705" y="570" fill="#cfe0f8" font-size="12">mapeamento operacional CD↔loja</text>
+
+            <!-- links -->
+            <line x1="270" y1="82" x2="350" y2="82" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="610" y1="95" x2="690" y2="95" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="480" y1="150" x2="480" y2="190" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="350" y1="230" x2="320" y2="230" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="350" y1="390" x2="320" y2="390" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="610" y1="390" x2="690" y2="390" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="480" y1="460" x2="480" y2="490" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+            <line x1="610" y1="120" x2="690" y2="210" stroke="#93c5fd" stroke-width="2" marker-end="url(#arr)" />
+          </svg>
+          <div class="legend small">
+            <span><strong>Regra central:</strong> <span class="mono">ativo</span> é a ponte entre <span class="mono">produto</span> e <span class="mono">unidadenegocio</span>.</span>
+            <span><strong>Snapshots físicos:</strong> <span class="mono">ativoposicaoestoque</span> (histórico) e <span class="mono">ativototalizador</span> (estado atual).</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>3) DER · Camada Analítica CO-CEO (schema <span class="mono">ceo</span>)</h2>
+        <div class="card">
+          <svg viewBox="0 0 860 620" role="img" aria-label="DER ceo">
+            <defs>
+              <marker id="arr2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                <polygon points="0,0 10,4 0,8" fill="#7de3c3"></polygon>
+              </marker>
+            </defs>
+            <rect x="40" y="40" width="300" height="110" rx="10" fill="#103a2e" stroke="#7de3c3"/>
+            <text x="56" y="65" fill="#7de3c3" font-size="16" font-weight="700">engine_run</text>
+            <text x="56" y="86" fill="#d9fff2" font-size="12">PK: run_id</text>
+            <text x="56" y="103" fill="#d9fff2" font-size="12">run_type, status, started_at, finished_at</text>
+            <text x="56" y="120" fill="#d9fff2" font-size="12">row_counts, error_message, notes</text>
+
+            <rect x="40" y="210" width="370" height="140" rx="10" fill="#103a2e" stroke="#7de3c3"/>
+            <text x="56" y="235" fill="#7de3c3" font-size="16" font-weight="700">daily_stock_snapshot</text>
+            <text x="56" y="256" fill="#d9fff2" font-size="12">UK: (ref_date, store_key, sku_erp_code)</text>
+            <text x="56" y="273" fill="#d9fff2" font-size="12">FK lógico: run_id → engine_run.run_id</text>
+            <text x="56" y="290" fill="#d9fff2" font-size="12">qty_physical, qty_showcase, qty_available, qty_sales</text>
+            <text x="56" y="307" fill="#d9fff2" font-size="12">granularidade: SKU × loja × dia</text>
+            <text x="56" y="324" fill="#d9fff2" font-size="12">fonte: bundles em data/js/sku_*.js</text>
+
+            <rect x="450" y="210" width="360" height="140" rx="10" fill="#103a2e" stroke="#7de3c3"/>
+            <text x="466" y="235" fill="#7de3c3" font-size="16" font-weight="700">cd_daily_aggregate</text>
+            <text x="466" y="256" fill="#d9fff2" font-size="12">UK: (ref_date, sku_erp_code)</text>
+            <text x="466" y="273" fill="#d9fff2" font-size="12">FK lógico: run_id → engine_run.run_id</text>
+            <text x="466" y="290" fill="#d9fff2" font-size="12">sum_qty_physical_stores, sum_qty_available_stores</text>
+            <text x="466" y="307" fill="#d9fff2" font-size="12">sum_sales_day, store_count</text>
+            <text x="466" y="324" fill="#d9fff2" font-size="12">granularidade: SKU × dia (rede lojas)</text>
+
+            <rect x="40" y="420" width="370" height="120" rx="10" fill="#103a2e" stroke="#7de3c3"/>
+            <text x="56" y="445" fill="#7de3c3" font-size="16" font-weight="700">learned_parameter</text>
+            <text x="56" y="466" fill="#d9fff2" font-size="12">UK: (sku_erp_code, param_key, store_key)</text>
+            <text x="56" y="483" fill="#d9fff2" font-size="12">param_value, meta JSON</text>
+            <text x="56" y="500" fill="#d9fff2" font-size="12">uso futuro: calibração contínua da decisão</text>
+            <text x="56" y="517" fill="#d9fff2" font-size="12">atualização por jobs de aprendizagem</text>
+
+            <rect x="450" y="420" width="360" height="140" rx="10" fill="#103a2e" stroke="#7de3c3"/>
+            <text x="466" y="445" fill="#7de3c3" font-size="16" font-weight="700">replenishment_suggestion</text>
+            <text x="466" y="466" fill="#d9fff2" font-size="12">FK lógico: run_id → engine_run.run_id</text>
+            <text x="466" y="483" fill="#d9fff2" font-size="12">origin, destination, sku_erp_code</text>
+            <text x="466" y="500" fill="#d9fff2" font-size="12">qty_suggested, algorithm_id, algorithm_params</text>
+            <text x="466" y="517" fill="#d9fff2" font-size="12">status: draft/published/accepted/rejected...</text>
+            <text x="466" y="534" fill="#d9fff2" font-size="12">registro auditável da recomendação operacional</text>
+
+            <line x1="190" y1="150" x2="190" y2="210" stroke="#7de3c3" stroke-width="2" marker-end="url(#arr2)" />
+            <line x1="275" y1="150" x2="610" y2="210" stroke="#7de3c3" stroke-width="2" marker-end="url(#arr2)" />
+            <line x1="240" y1="350" x2="220" y2="420" stroke="#7de3c3" stroke-width="2" marker-end="url(#arr2)" />
+            <line x1="610" y1="350" x2="620" y2="420" stroke="#7de3c3" stroke-width="2" marker-end="url(#arr2)" />
+          </svg>
+          <p class="small">
+            Observação: no schema atual as relações com <span class="mono">run_id</span> são de integridade lógica (não há FK física definida).
+            Recomendação para produto: ativar FKs e políticas de retenção por execução.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2>4) Como os dados são puxados do legado (por caso de uso)</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Caso de uso</th>
+            <th>Leitura principal</th>
+            <th>Transformação-chave</th>
+            <th>Saída</th>
+            <th>Script</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Extração histórica por SKU</td>
+            <td><span class="mono">produto</span> + <span class="mono">movimentacao</span> + <span class="mono">tipomovimentacao</span> + <span class="mono">unidadenegocio</span> + subquery em <span class="mono">ativo</span></td>
+            <td>Normaliza crédito/débito; organiza por unidade; remove lojas fechadas</td>
+            <td><span class="mono">data/raw/sku_*.json</span></td>
+            <td><span class="mono">apollo_enterprise_miner.js</span></td>
+          </tr>
+          <tr>
+            <td>Curva física oficial (ERP)</td>
+            <td><span class="mono">ativoposicaoestoque</span> + <span class="mono">ativo</span> + <span class="mono">produto</span> + <span class="mono">unidadenegocio</span></td>
+            <td>MAX diário de <span class="mono">PosicaoEstoque</span>, clamp >= 0, carry-forward entre dias sem snapshot</td>
+            <td><span class="mono">physicalStock</span> em bundles <span class="mono">data/js/sku_*.js</span></td>
+            <td><span class="mono">apollo_enterprise_engine.js</span></td>
+          </tr>
+          <tr>
+            <td>Snapshot D-1 e produção live por SKU</td>
+            <td><span class="mono">ativo</span> + <span class="mono">ativototalizador</span> + <span class="mono">unidadenegocio</span> + <span class="mono">listaproducaoitem</span></td>
+            <td>Converte disponível+vitrine em físico; resolve unidade por nome; último lote por CD/loja</td>
+            <td>API <span class="mono">/legacy/sku-live</span> (HTTP local)</td>
+            <td><span class="mono">legacy_live_bridge_server.js</span></td>
+          </tr>
+          <tr>
+            <td>Plano CD (categoria, vendas, margem, ruptura)</td>
+            <td><span class="mono">produto</span> + <span class="mono">produtocategoria</span> + <span class="mono">categoria</span> + <span class="mono">ativototalizador</span> + <span class="mono">movimentacao</span> + <span class="mono">tipomovimentacao</span> + <span class="mono">historicoprecoundnegocio</span> + <span class="mono">historicopreco</span></td>
+            <td>Preço/custo aplicado por vigência; janela de vendas; agregação por SKU/categoria; merge com matriz de rede</td>
+            <td><span class="mono">data/client/cd_purchase_plan.json/.js</span></td>
+            <td><span class="mono">build_cd_purchase_plan.js</span></td>
+          </tr>
+          <tr>
+            <td>Saúde de estoque (histograma)</td>
+            <td>Status por bundle + preço legado em <span class="mono">produto</span> (ou fallback histórico)</td>
+            <td>Classifica faixa por status; calcula massa financeira = preço × físico canônico do dia</td>
+            <td><span class="mono">data/client/stock_health_histogram.json/.js</span></td>
+            <td><span class="mono">build_stock_health_histogram.js</span></td>
+          </tr>
+          <tr>
+            <td>Mapa operacional de transferências</td>
+            <td><span class="mono">transferencia</span> + <span class="mono">transferenciaitem</span> + <span class="mono">ativo</span> + <span class="mono">unidadenegocio</span> + <span class="mono">produto</span></td>
+            <td>Reconcilia origem/destino por ativo e unidade; cruza com status/sugestões do CO-CEO</td>
+            <td>Dataset operacional (JSON)</td>
+            <td><span class="mono">build_legacy_ops_mapping.js</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>5) Modelo de operação por tabela (inventário completo)</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Tabela</th>
+            <th>Camada</th>
+            <th>Papel no CO-CEO</th>
+            <th>Lida por</th>
+            <th>Gravação/atualização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">produto</td><td>Legado</td><td>Catálogo SKU (ERP code, descrição, ativo/deletado)</td><td>Miner, plano CD, bridge, divergência, histograma</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">ativo</td><td>Legado</td><td>Vínculo SKU × unidade de negócio</td><td>Quase todo pipeline legado</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">unidadenegocio</td><td>Legado</td><td>Nome da loja/CD/fábrica para mapeamento operacional</td><td>Miner, bridge, plano CD, ops mapping</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">ativototalizador</td><td>Legado</td><td>Snapshot atual de disponível/vitrine + sugestão/produção legado</td><td>Bridge, plano CD, divergência</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">ativoposicaoestoque</td><td>Legado</td><td>Histórico físico diário oficial ERP</td><td>Engine, bridge, auditoria de curva</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">movimentacao</td><td>Legado</td><td>Vendas e movimentos de estoque por data</td><td>Miner, plano CD</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">tipomovimentacao</td><td>Legado</td><td>Semântica do movimento (venda, soma/subtrai estoque)</td><td>Miner, plano CD</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">produtocategoria</td><td>Legado</td><td>Relação SKU→categoria</td><td>Plano CD</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">categoria</td><td>Legado</td><td>Hierarquia categoria/subcategoria</td><td>Plano CD</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">historicoprecoundnegocio</td><td>Legado</td><td>Preço/custo por ativo e vigência (prioritário)</td><td>Plano CD</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">historicopreco</td><td>Legado</td><td>Preço/custo por produto e vigência (fallback)</td><td>Plano CD, histograma (fallback)</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">listaproducaoitem</td><td>Legado</td><td>Lotes e quantidades sugeridas/em produção</td><td>Bridge, divergência, ops mapping</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">transferencia</td><td>Legado</td><td>Cabeçalho de transferência logística</td><td>Ops mapping</td><td>Somente leitura</td></tr>
+          <tr><td class="mono">transferenciaitem</td><td>Legado</td><td>Itens origem/destino por ativo/produto</td><td>Ops mapping</td><td>Somente leitura</td></tr>
+
+          <tr><td class="mono">engine_run</td><td>CO-CEO (ceo)</td><td>Auditoria das execuções de ingestão/cálculo</td><td>seed_ceo_ranked_skus</td><td class="ok">Escrita pelo CO-CEO</td></tr>
+          <tr><td class="mono">daily_stock_snapshot</td><td>CO-CEO (ceo)</td><td>Série diária SKU×loja para análise de decisão</td><td>seed_ceo_ranked_skus, plano CD (meta)</td><td class="ok">Escrita UPSERT pelo CO-CEO</td></tr>
+          <tr><td class="mono">cd_daily_aggregate</td><td>CO-CEO (ceo)</td><td>Agregação rede lojas por SKU×dia</td><td>seed_ceo_ranked_skus, plano CD (meta)</td><td class="ok">Escrita UPSERT pelo CO-CEO</td></tr>
+          <tr><td class="mono">learned_parameter</td><td>CO-CEO (ceo)</td><td>Parâmetros calibráveis por SKU/loja</td><td>reservado para aprendizagem</td><td class="warn">Estrutura pronta; uso evolutivo</td></tr>
+          <tr><td class="mono">replenishment_suggestion</td><td>CO-CEO (ceo)</td><td>Histórico de sugestões de reposição publicáveis</td><td>motor de sugestão (futuro/expansão)</td><td class="warn">Estrutura pronta; integração gradual</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>6) Artefatos não-SQL que compõem o produto</h2>
+    <div class="card">
+      <ul>
+        <li><span class="mono">data/raw/sku_*.json</span> — extração bruta por SKU (movimentação por unidade).</li>
+        <li><span class="mono">data/js/sku_*.js</span> — bundle operacional por SKU (timeline + métricas por unidade).</li>
+        <li><span class="mono">data/client/network_matrix.json</span> — matriz de sugestão SKU × loja para plano CD.</li>
+        <li><span class="mono">data/client/cd_purchase_plan.json/.js</span> — priorização e tomada de decisão CD.</li>
+        <li><span class="mono">data/client/stock_health_histogram.json/.js</span> — saúde de estoque (quantidade e capital).</li>
+        <li><span class="mono">data/client/sku_top_important.json/.js</span> — ranking de SKUs prioritários.</li>
+      </ul>
+    </div>
+
+    <h2>7) Recomendações para virar software produto (próximo passo)</h2>
+    <div class="card">
+      <ol>
+        <li>Formalizar FKs físicas no schema <span class="mono">ceo</span> com política de retenção por <span class="mono">engine_run</span>.</li>
+        <li>Criar dicionário de dados versionado (campo, tipo, regra de negócio, origem).</li>
+        <li>Separar camadas em serviços: <strong>ingestão</strong>, <strong>motor</strong>, <strong>publicação API</strong>, <strong>front-end</strong>.</li>
+        <li>Adicionar observabilidade: latência, volume por tabela, cobertura de SKU, alertas de desvio.</li>
+        <li>Publicar contratos estáveis para telas (OpenAPI/JSON schema para datasets).</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
+

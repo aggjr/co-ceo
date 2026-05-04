@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCKSPIN by FOCCUS — Supply Chain Modeler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="foccus-theme">
+    <div class="dashboard-wrapper">
+        <!-- HEADER ESTRATÉGICO -->
+        <header class="dashboard-header">
+            <div class="brand">
+                <h1>STOCKSPIN <span class="version-tag">v2.2</span><span>by FOCCUS</span></h1>
+                <p class="subtitle">CLIENTE: SARON</p>
+            </div>
+            
+            <div class="kpis-summary">
+                <div class="kpi-mini" id="kpi-availability">
+                    <span class="label">DISPONIBILIDADE<sup>N</sup></span>
+                    <span class="value">--%</span>
+                </div>
+                <div class="kpi-mini" id="kpi-roi">
+                    <span class="label">EFICÁCIA ROI</span>
+                    <span class="value">--%</span>
+                    <span class="trend pos">▲ 0.0%</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="label">CAPITAL EM TRÂNSITO</span>
+                    <span class="value">R$ 0</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="history-controls">
+                    <button id="btn-undo" class="btn-icon" title="Desfazer">⟲</button>
+                    <button id="btn-redo" class="btn-icon" title="Refazer">⟳</button>
+                </div>
+                <button id="btn-reset-layout" class="btn-secondary">Restaurar Layout</button>
+                <button id="btn-sync" class="btn-primary">Sincronizar PDV</button>
+                <button id="btn-config" class="btn-icon">⚙</button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <!-- BARRA LATERAL DE CATEGORIAS (RESTORED V2.1) -->
+            <aside class="sidebar-left">
+                <div class="section-title">CATEGORIAS</div>
+                <div class="categories-sidebar" id="sidebar-categories">
+                    <button class="cat-btn active" data-cat="all">Todas as Categorias</button>
+                    <button class="cat-btn" data-cat="cama">Cama e Banho</button>
+                    <button class="cat-btn" data-cat="cortinas">Cortinas</button>
+                    <button class="cat-btn" data-cat="decor">Decoração</button>
+                    <button class="cat-btn" data-cat="tapetes">Tapetes</button>
+                </div>
+
+                <div class="hub-status-panel">
+                    <div class="section-title">HUB CENTRAL</div>
+                    <div class="hub-card">
+                        <div class="hub-row"><span>Estoque CD:</span> <strong id="hub-stock">--</strong></div>
+                        <div class="hub-row"><span>Web Sales:</span> <strong id="hub-web">--</strong></div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAPA DA CADEIA -->
+            <div class="map-container">
+                <div class="map-overlay-top">VISÃO ESPACIAL DA CADEIA</div>
+                <canvas id="map-canvas"></canvas>
+            </div>
+
+            <!-- STATUS DAS UNIDADES -->
+            <aside class="sidebar-right">
+                <div class="section-title">STATUS DAS UNIDADES</div>
+                <div id="units-list" class="units-grid">
+                    <!-- Dinamicamente carregado via JS -->
+                </div>
+            </aside>
+        </main>
+
+        <footer class="dashboard-footer">
+            <div class="system-status">
+                <span class="status-dot online"></span> SISTEMA ONLINE | STOCKSPIN v2.2 - SARON
+            </div>
+            <div class="footer-note">Sincronização: 16/04/2026</div>
+        </footer>
+    </div>
+
+    <!-- MENU DE CONTEXTO CUSTOMIZADO -->
+    <div id="custom-context-menu" class="context-menu" style="display: none;">
+        <button id="ctx-rename">✏ Renomear Unidade</button>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 2866,
+    "code": "11934",
+    "name": "CAPA ALMOFADA 45X45 PATCH BK ETNIA",
+    "timestamp": "2026-04-30T11:35:47.830Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-04-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-13T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Fábrica": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-09T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-12T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 414,
+    "code": "10843",
+    "name": "LENÇOL SOLT 180 FIOS IMPERIALLE C/ ELASTICO",
+    "timestamp": "2026-04-30T11:28:42.858Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-07-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 3,
+        "data_evento": "2023-09-05T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

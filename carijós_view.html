@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Apollo Dashboard | v10.15 Aligned</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="carijós_data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-surface: #1e293b;
+            --border-ui: #334155;
+            --disponivel: #3b82f6; 
+            --fisico: #94a3b8;     
+            --critico: #ef4444;
+            --abaixo: #fbbf24;
+            --mira: #10b981;
+            --muito-acima: #3b82f6;
+            --encalhado-400: #8b5cf6;
+            --encalhado-800: #4c1d95;
+            --text-main: #f1f5f9;
+        }
+        * { box-sizing: border-box; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Outfit', sans-serif; margin: 0; padding: 10px; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+        .header { flex: 0 0 auto; text-align: center; border-bottom: 2px solid var(--border-ui); padding-bottom: 8px; margin-bottom: 12px; }
+        .header h1 { font-size: 20px; font-weight: 600; margin: 0; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+        .chart-container { flex: 1 1 auto; min-height: 0; background: var(--bg-surface); padding: 12px; border-radius: 12px; border: 1px solid var(--border-ui); margin-bottom: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .footer-grid { flex: 0 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; }
+        .info-card { background: var(--bg-surface); padding: 12px 6px; border-radius: 10px; border: 1px solid var(--border-ui); display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 75px; }
+        .equation-mini { display: flex; align-items: baseline; justify-content: center; gap: 4px; width: 100%; }
+        .eq-mini-val { font-size: 18px; font-weight: 600; text-align: center; }
+        .eq-mini-sign { font-size: 12px; color: var(--fisico); }
+        .health-tag { font-size: 9px; font-weight: 600; padding: 1px 4px; border-radius: 4px; margin-left: 2px; }
+        .card-value { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+        .card-label { font-size: 8px; color: var(--fisico); text-transform: uppercase; letter-spacing: 1px; text-align: center; font-weight: 600; }
+        .legend-strip { flex: 0 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; font-size: 9px; text-transform: uppercase; }
+        .legend-item { display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s; padding: 4px 8px; border-radius: 6px; background: rgba(255,255,255,0.03); }
+        .legend-item:hover { background: rgba(255,255,255,0.1); }
+        .legend-item.hidden { opacity: 0.2; text-decoration: line-through; filter: grayscale(1); }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .line { width: 22px; height: 2px; border-radius: 1px; }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>3097 - CARIJÓS</h1></div>
+    <div class="chart-container"><canvas id="apolloChart"></canvas></div>
+    <div class="legend-strip" id="customLegend">
+        <div class="legend-item" id="leg-0" onclick="toggleDataset(0, this)"><div class="line" style="background: var(--disponivel); box-shadow: 0 0 8px var(--disponivel);"></div> DISPONÍVEL</div>
+        <div class="legend-item" id="leg-1" onclick="toggleDataset(1, this)"><div class="line" style="border-top: 2px dotted var(--fisico);"></div> FÍSICO (ROI)</div>
+        <div class="legend-item" id="leg-2" onclick="toggleDataset(2, this)"><div class="dot" style="background: #000; border: 1px solid #fff;"></div> RUPTURA</div>
+        <div class="legend-item" id="leg-3" onclick="toggleDataset(3, this)"><div class="dot" style="background: var(--critico);"></div> 🔴 50%</div>
+        <div class="legend-item" id="leg-4" onclick="toggleDataset(4, this)"><div class="dot" style="background: var(--abaixo);"></div> 🟡 100%</div>
+        <div class="legend-item" id="leg-5" onclick="toggleDataset(5, this)"><div class="dot" style="background: var(--mira);"></div> 🟢 150%</div>
+        <div class="legend-item" id="leg-6" onclick="toggleDataset(6, this)"><div class="dot" style="background: var(--muito-acima);"></div> 🔵 200%</div>
+        <div class="legend-item" id="leg-7" onclick="toggleDataset(7, this)"><div class="dot" style="background: var(--encalhado-400);"></div> 🟣 400%</div>
+        <div class="legend-item" id="leg-8" onclick="toggleDataset(8, this)"><div class="dot" style="background: var(--encalhado-800);"></div> 🟣 800%</div>
+    </div>
+    <div class="footer-grid">
+        <div class="info-card">
+            <div class="equation-mini">
+                <div class="eq-mini-val" id="val-fisico" style="color: var(--fisico);">--</div>
+                <div class="eq-mini-sign">-</div>
+                <div class="eq-mini-val" id="val-vitrine" style="color: var(--fisico);">--</div>
+                <div class="eq-mini-sign">=</div>
+                <div class="eq-mini-val" id="val-disponivel" style="color: var(--disponivel);">--</div>
+                <span id="health-pct" class="health-tag">--</span>
+            </div>
+            <div class="card-label">FÍSICO - VITRINE = DISP.</div>
+        </div>
+        <div class="info-card" id="status-card" style="border-width: 2px; transition: all 0.3s;">
+            <div class="card-value" id="val-status">--</div>
+            <div class="card-label">STATUS OPERACIONAL</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-ruptura" style="color: var(--critico);">--</div>
+            <div class="card-label">RUPTURA (TEMPO ABAIXO P10)</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-lost" style="color: var(--critico);">--</div>
+            <div class="card-label">VENDAS PERDIDAS (QTDE)</div>
+        </div>
+    </div>
+<script>
+    let mainChart;
+    function formatDate(dateStr) { const [y, m, d] = dateStr.split('-'); return `${d}/${m}/${y}`; }
+    function toggleDataset(index, element) { const isVisible = mainChart.isDatasetVisible(index); mainChart.setDatasetVisibility(index, !isVisible); mainChart.update(); element.classList.toggle('hidden', isVisible); }
+    function init() {
+        const data = APOLLO_DATA;
+        const statusColors = { 
+            "CRÍTICO": "var(--critico)", 
+            "ABAIXO": "var(--abaixo)", 
+            "ACIMA": "var(--mira)", // Zona Verde
+            "NA MIRA": "var(--muito-acima)", 
+            "MUITA SOBRA": "var(--encalhado-400)" 
+        };
+        document.getElementById('val-fisico').innerText = data.metrics.currentPhysical;
+        document.getElementById('val-vitrine').innerText = data.metrics.vitrine;
+        document.getElementById('val-disponivel').innerText = data.metrics.currentAvailable;
+        document.getElementById('health-pct').innerText = data.metrics.stockHealth.toFixed(0) + '%';
+        document.getElementById('health-pct').style.backgroundColor = statusColors[data.metrics.currentStatus] + '22';
+        document.getElementById('health-pct').style.color = statusColors[data.metrics.currentStatus];
+        
+        document.getElementById('val-status').innerText = data.metrics.currentStatus;
+        document.getElementById('val-status').style.color = statusColors[data.metrics.currentStatus];
+        document.getElementById('status-card').style.borderColor = statusColors[data.metrics.currentStatus];
+        
+        document.getElementById('val-ruptura').innerText = data.metrics.ruptureRate.toFixed(1) + '%';
+        document.getElementById('val-lost').innerText = Math.ceil(data.metrics.lostUnits) + ' un';
+        
+        renderChart(data.timeline, data.metrics);
+        if (!data.metrics.showP400) document.getElementById('leg-7').classList.add('hidden');
+        if (!data.metrics.showP800) document.getElementById('leg-8').classList.add('hidden');
+    }
+    function renderChart(timeline, metrics) {
+        const ctx = document.getElementById('apolloChart').getContext('2d');
+        mainChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeline.map(t => formatDate(t.date)),
+                datasets: [
+                    { label: 'DISP', data: timeline.map(t => t.availableStock), borderColor: '#3b82f6', borderWidth: 3.5, stepped: true, z: 50, pointRadius: 0 },
+                    { label: 'FIS', data: timeline.map(t => t.physicalStock), borderColor: '#94a3b8', borderWidth: 1, borderDash: [3, 3], pointRadius: 0, stepped: true, z: 45 },
+                    { label: 'RUP_10', data: timeline.map(t => t.p10), borderColor: '#000000', borderWidth: 2.5, pointRadius: 0, tension: 0.4, fill: 'start', backgroundColor: 'rgba(0, 0, 0, 0.6)', z: 40 },
+                    { label: 'P50', data: timeline.map(t => t.p50), borderColor: '#ef4444', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+                    { label: 'P100', data: timeline.map(t => t.p100), borderColor: '#fbbf24', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+                    { label: 'P150', data: timeline.map(t => t.p150), borderColor: '#10b981', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+                    { label: 'P200', data: timeline.map(t => t.p200), borderColor: '#3b82f6', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10 },
+                    { label: 'P400', data: timeline.map(t => t.p400), borderColor: '#8b5cf6', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10, hidden: !metrics.showP400 },
+                    { label: 'P800', data: timeline.map(t => t.p800), borderColor: '#4c1d95', borderWidth: 0.8, pointRadius: 0, tension: 0.4, z: 10, hidden: !metrics.showP800 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#94a3b8', autoSkip: true, maxTicksLimit: 12, font: { size: 9, weight: '600' } }, border: { color: '#ffffff', width: 1 } },
+                    y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#94a3b8', font: { size: 9, weight: '600' } }, border: { color: '#ffffff', width: 1 } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+    init();
+</script>
+</body>
+</html>

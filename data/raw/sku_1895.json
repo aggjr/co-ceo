@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1895,
+    "code": "K989",
+    "name": "PERSIANA 1.60X1.80 PVC TEXTURIZADA 989",
+    "timestamp": "2026-04-30T11:33:01.628Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

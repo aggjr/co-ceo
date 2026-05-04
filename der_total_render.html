@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>STOCKSPIN - Mapa de Inteligência do Legado (CO-CEO)</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose',
+            er: {
+                useMaxWidth: true,
+                layoutDirection: 'TB'
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --border-color: #30363d;
+            --accent-color: #58a6ff;
+            --text-color: #c9d1d9;
+        }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 { color: var(--accent-color); margin-bottom: 10px; }
+        .description { max-width: 900px; text-align: center; margin-bottom: 30px; font-size: 0.95rem; line-height: 1.5; color: #8b949e; }
+        .legend { display: flex; gap: 20px; margin-bottom: 20px; background: var(--panel-bg); padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 2px; }
+        
+        .mermaid-container {
+            background: var(--panel-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            width: fit-content;
+            min-width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>STOCKSPIN: Inteligência de Dados (Legado)</h1>
+    <div class="description">
+        Este diagrama representa o fluxo de movimentação de estoque e os motores de decisão (CO-CEO) mapeados do banco legado. 
+        Ele detalha como a produção "puxa" a fábrica, como as vendas nas lojas geram gatilhos de reposição e onde os KPIs de lucro perdido são calculados.
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="dot" style="background: #1f6feb;"></div> Cadastro Base</div>
+        <div class="legend-item"><div class="dot" style="background: #238636;"></div> Movimentação e Saldos</div>
+        <div class="legend-item"><div class="dot" style="background: #d29922;"></div> Planejamento (PULL)</div>
+        <div class="legend-item"><div class="dot" style="background: #da3633;"></div> Inteligência e KPIs</div>
+    </div>
+
+    <div class="mermaid-container">
+        <div class="mermaid">
+erDiagram
+    %% --- DOMÍNIO DE CADASTRO ---
+    PRODUTO ||--o{ ATIVO : "é mapeado em"
+    UNIDADE_NEGOCIO ||--o{ ATIVO : "gerencia"
+    FORNECEDOR ||--o{ HISTORICO_PRECO : "fornece"
+    PRODUTO ||--o{ HISTORICO_PRECO : "registra preço"
+    TIPOMOVIMENTACAO ||--o{ LANCAMENTO : "categoriza"
+
+    %% --- DOMÍNIO DE SALDO E MOVIMENTAÇÃO ---
+    ATIVO ||--|| ESTOQUE : "rastreia saldo atual"
+    ATIVO ||--o{ LANCAMENTO : "gera logs de E/S"
+    ATIVO ||--o{ MOVIMENTACAO : "historiza estoque"
+    
+    %% --- DOMÍNIO DE INTELIGÊNCIA (CO-CEO) ---
+    ATIVO ||--|| ATIVO_TOTALIZADOR : "concentra KPIs"
+    ATIVO ||--o{ ATIVO_POSICAO_ESTOQUE : "registra curva histórica"
+    
+    %% --- DOMÍNIO DE PLANEJAMENTO (PULL) ---
+    LISTA_PRODUCAO ||--o{ LISTA_PRODUCAO_ITEM : "contém"
+    LISTA_PRODUCAO_ITEM }o--|| ATIVO : "vincula à demanda"
+    LISTA_COMPRA ||--o{ LISTA_COMPRA_ITEM : "contém"
+    LISTA_COMPRA_ITEM }o--|| ATIVO : "vincula à necessidade"
+    TRANSFERENCIA ||--o{ TRANSFERENCIA_ITEM : "transporta"
+    TRANSFERENCIA_ITEM }o--|| ATIVO : "move entre unidades"
+
+    PRODUTO {
+        bigint Id PK
+        varchar Nome
+        bigint IdCategoria
+    }
+
+    TIPOMOVIMENTACAO {
+        bigint Id PK
+        varchar Nome "Venda / Entrada / Produção"
+        bit AdicionaEstoque "Flag de Entrada"
+        bit SubtraiEstoque "Flag de Saída"
+        bit IndVenda "Flag de PDV"
+    }
+
+    ATIVO {
+        bigint Id PK
+        bigint IdProduto FK
+        char IdUnidadeNegocio FK
+        bit IndAtivo
+    }
+
+    ESTOQUE {
+        bigint Id PK
+        bigint IdAtivo FK
+        double Disponivel "Estoque Físico Real"
+        double Ideal "Calculado via 3-Sigma"
+        double Minimo "Buffer Crítico"
+        double Maximo "Capacidade de Pulmão"
+    }
+
+    LANCAMENTO {
+        bigint Id PK
+        bigint IdAtivo FK
+        double Quantidade "Positivo (Entrada) / Negativo (Saída)"
+        int IdTipoMovimentacao "Venda/Produção/Ajuste"
+        datetime DataMovimentacao
+    }
+
+    ATIVO_TOTALIZADOR {
+        bigint Id PK
+        bigint IdAtivo FK
+        double MediaVendaDiaria "Base p/ Reposição"
+        double PercentualRuptura "Saúde do SKU"
+        decimal VendasPerdidas "Oportunidade perdida (R$)"
+        decimal LucroPerdido "Impacto no Caco"
+        double SugestaoCompra "Sinal de PULL"
+        double TotalEmProducao "WIP da Fábrica"
+    }
+
+    ATIVO_POSICAO_ESTOQUE {
+        char Id PK
+        bigint IdAtivo FK
+        datetime DataMovimentacao
+        double PosicaoEstoque "A Blue Line"
+        double CurvaCritico "Red Line"
+        double CurvaEncalhado "Purple Line"
+    }
+
+    LISTA_PRODUCAO_ITEM {
+        bigint Id PK
+        bigint IdListaProducao FK
+        bigint IdAtivo FK
+        double QtdSugerida "O que a Fábrica deve fazer"
+    }
+
+    HISTORICO_PRECO {
+        bigint Id PK
+        bigint IdProduto FK
+        decimal PrecoVenda "Ponto na Curva de Preço"
+        decimal PrecoCusto
+        datetime DataInicioVigencia
+    }
+        </div>
+    </div>
+
+</body>
+</html>

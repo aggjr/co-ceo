@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 3261,
+    "code": "12385",
+    "name": "KIT COLCHA MIRAGGIO CASAL ROSE TESSI",
+    "timestamp": "2026-04-30T11:36:53.058Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 4,
+        "data_evento": "2023-10-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-05-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-08-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-18T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

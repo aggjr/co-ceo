@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>(Obsoleto) Apollo Command Center | Global Grid v21.0</title>
+    <!-- Caminhos relativos à pasta pai (raiz do repo) -->
+    <script src="../data/catalog_grid.js"></script>
+    <script src="../curtain_production_data.js"></script>
+    <script src="../data/client/stock_health_histogram.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #050d1a;
+            --bg-surface: rgba(10, 28, 61, 0.88);
+            --border-ui: rgba(218, 177, 119, 0.38);
+            --glass-border: rgba(218, 177, 119, 0.22);
+            --gold: #dab177;
+            --gold-bright: #f5cf96;
+            --gold-dim: rgba(218, 177, 119, 0.65);
+            --accent: #93c5fd;
+            --mira: #10b981;
+            --critico: #ef4444;
+            --texto: #94a3b8;
+            --texto-light: #f8fafc;
+            --hover: rgba(218, 177, 119, 0.1);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: radial-gradient(ellipse 100% 80% at 50% -20%, rgba(26, 58, 109, 0.4) 0%, transparent 55%),
+                var(--bg-main);
+            color: var(--texto-light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .obsolete-strip {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            font-size: 12px;
+            text-align: center;
+            color: #0f172a;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.2);
+        }
+        .obsolete-strip a { color: #1e3a8a; font-weight: 700; }
+
+        .top-bar {
+            padding: 20px 30px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: var(--texto-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo svg { color: var(--gold); }
+        .logo-meta { font-size: 12px; color: var(--gold); margin-left: 10px; font-weight: 500; letter-spacing: 0.12em; opacity: 0.9; }
+
+        .search-wrap { display: flex; align-items: center; gap: 15px; }
+        .search-input {
+            background: rgba(5, 13, 26, 0.9);
+            color: white;
+            border: 1px solid var(--border-ui);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 10px 20px;
+            border-radius: 6px;
+            outline: none;
+            width: 400px;
+            transition: all 0.2s;
+        }
+        .search-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(218, 177, 119, 0.18); }
+        .stats { font-size: 12px; color: var(--gold-dim); font-weight: 600; letter-spacing: 0.5px; }
+        .stats span { color: var(--mira); margin-left: 5px; }
+        .filter-hint {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--gold-bright);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .main-content {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 30px;
+            background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(26, 58, 109, 0.35) 0%, transparent 55%);
+        }
+
+        .table-container {
+            flex: 1;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-ui);
+            border-radius: 12px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(218, 177, 119, 0.06) inset;
+        }
+
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+
+        thead {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(180deg, rgba(12, 36, 70, 0.98) 0%, rgba(8, 22, 48, 0.98) 100%);
+            z-index: 10;
+        }
+
+        th {
+            padding: 15px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(218, 177, 119, 0.42);
+            cursor: pointer;
+            user-select: none;
+        }
+        th:hover { color: var(--gold-bright); background: rgba(218, 177, 119, 0.06); }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(218, 177, 119, 0.12);
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+
+        tbody tr:hover { background: var(--hover); }
+
+        td { padding: 12px 20px; font-size: 14px; font-weight: 400; color: #e2e8f0; }
+
+        .td-code { font-weight: 600; color: var(--gold-bright); font-size: 15px; width: 120px;}
+        .td-name { font-weight: 600; }
+        .td-cat { font-size: 13px; color: #cbd5e1; }
+        .td-sales { font-weight: 700; color: var(--mira); text-align: right; padding-right:40px; }
+        th.th-sales { text-align: right; padding-right: 40px;}
+
+        .td-status { width: 100px; }
+        .res-status { font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 4px; text-align: center; color: white; display: inline-block; width: 85px; }
+        .td-qty { font-weight: 700; color: var(--accent); text-align: center; width: 80px; }
+        .no-val { color: rgba(255,255,255,0.1); font-weight: 400; }
+
+        .no-results { text-align: center; padding: 50px; color: var(--texto); font-size: 16px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="obsolete-strip">
+        Tela obsoleta — arquivo em <code>telas_obsoletas/</code>. Catálogo atual: <strong>CO-CEO → STOCKSPIN → Mix de Produtos</strong>.
+        <a href="../stock_health_histogram.html">Histogramas</a>
+        · <a href="../top_important_skus.html">Top importantes</a>
+    </div>
+
+    <div class="top-bar">
+        <div class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            APOLLO COMMAND CENTER <span class="logo-meta">v21.0 GRID MASTER</span>
+        </div>
+
+        <div class="search-wrap">
+            <div class="stats" id="recordCount">CARREGANDO...</div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por código, produto ou categoria..." autocomplete="off">
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="activeFilterHint" class="filter-hint" style="display:none;"></div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th onclick="sortBy('status')">Status ↕</th>
+                        <th onclick="sortBy('sugestao')" style="text-align: center">Qtd Fábrica ↕</th>
+                        <th onclick="sortBy('code')">Código ERP ↕</th>
+                        <th onclick="sortBy('name')">Produto Cadastrado ↕</th>
+                        <th onclick="sortBy('category')">Categoria Principal ↕</th>
+                        <th onclick="sortBy('subcategory')">Sub-Categoria ↕</th>
+                        <th onclick="sortBy('totalSales')" class="th-sales">Volume Vendas (Rede Total) ↕</th>
+                    </tr>
+                </thead>
+                <tbody id="gridBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script>
+    let currentData = [];
+    let sortCol = 'totalSales';
+    let sortAsc = false;
+    const urlParams = new URLSearchParams(window.location.search || "");
+    const stockHealthFilter = {
+        source: String(urlParams.get("source") || "").trim(),
+        status: String(urlParams.get("status") || "").trim(),
+        store: String(urlParams.get("store") || "").trim(),
+        scope: String(urlParams.get("scope") || "").trim(),
+    };
+
+    let productionMap = {};
+    const statusColors = { "RUPTURA": "#111111", "CRÍTICO": "#ef4444", "ABAIXO": "#f59e0b", "ACIMA": "#10b981", "MUITO ACIMA": "#3b82f6", "ENCALHADO 1": "#c084fc", "ENCALHADO 2": "#7c3aed", "ENCALHADO 3": "#4c1d95" };
+
+    function isHubStoreName(name) {
+        const n = String(name || "");
+        return n === "Fábrica" || n === "CD SARON" || /fábrica|fabrica/i.test(n);
+    }
+
+    function extractStockHealthSkuIds(filterPack) {
+        if (!window.STOCK_HEALTH_HISTOGRAM_DATA || typeof window.STOCK_HEALTH_HISTOGRAM_DATA !== "object") return null;
+        if (!filterPack || filterPack.source !== "stock_health" || !filterPack.status) return null;
+        const d = window.STOCK_HEALTH_HISTOGRAM_DATA;
+        const byStore = d.by_store || {};
+        const status = filterPack.status;
+        const out = new Set();
+        if (filterPack.store && filterPack.store !== "TOTAL") {
+            const block = byStore[filterPack.store];
+            const arr = block && block.sku_ids_by_status && Array.isArray(block.sku_ids_by_status[status]) ? block.sku_ids_by_status[status] : [];
+            for (const id of arr) {
+                const n = Number(id);
+                if (Number.isFinite(n) && n > 0) out.add(n);
+            }
+            return out;
+        }
+        const stores = Array.isArray(d.stores) ? d.stores : Object.keys(byStore);
+        for (const st of stores) {
+            if (filterPack.scope !== "full" && isHubStoreName(st)) continue;
+            const block = byStore[st];
+            const arr = block && block.sku_ids_by_status && Array.isArray(block.sku_ids_by_status[status]) ? block.sku_ids_by_status[status] : [];
+            for (const id of arr) {
+                const n = Number(id);
+                if (Number.isFinite(n) && n > 0) out.add(n);
+            }
+        }
+        return out;
+    }
+
+    function applyStockHealthFilterIfAny(rows) {
+        if (!stockHealthFilter || stockHealthFilter.source !== "stock_health" || !stockHealthFilter.status) {
+            return rows;
+        }
+        const hintEl = document.getElementById("activeFilterHint");
+        let filtered = rows;
+        const ids = extractStockHealthSkuIds(stockHealthFilter);
+        if (ids && ids.size > 0) {
+            filtered = rows.filter(r => ids.has(Number(r.id)));
+        } else {
+            const want = stockHealthFilter.status.toUpperCase();
+            filtered = rows.filter(r => String(r.status || "").toUpperCase() === want);
+        }
+        if (hintEl) {
+            const storeLbl = stockHealthFilter.store || "TOTAL";
+            const scopeLbl =
+                stockHealthFilter.store && stockHealthFilter.store !== "TOTAL"
+                    ? "unidade selecionada"
+                    : stockHealthFilter.scope === "full"
+                        ? "rede completa"
+                        : "só lojas";
+            hintEl.style.display = "block";
+            hintEl.textContent =
+                "Filtro ativo (Saúde do Estoque): status " +
+                stockHealthFilter.status +
+                " · " +
+                storeLbl +
+                " · " +
+                scopeLbl +
+                " · " +
+                filtered.length +
+                " SKU(s).";
+        }
+        return filtered;
+    }
+
+    window.onload = function() {
+        if (window.CURTAIN_DATA && window.CURTAIN_DATA.items) {
+            window.CURTAIN_DATA.items.forEach(item => {
+                productionMap[item.id] = item;
+            });
+        }
+
+        if (typeof CATALOG_GRID !== 'undefined') {
+            currentData = CATALOG_GRID;
+            currentData.forEach(row => {
+                const prod = productionMap[row.id];
+                row.status = prod ? prod.status : '-';
+                row.sugestao = prod ? prod.sugestao : 0;
+                row.priority = prod ? prod.priority : 99;
+            });
+            currentData = applyStockHealthFilterIfAny(currentData);
+
+            document.getElementById('recordCount').innerHTML = `CATÁLOGO: <span>${currentData.length} SKUs (legado, não deletados)</span>`;
+            renderGrid();
+        } else {
+            document.getElementById('gridBody').innerHTML = '<tr><td colspan="7" class="no-results">DADOS NÃO ENCONTRADOS. VERIFIQUE SE catalog_grid.js EXISTE.</td></tr>';
+        }
+
+        document.getElementById('searchInput').addEventListener('input', e => {
+            filterGrid(e.target.value);
+        });
+    };
+
+    function renderGrid(dataToRender) {
+        const body = document.getElementById('gridBody');
+        const data = dataToRender || currentData;
+
+        if (data.length === 0) {
+            body.innerHTML = '<tr><td colspan="7" class="no-results">Nenhum produto encontrado na busca.</td></tr>';
+            return;
+        }
+
+        const displayData = data.slice(0, 300);
+
+        body.innerHTML = displayData.map(row => {
+            const prod = productionMap[row.id];
+            const statusHtml = prod ? `<div class="res-status" style="background: ${statusColors[prod.status.toUpperCase()] || '#334155'}">${prod.status}</div>` : '<span class="no-val">--</span>';
+            const qtyHtml = prod && prod.sugestao > 0 ? `<span class="td-qty">+${prod.sugestao}</span>` : '<span class="no-val">--</span>';
+
+            return `
+                <tr onclick="openMasterDetail(${row.id})">
+                    <td class="td-status">${statusHtml}</td>
+                    <td class="td-qty">${qtyHtml}</td>
+                    <td class="td-code">${row.code}</td>
+                    <td class="td-name">${row.name}</td>
+                    <td class="td-cat">${row.category}</td>
+                    <td class="td-cat">${row.subcategory}</td>
+                    <td class="td-sales">${row.totalSales.toLocaleString('pt-BR')} un</td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function filterGrid(term) {
+        if (!term || term.length < 1) {
+            renderGrid();
+            return;
+        }
+        const lower = term.toLowerCase();
+        const filtered = currentData.filter(r =>
+            (r.code && r.code.toLowerCase().includes(lower)) ||
+            (r.name && r.name.toLowerCase().includes(lower)) ||
+            (r.category && r.category.toLowerCase().includes(lower)) ||
+            (r.subcategory && r.subcategory.toLowerCase().includes(lower))
+        );
+        renderGrid(filtered);
+    }
+
+    function sortBy(col) {
+        if (sortCol === col) {
+            sortAsc = !sortAsc;
+        } else {
+            sortCol = col;
+            sortAsc = true;
+        }
+
+        currentData.sort((a, b) => {
+            let valA = a[col];
+            let valB = b[col];
+
+            if (typeof valA === 'string') valA = valA.toLowerCase();
+            if (typeof valB === 'string') valB = valB.toLowerCase();
+            if (col === 'code') { valA = parseFloat(valA)||0; valB = parseFloat(valB)||0; }
+
+            if (valA < valB) return sortAsc ? -1 : 1;
+            if (valA > valB) return sortAsc ? 1 : -1;
+            return 0;
+        });
+
+        const term = document.getElementById('searchInput').value;
+        if (term) filterGrid(term); else renderGrid();
+    }
+
+    function openMasterDetail(id) {
+        window.location.href = `../ceo_product_detail_layout.html?sku=${encodeURIComponent(String(id))}`;
+    }
+
+</script>
+</body>
+</html>

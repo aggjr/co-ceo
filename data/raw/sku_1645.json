@@ -1,0 +1,32 @@
+{
+  "info": {
+    "id": 1645,
+    "code": "10992",
+    "name": "TOALHA DE BANHO 0,75X1,35 BC VERONA",
+    "timestamp": "2026-04-30T11:32:20.429Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-23T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

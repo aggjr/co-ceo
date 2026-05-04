@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Auditoria Loja: BARREIRO | Co-CEO</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .header { text-align: center; margin-bottom: 20px; }
+        .chart-container {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+        }
+        .info-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .val { font-size: 1.8rem; font-weight: 700; }
+        .lab { font-size: 0.7rem; opacity: 0.5; text-transform: uppercase; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AUDITORIA DE UNIDADE: BARREIRO</h1>
+        <div style="opacity: 0.6;">SKU 3097 | CORTINA LUX DARK</div>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="storeChart"></canvas>
+    </div>
+
+    <div class="info-panel">
+        <div class="info-card">
+            <div class="val" id="cur-fisico">-</div>
+            <div class="lab">ESTOQUE FÍSICO LOJA</div>
+        </div>
+        <div class="info-card">
+            <div class="val" id="cur-mira">-</div>
+            <div class="lab">MIRA (ALVO SAZONAL)</div>
+        </div>
+        <div class="info-card" id="card-saldo">
+            <div class="val" id="cur-saldo">-</div>
+            <div class="lab">SALDO DE TENSÃO</div>
+        </div>
+    </div>
+
+    <script src="paciente_zero_data_series.js"></script>
+    <script>
+        const storeName = "BARREIRO";
+        const history = PACIENTE_ZERO_HISTORY;
+        
+        const labels = history.map(h => {
+            const [y, m, d] = h.data.split('-');
+            return `${d}/${m}/${y}`;
+        });
+
+        const storeData = history.map(h => h.lojas.find(l => l.n === storeName));
+        
+        const datasets = [
+            {
+                label: 'ESTOQUE FÍSICO BARREIRO',
+                data: storeData.map(s => s.f),
+                borderColor: '#31C6F7',
+                borderWidth: 4,
+                stepped: true,
+                pointRadius: 0,
+                z: 100
+            },
+            {
+                label: 'MIRA (100%)',
+                data: storeData.map(s => s.d),
+                borderColor: '#EAB308',
+                borderWidth: 2,
+                tension: 0.4,
+                pointRadius: 0
+            },
+            {
+                label: 'CRÍTICO (50%)',
+                data: storeData.map(s => s.d * 0.5),
+                borderColor: '#F43F5E',
+                borderWidth: 1.5,
+                tension: 0.4,
+                pointRadius: 0
+            },
+            {
+                label: 'ENCALHADO (400%)',
+                data: storeData.map(s => s.d * 4.0),
+                borderColor: '#A855F7',
+                borderWidth: 1.5,
+                tension: 0.4,
+                pointRadius: 0
+            }
+        ];
+
+        const ctx = document.getElementById('storeChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                scales: {
+                    x: { ticks: { color: '#fff', maxTicksLimit: 12 } },
+                    y: { ticks: { color: '#fff' }, beginAtZero: true }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            afterBody: function(context) {
+                                const idx = context[0].dataIndex;
+                                const s = storeData[idx];
+                                return `\nCÁLCULO FORENSE:\nFísico: ${s.f}\nMira:  ${s.d}\nSaldo: ${s.s} ${s.s < 0 ? '▼ (RUPTURA)' : ''}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const last = storeData[storeData.length - 1];
+        document.getElementById('cur-fisico').textContent = last.f;
+        document.getElementById('cur-mira').textContent = last.d;
+        document.getElementById('cur-saldo').textContent = last.s;
+        document.getElementById('card-saldo').style.color = last.s < 0 ? '#F43F5E' : '#22C55E';
+    </script>
+</body>
+</html>

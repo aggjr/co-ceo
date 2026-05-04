@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 3750,
+    "code": "12920",
+    "name": "CORTINA LIRIO VERDE CLARO 2.80X1.70",
+    "timestamp": "2026-04-30T11:38:11.842Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-03-27T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

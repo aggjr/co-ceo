@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO-CEO · Relatório Compra x Produção</title>
+  <script src="data/client/cd_purchase_plan.js"></script>
+  <style>
+    :root {
+      --bg: #041225;
+      --bg2: #07203e;
+      --panel: rgba(12, 36, 70, 0.9);
+      --border: rgba(218, 177, 119, 0.38);
+      --gold: #dab177;
+      --text: #e8eef7;
+      --muted: #94a3b8;
+      --buy: #38bdf8;
+      --make: #22c55e;
+      --mix: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; font-family: "Outfit", system-ui, sans-serif; color: var(--text);
+      background: radial-gradient(120% 75% at 50% -20%, rgba(28, 116, 220, 0.22), transparent 55%), linear-gradient(180deg, var(--bg2), var(--bg));
+      display: flex; flex-direction: column;
+    }
+    .top {
+      position: sticky; top: 0; z-index: 20; background: rgba(8, 25, 50, 0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border); padding: 14px 16px;
+    }
+    h1 { margin: 0; color: var(--gold); font-size: 20px; letter-spacing: .08em; text-transform: uppercase; }
+    .sub { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+    .controls { margin-top: 10px; display: grid; grid-template-columns: 170px 170px 1fr 190px 220px; gap: 8px; }
+    select, input, button {
+      width: 100%; border: 1px solid var(--border); border-radius: 8px; background: rgba(5, 13, 26, .95);
+      color: var(--text); padding: 9px 10px; font-family: inherit;
+    }
+    button { cursor: pointer; font-weight: 600; }
+    .cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 10px 16px; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 9px 10px; }
+    .k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+    .v { margin-top: 5px; font-size: 20px; font-weight: 700; }
+    .table-wrap { margin: 0 16px 16px; border: 1px solid var(--border); border-radius: 10px; overflow: auto; background: var(--panel); }
+    table { width: 100%; border-collapse: collapse; min-width: 1180px; font-size: 12px; }
+    th, td { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 7px; text-align: center; }
+    th { position: sticky; top: 0; z-index: 2; background: rgba(8, 22, 48, 0.98); color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+    td.left { text-align: left; }
+    .tag { display: inline-block; border-radius: 999px; padding: 2px 8px; font-weight: 700; font-size: 11px; }
+    .tag.make { background: rgba(34,197,94,.2); color: #86efac; border: 1px solid rgba(34,197,94,.4); }
+    .tag.buy { background: rgba(56,189,248,.2); color: #bae6fd; border: 1px solid rgba(56,189,248,.45); }
+    .tag.hybrid { background: rgba(245,158,11,.2); color: #fdba74; border: 1px solid rgba(245,158,11,.45); }
+    .status { font-size: 11px; font-weight: 700; border-radius: 6px; padding: 2px 6px; display: inline-block; }
+    .s-rup { background:#111; color:#fff; } .s-cri { background:#ef4444; color:#fff; }
+    .s-aba { background:#f59e0b; color:#111;} .s-aci { background:#10b981; color:#052e1b;}
+    .note { margin: 0 16px 12px; font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>Relatório Compra x Produção</h1>
+    <p class="sub">
+      Se o SKU tiver composição, ação recomendada = produção interna; sem composição = compra. O campo de composição usa mapa opcional
+      (<code>data/client/sku_make_buy_map.json</code>) e fallback operacional legado.
+    </p>
+    <div class="controls">
+      <select id="actionFilter">
+        <option value="">Ação (todas)</option>
+        <option value="PRODUZIR">Produzir</option>
+        <option value="COMPRAR">Comprar</option>
+        <option value="MISTO">Misto</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">Status (todos)</option>
+        <option>RUPTURA</option><option>CRÍTICO</option><option>ABAIXO</option><option>ACIMA</option><option>MUITO ACIMA</option><option>ENCALHADO 1</option><option>ENCALHADO 2</option><option>ENCALHADO 3</option>
+      </select>
+      <input id="q" placeholder="Buscar por ERP, nome, categoria..." />
+      <input id="topN" type="number" min="1" max="500" value="200" />
+      <button id="btnReloadMap">Recarregar mapa composição</button>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="k">SKUs exibidos</div><div class="v" id="kRows">0</div></div>
+    <div class="card"><div class="k">Demanda CD</div><div class="v" id="kDem">0</div></div>
+    <div class="card"><div class="k">Produzir (un)</div><div class="v" id="kMake">0</div></div>
+    <div class="card"><div class="k">Comprar (un)</div><div class="v" id="kBuy">0</div></div>
+    <div class="card"><div class="k">Margem total</div><div class="v" id="kMargin">R$ 0</div></div>
+    <div class="card"><div class="k">Cobertura composição</div><div class="v" id="kCoverage">0%</div></div>
+  </div>
+  <p class="note" id="metaNote"></p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ação</th><th>Status</th><th>ERP</th><th class="left">Produto</th><th>Categoria</th><th>Demanda CD</th><th>Produção rec.</th><th>Compra rec.</th><th>Leg. produção</th><th>Leg. compra</th><th>Margem</th><th>Regra composição</th>
+        </tr>
+      </thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const raw = (window.CD_PURCHASE_PLAN_DATA && Array.isArray(window.CD_PURCHASE_PLAN_DATA.rows)) ? window.CD_PURCHASE_PLAN_DATA.rows : [];
+    let makeBuyMap = new Map();
+    const fmtInt = (n)=>Number(n||0).toLocaleString("pt-BR");
+    const fmtBRL = (n)=>Number(n||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+    function statusCls(s){
+      if(s==="RUPTURA") return "s-rup"; if(s==="CRÍTICO") return "s-cri"; if(s==="ABAIXO") return "s-aba"; return "s-aci";
+    }
+    function normalizeCode(v){ return String(v||"").trim(); }
+    async function loadMakeBuyMap(){
+      makeBuyMap = new Map();
+      try{
+        const r = await fetch("data/client/sku_make_buy_map.json",{cache:"no-store"});
+        if(!r.ok) throw new Error("sem mapa");
+        const j = await r.json();
+        const rows = Array.isArray(j.rows)?j.rows:[];
+        for(const x of rows){
+          const code = normalizeCode(x.erp_code);
+          if(!code) continue;
+          makeBuyMap.set(code,{hasComposition:Boolean(x.has_composition),source:x.source||"map"});
+        }
+      }catch(_){}
+    }
+    function decideAction(r){
+      const code = normalizeCode(r.erp_code);
+      const inMap = makeBuyMap.get(code);
+      if(inMap){
+        return inMap.hasComposition
+          ? {action:"PRODUZIR", makeQty:Number(r.demanda_total_cd||0), buyQty:0, rule:"Mapa composição"}
+          : {action:"COMPRAR", makeQty:0, buyQty:Number(r.demanda_total_cd||0), rule:"Mapa composição"};
+      }
+      // fallback operacional: se legado já aponta produção no item, tratar como produzível.
+      const legProd = Number(r.total_em_producao_legacy||0);
+      const legBuy = Number(r.sugestao_compra_legacy||0);
+      const dem = Number(r.demanda_total_cd||0);
+      if(legProd>0 && legBuy>0) return {action:"MISTO", makeQty:Math.round(dem*0.6), buyQty:Math.max(0,dem-Math.round(dem*0.6)), rule:"Fallback legado (prod+compra)"};
+      if(legProd>0) return {action:"PRODUZIR", makeQty:dem, buyQty:0, rule:"Fallback legado (produção)"};
+      return {action:"COMPRAR", makeQty:0, buyQty:dem, rule:"Fallback legado (compra)"};
+    }
+    function render(){
+      const q = (document.getElementById("q").value||"").toLowerCase();
+      const fAction = document.getElementById("actionFilter").value;
+      const fStatus = document.getElementById("statusFilter").value;
+      const topN = Math.max(1,Math.min(500,Number(document.getElementById("topN").value)||200));
+      let rows = raw.map(r=>({ ...r, plan: decideAction(r)}));
+      rows.sort((a,b)=>(Number(b.demanda_total_cd||0)-Number(a.demanda_total_cd||0)) || (Number(b.margem_contribuicao_total||0)-Number(a.margem_contribuicao_total||0)));
+      rows = rows.slice(0, topN).filter(r=>{
+        if(fAction && r.plan.action!==fAction) return false;
+        if(fStatus && String(r.status_urgencia||"")!==fStatus) return false;
+        if(q){
+          const s=(`${r.erp_code} ${r.product_name} ${r.category} ${r.subcategory}`).toLowerCase();
+          if(!s.includes(q)) return false;
+        }
+        return true;
+      });
+      let dem=0, mk=0, by=0, mg=0, covKnown=0;
+      const html = rows.map(r=>{
+        const p=r.plan; dem+=Number(r.demanda_total_cd||0); mk+=Number(p.makeQty||0); by+=Number(p.buyQty||0); mg+=Number(r.margem_contribuicao_total||0);
+        if(p.rule==="Mapa composição") covKnown++;
+        const tag = p.action==="PRODUZIR"?"make":(p.action==="COMPRAR"?"buy":"hybrid");
+        return `<tr>
+          <td><span class="tag ${tag}">${p.action}</span></td>
+          <td><span class="status ${statusCls(r.status_urgencia)}">${r.status_urgencia||"ACIMA"}</span></td>
+          <td>${r.erp_code||""}</td>
+          <td class="left">${r.product_name||""}</td>
+          <td>${r.category||"-"}</td>
+          <td>${fmtInt(r.demanda_total_cd)}</td>
+          <td>${fmtInt(p.makeQty)}</td>
+          <td>${fmtInt(p.buyQty)}</td>
+          <td>${fmtInt(r.total_em_producao_legacy)}</td>
+          <td>${fmtInt(r.sugestao_compra_legacy)}</td>
+          <td>${fmtBRL(r.margem_contribuicao_total)}</td>
+          <td>${p.rule}</td>
+        </tr>`;
+      }).join("");
+      document.getElementById("tb").innerHTML = html || `<tr><td colspan="12">Sem linhas para os filtros atuais.</td></tr>`;
+      document.getElementById("kRows").textContent = fmtInt(rows.length);
+      document.getElementById("kDem").textContent = fmtInt(dem);
+      document.getElementById("kMake").textContent = fmtInt(mk);
+      document.getElementById("kBuy").textContent = fmtInt(by);
+      document.getElementById("kMargin").textContent = fmtBRL(mg);
+      document.getElementById("kCoverage").textContent = rows.length ? ((100*covKnown/rows.length).toFixed(1).replace(".",",")+"%") : "0%";
+      document.getElementById("metaNote").textContent = `Base: cd_purchase_plan (${fmtInt(raw.length)} SKUs). Recomendação usa composição por mapa opcional + fallback legado.`;
+    }
+    async function init(){
+      await loadMakeBuyMap();
+      ["q","actionFilter","statusFilter","topN"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+      document.getElementById("btnReloadMap").addEventListener("click", async ()=>{ await loadMakeBuyMap(); render(); });
+      render();
+    }
+    init();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 4017,
+    "code": "116",
+    "name": "TEC. LINHO MIAMI PRATA 3.00 MT",
+    "timestamp": "2026-04-30T11:38:53.751Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 30,
+        "data_evento": "2026-03-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 35.2,
+        "data_evento": "2026-03-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 15,
+        "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 31.5,
+        "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

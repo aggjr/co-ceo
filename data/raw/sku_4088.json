@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4088,
+    "code": "13225",
+    "name": "FAST WAVE DUAL ELEGANCE PRATA 3.50X até2.90",
+    "timestamp": "2026-04-30T11:39:04.818Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

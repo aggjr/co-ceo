@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1816,
+    "code": "K441",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 441",
+    "timestamp": "2026-04-30T11:32:48.879Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-11-11T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

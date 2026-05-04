@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2882,
+    "code": "11954",
+    "name": "UNICA 2,60X1,70 TAFETA LISO OCRE 24",
+    "timestamp": "2026-04-30T11:35:50.415Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

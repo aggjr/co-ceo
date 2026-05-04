@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2257,
+    "code": "11456",
+    "name": "COZINHA 2,60X1,30 BARRADO GALOS",
+    "timestamp": "2026-04-30T11:34:03.788Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-30T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

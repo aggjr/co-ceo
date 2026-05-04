@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 3786,
+    "code": "12852",
+    "name": "CABECEIRA CASAL DIAMANTE SUEDE/CORINO",
+    "timestamp": "2026-04-30T11:38:17.417Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

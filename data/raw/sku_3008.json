@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 3008,
+    "code": "12075",
+    "name": "TEC CORTA LUZ SANJAN ROSE 2.80 MT",
+    "timestamp": "2026-04-30T11:36:10.949Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 22.200000000000003,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

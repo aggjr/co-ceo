@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2878,
+    "code": "11946",
+    "name": "\"\"\"CORTINA DE BOX ADOMES 1,70 X 1,80\"\"\"",
+    "timestamp": "2026-04-30T11:35:49.772Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

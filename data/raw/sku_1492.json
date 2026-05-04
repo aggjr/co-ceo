@@ -1,0 +1,34 @@
+{
+  "info": {
+    "id": 1492,
+    "code": "10912",
+    "name": "TOALHA DE BANHO 0,60X1,20 PRISMA PANOSUL",
+    "timestamp": "2026-04-30T11:31:51.091Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-09T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

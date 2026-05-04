@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2482,
+    "code": "11564",
+    "name": "COBRE LEITO CASAL LINHA PRATA LISO",
+    "timestamp": "2026-04-30T11:34:41.048Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

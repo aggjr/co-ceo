@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1552,
+    "code": "8349",
+    "name": "SUPORTE L P/ SANEFA PERSIANA",
+    "timestamp": "2026-04-30T11:32:03.847Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2023-09-06T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

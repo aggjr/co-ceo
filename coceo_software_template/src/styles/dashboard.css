@@ -1,0 +1,469 @@
+/* Dashboard Navigation Styles */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    /* Base radial + profundidade (paleta Arquitetura Física STOCKSPIN v2.1) */
+    background: radial-gradient(circle at 50% 42%, var(--foccus-navy-mid, #1a3a6d) 0%, var(--foccus-navy-deep, #050d1a) 68%),
+        linear-gradient(
+            155deg,
+            var(--shell-navy-1) 0%,
+            var(--shell-navy-2) 35%,
+            var(--shell-navy-4) 100%
+        );
+}
+
+.dashboard-nav {
+    width: 250px;
+    min-height: 0;
+    background: var(--foccus-navy-panel, rgba(26, 58, 109, 0.55));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-right: 1px solid var(--shell-border);
+    color: var(--shell-fg, #f8fafc);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md) var(--space-sm) var(--space-xs) var(--space-sm);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Drastically reduced spacing to lift menu */
+.nav-header {
+    flex-shrink: 0;
+    margin-bottom: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--shell-border-soft);
+}
+
+.nav-logo {
+    font-size: 1.45rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--space-xs);
+}
+
+.nav-user {
+    font-size: 0.78rem;
+    opacity: 0.8;
+}
+
+.nav-menu {
+    list-style: none;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    padding-right: 2px;
+}
+
+.nav-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: rgba(218, 177, 119, 0.35);
+    border-radius: 4px;
+}
+
+.nav-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+
+.nav-menu li {
+    margin-bottom: 0.2rem;
+}
+
+/* Títulos de grupo do menu em dourado */
+.nav-menu-item > .nav-menu-toggle {
+    color: var(--color-accent);
+    letter-spacing: 0.03em;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 0.35rem 0.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 1.25;
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.nav-menu a.active {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-sm);
+}
+
+/* STOCKSPIN / Cockpit: menu mais compacto que o style.css genérico */
+.dashboard-nav .nav-menu-toggle {
+    padding: 0.4rem 0.45rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+}
+
+.dashboard-nav .nav-submenu {
+    padding-left: 0.65rem;
+}
+
+.dashboard-nav .nav-submenu li {
+    margin: 0.1rem 0;
+}
+
+.dashboard-nav .nav-submenu a {
+    padding: 0.28rem 0.45rem;
+    font-size: 0.78rem;
+    line-height: 1.25;
+}
+
+.nav-logout {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.nav-logout:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-main {
+    flex: 1;
+    overflow-y: auto;
+    background: transparent;
+}
+
+/* Barra acima do iframe STOCKSPIN — alinhada ao header navy */
+.stockspin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--shell-border);
+    background: var(--foccus-navy-header, rgba(26, 58, 109, 0.72));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-shrink: 0;
+}
+
+.stockspin-toolbar-title {
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.02em;
+}
+
+.stockspin-toolbar-src {
+    font-size: 12px;
+    color: var(--shell-fg-muted);
+    word-break: break-all;
+    text-align: right;
+}
+
+/* Área principal Cockpit: véu escuro sobre o degradê global */
+.dashboard-main--cockpit {
+    background: linear-gradient(
+        180deg,
+        rgba(6, 16, 28, 0.45) 0%,
+        rgba(4, 10, 20, 0.62) 45%,
+        rgba(2, 6, 12, 0.35) 100%
+    );
+}
+
+/* Boas-vindas */
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: linear-gradient(135deg, #f4e8cc 0%, var(--color-accent) 42%, #b8925a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.welcome-sub {
+    color: var(--shell-fg-muted);
+    font-size: 1.15rem;
+    font-weight: 300;
+    font-family: var(--font-secondary);
+    margin-bottom: 2rem;
+}
+
+/* --- Cockpit: títulos dourados, textos claros, cartões escuros --- */
+.dashboard-main--cockpit .screen-header {
+    border-bottom-color: var(--shell-border);
+}
+
+.dashboard-main--cockpit .header-title h1 {
+    background: linear-gradient(135deg, #f4e8cc 0%, var(--color-accent) 45%, #b8925a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.dashboard-main--cockpit .header-title p {
+    color: var(--shell-fg-muted);
+}
+
+.dashboard-main--cockpit .screen-container {
+    color: var(--shell-fg);
+}
+
+/* ExcelTable: fundo claro no .table-wrapper — não herdar texto claro do cockpit */
+.dashboard-main--cockpit .screen-container .table-wrapper tbody td,
+.dashboard-main--cockpit .screen-container .table-wrapper tbody th {
+    color: #0f172a;
+}
+
+.dashboard-main--cockpit .screen-container .table-wrapper tbody .text-muted {
+    color: #64748b;
+}
+
+.dashboard-main--cockpit .screen-container .table-footer-summary {
+    color: #334155;
+}
+
+/* Nomes em células (UserManager, etc.): não usar shell-fg sobre fundo claro da grade */
+.dashboard-main--cockpit .screen-container .table-wrapper .user-info strong,
+.dashboard-main--cockpit .screen-container .table-wrapper .tenant-info strong,
+.dashboard-main--cockpit .screen-container .table-wrapper .role-info strong {
+    color: #0f172a;
+}
+
+.dashboard-main--cockpit .screen-container .table-wrapper .role-info small,
+.dashboard-main--cockpit .screen-container .table-wrapper .tenant-info small,
+.dashboard-main--cockpit .screen-container .table-wrapper .contact-info small {
+    color: #64748b;
+}
+
+.dashboard-main--cockpit .search-box input,
+.dashboard-main--cockpit .filter-group select {
+    background: rgba(3, 12, 22, 0.65);
+    border-color: var(--shell-border-soft);
+    color: var(--shell-fg);
+}
+
+.dashboard-main--cockpit .search-box input::placeholder {
+    color: rgba(148, 163, 184, 0.85);
+}
+
+.dashboard-main--cockpit .table-container {
+    background: rgba(4, 14, 26, 0.72);
+    border: 1px solid var(--shell-border-soft);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.dashboard-main--cockpit .data-table thead {
+    background: linear-gradient(90deg, rgba(0, 50, 72, 0.98) 0%, rgba(26, 32, 70, 0.98) 100%);
+    color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .data-table th {
+    color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .data-table td {
+    border-bottom-color: var(--shell-border-soft);
+    color: var(--shell-fg);
+}
+
+.dashboard-main--cockpit .data-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-main--cockpit .tenant-info strong,
+.dashboard-main--cockpit .user-info strong,
+.dashboard-main--cockpit .role-info strong,
+.dashboard-main--cockpit .permission-info strong {
+    color: var(--shell-fg);
+}
+
+.dashboard-main--cockpit .tenant-info small,
+.dashboard-main--cockpit .contact-info small,
+.dashboard-main--cockpit .role-info small,
+.dashboard-main--cockpit .permission-info small {
+    color: var(--shell-fg-muted);
+}
+
+.dashboard-main--cockpit .user-count {
+    color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .module-title {
+    color: var(--color-accent);
+    border-bottom-color: var(--shell-border-soft);
+}
+
+.dashboard-main--cockpit .roles-checklist,
+.dashboard-main--cockpit .permissions-container {
+    background: rgba(3, 12, 22, 0.55);
+    border-color: var(--shell-border-soft);
+}
+
+.dashboard-main--cockpit .role-checkbox:hover,
+.dashboard-main--cockpit .permission-checkbox:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.dashboard-main--cockpit .form-group label {
+    color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .form-group input,
+.dashboard-main--cockpit .form-group select,
+.dashboard-main--cockpit .form-group textarea {
+    background: rgba(3, 12, 22, 0.65);
+    border-color: var(--shell-border-soft);
+    color: var(--shell-fg);
+}
+
+.dashboard-main--cockpit .stat-item {
+    background: rgba(3, 12, 22, 0.6);
+    border-left-color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .stat-item strong {
+    color: var(--shell-fg-muted);
+}
+
+.dashboard-main--cockpit .loading-cell,
+.dashboard-main--cockpit .empty-cell {
+    color: var(--shell-fg-muted);
+}
+
+.dashboard-main--cockpit .quick-action-btn {
+    background: rgba(4, 14, 26, 0.75);
+    border-color: var(--shell-border-soft);
+}
+
+.dashboard-main--cockpit .quick-action-btn strong {
+    color: var(--color-accent);
+}
+
+.dashboard-main--cockpit .quick-action-btn small {
+    color: var(--shell-fg-muted);
+}
+
+.dashboard-main--cockpit .btn-primary {
+    background: linear-gradient(135deg, #050c14 0%, #0f2434 100%);
+    color: var(--color-accent);
+    border: 1px solid var(--shell-border);
+}
+
+.dashboard-main--cockpit .btn-primary:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.dashboard-main--cockpit .btn-secondary {
+    background: rgba(6, 16, 28, 0.65);
+    color: var(--shell-fg);
+    border: 1px solid var(--shell-border-soft);
+}
+
+.dashboard-main--cockpit .btn-secondary:hover {
+    background: rgba(12, 28, 44, 0.85);
+    border-color: var(--shell-border);
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: var(--space-2xl);
+    text-align: center;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+    max-width: 900px;
+}
+
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xl);
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.quick-action-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.quick-action-btn span {
+    font-size: 3rem;
+}
+
+.quick-action-btn strong {
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.quick-action-btn small {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-nav {
+        width: 100%;
+        height: auto;
+        padding: var(--space-md);
+    }
+
+    .nav-menu {
+        display: flex;
+        flex: none;
+        min-height: auto;
+        overflow-x: auto;
+        overflow-y: visible;
+        gap: var(--space-sm);
+    }
+
+    .nav-menu li {
+        margin-bottom: 0;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}

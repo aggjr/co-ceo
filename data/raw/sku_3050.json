@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 3050,
+    "code": "K362",
+    "name": "PERSIANA 2.00X2.00 ROLO RENO 362",
+    "timestamp": "2026-04-30T11:36:17.858Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-10-10T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

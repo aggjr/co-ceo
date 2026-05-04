@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-CEO | Inteligência Sistêmica (v2)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-glass: rgba(30, 41, 59, 0.7);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --stock-blue: #31C6F7;
+            --color-black: #000000;
+            --color-red: #F43F5E;
+            --color-yellow: #EAB308;
+            --color-green: #22C55E;
+            --color-blue-dark: #1e3a8a;
+            --color-lilac: #d8b4fe;
+            --color-purple: #A855F7;
+            --color-purple-dark: #581c87;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, var(--bg-dark) 100%);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin: 0;
+            font-size: 2.2rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-weight: 300;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .chart-section {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 15px;
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .chart-legend {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .legend-item:hover {
+            opacity: 0.7;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            margin-right: 6px;
+        }
+
+        .footer-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+            flex-shrink: 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .card-val {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .card-lab {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .btn-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--color-blue-dark);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>PACIENTE ZERO: GESTÃO TENSIONADA</h1>
+        <div class="subtitle" id="main-subtitle">ERP 12152 | HISTÓRICO DE ESTOQUE LIVRE DO CD</div>
+    </div>
+
+    <div class="chart-section">
+        <div style="flex: 1; min-height: 0;">
+            <canvas id="mainChart"></canvas>
+        </div>
+
+        <div class="chart-legend" id="customLegend">
+            <!-- Legend items will be injected here -->
+        </div>
+    </div>
+
+    <div class="footer-cards">
+        <div class="card" style="border-left: 4px solid var(--color-blue-dark);">
+            <div class="card-val" id="val-fisico">8.0</div>
+            <div class="card-lab">ESTOQUE ATUAL (FÍSICO)</div>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--color-red);">
+            <div class="card-val" id="val-divida">12.6</div>
+            <div class="card-lab">DEMANDA JÁ EXISTENTE</div>
+        </div>
+        <div class="card" id="card-livre"
+            style="background: rgba(49, 198, 247, 0.05); border: 1px solid var(--stock-blue);">
+            <div class="card-val" id="val-livre">-4.6</div>
+            <div class="card-lab">ESTOQUE LIVRE (CD)</div>
+        </div>
+        <div class="card" id="card-status">
+            <div class="card-val" id="val-status">RUPTURA</div>
+            <div class="card-lab">STATUS SISTÊMICO</div>
+        </div>
+    </div>
+
+    <script src="paciente_zero_data_series.js"></script>
+    <script>
+        // Utilizando o Dataset de Alta Densidade (365 dias)
+        const fullHistory = PACIENTE_ZERO_HISTORY;
+
+        const formatBR = (isoStr) => {
+            const [y, m, d] = isoStr.split('-');
+            return `${d}/${m}/${y}`;
+        };
+
+        const labels = fullHistory.map(h => formatBR(h.data));
+        const freeStockSeries = fullHistory.map(h => h.livre);
+        const physicalStockSeries = fullHistory.map(h => h.fisico);
+        
+        const colors = {
+            stock: '#31C6F7',
+            physical: '#31C6F7', // O Físico agora assume a cor forte
+            debt: '#94a3b8',     // O Livre/Dívida agora é cinza vivo
+            red: '#F43F5E',
+            yellow: '#EAB308',
+            green: '#22C55E',
+            blue: '#3B82F6',
+            purple: '#A855F7'
+        };
+
+        const datasets = [
+            { 
+                label: 'ESTOQUE LIVRE (DÍVIDA)', 
+                data: freeStockSeries, 
+                borderColor: colors.debt, 
+                borderWidth: 2.5, 
+                borderDash: [6, 4], // Pontilhado Cinza Vivo
+                pointRadius: 0, 
+                fill: false, 
+                stepped: true,
+                z: 40
+            },
+            { 
+                label: 'ESTOQUE ATUAL (FÍSICO)', 
+                data: physicalStockSeries, 
+                borderColor: colors.physical, 
+                borderWidth: 4, 
+                pointRadius: 0, 
+                fill: false,
+                stepped: true,
+                z: 50 // Protagonista
+            },
+            { 
+                label: 'ENCALHADO (>400%)', 
+                data: fullHistory.map(h => h.mira * 4.0), 
+                borderColor: colors.purple, 
+                borderWidth: 2, 
+                pointRadius: 0, 
+                fill: false,
+                tension: 0.4 
+            },
+            { 
+                label: 'MUITO ACIMA (200%)', 
+                data: fullHistory.map(h => h.mira * 2.0), 
+                borderColor: colors.blue, 
+                borderWidth: 2, 
+                pointRadius: 0, 
+                fill: false,
+                tension: 0.4 
+            },
+            { 
+                label: 'ACIMA (150%)', 
+                data: fullHistory.map(h => h.mira * 1.5), 
+                borderColor: colors.green, 
+                borderWidth: 2, 
+                pointRadius: 0, 
+                fill: false,
+                tension: 0.4 
+            },
+            { 
+                label: 'ABAIXO (MIRA 100%)', 
+                data: fullHistory.map(h => h.mira * 1.0), 
+                borderColor: colors.yellow, 
+                borderWidth: 2, 
+                pointRadius: 0, 
+                fill: false,
+                tension: 0.4 
+            },
+            { 
+                label: 'CRÍTICO (50%)', 
+                data: fullHistory.map(h => h.mira * 0.5), 
+                borderColor: colors.red, 
+                borderWidth: 2, 
+                pointRadius: 0, 
+                fill: false,
+                tension: 0.4 
+            }
+        ];
+
+        let myChart;
+        function init() {
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    interaction: { intersect: false, mode: 'index' },
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 10, family: 'monospace' },
+                            padding: 12,
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                afterBody: function(context) {
+                                    const index = context[0].dataIndex;
+                                    const dayData = fullHistory[index];
+                                    if (!dayData || !dayData.lojas) return '';
+
+                                    let lines = ['\nDETALHAMENTO POR LOJA:'];
+                                    dayData.lojas.forEach(l => {
+                                        const symbol = l.s < 0 ? '▼' : '▲';
+                                        const statusLabel = l.s < 0 ? ' (RUPTURA)' : (l.st === 'ENCALHADO' ? ' (ENCALHADO)' : '');
+                                        // Ajustando espaçamento manual para simular tabela
+                                        const namePart = l.n.padEnd(12, ' ');
+                                        lines.push(`${namePart}: ${l.f} f - ${l.d} d = ${l.s} ${symbol}${statusLabel}`);
+                                    });
+                                    return lines;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { 
+                            grid: { display: false }, 
+                            border: { display: true, color: '#ffffff', width: 2 },
+                            ticks: { color: '#ffffff', maxTicksLimit: 12, font: { weight: 'normal', size: 10 } }
+                        },
+                        y: { 
+                            grid: { color: 'rgba(255,255,255,0.05)' }, 
+                            border: { display: true, color: '#ffffff', width: 2 },
+                            ticks: { color: '#ffffff', font: { weight: 'normal', size: 10 } }, 
+                            beginAtZero: false 
+                        }
+                    }
+                }
+            });
+
+            renderCustomLegend();
+            updateCards();
+        }
+
+        function renderCustomLegend() {
+            const container = document.getElementById('customLegend');
+            container.innerHTML = '';
+            // Inverter a ordem para o Físico aparecer primeiro na legenda
+            const legendOrder = [1, 0, 6, 5, 4, 3, 2]; 
+            legendOrder.forEach((originalIndex) => {
+                const ds = datasets[originalIndex];
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                item.innerHTML = `<div class="dot" style="background:${ds.borderColor}"></div> ${ds.label}`;
+                item.onclick = () => {
+                    const meta = myChart.getDatasetMeta(originalIndex);
+                    meta.hidden = meta.hidden === null ? !myChart.data.datasets[originalIndex].hidden : null;
+                    item.style.opacity = meta.hidden ? '0.3' : '1';
+                    myChart.update();
+                };
+                container.appendChild(item);
+            });
+        }
+
+        function updateCards() {
+            const lastData = fullHistory[fullHistory.length - 1];
+            const lastFree = lastData.livre;
+            const lastMira = lastData.mira;
+            const lastFisico = lastData.fisico_cd;
+            const pct = (lastFree / lastMira) * 100;
+
+            document.getElementById('val-fisico').textContent = lastFisico.toFixed(1);
+            
+            // Dívida real auditada
+            const debt = (lastData.divida || 0).toFixed(1);
+            document.getElementById('val-divida').textContent = debt;
+            
+            document.getElementById('val-livre').textContent = lastFree.toFixed(1);
+
+            let status = "NORMAL";
+            let color = colors.green;
+
+            if (lastFree <= 0) { status = "RUPTURA (DÍVIDA)"; color = "#000000"; }
+            else if (pct < 50) { status = "CRÍTICO"; color = colors.red; }
+            else if (pct < 100) { status = "ABAIXO"; color = colors.yellow; }
+            else if (pct < 150) { status = "ACIMA"; color = colors.green; }
+            else if (pct < 200) { status = "MUITO ACIMA"; color = colors.blue; }
+            else { status = "ENCALHADO"; color = colors.purple; }
+
+            document.getElementById('val-status').textContent = status;
+            document.getElementById('card-status').style.borderColor = (color === "#000000") ? "#fff" : color;
+            document.getElementById('val-status').style.color = (color === "#000000") ? "#fff" : color;
+            if (color === "#000000") document.getElementById('card-status').style.background = 'rgba(0,0,0,0.8)';
+            else document.getElementById('card-status').style.background = 'rgba(255,255,255,0.02)';
+
+            // Destaque visual no estoque livre se negativo
+            document.getElementById('val-livre').style.color = (lastFree < 0) ? colors.red : colors.stock;
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transferências por loja · Curvas e status</title>
+  <script src="data/client/legacy_ops_mapping.js"></script>
+  <style>
+    :root {
+      --bg: #041225;
+      --panel: rgba(9, 28, 56, 0.9);
+      --border: rgba(218, 177, 119, 0.45);
+      --text: #e8eef7;
+      --muted: #9db0c7;
+      --gold: #dab177;
+      --blue: #3b82f6;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0a2f5e 0%, var(--bg) 100%);
+      color: var(--text);
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+    .top {
+      padding: 12px 16px 6px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 16, 34, 0.72);
+    }
+    .top h1 {
+      margin: 0;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .sub {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .meta {
+      padding: 8px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(218, 177, 119, 0.25);
+      background: rgba(4, 16, 34, 0.55);
+    }
+    .chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #dbeafe;
+      background: rgba(8, 23, 44, 0.75);
+    }
+    .main {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 10px;
+      padding: 10px;
+    }
+    .stores, .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+    .stores {
+      padding: 10px;
+      overflow: auto;
+    }
+    .stores h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .store-btn {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 6px;
+      border: 1px solid var(--border);
+      background: rgba(4, 16, 34, 0.7);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 7px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .store-btn.active {
+      border-color: rgba(59, 130, 246, 0.65);
+      background: rgba(17, 43, 78, 0.85);
+      color: #dbeafe;
+    }
+    .table-wrap {
+      overflow: auto;
+      padding: 8px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .toolbar label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      font-size: 12px;
+    }
+    th, td {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      padding: 7px 6px;
+      text-align: center;
+      vertical-align: top;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: rgba(12, 36, 70, 0.98);
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    td.left { text-align: left; }
+    .pill {
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-weight: 700;
+      font-size: 11px;
+      display: inline-block;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+    .s-acima { color: var(--ok); border-color: rgba(34, 197, 94, 0.5); }
+    .s-alerta { color: var(--warn); border-color: rgba(245, 158, 11, 0.5); }
+    a.link {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>Transferências por loja + curvas</h1>
+    <div class="sub" id="subTitle">Carregando...</div>
+  </div>
+  <div class="meta" id="metaChips"></div>
+  <div class="main">
+    <aside class="stores">
+      <h3>Lojas destino</h3>
+      <div id="storeList"></div>
+    </aside>
+    <section class="table-wrap">
+      <div class="toolbar">
+        <label><input type="checkbox" id="onlyNotAbove" checked /> Mostrar somente status loja != ACIMA (erros)</label>
+        <div id="rowsTag" class="chip">0 linhas</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Loja</th>
+            <th>ERP</th>
+            <th>Produto</th>
+            <th>Qtd transf.</th>
+            <th>Status loja</th>
+            <th>Status CD</th>
+            <th>Curvas</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      const data = window.LEGACY_OPS_MAPPING_DATA || {};
+      const transfer = data.latest_transfer_to_stores || {};
+      const byStore = transfer.transferred_items_by_store || {};
+      const allStores = Object.keys(byStore).sort((a, b) => a.localeCompare(b, "pt-BR"));
+      let currentStore = "__ALL__";
+
+      function fmtInt(v) {
+        return Number(v || 0).toLocaleString("pt-BR");
+      }
+
+      function statusClass(status) {
+        return status === "ACIMA" ? "s-acima" : "s-alerta";
+      }
+
+      function statusText(status) {
+        return status || "SEM DADO";
+      }
+      function buildStoreDetailLink(r) {
+        const sku = Number(r.product_id);
+        if (!Number.isFinite(sku) || sku <= 0) return r.curve_link || "";
+        const p = new URLSearchParams();
+        p.set("sku", String(sku));
+        p.set("store", String(r.dest_unit || ""));
+        p.set("transfer_qty", String(Number(r.confirmed_qty || 0)));
+        p.set("cd_out_total", String(Number(transfer.total_confirmed_qty_store_destinations || 0)));
+        if (transfer.transfer_date) p.set("transfer_date", String(transfer.transfer_date));
+        p.set("cd_status", String(r.current_status_cd || ""));
+        return "ceo_product_detail_layout.html?" + p.toString();
+      }
+      function buildCdDetailLink(r) {
+        const sku = Number(r.product_id);
+        if (!Number.isFinite(sku) || sku <= 0) return r.curve_link || "";
+        const p = new URLSearchParams();
+        p.set("sku", String(sku));
+        p.set("hub", "1");
+        p.set("transfer_qty", String(Number(r.confirmed_qty || 0)));
+        p.set("cd_out_total", String(Number(transfer.total_confirmed_qty_store_destinations || 0)));
+        if (transfer.transfer_date) p.set("transfer_date", String(transfer.transfer_date));
+        p.set("dest_store", String(r.dest_unit || ""));
+        return "ceo_product_detail_layout.html?" + p.toString();
+      }
+
+      function collectRows() {
+        const rows = currentStore === "__ALL__"
+          ? Object.values(byStore).flat()
+          : (byStore[currentStore] || []);
+        const onlyNotAbove = document.getElementById("onlyNotAbove").checked;
+        const out = onlyNotAbove ? rows.filter(r => r.current_status_store !== "ACIMA") : rows.slice();
+        out.sort((a, b) => Number(b.confirmed_qty || 0) - Number(a.confirmed_qty || 0));
+        return out;
+      }
+
+      function renderTable() {
+        const rows = collectRows();
+        document.getElementById("rowsTag").textContent = fmtInt(rows.length) + " linhas";
+        const tb = document.getElementById("tbody");
+        tb.innerHTML = rows.map(function (r) {
+          const storeHref = buildStoreDetailLink(r);
+          const cdHref = buildCdDetailLink(r);
+          const linkHtml =
+            '<a class="link" href="' + storeHref + '" target="_blank" rel="noopener noreferrer">loja destino</a>' +
+            " | " +
+            '<a class="link" href="' + cdHref + '" target="_blank" rel="noopener noreferrer">curva CD</a>';
+          return "<tr>" +
+            "<td>" + (r.dest_unit || "-") + "</td>" +
+            "<td>" + (r.erp_code || "-") + "</td>" +
+            '<td class="left">' + (r.product_name || "-") + "</td>" +
+            "<td>" + fmtInt(r.confirmed_qty) + "</td>" +
+            '<td><span class="pill ' + statusClass(r.current_status_store) + '">' + statusText(r.current_status_store) + "</span></td>" +
+            '<td><span class="pill ' + statusClass(r.current_status_cd) + '">' + statusText(r.current_status_cd) + "</span></td>" +
+            "<td>" + linkHtml + "</td>" +
+          "</tr>";
+        }).join("");
+      }
+
+      function renderStores() {
+        const host = document.getElementById("storeList");
+        const stores = ["__ALL__"].concat(allStores);
+        host.innerHTML = stores.map(function (s) {
+          const label = s === "__ALL__" ? "TODAS AS LOJAS" : s;
+          const active = s === currentStore ? " active" : "";
+          return '<button type="button" class="store-btn' + active + '" data-store="' + s + '">' + label + "</button>";
+        }).join("");
+        host.querySelectorAll(".store-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            currentStore = btn.getAttribute("data-store");
+            renderStores();
+            renderTable();
+          });
+        });
+      }
+
+      function renderMeta() {
+        const meta = document.getElementById("metaChips");
+        const tId = transfer.transfer_id || "-";
+        const tDate = transfer.transfer_date ? new Date(transfer.transfer_date).toLocaleString("pt-BR") : "-";
+        const chips = [
+          "Transferência: " + tId,
+          "Data: " + tDate,
+          "Itens transferidos: " + fmtInt(transfer.item_count_store_destinations),
+          "Qtd confirmada: " + fmtInt(transfer.total_confirmed_qty_store_destinations),
+          "Voltou para ACIMA: " + fmtInt((transfer.transferred_items_store_status_acima || []).length)
+        ];
+        meta.innerHTML = chips.map(function (c) { return '<span class="chip">' + c + "</span>"; }).join("");
+        document.getElementById("subTitle").textContent =
+          "Lista por loja da última transferência, com status atual da loja/CD e acesso direto ao gráfico padrão do produto.";
+      }
+
+      document.getElementById("onlyNotAbove").addEventListener("change", renderTable);
+      renderMeta();
+      renderStores();
+      renderTable();
+    })();
+  </script>
+</body>
+</html>
+

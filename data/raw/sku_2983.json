@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2983,
+    "code": "12053",
+    "name": "TEC CORTA LUZ SANJAN PRETO 2,80 MT",
+    "timestamp": "2026-04-30T11:36:06.760Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 1.9999999999999716,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

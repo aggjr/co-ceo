@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1893,
+    "code": "K987",
+    "name": "PERSIANA 1.60X1.80 PVC TEXTURIZADA 987",
+    "timestamp": "2026-04-30T11:33:01.307Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-14T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

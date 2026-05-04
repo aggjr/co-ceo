@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 836,
+    "code": "9893",
+    "name": "BLACK PVC 2,60X1,70 UVA",
+    "timestamp": "2026-04-30T11:30:02.179Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1857,
+    "code": "K585",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 585",
+    "timestamp": "2026-04-30T11:32:55.430Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-10-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

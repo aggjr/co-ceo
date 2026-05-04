@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 380,
+    "code": "10803",
+    "name": "TOALHA DE BANHO 0,77X1,45 HIP GLAMOUR",
+    "timestamp": "2026-04-30T11:28:37.348Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-11T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

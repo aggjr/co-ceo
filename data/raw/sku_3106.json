@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 3106,
+    "code": "12163",
+    "name": "TEC MICROFIBRA CINZA 1,60 MT",
+    "timestamp": "2026-04-30T11:36:26.343Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 82.5,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 7.099999999999994,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 42.00000000000001,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 7.100000000000001,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 40.49999999999999,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

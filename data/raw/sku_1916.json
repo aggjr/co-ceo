@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1916,
+    "code": "9059",
+    "name": "TAPETE 0,43X0,60 GOUVEA BALAO",
+    "timestamp": "2026-04-30T11:33:05.039Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-15T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

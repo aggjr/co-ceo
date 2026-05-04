@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCKSPIN CO-CEO - Novo DER</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --card-bg: #161b22;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 { color: var(--accent-color); margin-bottom: 10px; }
+        .container {
+            width: 95%;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            border: 1px solid #30363d;
+        }
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        .color-box { width: 15px; height: 15px; border-radius: 3px; }
+        .blue { background-color: #1f6feb; }
+        .green { background-color: #238636; }
+        .red { background-color: #da3633; }
+        .yellow { background-color: #d29922; }
+        .info-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(88, 166, 255, 0.1);
+            border-left: 4px solid var(--accent-color);
+            width: 95%;
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>STOCKSPIN CO-CEO - Novo DER</h1>
+    <p>Proposta de Arquitetura Unificada (Foco em Transferências e Produção)</p>
+
+    <div class="legend">
+        <div class="legend-item"><div class="color-box blue"></div> Identidade e Estrutura</div>
+        <div class="legend-item"><div class="color-box green"></div> Fluxo de Estoque (Single Truth)</div>
+        <div class="legend-item"><div class="color-box yellow"></div> Inteligência TOC/Buffer</div>
+        <div class="legend-item"><div class="color-box red"></div> Segurança e Auditoria</div>
+    </div>
+
+    <div class="container">
+        <div class="mermaid">
+erDiagram
+    TENANT ||--o{ UNIDADE_NEGOCIO : possui
+    TENANT ||--o{ SKU : define_produtos
+    
+    UNIDADE_NEGOCIO ||--o{ ATIVO : aloca
+    SKU ||--o{ ATIVO : instancia
+    
+    ATIVO ||--o{ MOVIMENTO_ESTOQUE : registra_log_unico
+    NATUREZA_MOVIMENTO ||--o{ MOVIMENTO_ESTOQUE : categoriza
+    
+    REMESSA_LOGISTICA ||--o{ TRANSFERENCIA : agrupa
+    TRANSFERENCIA }|--|| ATIVO : origem_destino
+    
+    ATIVO ||--|| PARAMETROS_TOC : configura_buffer
+    ATIVO ||--o{ PERFORMANCE_DIARIA : gera_kpi
+    ATIVO ||--o{ ESTOQUE_DIARIO : historico_fechamento
+
+    TENANT {
+        string id PK
+        string nome
+        string cnpj
+        datetime data_criacao
+    }
+
+    UNIDADE_NEGOCIO {
+        char id PK
+        string nome
+        enum tipo "FABRICA | CD | LOJA"
+        char id_tenant FK
+    }
+
+    SKU {
+        bigint id PK
+        string codigo_erp
+        string descricao
+        string unidade_medida
+        char id_tenant FK
+    }
+
+    ATIVO {
+        bigint id PK "SKU @ Localização"
+        bigint id_sku FK
+        char id_unidade_negocio FK
+        decimal posicao_calc "Saldo Calculado (ReadOnly)"
+    }
+
+    NATUREZA_MOVIMENTO {
+        int id PK
+        string descricao "Ex: Venda Saída"
+        enum operacao "CREDITO | DEBITO"
+        enum gatilho "VENDA | PROD | TRANSF | AJUSTE"
+    }
+
+    MOVIMENTO_ESTOQUE {
+        uuid id PK
+        bigint id_ativo FK
+        int id_natureza FK
+        decimal quantidade
+        decimal saldo_apos "Snap de Auditoria"
+        string doc_origem "Ref ERP Legado"
+        datetime data_evento
+    }
+
+    REMESSA_LOGISTICA {
+        uuid id PK "O Lote/Caminhão/Pessoa"
+        string responsavel "Nome / Placa"
+        enum modal "VEICULO | A_PE | MOTO"
+        enum status "ABERTO | TRANSITO | CONCLUIDO"
+        datetime data_saida
+        datetime data_chegada
+    }
+
+    TRANSFERENCIA {
+        uuid id PK
+        uuid id_remessa_logistica FK
+        bigint id_ativo_origem FK
+        bigint id_ativo_destino FK
+        decimal qtd_enviada
+        decimal qtd_recebida
+        enum status_conferencia "OK | DIVERGENTE"
+        datetime data_conclusao
+    }
+
+    ESTOQUE_DIARIO {
+        bigint id_ativo FK
+        date data PK
+        decimal saldo_real_reprocessado "Verdade Física atualizada"
+        decimal saldo_original_decisao "Verdade Decisória IMUTÁVEL"
+        enum status_buffer "VERDE | AMARELO | VERMELHO"
+    }
+
+    PARAMETROS_TOC {
+        bigint id_ativo PK
+        decimal buffer_verde
+        decimal buffer_amarelo
+        decimal buffer_vermelho
+        decimal lead_time_medio
+    }
+
+    PERFORMANCE_DIARIA {
+        bigint id PK
+        bigint id_ativo FK
+        date data
+        decimal venda_media
+        decimal ruptura_minutos
+        decimal lost_sales_qtd
+        decimal sugestao_compra "Congelada no dia"
+    }
+        </div>
+    </div>
+
+    <div class="info-panel">
+        <h3>Pontos de Análise:</h3>
+        <ul>
+            <li><strong>Single Truth</strong>: <code>MOVIMENTO_ESTOQUE</code> substitui a fragmentação entre lancamento e movimentacao.</li>
+            <li><strong>Handshake</strong>: A <code>TRANSFERENCIA</code> vincula saída e entrada em um único registro de auditoria, detectando divergências.</li>
+            <li><strong>Escalabilidade</strong>: <code>LOTE_TRANSPORTE</code> permite auditar perdas por viagem/caminhão.</li>
+            <li><strong>Independência</strong>: <code>PARAMETROS_TOC</code> permite que o CO-CEO tenha seus próprios pulmões de estoque, independente do legado.</li>
+        </ul>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            theme: 'dark',
+            startOnLoad: true,
+            securityLevel: 'loose',
+            themeVariables: {
+                primaryColor: '#1f6feb',
+                edgeLabelBackground: '#161b22',
+                tertiaryColor: '#161b22'
+            }
+        });
+    </script>
+</body>
+</html>

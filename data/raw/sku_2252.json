@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 2252,
+    "code": "11482",
+    "name": "CAPA ALMOFADA 40X40 PORT FLANELA MINNIE CLASSIC",
+    "timestamp": "2026-04-30T11:34:02.977Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-05-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

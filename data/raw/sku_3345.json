@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3345,
+    "code": "12458",
+    "name": "PUFF RETRO 35 X 35 X 48 SUEDE VERDE",
+    "timestamp": "2026-04-30T11:37:07.224Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

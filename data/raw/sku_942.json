@@ -1,0 +1,54 @@
+{
+  "info": {
+    "id": 942,
+    "code": "10609",
+    "name": "TEC JACQ EST. ROSE - 2.80 MT",
+    "timestamp": "2026-04-30T11:30:19.656Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 100.80000000000001,
+        "data_evento": "2023-08-09T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 109.10000000000002,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1.0658141036401503e-14,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.0658141036401503e-14,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.0658141036401503e-14,
+        "data_evento": "2023-10-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2.100000000000011,
+        "data_evento": "2023-11-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6.199999999999989,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

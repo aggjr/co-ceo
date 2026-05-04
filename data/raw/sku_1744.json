@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1744,
+    "code": "11171",
+    "name": "LENÇOL QUEEN 150 FIOS DELICATA C/ ELAST, EST",
+    "timestamp": "2026-04-30T11:32:36.929Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-11-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

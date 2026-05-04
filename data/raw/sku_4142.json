@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4142,
+    "code": "13281",
+    "name": "FAST FORRO BLACK100 PRATA 4.00X até2.68",
+    "timestamp": "2026-04-30T11:39:13.286Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

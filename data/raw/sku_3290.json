@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3290,
+    "code": "48",
+    "name": "TEC VOIL AMASSADO AZUL BB 2.80 MT",
+    "timestamp": "2026-04-30T11:36:58.076Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 176.5,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 176.5,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1537,
+    "code": "10535",
+    "name": "PONTEIRA PAR INFINITY FENDI 28MM",
+    "timestamp": "2026-04-30T11:32:00.635Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 5,
+        "data_evento": "2024-05-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 370,
+    "code": "10794",
+    "name": "PUFF ADAPT HIPER 48X30X30",
+    "timestamp": "2026-04-30T11:28:35.769Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

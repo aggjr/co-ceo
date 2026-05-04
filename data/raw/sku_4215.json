@@ -1,0 +1,38 @@
+{
+  "info": {
+    "id": 4215,
+    "code": "13352",
+    "name": "MANTA SP. KING 2,20X3,00 BT PADRAO",
+    "timestamp": "2026-04-30T11:39:24.600Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-12-16T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-13T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 3,
+        "data_evento": "2025-12-16T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

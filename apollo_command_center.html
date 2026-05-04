@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Apollo Command Center | Enterprise v20.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #020617;
+            --bg-surface: #0f172a;
+            --border-ui: #1e293b;
+            --accent: #6366f1;
+            --mira: #10b981;
+            --critico: #ef4444;
+            --texto: #94a3b8;
+        }
+
+        body { font-family: 'Outfit', sans-serif; background: var(--bg-main); color: white; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+        /* Top Bar */
+        .top-bar { padding: 15px 30px; background: var(--bg-surface); border-bottom: 1px solid var(--border-ui); display: flex; align-items: center; justify-content: space-between; z-index: 100; }
+        .logo { font-weight: 600; letter-spacing: 1px; color: var(--accent); display: flex; align-items: center; gap: 10px; }
+        .search-container { position: relative; width: 500px; }
+        input#skuSearch { width: 100%; background: #1e293b; border: 1px solid var(--border-ui); padding: 10px 15px; border-radius: 8px; color: white; font-family: inherit; }
+        /* Resultados com colunas: STATUS | QUANTIDADE | CODIGO | NOME */
+        .search-results { position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; border: 1px solid var(--accent); border-top: none; border-radius: 0 0 8px 8px; max-height: 480px; overflow-y: auto; display: none; margin-top: 2px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); z-index: 1000; }
+        .results-header { display: grid; grid-template-columns: 100px 70px 80px 1fr; background: #1e293b; padding: 10px 15px; font-size: 10px; font-weight: 700; color: #64748b; border-bottom: 1px solid var(--border-ui); text-transform: uppercase; }
+        .search-item { display: grid; grid-template-columns: 100px 70px 80px 1fr; padding: 12px 15px; cursor: pointer; border-bottom: 1px solid #1e293b; align-items: center; font-size: 13px; }
+        .search-item:hover { background: rgba(99, 102, 241, 0.1); }
+        .res-status { font-size: 10px; font-weight: 800; padding: 3px 6px; border-radius: 4px; text-align: center; width: 85px; }
+        .res-qty { font-weight: 600; color: #60a5fa; text-align: center; }
+        .res-code { color: #94a3b8; }
+        .res-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Content Area */
+        .main-content { flex: 1; display: flex; overflow: hidden; }
+        
+        /* Sidebar */
+        .sidebar { width: 250px; background: #0f172a; border-right: 1px solid var(--border-ui); padding: 20px; overflow-y: auto; }
+        .sidebar-title { font-size: 11px; text-transform: uppercase; color: #475569; margin-bottom: 15px; letter-spacing: 1px; font-weight: 600; }
+        .store-btn { padding: 12px; border-radius: 6px; cursor: pointer; background: transparent; border: 1px solid transparent; transition: 0.2s; margin-bottom: 5px; display: flex; align-items: center; justify-content: space-between; }
+        .store-btn:hover { background: #1e293b; }
+        .store-btn.active { background: #1e293b; border-color: var(--accent); border-left: 4px solid var(--accent); }
+        .store-btn .health { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: #334155; }
+
+        /* Dashboard */
+        .dashboard { flex: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+        .sku-header { display: flex; align-items: center; gap: 15px; }
+        .sku-header h2 { margin: 0; font-weight: 400; font-size: 20px; }
+        .sku-header .badge { background: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+
+        /* Metrics */
+        .metrics-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; }
+        .metric-card { background: #0f172a; padding: 15px; border-radius: 12px; border: 1px solid var(--border-ui); }
+        .metric-value { font-size: 24px; font-weight: 600; margin-bottom: 5px; }
+        .metric-label { font-size: 10px; color: var(--texto); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Chart Area */
+        .chart-box { flex: 1; background: #0f172a; border-radius: 12px; border: 1px solid var(--border-ui); padding: 20px; position: relative; }
+        #loadingOverlay { position: absolute; inset: 0; background: rgba(2,6,23,0.8); display: flex; align-items: center; justify-content: center; z-index: 50; display: none; border-radius: 12px; }
+
+        /* Legend */
+        .chart-legend { position: absolute; top: 20px; right: 20px; display: flex; gap: 15px; font-size: 10px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            APOLLO COMMAND CENTER <span style="font-size: 10px; color: #475569; margin-left:10px;">v20.0 ENTERPRISE</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="skuSearch" placeholder="BUSCAR POR CÓDIGO OU DESCRIÇÃO DO PRODUTO..." autocomplete="off">
+            <div id="searchResults" class="search-results"></div>
+        </div>
+        <div id="updateStatus" style="font-size: 10px; color: var(--mira);">CONECTADO À REDE</div>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <div class="sidebar-title">Unidades de Negócio</div>
+            <div id="storeList"></div>
+        </div>
+
+        <div class="dashboard">
+            <div id="loadingOverlay">📊 PROCESSANDO DADOS...</div>
+            
+            <div class="sku-header">
+                <span class="badge" id="skuCode">COD: ---</span>
+                <h2 id="skuName">Selecione um produto para iniciar</h2>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" id="m-status" style="color: var(--mira);">---</div>
+                    <div class="metric-label">STATUS OPERACIONAL</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="m-avail">--</div>
+                    <div class="metric-label">DISPONÍVEL</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="m-ideal">--</div>
+                    <div class="metric-label">QUANTIDADE REPOSIÇÃO (T)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="m-sugestao" style="color: #60a5fa;">--</div>
+                    <div class="metric-label">ESTOQUE SUGESTÃO</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="m-ruptura" style="color: var(--critico);">--%</div>
+                    <div class="metric-label">TEMPO EM RUPTURA</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="m-vitrine">--</div>
+                    <div class="metric-label">ESTOQUE VITRINE</div>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <div class="chart-legend">
+                    <div class="legend-item"><span class="dot" style="background:#3b82f6"></span> DISP.</div>
+                    <div class="legend-item"><span class="dot" style="background:white"></span> P100</div>
+                    <div class="legend-item"><span class="dot" style="background:var(--mira)"></span> P150</div>
+                </div>
+                <canvas id="apolloChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+<script src="curtain_production_data.js"></script>
+<script>
+    let catalog = [];
+    let currentData = null;
+    let selectedStore = 'Fábrica';
+    let apolloChart = null;
+
+    // 1. Iniciar Catálogo
+    async function initCatalog() {
+        try {
+            const resp = await fetch('data/catalog_index.json');
+            catalog = await resp.json();
+            document.getElementById('updateStatus').innerText = `${catalog.length} PRODUTOS CARREGADOS`;
+        } catch(e) { 
+            console.error("Index não encontrado ou bloqueado pelo navegador:", e);
+            document.getElementById('updateStatus').innerText = "ERRO AO CARREGAR CATÁLOGO (F12 para detalhes)";
+            document.getElementById('updateStatus').style.color = 'var(--critico)';
+        }
+    }
+
+    // 2. Busca com colunas: STATUS | QUANTIDADE | CODIGO | NOME
+    const searchInput = document.getElementById('skuSearch');
+    const resultsDiv = document.getElementById('searchResults');
+    const statusColors = { "RUPTURA": "#111111", "CRÍTICO": "#ef4444", "ABAIXO": "#f59e0b", "ACIMA": "#10b981", "MUITO ACIMA": "#3b82f6", "ENCALHADO 1": "#c084fc", "ENCALHADO 2": "#7c3aed" };
+
+    searchInput.addEventListener('input', e => {
+        const val = e.target.value.toLowerCase();
+        const source = window.CURTAIN_DATA ? window.CURTAIN_DATA.items : [];
+        
+        const matches = source.filter(s => 
+            (s.code.toString().toLowerCase().includes(val) || s.name.toLowerCase().includes(val))
+        );
+
+        if (matches.length > 0) {
+            let html = `<div class="results-header"><span>Status</span><span style="text-align:center">Sug.Fáb</span><span>Cód</span><span>Produto</span></div>`;
+            html += matches.map(m => `
+                <div class="search-item" onclick="loadSKU('${m.id}', '${m.file}')">
+                    <div class="res-status" style="background: ${statusColors[m.status.toUpperCase()] || '#334155'}">${m.status}</div>
+                    <div class="res-qty">${m.sugestao > 0 ? '+'+m.sugestao : m.sugestao}</div>
+                    <div class="res-code">${m.code}</div>
+                    <div class="res-name">${m.name}</div>
+                </div>
+            `).join('');
+            resultsDiv.innerHTML = html;
+            resultsDiv.style.display = 'block';
+        } else {
+            resultsDiv.style.display = 'none';
+        }
+    });
+
+    searchInput.addEventListener('focus', () => { if(searchInput.value === '') searchInput.dispatchEvent(new Event('input')); });
+
+    // 3. Carregamento de Dados
+    async function loadSKU(id, file) {
+        resultsDiv.style.display = 'none';
+        searchInput.value = '';
+        document.getElementById('loadingOverlay').style.display = 'flex';
+
+        try {
+            const resp = await fetch(`data/processed/${file}`);
+            currentData = await resp.json();
+            
+            document.getElementById('skuCode').innerText = `COD: ${currentData.info.code || '---'}`;
+            document.getElementById('skuName').innerText = currentData.info.name;
+            
+            updateStoreList();
+            renderDashboard();
+        } catch(e) { alert("Dados para este SKU ainda não foram processados ou estão indisponíveis."); }
+        
+        document.getElementById('loadingOverlay').style.display = 'none';
+    }
+
+    function updateStoreList() {
+        const list = document.getElementById('storeList');
+        const stores = Object.keys(currentData.results);
+        list.innerHTML = stores.map(s => `
+            <div class="store-btn ${s === selectedStore ? 'active' : ''}" onclick="selectStore('${s}')">
+                <span>${s}</span>
+            </div>
+        `).join('');
+    }
+
+    function selectStore(s) {
+        selectedStore = s;
+        updateStoreList();
+        renderDashboard();
+    }
+
+    function renderDashboard() {
+        const data = currentData.results[selectedStore];
+        if (!data) return;
+
+        // Cards
+        document.getElementById('m-status').innerText = data.metrics.currentStatus || '---';
+        document.getElementById('m-avail').innerText = Math.round(data.metrics.currentAvailable) + ' un';
+        document.getElementById('m-ideal').innerText = (data.metrics.estoqueReposicaoProprio ? `${data.metrics.estoqueReposicaoProprio} + ${data.metrics.pulsoRede} = ` : '') + data.metrics.estoqueReposicao + ' un';
+        document.getElementById('m-sugestao').innerText = data.metrics.estoqueSugestao + ' un';
+        document.getElementById('m-ruptura').innerText = data.metrics.ruptureRate.toFixed(1) + '%';
+        document.getElementById('m-vitrine').innerText = data.metrics.vitrine;
+
+        // Chart
+        if (apolloChart) apolloChart.destroy();
+        const ctx = document.getElementById('apolloChart').getContext('2d');
+        const timeline = data.timeline;
+
+        apolloChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeline.map(t => t.date),
+                datasets: [
+                    { label: 'DISP.', data: timeline.map(t => t.availableStock), borderColor: '#3b82f6', borderWidth: 2, pointRadius: 0, tension: 0.1, fill: true, backgroundColor: 'rgba(59, 130, 246, 0.05)' },
+                    { label: 'P100 (REDE)', data: timeline.map(t => t.p100), borderColor: 'rgba(255,255,255,0.2)', borderWidth: 1, borderDash: [5,5], pointRadius: 0 },
+                    { label: 'P150', data: timeline.map(t => t.p150), borderColor: 'var(--mira)', borderWidth: 1, pointRadius: 0 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'nearest', intersect: false, axis: 'xy' },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: {size: 8}, color: '#64748b' } },
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { font: {size: 8}, color: '#64748b' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        mode: 'nearest',
+                        intersect: false,
+                        axis: 'xy',
+                        callbacks: {
+                            title: (items) => (items[0] ? String(items[0].label) : ''),
+                            label: (ctx) => {
+                                const v = ctx.parsed.y;
+                                const s = typeof v === 'number' ? v.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) : String(v);
+                                return ctx.dataset.label + ': ' + s;
+                            },
+                            footer: () => '',
+                        },
+                    },
+                },
+            }
+        });
+    }
+
+    initCatalog();
+</script>
+</body>
+</html>

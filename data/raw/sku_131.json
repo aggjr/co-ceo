@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 131,
+    "code": "10421",
+    "name": "KIT ESPANHA 28MM C/ EMENDA OURO VELHO 4,00",
+    "timestamp": "2026-04-30T11:27:56.979Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 4,
+        "data_evento": "2024-02-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

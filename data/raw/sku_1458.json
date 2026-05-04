@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1458,
+    "code": "10911",
+    "name": "LENÇOL QUEEN MALHA HIPER INOVARE",
+    "timestamp": "2026-04-30T11:31:45.259Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1906,
+    "code": "K197",
+    "name": "PERSIANA 1.50x1.70 TEC BLACK-OUT 197",
+    "timestamp": "2026-04-30T11:33:03.420Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-15T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

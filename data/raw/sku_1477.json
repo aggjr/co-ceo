@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1477,
+    "code": "9733",
+    "name": "MANTA CASAL 2,05X2,30 VENTURA PESPONTO MARFIM",
+    "timestamp": "2026-04-30T11:31:48.636Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-06T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

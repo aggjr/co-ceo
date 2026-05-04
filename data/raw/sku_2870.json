@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2870,
+    "code": "11938",
+    "name": "CAPA ALMOFADA 45X45 DELUXE ART TRESSE",
+    "timestamp": "2026-04-30T11:35:48.466Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

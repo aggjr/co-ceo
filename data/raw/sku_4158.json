@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4158,
+    "code": "13291",
+    "name": "FAST FORRO CTL70 BRANCO 3.50X até2.68",
+    "timestamp": "2026-04-30T11:39:15.838Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3777,
+    "code": "12821",
+    "name": "PUFF RETRO 35 X 35 X 48 CORINO BEGE",
+    "timestamp": "2026-04-30T11:38:16.050Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-04-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

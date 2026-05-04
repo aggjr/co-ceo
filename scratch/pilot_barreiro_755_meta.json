@@ -1,0 +1,30 @@
+{
+  "days": 764,
+  "first": {
+    "date": "2024-03-16",
+    "physicalStock": 0,
+    "availableStock": -1,
+    "sales": 1,
+    "p10": 0,
+    "p50": 0,
+    "p80": 0,
+    "p100": 0,
+    "p150": 0,
+    "p300": 0,
+    "p600": 0
+  },
+  "last": {
+    "date": "2026-04-18",
+    "physicalStock": 0,
+    "availableStock": -1,
+    "sales": 0,
+    "p10": 0,
+    "p50": 0,
+    "p80": 0,
+    "p100": 0,
+    "p150": 0,
+    "p300": 0,
+    "p600": 0
+  },
+  "vitrine": 1
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1692,
+    "code": "11096",
+    "name": "PASSADEIRA 0,50X1,80 NEW SHAGGY CARAMELO",
+    "timestamp": "2026-04-30T11:32:28.302Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-27T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-10-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

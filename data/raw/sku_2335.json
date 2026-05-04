@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2335,
+    "code": "9255",
+    "name": "JOGO DE BANHEIRO ALGODAO M&S 3PâS",
+    "timestamp": "2026-04-30T11:34:16.851Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2024-07-31T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

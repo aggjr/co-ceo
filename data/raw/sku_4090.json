@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4090,
+    "code": "13221",
+    "name": "FAST WAVE DUAL ELEGANCE FENDI 4.00X até2.90",
+    "timestamp": "2026-04-30T11:39:05.141Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

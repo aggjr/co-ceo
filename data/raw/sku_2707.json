@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 2707,
+    "code": "11780",
+    "name": "TEC BORD LINHO PAOLA BCO/BEGE 2.80 MT",
+    "timestamp": "2026-04-30T11:35:20.313Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 11.999999999999993,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 7.105427357601002e-15,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 16.600000000000023,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

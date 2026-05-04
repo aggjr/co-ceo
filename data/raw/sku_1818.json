@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1818,
+    "code": "K443",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 443",
+    "timestamp": "2026-04-30T11:32:49.198Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-08-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

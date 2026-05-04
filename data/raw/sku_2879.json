@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2879,
+    "code": "11951",
+    "name": "CAPA ALMOFADA 45X45 VELUDO GEOMETRICO VERMELHO",
+    "timestamp": "2026-04-30T11:35:49.931Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-07-29T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

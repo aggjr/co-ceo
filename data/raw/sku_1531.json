@@ -1,0 +1,32 @@
+{
+  "info": {
+    "id": 1531,
+    "code": "8310",
+    "name": "PONTEIRA BOLA OCA 19MM CROMADO",
+    "timestamp": "2026-04-30T11:31:59.636Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 10,
+        "data_evento": "2024-10-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 10,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Tupis": [
+      {
+        "quantidade": 10,
+        "data_evento": "2025-08-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

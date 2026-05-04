@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1902,
+    "code": "K893",
+    "name": "PERSIANA 1.60X1.80 PVC TRABALHADA 893",
+    "timestamp": "2026-04-30T11:33:02.763Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

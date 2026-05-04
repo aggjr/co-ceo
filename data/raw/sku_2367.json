@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2367,
+    "code": "9765",
+    "name": "COBERTOR SOLT 1,40X2,20 DOMINO NAPOLITANO",
+    "timestamp": "2026-04-30T11:34:21.998Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

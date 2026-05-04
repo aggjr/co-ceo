@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1856,
+    "code": "K583",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 583",
+    "timestamp": "2026-04-30T11:32:55.265Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-10T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

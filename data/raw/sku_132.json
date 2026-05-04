@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 132,
+    "code": "10422",
+    "name": "KIT ESPANHA 28MM C/ EMENDA PRETO FOSCO 4,00",
+    "timestamp": "2026-04-30T11:27:57.139Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-12-16T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4,
+        "data_evento": "2024-02-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

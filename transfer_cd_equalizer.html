@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO-CEO · Transferência CD → Lojas (Equalização)</title>
+  <script src="data/client/cd_purchase_plan.js"></script>
+  <style>
+    :root{
+      --bg:#041225; --bg2:#07203e; --panel:rgba(12,36,70,.9); --border:rgba(218,177,119,.38);
+      --gold:#dab177; --text:#e8eef7; --muted:#94a3b8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:"Outfit",system-ui,sans-serif;color:var(--text);
+      background:radial-gradient(120% 75% at 50% -20%, rgba(28,116,220,.22), transparent 55%), linear-gradient(180deg,var(--bg2),var(--bg));}
+    .wrap{padding:14px 16px}
+    h1{margin:0;color:var(--gold);font-size:20px;letter-spacing:.08em;text-transform:uppercase}
+    .sub{color:var(--muted);margin:6px 0 12px;font-size:12px}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:10px}
+    .grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:10px}
+    .controls{display:grid;grid-template-columns: 150px 1fr 130px 160px 180px;gap:8px;margin-bottom:8px}
+    input,select,button{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(5,13,26,.95);color:var(--text);font-family:inherit}
+    button{cursor:pointer;font-weight:600}
+    table{width:100%;border-collapse:collapse;font-size:12px}
+    th,td{padding:7px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+    th{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+    td.left{text-align:left}
+    .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+    .kpi{background:rgba(5,13,26,.8);border:1px solid var(--border);border-radius:8px;padding:8px}
+    .kpi .k{font-size:11px;color:var(--muted)} .kpi .v{margin-top:4px;font-size:19px;font-weight:700}
+    .muted{color:var(--muted)}
+    .ok{color:#86efac;font-weight:700}
+    .warn{color:#fdba74;font-weight:700}
+    .danger{color:#fca5a5;font-weight:700}
+    @media (max-width:1200px){.grid{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Transferência CD → Lojas (Equalização de Cobertura)</h1>
+    <p class="sub">Quando o estoque disponível no CD não cobre a demanda total, a alocação usa cobertura proporcional por loja e distribui sobra por severidade (ruptura, prioridade e vendas).</p>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="controls">
+          <input id="erp" placeholder="ERP (ex: 9282)" />
+          <input id="q" placeholder="Buscar SKU por nome..." />
+          <input id="topN" type="number" min="1" max="500" value="200" />
+          <select id="statusFilter">
+            <option value="">Status (todos)</option>
+            <option>RUPTURA</option><option>CRÍTICO</option><option>ABAIXO</option><option>ACIMA</option><option>MUITO ACIMA</option><option>ENCALHADO 1</option><option>ENCALHADO 2</option><option>ENCALHADO 3</option>
+          </select>
+          <button id="btnRefresh">Atualizar lista</button>
+        </div>
+        <div style="max-height:560px;overflow:auto">
+          <table>
+            <thead><tr><th>Selecionar</th><th>ERP</th><th class="left">Produto</th><th>Status</th><th>Demanda CD</th><th>Lojas c/demanda</th></tr></thead>
+            <tbody id="skuTb"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin:0 0 8px;color:var(--gold)">Plano de distribuição</h3>
+        <div class="controls" style="grid-template-columns:1fr 1fr 1fr">
+          <input id="selectedSku" readonly />
+          <input id="cdAvailable" type="number" min="0" step="1" placeholder="Estoque disponível no CD" />
+          <button id="btnCalc">Calcular transferência</button>
+        </div>
+        <p class="muted" id="planNote">Selecione um SKU à esquerda, informe o disponível no CD e calcule.</p>
+        <div style="max-height:420px;overflow:auto">
+          <table>
+            <thead><tr><th>Loja</th><th>Prioridade</th><th>Demanda</th><th>Alocado</th><th>Atendimento</th><th>Falta</th></tr></thead>
+            <tbody id="allocTb"></tbody>
+          </table>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="k">Demanda total</div><div class="v" id="kDem">0</div></div>
+          <div class="kpi"><div class="k">Disponível CD</div><div class="v" id="kDisp">0</div></div>
+          <div class="kpi"><div class="k">Transferido</div><div class="v" id="kAlloc">0</div></div>
+          <div class="kpi"><div class="k">Cobertura geral</div><div class="v" id="kCov">0%</div></div>
+          <div class="kpi"><div class="k">Saldo CD</div><div class="v" id="kBal">0</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const rows = (window.CD_PURCHASE_PLAN_DATA && Array.isArray(window.CD_PURCHASE_PLAN_DATA.rows)) ? window.CD_PURCHASE_PLAN_DATA.rows : [];
+    const fmtInt=n=>Number(n||0).toLocaleString("pt-BR");
+    function toStoresArray(lojas){
+      if(!lojas) return [];
+      if(Array.isArray(lojas)) return lojas;
+      return Object.keys(lojas).sort((a,b)=>Number(a)-Number(b)).map(k=>lojas[k]).filter(Boolean);
+    }
+    function prioWeight(p){
+      const s=String(p||"").toUpperCase();
+      if(s==="RUPTURA") return 1.5;
+      if(s==="CRÍTICO") return 1.3;
+      if(s==="ABAIXO") return 1.15;
+      if(s==="ACIMA") return 1.0;
+      if(s==="MUITO ACIMA") return 0.9;
+      return 0.8;
+    }
+    function severityScore(st){
+      const rup = Math.max(0, Number(st.ruptura_pct)||0);
+      const sales = Math.max(0, Number(st.quantidade_vendida)||0);
+      return prioWeight(st.prioridade) * (1 + rup*0.7) * (1 + Math.log10(1 + sales));
+    }
+    function allocateEqualized(stores, available){
+      const out = stores.map(s=>({ ...s, demanda:Math.max(0,Math.round(Number(s.demanda)||0)), alloc:0 }));
+      const totalDem = out.reduce((a,s)=>a+s.demanda,0);
+      if(totalDem<=0 || available<=0) return {rows:out,totalDem,allocated:0};
+      if(available>=totalDem){
+        out.forEach(s=>s.alloc=s.demanda);
+        return {rows:out,totalDem,allocated:totalDem};
+      }
+      // passo 1: cobertura igualizada
+      const ratio = available / totalDem;
+      let allocated=0;
+      for(const s of out){ s.alloc = Math.min(s.demanda, Math.floor(s.demanda*ratio)); allocated += s.alloc; }
+      // passo 2: distribuir sobra por severidade e maior falta
+      let rem = available - allocated;
+      while(rem>0){
+        let cand = null;
+        for(const s of out){
+          const falta = s.demanda - s.alloc;
+          if(falta<=0) continue;
+          const score = severityScore(s) * (1 + falta/Math.max(1,s.demanda));
+          if(!cand || score>cand.score) cand = { s, score };
+        }
+        if(!cand) break;
+        cand.s.alloc += 1;
+        rem -= 1;
+      }
+      allocated = out.reduce((a,s)=>a+s.alloc,0);
+      return {rows:out,totalDem,allocated};
+    }
+    let selected = null;
+    function pickRow(r){
+      selected = r;
+      document.getElementById("selectedSku").value = `${r.erp_code} · ${r.product_name}`;
+      document.getElementById("planNote").textContent = "SKU selecionado. Informe o disponível do CD e clique em calcular.";
+      document.getElementById("allocTb").innerHTML = "";
+    }
+    function renderSkuList(){
+      const erp = (document.getElementById("erp").value||"").trim();
+      const q = (document.getElementById("q").value||"").toLowerCase();
+      const st = document.getElementById("statusFilter").value;
+      const topN = Math.max(1,Math.min(500,Number(document.getElementById("topN").value)||200));
+      let list = rows.filter(r=>Number(r.demanda_total_cd||0)>0);
+      list.sort((a,b)=>Number(b.demanda_total_cd||0)-Number(a.demanda_total_cd||0));
+      list = list.slice(0,topN).filter(r=>{
+        if(erp && String(r.erp_code||"")!==erp) return false;
+        if(st && String(r.status_urgencia||"")!==st) return false;
+        if(q){
+          const s = `${r.erp_code} ${r.product_name} ${r.category} ${r.subcategory}`.toLowerCase();
+          if(!s.includes(q)) return false;
+        }
+        return true;
+      });
+      const html = list.map(r=>{
+        const nStores = toStoresArray(r.lojas).length;
+        return `<tr>
+          <td><button data-erp="${r.erp_code}" class="selBtn">Selecionar</button></td>
+          <td>${r.erp_code||""}</td>
+          <td class="left">${r.product_name||""}</td>
+          <td>${r.status_urgencia||"ACIMA"}</td>
+          <td>${fmtInt(r.demanda_total_cd)}</td>
+          <td>${fmtInt(nStores)}</td>
+        </tr>`;
+      }).join("");
+      document.getElementById("skuTb").innerHTML = html || `<tr><td colspan="6">Sem SKUs para filtros atuais.</td></tr>`;
+      document.querySelectorAll(".selBtn").forEach(btn=>btn.addEventListener("click",()=>{
+        const erpCode = btn.getAttribute("data-erp");
+        const r = rows.find(x=>String(x.erp_code||"")===String(erpCode||""));
+        if(r) pickRow(r);
+      }));
+    }
+    function calcPlan(){
+      if(!selected){ alert("Selecione um SKU na lista."); return; }
+      const avail = Math.max(0, Math.round(Number(document.getElementById("cdAvailable").value)||0));
+      const stores = toStoresArray(selected.lojas).filter(s=>Number(s.demanda||0)>0);
+      const plan = allocateEqualized(stores, avail);
+      const html = plan.rows.map(s=>{
+        const falta = Math.max(0,s.demanda-s.alloc);
+        const cov = s.demanda>0 ? (100*s.alloc/s.demanda) : 0;
+        const cls = cov>=95?"ok":(cov>=60?"warn":"danger");
+        return `<tr>
+          <td>${s.store||"-"}</td>
+          <td>${s.prioridade||"-"}</td>
+          <td>${fmtInt(s.demanda)}</td>
+          <td>${fmtInt(s.alloc)}</td>
+          <td class="${cls}">${cov.toFixed(1).replace(".",",")}%</td>
+          <td>${fmtInt(falta)}</td>
+        </tr>`;
+      }).join("");
+      document.getElementById("allocTb").innerHTML = html || `<tr><td colspan="6">Sem lojas com demanda.</td></tr>`;
+      const bal = Math.max(0, avail - plan.allocated);
+      const cov = plan.totalDem>0 ? (100*plan.allocated/plan.totalDem) : 0;
+      document.getElementById("kDem").textContent = fmtInt(plan.totalDem);
+      document.getElementById("kDisp").textContent = fmtInt(avail);
+      document.getElementById("kAlloc").textContent = fmtInt(plan.allocated);
+      document.getElementById("kCov").textContent = `${cov.toFixed(1).replace(".",",")}%`;
+      document.getElementById("kBal").textContent = fmtInt(bal);
+      document.getElementById("planNote").textContent =
+        `Regra aplicada: cobertura proporcional por demanda + redistribuição por severidade. SKU ${selected.erp_code}.`;
+    }
+    ["erp","q","topN","statusFilter"].forEach(id=>document.getElementById(id).addEventListener("input",renderSkuList));
+    document.getElementById("btnRefresh").addEventListener("click",renderSkuList);
+    document.getElementById("btnCalc").addEventListener("click",calcPlan);
+    renderSkuList();
+  </script>
+</body>
+</html>
+

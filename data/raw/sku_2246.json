@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2246,
+    "code": "11476",
+    "name": "CAPA ALMOFADA 42X42 DECO VELUDO EST MOSTARDA",
+    "timestamp": "2026-04-30T11:34:02.000Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-22T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

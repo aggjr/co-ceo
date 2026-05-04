@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 3925,
+    "code": "106",
+    "name": "TEC VOIL SONHO DE SEDA CRÚ 3,00 MT",
+    "timestamp": "2026-04-30T11:38:39.249Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 198.8,
+        "data_evento": "2025-08-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 42,
+        "data_evento": "2025-08-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 56,
+        "data_evento": "2025-08-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

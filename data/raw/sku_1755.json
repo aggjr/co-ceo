@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1755,
+    "code": "11183",
+    "name": "JOGO CAPA P/ SOFA CLASSIC MALHA BROWNIE",
+    "timestamp": "2026-04-30T11:32:38.727Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-13T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

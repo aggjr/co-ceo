@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2148,
+    "code": "11391",
+    "name": "PASSADEIRA 0,45X1,20 MARKA CHUMBO",
+    "timestamp": "2026-04-30T11:33:45.507Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-03-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

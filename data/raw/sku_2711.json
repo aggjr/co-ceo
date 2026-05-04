@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2711,
+    "code": "11784",
+    "name": "TEC BORD LINHO RAMO FOLHAS PER/PEROLA 2.90 MT",
+    "timestamp": "2026-04-30T11:35:20.944Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 5.3,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2883,
+    "code": "11952",
+    "name": "UNICA 2,60X1,70 TAFETA LISO PRATA",
+    "timestamp": "2026-04-30T11:35:50.577Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-01-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

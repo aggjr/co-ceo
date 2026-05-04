@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4047,
+    "code": "13191",
+    "name": "FAST WAVE TRANSL. MIAMI BEGE 4.00X até2.90",
+    "timestamp": "2026-04-30T11:38:58.511Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

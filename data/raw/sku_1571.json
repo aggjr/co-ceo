@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1571,
+    "code": "9688",
+    "name": "TAPETE 0,42X0,75 J&C GEOMETRICO",
+    "timestamp": "2026-04-30T11:32:07.876Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

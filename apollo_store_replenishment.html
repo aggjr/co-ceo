@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo Store Replenishment | Logística Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #22d3ee;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        select {
+            background: #0f172a;
+            color: white;
+            border: 1px solid #334155;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            min-width: 250px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select:focus { border-color: var(--primary); }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .card-value { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+
+        .replenishment-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #111827;
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        tr:hover { background-color: rgba(255,255,255,0.02); }
+
+        .sku-code { font-weight: 700; color: var(--accent); }
+        .sku-name { font-weight: 400; }
+        
+        .numeric { text-align: center; font-weight: 600; }
+        
+        .suggestion-box {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-block;
+            min-width: 40px;
+        }
+
+        .empty-state {
+            padding: 4rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .btn-action {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-title">
+            <h2>Apollo Replenishment</h2>
+            <span class="badge">Balance Engine v1.0</span>
+        </div>
+        <button class="btn-action" onclick="window.location.reload()">Atualizar Rede</button>
+    </div>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="storeSelector">LOJA DE DESTINO</label>
+            <select id="storeSelector" onchange="renderReplenishment()">
+                <option value="" disabled selected>Selecione uma loja...</option>
+            </select>
+        </div>
+        <div id="loadingMsg" style="display:none; color: var(--accent); font-weight: 600;">Processando balanço de rede...</div>
+    </div>
+
+    <div class="summary-cards" id="summaryContainer" style="display:none;">
+        <div class="card">
+            <div class="card-label">SKUS COM DEMANDA</div>
+            <div class="card-value" id="countSkus">-</div>
+        </div>
+        <div class="card" style="border-left-color: var(--success);">
+            <div class="card-label">TOTAL À RECEBER (PEÇAS)</div>
+            <div class="card-value" id="countUnits">-</div>
+        </div>
+        <div class="card" style="border-left-color: var(--accent);">
+            <div class="card-label">COBERTURA DO CD</div>
+            <div class="card-value" id="coverageValue">-</div>
+        </div>
+    </div>
+
+    <table class="replenishment-table" id="resultsTable">
+        <thead>
+            <tr>
+                <th>Produto / Código</th>
+                <th class="numeric">Demanda Loja</th>
+                <th class="numeric">Disponível CD</th>
+                <th class="numeric">Sugestão de Envio</th>
+                <th class="numeric" title="Prioridade baseada em Giro de Vendas">Ranking Giro</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr>
+                <td colspan="5" class="empty-state">Selecione uma loja para iniciar o cálculo de reposição.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Scripts de Dados -->
+    <script src="data/replenishment_balance.js"></script>
+    <script>
+        // Lista de lojas (obtida de conversas anteriores)
+        const STORES = [
+            "Guaranis", "Eldorado 2", "G2", "Betim", "Carijós", 
+            "Venda Nova", "Barreiro", "Babita", "Tupis"
+        ];
+
+        window.onload = () => {
+            const selector = document.getElementById('storeSelector');
+            STORES.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s;
+                opt.textContent = s;
+                selector.appendChild(opt);
+            });
+        };
+
+        function calculateFairShare(skuData, targetStore) {
+            const factoryAvail = skuData.factoryStock;
+            const needs = skuData.storesNeeded; // { 'Store': Qty }
+            const weights = skuData.networkDemandWeight; // { 'Store': DemandRate }
+            
+            const stores = Object.keys(needs);
+            const totalNeeded = stores.reduce((acc, s) => acc + needs[s], 0);
+
+            if (totalNeeded === 0) return 0;
+
+            // Se o CD tem tudo, manda o que a loja precisa
+            if (factoryAvail >= totalNeeded) {
+                return needs[targetStore] || 0;
+            }
+
+            // --- ALGORITMO FAIR SHARE (COTAS JUSTAS) ---
+            // 1. Calcula o envio básico baseado em um ratio de cobertura global
+            const ratio = factoryAvail / totalNeeded;
+            const allocations = {};
+            let allocatedSum = 0;
+
+            stores.forEach(s => {
+                allocations[s] = Math.floor(needs[s] * ratio);
+                allocatedSum += allocations[s];
+            });
+
+            // 2. Distribui a sobra (peças inteiras) por prioridade de GIRO (networkDemandWeight)
+            let remainder = factoryAvail - allocatedSum;
+            
+            if (remainder > 0) {
+                // Ordena lojas por demanda instantânea (giro) descrescente
+                const priorityList = stores.sort((a, b) => (weights[b] || 0) - (weights[a] || 0));
+                
+                let i = 0;
+                while (remainder > 0 && i < priorityList.length) {
+                    const storeInTurn = priorityList[i];
+                    // Só ganha mais se ainda não atingiu a necessidade total
+                    if (allocations[storeInTurn] < needs[storeInTurn]) {
+                        allocations[storeInTurn] += 1;
+                        remainder -= 1;
+                    }
+                    i++;
+                    if (i === priorityList.length) i = 0; // Loop na lista se ainda sobrar peças e quisesse forçar, mas aqui o limite é 1 volta ou ate zerar
+                }
+            }
+
+            return allocations[targetStore] || 0;
+        }
+
+        function renderReplenishment() {
+            const store = document.getElementById('storeSelector').value;
+            const tbody = document.getElementById('tableBody');
+            const summary = document.getElementById('summaryContainer');
+            
+            if (!store) return;
+
+            tbody.innerHTML = '';
+            summary.style.display = 'grid';
+
+            let countSkus = 0;
+            let totalUnits = 0;
+            let totalNeedNetwork = 0;
+            let totalFactoryAvail = 0;
+
+            const list = [];
+
+            for (let id in APOLLO_REPLENISHMENT_DATA) {
+                const sku = APOLLO_REPLENISHMENT_DATA[id];
+                const shopNeed = sku.storesNeeded[store] || 0;
+                
+                // Regra: Só apresenta o que o CD pode mandar
+                const suggestion = calculateFairShare(sku, store);
+
+                if (suggestion > 0) {
+                    list.push({
+                        code: sku.code,
+                        name: sku.name,
+                        need: shopNeed,
+                        factory: sku.factoryStock,
+                        suggestion: suggestion,
+                        weight: sku.networkDemandWeight[store] || 0
+                    });
+                    
+                    countSkus++;
+                    totalUnits += suggestion;
+                }
+            }
+
+            // Ordena a lista por maior sugestão de envio
+            list.sort((a, b) => b.suggestion - a.suggestion);
+
+            if (list.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="empty-state">Nenhuma reposição disponível para esta loja no estoque atual do CD.</td></tr>';
+            } else {
+                list.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>
+                            <div class="sku-code">${item.code}</div>
+                            <div class="sku-name">${item.name}</div>
+                        </td>
+                        <td class="numeric">${item.need}</td>
+                        <td class="numeric">${item.factory}</td>
+                        <td class="numeric">
+                            <div class="suggestion-box">${item.suggestion}</div>
+                        </td>
+                        <td class="numeric" style="color: var(--text-muted)">${item.weight.toFixed(2)} un/dia</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            document.getElementById('countSkus').textContent = countSkus;
+            document.getElementById('countUnits').textContent = totalUnits;
+            document.getElementById('coverageValue').textContent = countSkus > 0 ? "BALANCEADO" : "PÁTIO VAZIO";
+        }
+    </script>
+</body>
+</html>

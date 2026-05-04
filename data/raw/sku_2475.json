@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2475,
+    "code": "11550",
+    "name": "TAPETE 0,40X0,60 HIP PORTA FUN",
+    "timestamp": "2026-04-30T11:34:39.883Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-15T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plano CD | Compra/Produção</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="data/client/cd_purchase_plan.js"></script>
+  <style>
+    /* STOCKSPIN / CEO: azul marinho + bordas e hierarquia douradas */
+    :root {
+      --bg: #041225;
+      --bg-2: #07203e;
+      --panel: rgba(12, 36, 70, 0.88);
+      --panel-2: rgba(5, 13, 26, 0.95);
+      --border: rgba(218, 177, 119, 0.38);
+      --border-soft: rgba(218, 177, 119, 0.14);
+      --gold: #dab177;
+      --gold-bright: #f5cf96;
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --accent: #93c5fd;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --header-xlsx: #1a3a52;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(120% 80% at 50% -15%, rgba(28, 116, 220, 0.22) 0%, rgba(3, 16, 34, 0) 55%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: "Outfit", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .top {
+      padding: 16px 18px 10px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 28, 56, 0.82);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .top h1 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 12px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .controls label { display: none; }
+    select, input {
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+    }
+    select:focus, input:focus {
+      border-color: rgba(218, 177, 119, 0.65);
+      box-shadow: 0 0 0 3px rgba(218, 177, 119, 0.12);
+    }
+    .btn {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .btn-back {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-back:hover { background: rgba(218, 177, 119, 0.12); color: var(--gold-bright); }
+    .btn-export {
+      background: var(--gold);
+      color: #050d1a;
+      border: 1px solid rgba(218, 177, 119, 0.65);
+    }
+    .btn-export:hover { background: var(--gold-bright); }
+    .meta {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .tag {
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--muted);
+    }
+    .tag.ok { border-color: #14532d; color: #86efac; }
+    .tag.warn { border-color: #78350f; color: #fdba74; }
+    .cards {
+      padding: 12px 18px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .card .k { font-size: 11px; color: rgba(218, 177, 119, 0.78); text-transform: uppercase; letter-spacing: 0.06em; }
+    .card .v { margin-top: 6px; font-size: 22px; font-weight: 700; color: #f8fafc; }
+    .table-wrap {
+      margin: 0 18px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: auto;
+      background: var(--panel);
+      flex: 1;
+      box-shadow: 0 0 0 1px rgba(218, 177, 119, 0.06) inset;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+      font-size: 13px;
+    }
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: linear-gradient(180deg, rgba(12, 36, 70, 0.98) 0%, rgba(8, 22, 48, 0.98) 100%);
+      color: var(--gold);
+      text-align: center;
+      padding: 10px 8px;
+      border-bottom: 2px solid rgba(218, 177, 119, 0.42);
+      white-space: nowrap;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 11px;
+      user-select: none;
+    }
+    th .th-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      text-align: center;
+    }
+    th .th-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      min-width: 0;
+    }
+    .th-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .sort-ind {
+      font-size: 10px;
+      color: rgba(245, 207, 150, 0.9);
+      min-width: 16px;
+      text-align: center;
+    }
+    .flt-btn {
+      border: 1px solid rgba(218, 177, 119, 0.35);
+      border-radius: 6px;
+      background: rgba(5, 13, 26, 0.7);
+      color: var(--gold);
+      font-size: 11px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .flt-btn.active {
+      border-color: rgba(245, 207, 150, 0.9);
+      color: var(--gold-bright);
+      box-shadow: 0 0 0 2px rgba(218, 177, 119, 0.18);
+    }
+    .flt-pop {
+      position: fixed;
+      z-index: 120;
+      min-width: 320px;
+      max-width: 380px;
+      max-height: min(78vh, 700px);
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(4, 16, 34, 0.98);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+      padding: 10px;
+    }
+    .flt-pop h4 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .flt-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .flt-row .btn {
+      padding: 7px 8px;
+      font-size: 11px;
+      border-radius: 7px;
+    }
+    .flt-row .btn-sort {
+      background: rgba(147, 197, 253, 0.13);
+      border: 1px solid rgba(147, 197, 253, 0.38);
+      color: #bfdbfe;
+    }
+    .flt-row .btn-clear {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+    .flt-sep { height: 1px; background: var(--border-soft); margin: 8px 0; }
+    .flt-checklist {
+      max-height: 220px;
+      overflow: auto;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 6px 8px;
+      background: rgba(7, 18, 39, 0.7);
+    }
+    .flt-opt {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      align-items: start;
+      column-gap: 8px;
+      margin: 3px 0;
+      text-align: left;
+    }
+    .flt-opt input[type="checkbox"] {
+      margin: 2px 0 0;
+      width: 14px;
+      height: 14px;
+    }
+    .flt-opt label {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.25;
+      word-break: break-word;
+      white-space: normal;
+      cursor: pointer;
+    }
+    .flt-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+    .flt-chipline {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .flt-chip {
+      font-size: 11px;
+      border: 1px solid rgba(218, 177, 119, 0.32);
+      background: rgba(7, 18, 39, 0.88);
+      color: #e2e8f0;
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+    tbody td {
+      padding: 8px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+    /* Força centralização do conteúdo das colunas de dados,
+       exceto Produto (5) e Top lojas (10). */
+    #planTable tbody td { text-align: center; }
+    #planTable tbody td:nth-child(6),
+    #planTable tbody td:nth-child(11) { text-align: left; }
+    .td-center { text-align: center; }
+    .td-left { text-align: left; }
+    tbody tr:nth-child(even) { background: rgba(148, 163, 184, 0.04); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .prio {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 3px 8px;
+      letter-spacing: 0.02em;
+    }
+    /* Paleta alinhada a ceo_product_detail_layout (pill-status + curvas de zona). */
+    .p-ruptura {
+      border: 1px solid rgba(96, 165, 250, 0.48);
+      color: #0a0a0a;
+      background: linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 100%);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06) inset;
+    }
+    .p-critico {
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: #f87171;
+      background: rgba(127, 29, 29, 0.22);
+    }
+    .p-abaixo {
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      color: #fbbf24;
+      background: rgba(120, 53, 15, 0.2);
+    }
+    .p-acima {
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #34d399;
+      background: rgba(6, 78, 59, 0.22);
+    }
+    .p-muito-acima {
+      border: 1px solid rgba(59, 130, 246, 0.45);
+      color: #60a5fa;
+      background: rgba(30, 58, 138, 0.22);
+    }
+    .p-enc1 {
+      border: 1px solid rgba(192, 132, 252, 0.45);
+      color: #c084fc;
+      background: rgba(76, 29, 149, 0.2);
+    }
+    .p-enc2 {
+      border: 1px solid rgba(124, 58, 237, 0.45);
+      color: #a78bfa;
+      background: rgba(49, 46, 129, 0.25);
+    }
+    .p-enc3 {
+      border: 1px solid rgba(76, 29, 149, 0.48);
+      color: #c4b5fd;
+      background: rgba(30, 27, 75, 0.35);
+    }
+    .p-fora-mix {
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #fecaca;
+      background: rgba(127, 29, 29, 0.28);
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    .killer-panel {
+      margin: 0 18px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .killer-title {
+      margin: 0 0 8px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .killer-subtitle {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .killer-controls {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+      align-items: end;
+    }
+    .killer-controls .ctl {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .killer-controls .ctl label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: rgba(245, 207, 150, 0.85);
+    }
+    .killer-grid {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      overflow: auto;
+      background: rgba(5, 13, 26, 0.7);
+    }
+    .killer-grid table {
+      min-width: 1120px;
+      font-size: 12px;
+    }
+    .killer-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .killer-insights {
+      margin-bottom: 10px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(5, minmax(140px, 1fr));
+    }
+    .insight-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      background: rgba(7, 18, 39, 0.72);
+      padding: 8px 10px;
+    }
+    .insight-card .k {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(245, 207, 150, 0.85);
+      margin-bottom: 4px;
+    }
+    .insight-card .v {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f8fafc;
+      line-height: 1.1;
+    }
+    .insight-card .s {
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .killer-hotlist {
+      margin-top: 10px;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      overflow: auto;
+      background: rgba(7, 18, 39, 0.72);
+    }
+    .killer-hotlist table {
+      min-width: 920px;
+      font-size: 12px;
+    }
+    .score-badge {
+      display: inline-block;
+      min-width: 52px;
+      text-align: center;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid rgba(218, 177, 119, 0.48);
+      background: rgba(120, 53, 15, 0.35);
+      color: #fde68a;
+    }
+    .score-strong {
+      border-color: rgba(239, 68, 68, 0.52);
+      background: rgba(127, 29, 29, 0.4);
+      color: #fecaca;
+    }
+    .rank-pill {
+      border: 1px solid rgba(147, 197, 253, 0.42);
+      background: rgba(30, 58, 138, 0.32);
+      color: #bfdbfe;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-block;
+      min-width: 38px;
+      text-align: center;
+    }
+    .rank-empty {
+      color: #64748b;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 1200px) {
+      .killer-controls { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .killer-insights { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+    .link-erp {
+      color: var(--gold-bright);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(218, 177, 119, 0.55);
+    }
+    .link-erp:hover {
+      color: #fff;
+      border-bottom-color: var(--gold-bright);
+    }
+    .erp-plain {
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <section class="top">
+    <h1>Sugestão CD por Categoria / Subcategoria</h1>
+    <p class="subtitle">Demanda consolidada do CD (compra/produção) com filtros/ordenação por coluna (estilo Excel) e exportação Excel formatada.</p>
+    <div class="controls">
+      <button class="btn btn-back" onclick="window.location.href='apollo_grid.html'">← Catálogo</button>
+      <button class="btn btn-back" onclick="window.location.href='decision_procurement_production.html'">Compra x Produção</button>
+      <button class="btn btn-back" onclick="window.location.href='transfer_cd_equalizer.html'">Transferência CD → Lojas</button>
+      <button class="btn btn-export" id="exportBtn">Exportar Excel</button>
+    </div>
+    <div class="meta">
+      <span class="tag" id="generatedAtTag">Gerado em: --</span>
+      <span class="tag" id="dateRangeTag">Base CEO: --</span>
+      <span class="tag" id="d20Tag">20/04: --</span>
+      <span class="tag" id="legacyMapTag">Categoria legado: --</span>
+      <span class="tag" id="filteredTag">Linhas exibidas: --</span>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="card"><div class="k">SKUs com demanda</div><div class="v" id="kSku">0</div></div>
+    <div class="card"><div class="k">Demanda total CD (un)</div><div class="v" id="kDemand">0</div></div>
+    <div class="card"><div class="k">Categorias com demanda</div><div class="v" id="kCat">0</div></div>
+    <div class="card"><div class="k">Subcategorias com demanda</div><div class="v" id="kSub">0</div></div>
+    <div class="card"><div class="k">Ruptura</div><div class="v" id="kRuptura">0</div></div>
+    <div class="card"><div class="k">Crítico</div><div class="v" id="kCritico">0</div></div>
+    <div class="card"><div class="k">Abaixo</div><div class="v" id="kAbaixo">0</div></div>
+    <div class="card"><div class="k">Acima</div><div class="v" id="kAcima">0</div></div>
+  </section>
+
+  <section class="killer-panel">
+    <h2 class="killer-title">Top 100 de Venda e Margem com Ruptura</h2>
+    <p class="killer-subtitle">Ranking por categoria/subcategoria no escopo Geral da empresa ou por Loja. Produtos sem dados de valor bruto/margem aparecem assim que os campos entrarem na base.</p>
+    <div class="killer-controls">
+      <div class="ctl">
+        <label for="scopeSel">Escopo</label>
+        <select id="scopeSel">
+          <option value="geral">Geral empresa</option>
+          <option value="loja">Por loja</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="storeSel">Loja</label>
+        <select id="storeSel"></select>
+      </div>
+      <div class="ctl">
+        <label for="catSel">Categoria</label>
+        <select id="catSel"></select>
+      </div>
+      <div class="ctl">
+        <label for="subSel">Subcategoria</label>
+        <select id="subSel"></select>
+      </div>
+      <div class="ctl">
+        <label for="topSel">Top N</label>
+        <select id="topSel">
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100" selected>100</option>
+        </select>
+      </div>
+      <div class="ctl">
+        <label for="focusSel">Foco</label>
+        <select id="focusSel">
+          <option value="all">Todos os rankings</option>
+          <option value="qty">Só quantidade</option>
+          <option value="gross">Só valor bruto</option>
+          <option value="margin">Só margem contribuição</option>
+        </select>
+      </div>
+    </div>
+    <div class="killer-insights" id="killerInsights"></div>
+    <div class="killer-grid">
+      <table>
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Subcategoria</th>
+            <th>ERP</th>
+            <th>Produto</th>
+            <th>Lucro Total Bruto</th>
+            <th>Rank Qtde</th>
+            <th>Qtde</th>
+            <th>Rank Bruto</th>
+            <th>Venda Bruta</th>
+            <th>Rank Margem</th>
+            <th>Margem Total</th>
+            <th>Margem Contrib %</th>
+            <th>Ruptura %</th>
+            <th>Status</th>
+            <th>Lojas chave</th>
+          </tr>
+        </thead>
+        <tbody id="killerTbody"></tbody>
+      </table>
+    </div>
+    <div class="killer-hotlist">
+      <table>
+        <thead>
+          <tr>
+            <th>Prioridade tática</th>
+            <th>ERP</th>
+            <th>Produto</th>
+            <th>Ruptura %</th>
+            <th>Venda Bruta</th>
+            <th>Margem Total</th>
+            <th>Qtde</th>
+            <th>Leitura executiva</th>
+          </tr>
+        </thead>
+        <tbody id="killerHotTbody"></tbody>
+      </table>
+    </div>
+    <div class="killer-note" id="killerNote">Carregando ranking...</div>
+  </section>
+
+  <div class="table-wrap">
+    <table id="planTable">
+      <thead>
+        <tr id="headerRow"></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const columns = [
+      { key: "fora_mix", label: "Fora<br>mix", type: "text", align: "center", width: "62px" },
+      { key: "status_urgencia", label: "Status", type: "text", align: "center", width: "78px" },
+      { key: "category", label: "Categoria", type: "text", align: "center", width: "78px" },
+      { key: "subcategory", label: "Subcat", type: "text", align: "center", width: "86px" },
+      { key: "erp_code", label: "ERP", type: "text", align: "center", width: "60px" },
+      { key: "product_name", label: "Produto", type: "text", align: "left", width: "380px" },
+      { key: "demanda_total_cd", label: "Dem<br>CD", type: "number", align: "center", width: "62px" },
+      { key: "sugestao_compra_legacy", label: "Leg<br>compra", type: "number", align: "center", width: "70px" },
+      { key: "total_em_producao_legacy", label: "Leg<br>produção", type: "number", align: "center", width: "74px" },
+      { key: "lojas_com_demanda", label: "Lojas", type: "number", align: "center", width: "52px" },
+      { key: "demanda_media_loja", label: "Méd<br>loja", type: "number", align: "center", width: "70px" },
+      { key: "ruptura_media_pct", label: "Rupt<br>%", type: "number", align: "center", width: "62px" },
+      { key: "_top_lojas", label: "Top lojas", type: "text", align: "left", width: "138px" },
+    ];
+    const state = {
+      raw: null,
+      baseRows: [],
+      rows: [],
+      killerRows: [],
+      filters: {},
+      sortChain: [],
+      popup: { openKey: null, selected: new Set(), search: "" },
+    };
+    const fmtInt = (n) => Number(n || 0).toLocaleString("pt-BR");
+    const fmtDec = (n) => Number(n || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const fmtMoney = (n) => Number(n || 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const NO_VALUE = Number.NEGATIVE_INFINITY;
+    const SERVICE_SUBCATEGORIES = new Set([
+      "CORTINA SOB MEDIDA",
+    ]);
+    const EXCLUDED_ERP_CODES = new Set([
+      "9282",
+      "001",
+      "002",
+    ]);
+    const EXCLUDED_PRODUCT_NAMES = new Set([
+      "CORTINA SARON SOB MEDIDA",
+      "PERSIANA ENCOMENDA KAZZA",
+      "VENDAS PADRAO",
+      "INSTALACAO",
+      "INSTALACÃO",
+      "INSTALAÇÃO",
+      "INSTALA�IO",
+    ]);
+
+    const METRIC_CANDIDATES = {
+      qty: ["quantidade_vendida", "pecas_vendidas", "volume_vendido", "demanda_total_cd"],
+      gross: ["valor_bruto_vendas", "venda_bruta", "faturamento_bruto", "gross_sales"],
+      margin: ["margem_contribuicao_total", "contribuicao_total", "margem_total", "total_contribution_margin"]
+    };
+
+    function isServiceItem(row) {
+      const sub = String(row?.subcategory || "").trim().toUpperCase();
+      return SERVICE_SUBCATEGORIES.has(sub);
+    }
+
+    function isExplicitlyExcludedItem(row) {
+      const code = String(row?.erp_code || "").trim().toUpperCase();
+      const name = String(row?.product_name || "").trim().toUpperCase();
+      return (
+        EXCLUDED_ERP_CODES.has(code) ||
+        EXCLUDED_PRODUCT_NAMES.has(name) ||
+        name.includes("INSTALA")
+      );
+    }
+
+    function statusRank(s) {
+      if (s === "RUPTURA") return 1;
+      if (s === "CRÍTICO") return 2;
+      if (s === "ABAIXO") return 3;
+      if (s === "ACIMA") return 4;
+      if (s === "MUITO ACIMA") return 5;
+      if (s === "ENCALHADO 1") return 6;
+      if (s === "ENCALHADO 2") return 7;
+      if (s === "ENCALHADO 3") return 8;
+      return 9;
+    }
+
+    /** Mesma paleta de status do detalhe CEO (ceo_product_detail_layout). */
+    function statusBadgeClass(status) {
+      const s = String(status || "");
+      if (s === "RUPTURA") return "p-ruptura";
+      if (s === "CRÍTICO") return "p-critico";
+      if (s === "ABAIXO") return "p-abaixo";
+      if (s === "ACIMA") return "p-acima";
+      if (s === "MUITO ACIMA") return "p-muito-acima";
+      if (s === "ENCALHADO 1" || /^ENCALHADO\s*1\b/i.test(s)) return "p-enc1";
+      if (s === "ENCALHADO 2" || /^ENCALHADO\s*2\b/i.test(s)) return "p-enc2";
+      if (s.indexOf("ENCALHADO") === 0) return "p-enc3";
+      return "p-acima";
+    }
+
+    function productDetailHref(r) {
+      const hub = "&hub=1";
+      const sku = Number(r.sku_internal_id);
+      if (Number.isFinite(sku) && sku > 0) {
+        return "ceo_product_detail_layout.html?sku=" + encodeURIComponent(String(sku)) + hub;
+      }
+      const code = String(r.erp_code || "").trim();
+      if (code) return "ceo_product_detail_layout.html?code=" + encodeURIComponent(code) + hub;
+      return null;
+    }
+
+    function getCellValue(row, key) {
+      if (key === "_top_lojas") return (row.lojas || []).slice(0, 3).map((x) => x.store).join(" | ");
+      return row[key];
+    }
+
+    function pickMetricField(metricKey) {
+      const candidates = METRIC_CANDIDATES[metricKey] || [];
+      for (const f of candidates) {
+        const hasField = state.baseRows.some((r) => Number.isFinite(Number(r[f])));
+        if (hasField) return f;
+      }
+      return null;
+    }
+
+    function metricValue(row, metricKey) {
+      const field = pickMetricField(metricKey);
+      if (!field) return metricKey === "qty" ? Number(row.demanda_total_cd || 0) : NO_VALUE;
+      const v = Number(row[field]);
+      return Number.isFinite(v) ? v : NO_VALUE;
+    }
+
+    function getStoreMetrics(row, store) {
+      const entry = (row.lojas || []).find((l) => String(l.store || "") === String(store || ""));
+      if (!entry) return null;
+      return {
+        qty: Number(entry.quantidade_vendida),
+        gross: Number(entry.valor_bruto_vendas),
+        margin: Number(entry.margem_contribuicao_total),
+      };
+    }
+
+    function metricValueScoped(row, metricKey, scope, store) {
+      if (scope === "loja" && store) {
+        const m = getStoreMetrics(row, store);
+        if (!m) return NO_VALUE;
+        const v = Number(m[metricKey]);
+        return Number.isFinite(v) && v > 0 ? v : NO_VALUE;
+      }
+      return metricValue(row, metricKey);
+    }
+
+    function lojasTopText(row) {
+      return (row.lojas || [])
+        .slice(0, 3)
+        .map((x) => `${x.store}: ${fmtInt(x.demanda)}u`)
+        .join(" | ");
+    }
+
+    function fillSelect(el, values, includeAllLabel) {
+      const opts = [];
+      if (includeAllLabel) opts.push(`<option value="">${includeAllLabel}</option>`);
+      values.forEach((v) => opts.push(`<option value="${String(v)}">${String(v)}</option>`));
+      el.innerHTML = opts.join("");
+    }
+
+    function buildKillerControls() {
+      const stores = new Set();
+      const cats = new Set();
+      const subs = new Set();
+      state.baseRows.forEach((r) => {
+        cats.add(r.category || "");
+        subs.add(r.subcategory || "");
+        (r.lojas || []).forEach((l) => stores.add(l.store || ""));
+      });
+      fillSelect(document.getElementById("storeSel"), [...stores].filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR")), "Todas");
+      fillSelect(document.getElementById("catSel"), [...cats].filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR")), "Todas");
+      fillSelect(document.getElementById("subSel"), [...subs].filter(Boolean).sort((a, b) => a.localeCompare(b, "pt-BR")), "Todas");
+      const scopeSel = document.getElementById("scopeSel");
+      const storeSel = document.getElementById("storeSel");
+      const rerender = () => renderKillerTable();
+      scopeSel.addEventListener("change", () => {
+        const disabled = scopeSel.value !== "loja";
+        storeSel.disabled = disabled;
+        if (disabled) storeSel.value = "";
+        rerender();
+      });
+      storeSel.disabled = true;
+      ["storeSel", "catSel", "subSel", "topSel", "focusSel"].forEach((id) => {
+        document.getElementById(id).addEventListener("change", rerender);
+      });
+    }
+
+    function buildRankMap(rows, metricKey, topN, scope, store) {
+      const scoped = rows
+        .map((r) => ({ row: r, val: metricValueScoped(r, metricKey, scope, store) }))
+        .filter((x) => x.val !== NO_VALUE)
+        .sort((a, b) => b.val - a.val)
+        .slice(0, topN);
+      const map = new Map();
+      scoped.forEach((x, idx) => {
+        map.set(x.row.erp_code, { rank: idx + 1, value: x.val });
+      });
+      return map;
+    }
+
+    function clamp01(v) {
+      if (!Number.isFinite(v)) return 0;
+      if (v < 0) return 0;
+      if (v > 1) return 1;
+      return v;
+    }
+
+    function quantifyRiskTier(score) {
+      if (score >= 70) return "Ataque imediato";
+      if (score >= 50) return "Ajustar demanda já";
+      if (score >= 35) return "Monitorar de perto";
+      return "Baixa urgência";
+    }
+
+    function renderKillerInsights(ctx) {
+      const insights = document.getElementById("killerInsights");
+      const total = ctx.selected.length;
+      const ruptHigh = ctx.selected.filter((r) => Number(r.ruptura_media_pct || 0) >= 18).length;
+      const grossSum = ctx.selected.reduce((acc, r) => acc + (ctx.grossMap.get(r.erp_code)?.value || 0), 0);
+      const marginSum = ctx.selected.reduce((acc, r) => acc + (ctx.marginMap.get(r.erp_code)?.value || 0), 0);
+      const marginPct = grossSum > 0 ? (marginSum / grossSum) * 100 : 0;
+      const killers = ctx.hot.slice(0, 10).filter((h) => h.score >= 50).length;
+      insights.innerHTML = [
+        `<div class="insight-card"><div class="k">Itens Top priorizados</div><div class="v">${fmtInt(total)}</div><div class="s">Escopo ${ctx.scope === "loja" ? "por loja" : "empresa"}</div></div>`,
+        `<div class="insight-card"><div class="k">Ruptura crítica no top</div><div class="v">${fmtInt(ruptHigh)}</div><div class="s">Ruptura >= 18%</div></div>`,
+        `<div class="insight-card"><div class="k">Venda bruta do top</div><div class="v">${fmtMoney(grossSum)}</div><div class="s">Itens selecionados</div></div>`,
+        `<div class="insight-card"><div class="k">Margem total do top</div><div class="v">${fmtMoney(marginSum)}</div><div class="s">Itens selecionados</div></div>`,
+        `<div class="insight-card"><div class="k">Produtos que merecem ataque</div><div class="v">${fmtInt(killers)}</div><div class="s">Score de oportunidade >= 50</div></div>`
+      ].join("");
+      if (ctx.selected.length > 0) {
+        document.getElementById("killerNote").textContent += ` | Margem média ponderada do top: ${fmtDec(marginPct)}%.`;
+      }
+    }
+
+    function renderHotlist(hotRows) {
+      const tb = document.getElementById("killerHotTbody");
+      tb.innerHTML = hotRows.slice(0, 30).map((h) => {
+        const href = productDetailHref(h.row);
+        const erpCell = href
+          ? `<a class="link-erp" target="_blank" rel="noopener noreferrer" href="${href}">${h.row.erp_code}</a>`
+          : `<span class="erp-plain">${h.row.erp_code}</span>`;
+        const badgeClass = h.score >= 70 ? "score-badge score-strong" : "score-badge";
+        return `<tr>
+          <td><span class="${badgeClass}">${fmtDec(h.score)}</span></td>
+          <td>${erpCell}</td>
+          <td>${h.row.product_name || ""}</td>
+          <td class="num">${fmtDec(h.rupt)}%</td>
+          <td class="num">${fmtMoney(h.gross)}</td>
+          <td class="num">${fmtMoney(h.margin)}</td>
+          <td class="num">${fmtInt(h.qty)}</td>
+          <td class="small">${quantifyRiskTier(h.score)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function renderKillerTable() {
+      const scope = document.getElementById("scopeSel").value;
+      const store = document.getElementById("storeSel").value;
+      const cat = document.getElementById("catSel").value;
+      const sub = document.getElementById("subSel").value;
+      const topN = Number(document.getElementById("topSel").value || 100);
+      const focus = document.getElementById("focusSel").value;
+
+      let base = state.baseRows.filter((r) => (!cat || r.category === cat) && (!sub || r.subcategory === sub));
+      if (scope === "loja" && store) {
+        base = base.filter((r) => {
+          const m = getStoreMetrics(r, store);
+          return m && (Number(m.qty || 0) > 0 || Number(m.gross || 0) > 0 || Number(m.margin || 0) > 0);
+        });
+      }
+
+      const qtyMap = buildRankMap(base, "qty", topN, scope, store);
+      const grossMap = buildRankMap(base, "gross", topN, scope, store);
+      const marginMap = buildRankMap(base, "margin", topN, scope, store);
+      const grossField = pickMetricField("gross");
+      const marginField = pickMetricField("margin");
+      const qtyField = pickMetricField("qty");
+
+      const selected = base.filter((r) => {
+        const inQty = qtyMap.has(r.erp_code);
+        const inGross = grossMap.has(r.erp_code);
+        const inMargin = marginMap.has(r.erp_code);
+        if (focus === "qty") return inQty;
+        if (focus === "gross") return inGross;
+        if (focus === "margin") return inMargin;
+        return inQty || inGross || inMargin;
+      });
+
+      selected.sort((a, b) => {
+        const la = marginMap.get(a.erp_code)?.value || metricValueScoped(a, "margin", scope, store);
+        const lb = marginMap.get(b.erp_code)?.value || metricValueScoped(b, "margin", scope, store);
+        if (lb !== la) return lb - la;
+        const ga = grossMap.get(a.erp_code)?.rank || 999999;
+        const gb = grossMap.get(b.erp_code)?.rank || 999999;
+        if (ga !== gb) return ga - gb;
+        const qa = qtyMap.get(a.erp_code)?.rank || 999999;
+        const qb = qtyMap.get(b.erp_code)?.rank || 999999;
+        if (qa !== qb) return qa - qb;
+        const ma = marginMap.get(a.erp_code)?.rank || 999999;
+        const mb = marginMap.get(b.erp_code)?.rank || 999999;
+        return ma - mb;
+      });
+
+      const tb = document.getElementById("killerTbody");
+      tb.innerHTML = selected.map((r) => {
+        const q = qtyMap.get(r.erp_code);
+        const g = grossMap.get(r.erp_code);
+        const m = marginMap.get(r.erp_code);
+        const href = productDetailHref(r);
+        const erpCell = href
+          ? `<a class="link-erp" target="_blank" rel="noopener noreferrer" href="${href}">${r.erp_code}</a>`
+          : `<span class="erp-plain">${r.erp_code}</span>`;
+        const grossVal = g ? g.value : metricValueScoped(r, "gross", scope, store);
+        const marginVal = m ? m.value : metricValueScoped(r, "margin", scope, store);
+        const marginPct = grossVal > 0 && marginVal !== NO_VALUE ? (marginVal / grossVal) * 100 : 0;
+        return `<tr>
+          <td>${r.category || ""}</td>
+          <td>${r.subcategory || ""}</td>
+          <td>${erpCell}</td>
+          <td>${r.product_name || ""}</td>
+          <td class="num">${marginVal !== NO_VALUE ? fmtMoney(marginVal) : "--"}</td>
+          <td>${q ? `<span class="rank-pill">#${q.rank}</span>` : `<span class="rank-empty">fora</span>`}</td>
+          <td class="num">${fmtInt(q ? q.value : metricValueScoped(r, "qty", scope, store))}</td>
+          <td>${g ? `<span class="rank-pill">#${g.rank}</span>` : `<span class="rank-empty">fora</span>`}</td>
+          <td class="num">${g ? fmtMoney(g.value) : "--"}</td>
+          <td>${m ? `<span class="rank-pill">#${m.rank}</span>` : `<span class="rank-empty">fora</span>`}</td>
+          <td class="num">${m ? fmtMoney(m.value) : "--"}</td>
+          <td class="num">${fmtDec(marginPct)}%</td>
+          <td class="num">${fmtDec(r.ruptura_media_pct)}%</td>
+          <td><span class="prio ${statusBadgeClass(r.status_urgencia)}">${r.status_urgencia || "ACIMA"}</span></td>
+          <td class="small">${lojasTopText(r)}</td>
+        </tr>`;
+      }).join("");
+
+      const note = document.getElementById("killerNote");
+      const missing = [];
+      if (!qtyField) missing.push("quantidade");
+      if (!grossField) missing.push("valor bruto");
+      if (!marginField) missing.push("margem contribuição");
+      note.textContent =
+        `Itens exibidos: ${fmtInt(selected.length)} | Base filtrada: ${fmtInt(base.length)} | Top N: ${fmtInt(topN)}` +
+        (missing.length ? ` | Aguardando campos na base: ${missing.join(", ")}.` : " | Todos os 3 parâmetros ativos.");
+
+      const qtyTop = [...qtyMap.values()].map((x) => x.value).sort((a, b) => b - a);
+      const grossTop = [...grossMap.values()].map((x) => x.value).sort((a, b) => b - a);
+      const marginTop = [...marginMap.values()].map((x) => x.value).sort((a, b) => b - a);
+      const maxQty = qtyTop[0] || 1;
+      const maxGross = grossTop[0] || 1;
+      const maxMargin = marginTop[0] || 1;
+      const hot = selected
+        .map((r) => {
+          const qv = qtyMap.get(r.erp_code)?.value || metricValueScoped(r, "qty", scope, store);
+          const gv = grossMap.get(r.erp_code)?.value || metricValueScoped(r, "gross", scope, store);
+          const mv = marginMap.get(r.erp_code)?.value || metricValueScoped(r, "margin", scope, store);
+          const rupt = Number(r.ruptura_media_pct || 0);
+          const score =
+            100 * (
+              0.35 * clamp01(gv / maxGross) +
+              0.30 * clamp01(mv / maxMargin) +
+              0.20 * clamp01(qv / maxQty) +
+              0.15 * clamp01(rupt / 100)
+            );
+          return { row: r, score, qty: qv, gross: gv, margin: mv, rupt };
+        })
+        .sort((a, b) => b.score - a.score);
+
+      renderHotlist(hot);
+      renderKillerInsights({ selected, scope, qtyMap, grossMap, marginMap, hot });
+    }
+
+    function normalizeValueByType(v, type) {
+      if (v == null) return null;
+      if (type === "number") {
+        const n = Number(v);
+        return Number.isFinite(n) ? n : null;
+      }
+      if (type === "date") {
+        const d = new Date(v);
+        if (Number.isNaN(d.getTime())) return null;
+        return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+      }
+      return String(v);
+    }
+
+    function defaultSortComparator(a, b) {
+      return (
+        statusRank(a.status_urgencia) - statusRank(b.status_urgencia) ||
+        Number(b.demanda_total_cd || 0) - Number(a.demanda_total_cd || 0) ||
+        Number(b.ruptura_max_pct || 0) - Number(a.ruptura_max_pct || 0)
+      );
+    }
+
+    function applyGridState() {
+      let rows = [...state.baseRows];
+      for (const c of columns) {
+        const f = state.filters[c.key];
+        if (!f) continue;
+        rows = rows.filter((r) => {
+          const raw = getCellValue(r, c.key);
+          const val = normalizeValueByType(raw, c.type);
+          if (f.mode === "distinct") {
+            const token = val == null || val === "" ? "__EMPTY__" : String(val);
+            return f.values.has(token);
+          }
+          if (f.mode === "operator") {
+            if (c.type === "number" || c.type === "date") {
+              if (val == null) return false;
+              const v1 = Number(f.v1);
+              const v2 = Number(f.v2);
+              if (f.op === "gt") return val > v1;
+              if (f.op === "gte") return val >= v1;
+              if (f.op === "lt") return val < v1;
+              if (f.op === "lte") return val <= v1;
+              if (f.op === "eq") return Math.abs(val - v1) < 1e-9;
+              if (f.op === "neq") return Math.abs(val - v1) > 1e-9;
+              if (f.op === "between") return val >= v1 && val <= v2;
+              return true;
+            }
+            const txt = String(val || "").toLowerCase();
+            const q = String(f.v1 || "").toLowerCase();
+            if (f.op === "contains") return txt.includes(q);
+            if (f.op === "not_contains") return !txt.includes(q);
+            if (f.op === "starts_with") return txt.startsWith(q);
+            if (f.op === "ends_with") return txt.endsWith(q);
+            if (f.op === "eq") return txt === q;
+            if (f.op === "neq") return txt !== q;
+          }
+          return true;
+        });
+      }
+
+      if (state.sortChain.length) {
+        rows.sort((a, b) => {
+          for (const s of state.sortChain) {
+            const col = columns.find((x) => x.key === s.key);
+            if (!col) continue;
+            const av = normalizeValueByType(getCellValue(a, s.key), col.type);
+            const bv = normalizeValueByType(getCellValue(b, s.key), col.type);
+            let cmp = 0;
+            if (av == null && bv == null) cmp = 0;
+            else if (av == null) cmp = 1;
+            else if (bv == null) cmp = -1;
+            else if (col.type === "number" || col.type === "date") cmp = av - bv;
+            else cmp = String(av).localeCompare(String(bv), "pt-BR", { sensitivity: "base" });
+            if (cmp !== 0) return s.dir === "asc" ? cmp : -cmp;
+          }
+          return defaultSortComparator(a, b);
+        });
+      } else {
+        rows.sort(defaultSortComparator);
+      }
+      state.rows = rows;
+      renderHeaders();
+      renderTable(rows);
+      renderFilterChips();
+      document.getElementById("filteredTag").textContent = `Linhas exibidas: ${fmtInt(rows.length)}`;
+    }
+
+    function uniqueValuesForColumn(key) {
+      const col = columns.find((c) => c.key === key);
+      const vals = new Set();
+      state.baseRows.forEach((r) => {
+        const v = normalizeValueByType(getCellValue(r, key), col.type);
+        vals.add(v == null || v === "" ? "__EMPTY__" : String(v));
+      });
+      return [...vals].sort((a, b) => {
+        if (a === "__EMPTY__") return -1;
+        if (b === "__EMPTY__") return 1;
+        if (col.type === "number") return Number(a) - Number(b);
+        return String(a).localeCompare(String(b), "pt-BR", { sensitivity: "base" });
+      });
+    }
+
+    function sortClick(key, dir, append) {
+      if (!append) state.sortChain = [];
+      state.sortChain = state.sortChain.filter((x) => x.key !== key);
+      state.sortChain.push({ key, dir });
+      applyGridState();
+      closePopup();
+    }
+
+    function clearColumnFilter(key) {
+      delete state.filters[key];
+      applyGridState();
+      closePopup();
+    }
+
+    function renderHeaders() {
+      const tr = document.getElementById("headerRow");
+      tr.innerHTML = columns
+        .map((c) => {
+          const sortIdx = state.sortChain.findIndex((x) => x.key === c.key);
+          const sort = sortIdx >= 0 ? state.sortChain[sortIdx] : null;
+          const hasFilter = !!state.filters[c.key];
+          const sortText = sort ? `${sort.dir === "asc" ? "▲" : "▼"}${sortIdx + 1}` : "";
+          return `<th style="${c.width ? `width:${c.width};` : ""}">
+              <div class="th-wrap">
+                <span class="th-label">${c.label}</span>
+                <span class="th-tools">
+                  <span class="sort-ind">${sortText}</span>
+                  <button type="button" class="flt-btn ${hasFilter ? "active" : ""}" data-col="${c.key}">▾</button>
+                </span>
+              </div>
+            </th>`;
+        })
+        .join("");
+      tr.querySelectorAll(".flt-btn").forEach((b) => {
+        b.addEventListener("click", (e) => openPopup(b.getAttribute("data-col"), e.currentTarget));
+      });
+    }
+
+    function closePopup() {
+      state.popup.openKey = null;
+      const el = document.getElementById("fltPopup");
+      if (el) el.remove();
+    }
+
+    function openPopup(key, anchorEl) {
+      closePopup();
+      state.popup.openKey = key;
+      const col = columns.find((c) => c.key === key);
+      const values = uniqueValuesForColumn(key);
+      const current = state.filters[key];
+      const selected = current && current.mode === "distinct" ? new Set(current.values) : new Set(values);
+      state.popup.selected = selected;
+
+      const div = document.createElement("div");
+      div.id = "fltPopup";
+      div.className = "flt-pop";
+      const items = values
+        .map((v) => {
+          const label =
+            v === "__EMPTY__" ? "(Vazio)" : key === "fora_mix" ? (String(v) === "true" ? "SIM" : "NÃO") : v;
+          return `<div class="flt-opt"><input type="checkbox" data-v="${encodeURIComponent(v)}" ${
+            selected.has(v) ? "checked" : ""
+          }><label>${label}</label></div>`;
+        })
+        .join("");
+      const opText = `<option value="contains">Contém</option><option value="not_contains">Não contém</option><option value="starts_with">Começa com</option><option value="ends_with">Termina com</option><option value="eq">Igual</option><option value="neq">Diferente</option>`;
+      const opNum = `<option value="gt">Maior que</option><option value="gte">Maior ou igual</option><option value="lt">Menor que</option><option value="lte">Menor ou igual</option><option value="eq">Igual</option><option value="neq">Diferente</option><option value="between">Entre</option>`;
+      div.innerHTML = `
+        <h4>${col.label} - Filtro/Ordenação</h4>
+        <div class="flt-row">
+          <button class="btn btn-sort" data-act="asc">Ordenar ↑</button>
+          <button class="btn btn-sort" data-act="desc">Ordenar ↓</button>
+          <button class="btn btn-clear" data-act="clear-sort">Limpar ordem</button>
+        </div>
+        <div class="flt-sep"></div>
+        <div class="flt-row">
+          <input id="fltSearch" type="text" placeholder="Buscar valores..." />
+          <button class="btn btn-clear" data-act="clear-filter">Limpar filtro</button>
+        </div>
+        <div class="flt-checklist" id="fltList">${items}</div>
+        <div class="flt-sep"></div>
+        <div class="flt-row">
+          <select id="fltOp">${col.type === "number" ? opNum : opText}</select>
+          <input id="fltV1" type="${col.type === "number" ? "number" : "text"}" placeholder="valor 1" />
+          <input id="fltV2" type="${col.type === "number" ? "number" : "text"}" placeholder="valor 2 (entre)" />
+        </div>
+        <div class="flt-actions">
+          <button class="btn btn-back" data-act="cancel">Cancelar</button>
+          <button class="btn btn-export" data-act="apply-distinct">Aplicar lista</button>
+          <button class="btn btn-export" data-act="apply-op">Aplicar operador</button>
+        </div>`;
+      document.body.appendChild(div);
+      const r = anchorEl.getBoundingClientRect();
+      div.style.left = Math.max(8, Math.min(window.innerWidth - div.offsetWidth - 8, r.left)) + "px";
+      div.style.top = Math.min(window.innerHeight - div.offsetHeight - 8, r.bottom + 6) + "px";
+
+      div.querySelector('[data-act="asc"]').onclick = (ev) => sortClick(key, "asc", ev.shiftKey);
+      div.querySelector('[data-act="desc"]').onclick = (ev) => sortClick(key, "desc", ev.shiftKey);
+      div.querySelector('[data-act="clear-sort"]').onclick = () => {
+        state.sortChain = state.sortChain.filter((x) => x.key !== key);
+        applyGridState();
+        closePopup();
+      };
+      div.querySelector('[data-act="clear-filter"]').onclick = () => clearColumnFilter(key);
+      div.querySelector('[data-act="cancel"]').onclick = closePopup;
+      div.querySelector('[data-act="apply-distinct"]').onclick = () => {
+        const checked = [...div.querySelectorAll('#fltList input[type="checkbox"]:checked')].map((x) =>
+          decodeURIComponent(x.getAttribute("data-v"))
+        );
+        if (!checked.length || checked.length === values.length) {
+          delete state.filters[key];
+        } else {
+          state.filters[key] = { mode: "distinct", values: new Set(checked) };
+        }
+        applyGridState();
+        closePopup();
+      };
+      div.querySelector('[data-act="apply-op"]').onclick = () => {
+        const op = div.querySelector("#fltOp").value;
+        const v1 = div.querySelector("#fltV1").value;
+        const v2 = div.querySelector("#fltV2").value;
+        if (!String(v1).length) return;
+        state.filters[key] = { mode: "operator", op, v1, v2 };
+        applyGridState();
+        closePopup();
+      };
+      div.querySelector("#fltSearch").addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase();
+        div.querySelectorAll("#fltList .flt-opt").forEach((opt) => {
+          const txt = opt.textContent.toLowerCase();
+          opt.style.display = txt.includes(q) ? "" : "none";
+        });
+      });
+    }
+
+    function renderFilterChips() {
+      let box = document.getElementById("chipLine");
+      if (!box) {
+        box = document.createElement("div");
+        box.id = "chipLine";
+        box.className = "flt-chipline";
+        document.querySelector(".meta").appendChild(box);
+      }
+      const chips = [];
+      Object.keys(state.filters).forEach((k) => {
+        const c = columns.find((x) => x.key === k);
+        const f = state.filters[k];
+        if (!c || !f) return;
+        if (f.mode === "distinct") chips.push(`<span class="flt-chip">${c.label}: lista (${f.values.size})</span>`);
+        else chips.push(`<span class="flt-chip">${c.label}: ${f.op}</span>`);
+      });
+      if (state.sortChain.length) {
+        chips.push(
+          `<span class="flt-chip">Ordem: ${state.sortChain
+            .map((s, i) => `${i + 1}.${columns.find((c) => c.key === s.key)?.label || s.key} ${s.dir === "asc" ? "↑" : "↓"}`)
+            .join(" | ")}</span>`
+        );
+      }
+      box.innerHTML = chips.join("");
+    }
+
+    function renderTable(rows) {
+      const tb = document.getElementById("tbody");
+      tb.innerHTML = rows.map((r) => {
+        const topStores = (r.lojas || [])
+          .slice(0, 3)
+          .map((x) => `${x.store}: ${fmtInt(x.demanda)}u`)
+          .join(" | ");
+        const href = productDetailHref(r);
+        const erpCell = href
+          ? `<a class="link-erp" target="_blank" rel="noopener noreferrer" href="${href}">${r.erp_code}</a>`
+          : `<span class="erp-plain">${r.erp_code}</span>`;
+        return `
+          <tr>
+            <td class="td-center"><span class="prio ${r.fora_mix ? "p-fora-mix" : "p-acima"}">${r.fora_mix ? "SIM" : "NÃO"}</span></td>
+            <td class="td-center"><span class="prio ${statusBadgeClass(r.status_urgencia)}">${r.status_urgencia || "ACIMA"}</span></td>
+            <td class="td-center">${r.category}</td>
+            <td class="td-center">${r.subcategory}</td>
+            <td class="td-center">${erpCell}</td>
+            <td class="td-left">${r.product_name}</td>
+            <td class="td-center">${fmtInt(r.demanda_total_cd)}</td>
+            <td class="td-center">${fmtInt(r.sugestao_compra_legacy)}</td>
+            <td class="td-center">${fmtInt(r.total_em_producao_legacy)}</td>
+            <td class="td-center">${fmtInt(r.lojas_com_demanda)}</td>
+            <td class="td-center">${fmtDec(r.demanda_media_loja)}</td>
+            <td class="td-center">${fmtDec(r.ruptura_media_pct)}</td>
+            <td class="small td-left">${topStores}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    async function exportExcel(rows) {
+      const wb = new ExcelJS.Workbook();
+      const ws = wb.addWorksheet("Plano CD", {
+        views: [{ state: "frozen", ySplit: 1 }]
+      });
+      ws.columns = [
+        { header: "Fora Mix", key: "fora_mix_text", width: 11 },
+        { header: "Status", key: "status_urgencia", width: 12 },
+        { header: "Categoria", key: "category", width: 22 },
+        { header: "Subcategoria", key: "subcategory", width: 22 },
+        { header: "ERP", key: "erp_code", width: 12 },
+        { header: "Produto", key: "product_name", width: 50 },
+        { header: "Demanda CD", key: "demanda_total_cd", width: 14 },
+        { header: "Legado compra", key: "sugestao_compra_legacy", width: 14 },
+        { header: "Legado produção", key: "total_em_producao_legacy", width: 16 },
+        { header: "Lojas", key: "lojas_com_demanda", width: 10 },
+        { header: "Demanda média/loja", key: "demanda_media_loja", width: 18 },
+        { header: "Ruptura média %", key: "ruptura_media_pct", width: 16 },
+        { header: "Top lojas (demanda)", key: "top_lojas", width: 56 },
+        { header: "Link detalhe (SKU/code)", key: "link_grafico", width: 56 }
+      ];
+
+      ws.getRow(1).height = 22;
+      ws.getRow(1).eachCell((cell) => {
+        cell.font = { bold: true, color: { argb: "FFFFFFFF" } };
+        cell.fill = { type: "pattern", pattern: "solid", fgColor: { argb: "FF0f2847" } };
+        cell.alignment = { vertical: "middle", horizontal: "center" };
+        cell.border = {
+          top: { style: "thin", color: { argb: "FF0B2F4D" } },
+          left: { style: "thin", color: { argb: "FF0B2F4D" } },
+          bottom: { style: "thin", color: { argb: "FF0B2F4D" } },
+          right: { style: "thin", color: { argb: "FF0B2F4D" } }
+        };
+      });
+
+      rows.forEach((r) => {
+        ws.addRow({
+          ...r,
+          fora_mix_text: r.fora_mix ? "SIM" : "NÃO",
+          top_lojas: (r.lojas || []).slice(0, 3).map((x) => `${x.store}: ${fmtInt(x.demanda)}u`).join(" | "),
+          link_grafico: productDetailHref(r) || ""
+        });
+      });
+
+      ws.eachRow((row, rowNumber) => {
+        if (rowNumber === 1) return;
+        row.eachCell((cell) => {
+          cell.border = {
+            top: { style: "thin", color: { argb: "FFD9E2F3" } },
+            left: { style: "thin", color: { argb: "FFD9E2F3" } },
+            bottom: { style: "thin", color: { argb: "FFD9E2F3" } },
+            right: { style: "thin", color: { argb: "FFD9E2F3" } }
+          };
+        });
+      });
+
+      const numberCols = ["G", "H", "I", "J", "K", "L"];
+      numberCols.forEach((c) => {
+        ws.getColumn(c).alignment = { horizontal: "right" };
+      });
+      ws.getColumn("G").numFmt = "#,##0";
+      ws.getColumn("H").numFmt = "#,##0";
+      ws.getColumn("I").numFmt = "#,##0";
+      ws.getColumn("J").numFmt = "#,##0";
+      ws.getColumn("K").numFmt = "#,##0.00";
+      ws.getColumn("L").numFmt = "#,##0.00";
+
+      const buf = await wb.xlsx.writeBuffer();
+      saveAs(new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }),
+        `plano_cd_compra_producao_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    }
+
+    async function init() {
+      if (window.CD_PURCHASE_PLAN_DATA && typeof window.CD_PURCHASE_PLAN_DATA === "object") {
+        state.raw = window.CD_PURCHASE_PLAN_DATA;
+      } else {
+        const res = await fetch("data/client/cd_purchase_plan.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Arquivo data/client/cd_purchase_plan.json não encontrado.");
+        state.raw = await res.json();
+      }
+      state.baseRows = (state.raw.rows || []).filter((r) => !isServiceItem(r) && !isExplicitlyExcludedItem(r));
+      renderHeaders();
+      applyGridState();
+      buildKillerControls();
+      renderKillerTable();
+
+      document.getElementById("kSku").textContent = fmtInt(state.raw.stats?.skus_with_cd_demand || 0);
+      document.getElementById("kDemand").textContent = fmtInt(state.raw.stats?.demand_units_total || 0);
+      document.getElementById("kCat").textContent = fmtInt(state.raw.stats?.categories_with_demand || 0);
+      document.getElementById("kSub").textContent = fmtInt(state.raw.stats?.subcategories_with_demand || 0);
+      const urg = state.raw.stats?.urgency_summary || {};
+      document.getElementById("kRuptura").textContent = fmtInt(urg["RUPTURA"] || 0);
+      document.getElementById("kCritico").textContent = fmtInt(urg["CRÍTICO"] || 0);
+      document.getElementById("kAbaixo").textContent = fmtInt(urg["ABAIXO"] || 0);
+      document.getElementById("kAcima").textContent = fmtInt(urg["ACIMA"] || 0);
+
+      const gen = state.raw.generated_at ? new Date(state.raw.generated_at).toLocaleString("pt-BR") : "--";
+      document.getElementById("generatedAtTag").textContent = `Gerado em: ${gen}`;
+
+      const ceo = state.raw.source?.ceo_dates || {};
+      const dMin = ceo.daily_stock_snapshot?.min_date || "--";
+      const dMax = ceo.daily_stock_snapshot?.max_date || "--";
+      document.getElementById("dateRangeTag").textContent = `Base CEO (daily): ${String(dMin).slice(0, 10)} até ${String(dMax).slice(0, 10)}`;
+
+      const d20 = Number(ceo.daily_stock_snapshot?.rows_2026_04_20 || 0);
+      const d20Tag = document.getElementById("d20Tag");
+      d20Tag.textContent = `20/04 no CEO: ${fmtInt(d20)} linhas`;
+      d20Tag.classList.add(d20 > 0 ? "ok" : "warn");
+
+      const legacyCount = Number(state.raw.stats?.skus_with_legacy_category || 0);
+      const nonLegacyCount = Number(state.raw.stats?.skus_with_non_legacy_category || 0);
+      const legacyTag = document.getElementById("legacyMapTag");
+      legacyTag.textContent = `Categoria legado: ${fmtInt(legacyCount)} SKUs | fallback: ${fmtInt(nonLegacyCount)}`;
+      legacyTag.classList.add(nonLegacyCount === 0 ? "ok" : "warn");
+      document.getElementById("filteredTag").textContent = `Linhas exibidas: ${fmtInt(state.rows.length)}`;
+
+      document.getElementById("exportBtn").addEventListener("click", () => exportExcel(state.rows));
+      document.addEventListener("click", (e) => {
+        const pop = document.getElementById("fltPopup");
+        if (!pop) return;
+        if (pop.contains(e.target)) return;
+        if (e.target.classList && e.target.classList.contains("flt-btn")) return;
+        closePopup();
+      });
+    }
+
+    init().catch((e) => {
+      const tb = document.getElementById("tbody");
+      tb.innerHTML = `<tr><td colspan="13" style="color:#fca5a5;padding:14px;">Falha ao carregar plano CD: ${String(e.message || e)}</td></tr>`;
+    });
+  </script>
+</body>
+</html>
+

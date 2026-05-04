@@ -1,0 +1,42 @@
+{
+  "info": {
+    "id": 1945,
+    "code": "11224",
+    "name": "TEC RENDA 1.50 MT VAQUINHA BRANCO",
+    "timestamp": "2026-04-30T11:33:10.350Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 5,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 5,
+        "data_evento": "2023-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 57.2,
+        "data_evento": "2024-04-29T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6.2,
+        "data_evento": "2024-04-29T03:00:00.000Z",
+        "natureza": "Perda produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.400000000000034,
+        "data_evento": "2024-06-26T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

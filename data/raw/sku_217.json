@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 217,
+    "code": "10588",
+    "name": "CORTA LUZ 2,60X1,80 EST BEGE",
+    "timestamp": "2026-04-30T11:28:10.766Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-06-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

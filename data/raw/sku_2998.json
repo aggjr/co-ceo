@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 2998,
+    "code": "12065",
+    "name": "TEC BLACKOUT RETA BRANCO/PEROLA 2.80 MT",
+    "timestamp": "2026-04-30T11:36:09.288Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 645.1000000000001,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 309.2999999999997,
+        "data_evento": "2023-05-02T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 4.547473508864641e-13,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

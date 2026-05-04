@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3771,
+    "code": "12799",
+    "name": "PUFF BAò 35 X 35 X 47 SUEDE ROSE",
+    "timestamp": "2026-04-30T11:38:15.144Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2056,
+    "code": "11218",
+    "name": "LENÇOL CASAL MALHA SERENA PEROLA",
+    "timestamp": "2026-04-30T11:33:29.527Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-07-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

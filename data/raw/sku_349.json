@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 349,
+    "code": "10770",
+    "name": "KIT COUSELO BASTAO TABACO 28MM 2,00",
+    "timestamp": "2026-04-30T11:28:32.443Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 6,
+        "data_evento": "2023-10-31T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2023-12-16T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

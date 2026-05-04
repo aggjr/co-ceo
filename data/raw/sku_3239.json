@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3239,
+    "code": "12361",
+    "name": "FORRO BLACKOUT 100% C/ RODIZIO BRANCO 3.00X2.58",
+    "timestamp": "2026-04-30T11:36:49.366Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-11T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-11T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

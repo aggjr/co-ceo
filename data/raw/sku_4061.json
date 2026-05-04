@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 4061,
+    "code": "13196",
+    "name": "FAST WAVE TRANSL. SONHO BRANCO 4.00X até2.90",
+    "timestamp": "2026-04-30T11:39:00.639Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

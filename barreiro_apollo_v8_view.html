@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>APOLLO v8.0 | Barreiro Surgical Audit</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="barreiro_apollo_v8_data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0e14;
+            --glass: rgba(255, 255, 255, 0.05);
+            --neon-blue: #00d2ff;
+            --neon-red: #ff3366;
+            --neon-green: #33ff99;
+            --neon-purple: #9d50bb;
+            --text-main: #e0e0e0;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .title-group h1 {
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--neon-blue);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: var(--glass);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        .chart-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid var(--glass);
+            height: 600px;
+        }
+
+        .tooltip-custom {
+            background: rgba(11, 14, 20, 0.95);
+            border: 1px solid var(--neon-blue);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .scar-indicator { color: var(--neon-red); font-weight: bold; }
+        .success-indicator { color: var(--neon-green); }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title-group">
+        <h1>APOLLO v8.0 | INTEGRIDADE ESTOCÁSTICA</h1>
+        <p>AUDITORIA CIRÚRGICA: BARREIRO (SKU 3097) | CICLO 2022-2025</p>
+    </div>
+    <div class="status-badge">SISTEMA ATIVO: 3-SIGMA</div>
+</div>
+
+<div class="metrics-grid" id="metrics-container">
+    <!-- Meteorologicly Injected via JS -->
+</div>
+
+<div class="chart-container">
+    <canvas id="apolloChart"></canvas>
+</div>
+
+<script>
+    async function loadApolloData() {
+        const data = APOLLO_DATA;
+        
+        renderMetrics(data.metrics);
+        renderChart(data.timeline, data.metrics);
+    }
+
+    function renderMetrics(m) {
+        const container = document.getElementById('metrics-container');
+        const cards = [
+            { label: 'Alvo Apollo (P50)', value: m.targetStock.toFixed(2), color: 'var(--neon-blue)' },
+            { label: 'Sigma Combinado', value: m.sigmaTotal.toFixed(2), color: 'var(--neon-green)' },
+            { label: 'Incerteza LT', value: '3.40d', color: 'var(--neon-red)' },
+            { label: 'Lost Revenue (Est.)', value: m.lostSalesEstimated.toFixed(0) + ' un', color: 'var(--neon-purple)' }
+        ];
+
+        container.innerHTML = cards.map(c => `
+            <div class="metric-card">
+                <span class="metric-value" style="color: ${c.color}">${c.value}</span>
+                <span class="metric-label">${c.label}</span>
+            </div>
+        `).join('');
+    }
+
+    function renderChart(timeline, metrics) {
+        const ctx = document.getElementById('apolloChart').getContext('2d');
+        
+        const chartData = {
+            labels: timeline.map(t => t.date),
+            datasets: [
+                {
+                    label: 'ESTOQUE FÍSICO',
+                    data: timeline.map(t => t.stock),
+                    borderColor: '#ffffff',
+                    borderWidth: 2,
+                    stepped: true,
+                    pointRadius: 0
+                },
+                {
+                    label: 'DEMANDA POTENCIAL (IMPUTADA)',
+                    data: timeline.map(t => t.demandPotential),
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderDash: [5, 5],
+                    borderWidth: 1,
+                    fill: false,
+                    pointRadius: timeline.map(t => t.isScar ? 2 : 0),
+                    pointBackgroundColor: 'red'
+                },
+                {
+                    label: 'ENCALHE (P95)',
+                    data: timeline.map(t => t.p95),
+                    borderColor: 'rgba(157, 80, 187, 0.4)',
+                    borderWidth: 1,
+                    fill: false,
+                    pointRadius: 0
+                },
+                {
+                    label: 'ALVO APOLLO (P50)',
+                    data: timeline.map(t => t.p50),
+                    borderColor: 'rgba(0, 210, 255, 0.6)',
+                    borderWidth: 2,
+                    fill: false,
+                    pointRadius: 0
+                },
+                {
+                    label: 'CRÍTICO (P10)',
+                    data: timeline.map(t => t.p10),
+                    borderColor: 'rgba(255, 51, 102, 0.4)',
+                    borderWidth: 1,
+                    fill: false,
+                    pointRadius: 0
+                }
+            ]
+        };
+
+        new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: { color: '#666', maxRotation: 0 },
+                        grid: { color: 'rgba(255,255,255,0.05)' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#666' },
+                        grid: { color: 'rgba(255,255,255,0.05)' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { color: '#aaa', font: { family: 'Outfit' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const day = timeline[context.dataIndex];
+                                let label = `${context.dataset.label}: ${context.parsed.y}`;
+                                if (day.isScar) label += ' [CICATRIZ FORENSE]';
+                                if (day.cannibalizationDetected) label += ' [CANIBALIZAÇÃO SKU 513]';
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    loadApolloData();
+</script>
+
+</body>
+</html>

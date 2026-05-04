@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1792,
+    "code": "K807",
+    "name": "PERSIANA 1.50x1.70 TEC BLACK-OUT 807",
+    "timestamp": "2026-04-30T11:32:44.926Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

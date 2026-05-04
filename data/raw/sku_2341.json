@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2341,
+    "code": "9916",
+    "name": "JOGO DE BANHEIRO MARKA TAPETECO 3PCS",
+    "timestamp": "2026-04-30T11:34:17.813Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

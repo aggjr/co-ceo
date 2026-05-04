@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top 100 · produtos mais importantes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #041225;
+      --bg-2: #07203e;
+      --surface: rgba(9, 28, 56, 0.9);
+      --border: rgba(218, 177, 119, 0.45);
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --gold: #dab177;
+      --font: "DM Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      color: var(--text);
+      padding: 16px 18px 28px;
+    }
+    h1 { margin: 0 0 6px; font-size: 1.25rem; font-weight: 600; color: var(--gold); }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; line-height: 1.45; }
+    .err { color: #fca5a5; padding: 12px; border: 1px solid rgba(252,165,165,0.35); border-radius: 10px; margin-bottom: 14px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .tabs button {
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #93c5fd;
+      cursor: pointer;
+    }
+    .tabs button[aria-selected="true"] {
+      background: rgba(218, 177, 119, 0.18);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    .panel { display: none; overflow: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+    .panel.active { display: block; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    th { color: var(--muted); font-weight: 600; white-space: nowrap; position: sticky; top: 0; background: rgba(6, 20, 42, 0.98); }
+    tr:hover td { background: rgba(255,255,255,0.03); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .code { font-weight: 600; color: #93c5fd; }
+    a.row-link { color: inherit; text-decoration: none; }
+    a.row-link:hover { color: var(--gold); text-decoration: underline; }
+    .meta { font-size: 11px; color: var(--muted); margin-top: 12px; }
+    .nav-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .nav-row a {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #93c5fd;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .nav-row a:hover { background: rgba(12, 36, 70, 0.92); border-color: rgba(218, 177, 119, 0.45); color: var(--gold); }
+  </style>
+</head>
+<body>
+  <nav class="nav-row" aria-label="Relatórios">
+    <a href="apollo_grid.html">Catálogo</a>
+    <a href="stock_health_histogram.html">Saúde do estoque (histogramas)</a>
+    <a href="cd_purchase_plan.html">Plano CD</a>
+  </nav>
+  <h1>Top 100 · produtos mais importantes</h1>
+  <p class="sub">
+    Dados em <code>data/client/sku_top_important.json</code> e <code>sku_top_important.js</code> (gerado por <code>npm run build:top-important</code>).
+    <strong>Lucro bruto</strong> = soma (venda − custo) × qtd no período do plano CD.
+    <strong>Rupt. peso vendas</strong> = % médio de tempo em ruptura nas lojas abertas, ponderado por unidades vendidas por loja (fallback de peso: demanda CD na loja), alinhado ao detalhe por SKU quando o bundle inclui <strong>systemPhysicalStock</strong> (físico ERP).
+    No motor Apollo, <strong>P150</strong> (alvo de reposição) tem piso = estoque mínimo da política (MIN_STOCK_USER no batch; no detalhe, mínimo efetivo da loja).
+    Para o separador <em>Composto</em> excluir itens só por volume com lucro baixo, regenere com
+    <code>node scripts/build_top_important_skus.js --min-lucro=5000</code> (ou variável de ambiente <code>TOP_IMPORTANT_MIN_LUCRO_BRUTO</code>).
+    Pode abrir este HTML em <code>file://</code> (script <code>.js</code>) ou via servidor HTTP.
+  </p>
+  <div id="err" class="err" style="display:none;"></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="p1" class="panel active" role="tabpanel"></div>
+  <div id="p2" class="panel" role="tabpanel"></div>
+  <div id="p3" class="panel" role="tabpanel"></div>
+  <p class="meta" id="meta"></p>
+  <script src="data/client/sku_top_important.js"></script>
+  <script>
+    const TABS = [
+      { id: "p1", key: "top_100_by_volume", label: "Por volume (bundle) · ordem Score" },
+      { id: "p2", key: "top_100_by_contribution_margin", label: "Por lucro (plano CD) · ordem Score" },
+      { id: "p3", key: "top_100_composite", label: "Composto (vol + lucro + rupt.) · ordem Score" },
+    ];
+    function fmt(n, d) {
+      if (n == null || !Number.isFinite(Number(n))) return "—";
+      return Number(n).toLocaleString("pt-BR", { maximumFractionDigits: d != null ? d : 2 });
+    }
+    function table(rows) {
+      const cols = [
+        { h: "#", k: "_i", r: true },
+        { h: "Código", k: "code" },
+        { h: "Produto", k: "name" },
+        { h: "Vol. bundle", k: "total_sales_bundle", r: true },
+        { h: "Qtd CD plano", k: "quantidade_vendida", r: true },
+        { h: "Valor bruto", k: "valor_bruto_vendas", r: true },
+        { h: "Lucro bruto (R$)", k: "lucro_bruto", r: true },
+        { h: "Margem %", k: "margem_contrib_pct", r: true },
+        { h: "Rupt. peso vendas %", k: "ruptura_ponderada_vendas_pct", r: true },
+        { h: "Score", k: "composite_score", r: true },
+      ];
+      let h = "<table><thead><tr>";
+      cols.forEach(function (c) { h += "<th" + (c.r ? ' class="num"' : "") + ">" + c.h + "</th>"; });
+      h += "</tr></thead><tbody>";
+      rows.forEach(function (row, i) {
+        const id = row.id != null ? String(row.id) : "";
+        const href = id ? "ceo_product_detail_layout.html?sku=" + encodeURIComponent(id) : "#";
+        h += "<tr>";
+        cols.forEach(function (c) {
+          let v;
+          if (c.k === "_i") v = String(i + 1);
+          else if (c.k === "name") {
+            v = "<a class=\"row-link\" href=\"" + href + "\">" + (String(row.name || "—").replace(/</g, "&lt;")) + "</a>";
+          } else if (c.k === "code") v = "<span class=\"code\">" + (String(row.code || "—").replace(/</g, "&lt;")) + "</span>";
+          else if (c.k === "margem_contrib_pct") v = row[c.k] == null ? "—" : fmt(row[c.k], 1) + "%";
+          else if (c.k === "ruptura_ponderada_vendas_pct") v = row[c.k] == null ? "—" : fmt(row[c.k], 1) + "%";
+          else if (c.k === "composite_score") v = row[c.k] == null ? "—" : fmt(row[c.k], 4);
+          else if (c.r)
+            v = fmt(
+              row[c.k],
+              c.k === "total_sales_bundle" || c.k === "quantidade_vendida" ? 0 : 2
+            );
+          else v = String(row[c.k] != null ? row[c.k] : "—");
+          h += "<td" + (c.r ? ' class="num"' : "") + ">" + v + "</td>";
+        });
+        h += "</tr>";
+      });
+      h += "</tbody></table>";
+      return h;
+    }
+    function renderPayload(j) {
+      document.getElementById("meta").textContent =
+        (j.meta && j.meta.generated_at ? "Gerado em: " + j.meta.generated_at + ". " : "") +
+        (j.meta && j.meta.note ? j.meta.note : "");
+      TABS.forEach(function (t) {
+        const rows = j[t.key] || [];
+        document.getElementById(t.id).innerHTML = table(rows);
+      });
+      const tabEl = document.getElementById("tabs");
+      tabEl.innerHTML = "";
+      TABS.forEach(function (t, i) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        b.textContent = t.label;
+        b.addEventListener("click", function () {
+          TABS.forEach(function (x, j) {
+            document.getElementById(x.id).classList.toggle("active", j === i);
+            tabEl.querySelectorAll("button")[j].setAttribute("aria-selected", j === i ? "true" : "false");
+          });
+        });
+        tabEl.appendChild(b);
+      });
+    }
+    function fail(msg) {
+      var el = document.getElementById("err");
+      el.style.display = "block";
+      el.textContent = msg;
+    }
+    var fromScript = typeof window.SKU_TOP_IMPORTANT !== "undefined" && window.SKU_TOP_IMPORTANT && window.SKU_TOP_IMPORTANT.top_100_by_volume;
+    if (fromScript) {
+      renderPayload(window.SKU_TOP_IMPORTANT);
+    } else {
+      fetch("data/client/sku_top_important.json")
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(renderPayload)
+        .catch(function () {
+          fail(
+            "Não foi possível carregar os dados. Rode na raiz do projeto: npm run build:top-important " +
+              "(gera sku_top_important.js e .json). Se abrir em file://, confira se data/client/sku_top_important.js existe ao lado do HTML."
+          );
+        });
+    }
+  </script>
+</body>
+</html>

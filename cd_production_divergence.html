@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divergência Produção · Legado x CO-CEO</title>
+  <script src="data/client/cd_production_divergence.js"></script>
+  <style>
+    :root {
+      --bg: #041225;
+      --panel: rgba(9, 28, 56, 0.92);
+      --border: rgba(218, 177, 119, 0.45);
+      --text: #e8eef7;
+      --muted: #9db0c7;
+      --gold: #dab177;
+      --blue: #3b82f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0a2f5e 0%, var(--bg) 100%);
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+    .top {
+      padding: 14px 16px 8px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 16, 34, 0.76);
+    }
+    h1 {
+      margin: 0;
+      color: var(--gold);
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .sub {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .cards {
+      padding: 10px 16px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid rgba(218, 177, 119, 0.25);
+      background: rgba(4, 16, 34, 0.55);
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      padding: 8px 10px;
+    }
+    .card .k {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(218, 177, 119, 0.85);
+    }
+    .card .v {
+      margin-top: 6px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .wrap {
+      padding: 10px;
+      min-height: 0;
+    }
+    .table-wrap {
+      height: calc(100vh - 180px);
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1060px;
+      font-size: 12px;
+    }
+    th, td {
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      text-align: center;
+      vertical-align: top;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: rgba(12, 36, 70, 0.98);
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 11px;
+    }
+    td.left { text-align: left; }
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-weight: 700;
+      font-size: 11px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e2e8f0;
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .st-ruptura {
+      border-color: rgba(96, 165, 250, 0.48);
+      color: #0a0a0a;
+      background: linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 100%);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06) inset;
+    }
+    .st-critico {
+      border-color: rgba(239, 68, 68, 0.45);
+      color: #f87171;
+      background: rgba(127, 29, 29, 0.22);
+    }
+    .st-abaixo {
+      border-color: rgba(251, 191, 36, 0.45);
+      color: #fbbf24;
+      background: rgba(120, 53, 15, 0.2);
+    }
+    .st-acima {
+      border-color: rgba(34, 197, 94, 0.4);
+      color: #34d399;
+      background: rgba(6, 78, 59, 0.2);
+    }
+    .st-muito-acima {
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #7dd3fc;
+      background: rgba(12, 74, 110, 0.22);
+    }
+    .st-enc1 {
+      border-color: rgba(167, 139, 250, 0.45);
+      color: #c4b5fd;
+      background: rgba(76, 29, 149, 0.2);
+    }
+    .st-enc2 {
+      border-color: rgba(124, 58, 237, 0.48);
+      color: #a78bfa;
+      background: rgba(46, 16, 101, 0.24);
+    }
+    .st-enc3 {
+      border-color: rgba(109, 40, 217, 0.5);
+      color: #ddd6fe;
+      background: rgba(31, 6, 67, 0.28);
+    }
+    a.link {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <h1>Sugestão de Produção · Legado x CO-CEO</h1>
+    <div class="sub" id="sub">Carregando plano...</div>
+  </header>
+  <section class="cards">
+    <div class="card"><div class="k">SKUs comparados</div><div class="v" id="kSkus">0</div></div>
+    <div class="card"><div class="k">Produção legado (un)</div><div class="v" id="kLegacy">0</div></div>
+    <div class="card"><div class="k">Sugestão CO-CEO (un)</div><div class="v" id="kCoCeo">0</div></div>
+    <div class="card"><div class="k">Divergência total (abs)</div><div class="v" id="kDiff">0</div></div>
+  </section>
+  <main class="wrap">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ERP</th>
+            <th>Produto</th>
+            <th>Status</th>
+            <th>Produção legado</th>
+            <th>Sugestão CO-CEO</th>
+            <th>Divergência abs</th>
+            <th>Diferença sinal</th>
+            <th>Curva</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const fmtInt = (n) => Number(n || 0).toLocaleString("pt-BR");
+
+      function detailHref(r) {
+        const sku = Number(r.sku_internal_id);
+        const q = new URLSearchParams();
+        q.set("coceo_total", String(Number(r.coceo_suggested_qty || 0)));
+        q.set("coceo_base", String(Number(r.coceo_cd_base_qty || 0)));
+        q.set("coceo_store", String(Number(r.coceo_store_pull_qty || 0)));
+        q.set("legacy_suggested", String(Number(r.legacy_suggested_qty || 0)));
+        if (Number.isFinite(sku) && sku > 0) {
+          q.set("sku", String(sku));
+          q.set("hub", "1");
+          return "ceo_product_detail_layout.html?" + q.toString();
+        }
+        const code = String(r.erp_code || "").trim();
+        if (code) {
+          q.set("code", code);
+          q.set("hub", "1");
+          return "ceo_product_detail_layout.html?" + q.toString();
+        }
+        return "";
+      }
+
+      function statusClass(status) {
+        const s = String(status || "");
+        if (s === "RUPTURA") return "st-ruptura";
+        if (s === "CRÍTICO") return "st-critico";
+        if (s === "ABAIXO") return "st-abaixo";
+        if (s === "ACIMA") return "st-acima";
+        if (s === "MUITO ACIMA") return "st-muito-acima";
+        if (s === "ENCALHADO 1" || /^ENCALHADO\s*1\b/i.test(s)) return "st-enc1";
+        if (s === "ENCALHADO 2" || /^ENCALHADO\s*2\b/i.test(s)) return "st-enc2";
+        if (s.indexOf("ENCALHADO") === 0) return "st-enc3";
+        return "";
+      }
+
+      function render(rows) {
+        document.getElementById("kSkus").textContent = fmtInt(rows.length);
+        document.getElementById("kLegacy").textContent = fmtInt(rows.reduce((a, r) => a + Number(r.legacy_suggested_qty || 0), 0));
+        document.getElementById("kCoCeo").textContent = fmtInt(rows.reduce((a, r) => a + Number(r.coceo_suggested_qty || 0), 0));
+        document.getElementById("kDiff").textContent = fmtInt(rows.reduce((a, r) => a + r.diff_abs, 0));
+
+        const tb = document.getElementById("tbody");
+        tb.innerHTML = rows.map((r) => {
+          const href = detailHref(r);
+          const signedText = (r.diff_signed >= 0 ? "+" : "") + fmtInt(r.diff_signed);
+          const link = href
+            ? '<a class="link" target="_blank" rel="noopener noreferrer" href="' + href + '">abrir gráfico</a>'
+            : "-";
+          return "<tr>" +
+            "<td>" + (r.erp_code || "-") + "</td>" +
+            '<td class="left">' + (r.product_name || "-") + "</td>" +
+            '<td><span class="badge ' + statusClass(r.status_urgencia) + '">' + (r.status_urgencia || "ACIMA") + "</span></td>" +
+            "<td>" + fmtInt(r.legacy_suggested_qty) + "</td>" +
+            "<td>" + fmtInt(r.coceo_suggested_qty) + " <span style=\"color:#9db0c7\">(" + fmtInt(r.coceo_cd_base_qty) + "+" + fmtInt(r.coceo_store_pull_qty) + ")</span></td>" +
+            "<td><strong>" + fmtInt(r.diff_abs) + "</strong></td>" +
+            "<td>" + signedText + "</td>" +
+            "<td>" + link + "</td>" +
+          "</tr>";
+        }).join("");
+      }
+
+      function loadData() {
+        if (window.CD_PRODUCTION_DIVERGENCE_DATA && typeof window.CD_PRODUCTION_DIVERGENCE_DATA === "object") {
+          const raw = window.CD_PRODUCTION_DIVERGENCE_DATA;
+          const rows = raw.rows || [];
+          const gen = raw.generated_at ? new Date(raw.generated_at).toLocaleString("pt-BR") : "--";
+          const batch = raw.source && raw.source.legacy_batch_id ? raw.source.legacy_batch_id : "--";
+          const batchDate = raw.source && raw.source.legacy_batch_date_iso ? raw.source.legacy_batch_date_iso : "--";
+          document.getElementById("sub").textContent =
+            "Lote legado: " + batch + " (" + batchDate + ") · comparação com sugestão atual CO-CEO · gerado em " + gen;
+          render(rows);
+          return Promise.resolve();
+        }
+        return fetch("data/client/cd_production_divergence.json", { cache: "no-store" })
+          .then((r) => {
+            if (!r.ok) throw new Error("data/client/cd_production_divergence.json não encontrado.");
+            return r.json();
+          })
+          .then((raw) => {
+            const rows = raw.rows || [];
+            const gen = raw.generated_at ? new Date(raw.generated_at).toLocaleString("pt-BR") : "--";
+            const batch = raw.source && raw.source.legacy_batch_id ? raw.source.legacy_batch_id : "--";
+            const batchDate = raw.source && raw.source.legacy_batch_date_iso ? raw.source.legacy_batch_date_iso : "--";
+            document.getElementById("sub").textContent =
+              "Lote legado: " + batch + " (" + batchDate + ") · comparação com sugestão atual CO-CEO · gerado em " + gen;
+            render(rows);
+          });
+      }
+
+      loadData().catch((e) => {
+        document.getElementById("sub").textContent = "Falha: " + String(e.message || e);
+      });
+    })();
+  </script>
+</body>
+</html>
+

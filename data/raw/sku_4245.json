@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 4245,
+    "code": "13412",
+    "name": "FAST WAVE TRANSL. RUSTICO PRATA 3.50X até2.90\t",
+    "timestamp": "2026-04-30T11:39:29.203Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 6,
+        "data_evento": "2026-03-18T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2026-03-18T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 6,
+        "data_evento": "2026-03-18T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-04-14T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

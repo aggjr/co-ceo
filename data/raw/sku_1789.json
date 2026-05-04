@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1789,
+    "code": "K554",
+    "name": "PERSIANA 1.50x1.70 TEC BLACK-OUT 554",
+    "timestamp": "2026-04-30T11:32:44.431Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

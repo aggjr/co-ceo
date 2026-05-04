@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4198,
+    "code": "13337",
+    "name": "FAST FORRO OXFORD CRU 3.00X até2.68",
+    "timestamp": "2026-04-30T11:39:22.023Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-12-15T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

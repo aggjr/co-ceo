@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2156,
+    "code": "11399",
+    "name": "TAPETE 1,00X1,40 MARKA EDUARDA",
+    "timestamp": "2026-04-30T11:33:46.797Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

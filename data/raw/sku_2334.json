@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 2334,
+    "code": "11457",
+    "name": "COZINHA 2,60X1,30 BARRADO LEGUMES BEGE",
+    "timestamp": "2026-04-30T11:34:16.692Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-20T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

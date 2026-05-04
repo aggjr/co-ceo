@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2149,
+    "code": "11392",
+    "name": "PASSADEIRA 0,45X1,20 MARKA EDUARDA",
+    "timestamp": "2026-04-30T11:33:45.667Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

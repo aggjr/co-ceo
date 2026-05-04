@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>APOLLO v9.5 | Performance de Ruptura</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="barreiro_apollo_v9_data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #111827;
+            --bg-card: #1f2937;
+            --posicao: #06b6d4;
+            --critico: #ef4444;
+            --abaixo: #fbbf24;
+            --acima: #10b981;
+            --muito-acima: #3b82f6;
+            --encalhado: #8b5cf6;
+            --text-main: #f3f4f6;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .header h2 {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 300;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 350px;
+            background: rgba(31, 41, 55, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            margin-bottom: 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 Cards agora */
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #374151;
+            text-align: center;
+        }
+
+        .info-card.status-highlight {
+            border: 1px solid var(--muito-acima);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+        }
+
+        .card-value {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-label {
+            font-size: 10px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .legend-strip {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>ERP 3097 - CORTINA LUX DARK | Calibração: Sazonalidade Harmonic</h2>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="apolloChart"></canvas>
+    </div>
+
+    <div class="legend-strip">
+        <div class="legend-item">
+            <div class="dot" style="background: var(--posicao);"></div> POSIÇÃO ESTOQUE
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: var(--critico);"></div> CRÍTICO (50%)
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: var(--abaixo);"></div> ABAIXO (100%)
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: var(--acima);"></div> ACIMA (150%)
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: var(--muito-acima);"></div> MUITO ACIMA (200%)
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: var(--encalhado);"></div> ENCALHADO (400%)
+        </div>
+    </div>
+
+    <div class="footer-grid">
+        <div class="info-card">
+            <div class="card-value" id="val-saldo">--</div>
+            <div class="card-label">SALDO RECONSTRUÍDO (V7)</div>
+        </div>
+        <div class="info-card status-highlight" id="status-card">
+            <div class="card-value" id="val-status" style="color: var(--muito-acima);">--</div>
+            <div class="card-label" id="val-status-sub">STATUS ATUAL</div>
+        </div>
+        <div class="info-card">
+            <div class="card-value" id="val-ruptura" style="color: var(--critico);">--</div>
+            <div class="card-label">INDICE DE RUPTURA (<3 UN)</div>
+            </div>
+            <div class="info-card">
+                <div class="card-value" id="val-pico">--</div>
+                <div class="card-label">PICO DE DEMANDA PLANEJADO</div>
+            </div>
+        </div>
+
+        <script>
+            function init() {
+                const data = APOLLO_DATA;
+
+                const statusColors = {
+                    "CRÍTICO": "var(--critico)",
+                    "ABAIXO": "var(--abaixo)",
+                    "NA MIRA": "var(--acima)", // Mira/Ideal é o Verde
+                    "ACIMA": "var(--muito-acima)",
+                    "MUITO ACIMA": "var(--encalhado)"
+                };
+
+                const currentStatus = data.metrics.currentStatus;
+                const color = statusColors[currentStatus] || "#fff";
+
+                document.getElementById('val-saldo').innerText = data.metrics.currentStock;
+                document.getElementById('val-status').innerText = currentStatus;
+                document.getElementById('val-status').style.color = color;
+                document.getElementById('status-card').style.borderColor = color;
+                document.getElementById('val-status-sub').innerText = `STATUS ATUAL (${data.metrics.currentStock} UNIDADES)`;
+                document.getElementById('val-pico').innerText = data.metrics.peakMonth;
+                document.getElementById('val-ruptura').innerText = data.metrics.ruptureRate.toFixed(1) + '%';
+
+                renderChart(data.timeline);
+            }
+
+            function renderChart(timeline) {
+                const ctx = document.getElementById('apolloChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: timeline.map(t => t.date),
+                        datasets: [
+                            { label: 'POSIÇÃO ESTOQUE', data: timeline.map(t => t.stock), borderColor: '#06b6d4', borderWidth: 2, pointRadius: 0, stepped: true, z: 10 },
+                            { label: 'CRÍTICO', data: timeline.map(t => t.p50), borderColor: '#ef4444', borderWidth: 1, pointRadius: 0, tension: 0.4 },
+                            { label: 'ABAIXO', data: timeline.map(t => t.p100), borderColor: '#fbbf24', borderWidth: 1, pointRadius: 0, tension: 0.4 },
+                            { label: 'ACIMA', data: timeline.map(t => t.p150), borderColor: '#10b981', borderWidth: 1, pointRadius: 0, tension: 0.4 },
+                            { label: 'MUITO ACIMA', data: timeline.map(t => t.p200), borderColor: '#3b82f6', borderWidth: 1, pointRadius: 0, tension: 0.4 },
+                            { label: 'ENCALHADO', data: timeline.map(t => t.p400), borderColor: '#8b5cf6', borderWidth: 1, pointRadius: 0, tension: 0.4 }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280', autoSkip: true, maxTicksLimit: 10 } },
+                            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7280' }, min: 0 }
+                        },
+                        plugins: { legend: { display: false } }
+                    },
+                    plugins: [{
+                        beforeDraw: (chart) => {
+                            const { ctx, chartArea, scales: { y } } = chart;
+                            ctx.save();
+                            ctx.fillStyle = 'rgba(239, 68, 68, 0.05)';
+                            const top = y.getPixelForValue(3); // Linha de Ruptura em 3
+                            const bottom = y.getPixelForValue(0);
+                            ctx.fillRect(chartArea.left, top, chartArea.width, bottom - top);
+                            ctx.restore();
+                        }
+                    }]
+                });
+            }
+            init();
+        </script>
+</body>
+
+</html>

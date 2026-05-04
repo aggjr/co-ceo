@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Co-CEO · Curvas Mira (modelo novo)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="data/products_list.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e14;
+      --panel: #121922;
+      --text: #e8eef7;
+      --muted: #8b9cb3;
+      --gold: #dab177;
+      --border: rgba(255,255,255,0.12);
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 16px 20px;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    .nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav a:hover { text-decoration: underline; }
+    h1 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+    .sub { font-size: 12px; color: var(--muted); max-width: 960px; line-height: 1.45; margin-bottom: 12px; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-end;
+      padding: 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    label { font-size: 11px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+    input, select, button {
+      background: #0d1219;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 600;
+      background: #1e3a5f;
+    }
+    button:hover { background: #2563eb; }
+    button.secondary { background: #334155; }
+    .search-wrap { min-width: 220px; flex: 1 1 280px; max-width: 520px; }
+    .panel {
+      flex: 1;
+      min-height: 380px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      position: relative;
+    }
+    #err { color: #f87171; font-size: 13px; margin-top: 8px; }
+    .meta {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: pre-wrap;
+      font-family: ui-monospace, monospace;
+    }
+    canvas { max-height: 68vh; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="client_network_explorer.html">Matriz loja × produto</a>
+    <a href="ceo_product_detail_layout.html" id="linkApollo">Detalhe CEO (rede + motor)</a>
+    <a href="apollo_command_center.html">Command Center</a>
+    <a href="mira_center_2y.html">Mira (página legada)</a>
+  </nav>
+  <h1>Curvas · modelo Mira Co-CEO</h1>
+  <p class="sub">
+    Mesma lógica do <strong>mira_center_2y</strong>: mira P100 = média robusta das vendas (sem ruptura &lt; 0, P95, fallback) × LT;
+    zonas <strong>k × mira</strong> (0,1 … 6) + <strong>P200</strong>; estoque em traço contínuo. Dados: <code>data/js/sku_*.js</code>.
+    Use <strong>http://</strong> (ex. <code>npx serve .</code>) se o catálogo não carregar em <code>file://</code>.
+  </p>
+
+  <div class="toolbar">
+    <label class="search-wrap">Produto (código ou nome)
+      <input type="search" id="q" list="dlProducts" placeholder="ex: 8307 ou RODIZIO" autocomplete="off" />
+      <datalist id="dlProducts"></datalist>
+    </label>
+    <label>Loja
+      <select id="storeSel"></select>
+    </label>
+    <label>Janela W (dias)
+      <input type="number" id="inpW" value="56" min="7" max="200" step="1" />
+    </label>
+    <label>Lead time LT (dias)
+      <input type="number" id="inpLt" value="14" min="1" max="90" step="1" />
+    </label>
+    <label>Anos no gráfico
+      <input type="number" id="inpYears" value="2" min="1" max="4" step="1" />
+    </label>
+    <button type="button" id="btnGo">Atualizar gráfico</button>
+    <button type="button" id="btnPrev" class="secondary" title="SKU anterior no ranking de vendas">◀ Ranking</button>
+    <button type="button" id="btnNext" class="secondary" title="Próximo SKU no ranking de vendas">Ranking ▶</button>
+  </div>
+
+  <div class="panel"><canvas id="modelChart"></canvas></div>
+  <div id="err"></div>
+  <pre class="meta" id="meta"></pre>
+
+  <script>
+    (function () {
+      const ERP_TO_SKU = { "12159": "3104", "755": "621" };
+      const params = new URLSearchParams(location.search);
+      let skuId =
+        params.get("sku") ||
+        (params.get("code") ? ERP_TO_SKU[String(params.get("code")).trim()] : null) ||
+        "3104";
+      let store = params.get("store") || "Barreiro";
+      let rankOrder = [];
+
+      function weekday(iso) {
+        return new Date(iso + "T12:00:00").getDay();
+      }
+      function clampToLastNonSunday(iso) {
+        let d = new Date(iso + "T12:00:00");
+        while (d.getDay() === 0) d.setDate(d.getDate() - 1);
+        return d.toISOString().slice(0, 10);
+      }
+      function filterTimelineChartWindow(timeline, opts) {
+        if (!timeline || !timeline.length) return [];
+        const years = opts.years != null ? opts.years : 2;
+        const excludeSun = opts.excludeSundays !== false;
+        const lastRaw = opts.anchorDate || timeline[timeline.length - 1].date;
+        const anchor = clampToLastNonSunday(lastRaw);
+        const anchorD = new Date(anchor + "T12:00:00");
+        const startD = new Date(anchorD);
+        startD.setFullYear(startD.getFullYear() - years);
+        return timeline.filter(function (row) {
+          const d = new Date(row.date + "T12:00:00");
+          if (d < startD || d > anchorD) return false;
+          if (excludeSun && weekday(row.date) === 0) return false;
+          return true;
+        });
+      }
+      function quantileSorted(sorted, p) {
+        if (!sorted.length) return 0;
+        const idx = Math.min(sorted.length - 1, Math.max(0, Math.floor(p * (sorted.length - 1))));
+        return sorted[idx];
+      }
+      function computeMira100(timeline, windowDays, leadTimeDays) {
+        const W = windowDays;
+        const LT = leadTimeDays;
+        const MIN_DAYS = 5;
+        const n = timeline.length;
+        const out = new Array(n);
+        let fallbackWindows = 0;
+        for (let i = 0; i < n; i++) {
+          const i0 = Math.max(0, i - W + 1);
+          const slice = timeline.slice(i0, i + 1);
+          const salesNoRupture = [];
+          for (const day of slice) {
+            const avail = Number(day.availableStock);
+            if (Number.isNaN(avail)) continue;
+            if (avail < 0) continue;
+            const s = Number(day.sales);
+            if (!Number.isNaN(s) && s >= 0) salesNoRupture.push(s);
+          }
+          let salesUse = salesNoRupture;
+          if (salesNoRupture.length < MIN_DAYS) {
+            const allSales = [];
+            for (const day of slice) {
+              const s = Number(day.sales);
+              if (!Number.isNaN(s) && s >= 0) allSales.push(s);
+            }
+            if (allSales.length > 0) {
+              salesUse = allSales;
+              fallbackWindows++;
+            }
+          }
+          if (salesUse.length === 0) {
+            out[i] = null;
+            continue;
+          }
+          const sorted = salesUse.slice().sort(function (a, b) {
+            return a - b;
+          });
+          const hi = quantileSorted(sorted, 0.95);
+          let sum = 0;
+          let cnt = 0;
+          for (const s of salesUse) {
+            sum += Math.min(s, hi);
+            cnt++;
+          }
+          const mu = cnt ? sum / cnt : 0;
+          out[i] = mu * LT;
+        }
+        return { series: out, fallbackWindows: fallbackWindows };
+      }
+      function formatBR(iso) {
+        const p = iso.split("-");
+        return p[2] + "/" + p[1] + "/" + p[0];
+      }
+
+      function destroyChart() {
+        const c = Chart.getChart("modelChart");
+        if (c) c.destroy();
+      }
+
+      function getTimeline(bundle, storeName) {
+        const root = bundle.results || bundle;
+        const block = root[storeName];
+        if (!block || !block.timeline) {
+          throw new Error('Loja "' + storeName + '" ou timeline ausente.');
+        }
+        return block.timeline;
+      }
+
+      function loadSkuScript(id) {
+        return new Promise(function (resolve, reject) {
+          const old = document.getElementById("sku-data-loader");
+          if (old) old.remove();
+          try {
+            delete window.APOLLO_NETWORK_DATA;
+          } catch (e) {}
+          const s = document.createElement("script");
+          s.id = "sku-data-loader";
+          s.src = "data/js/sku_" + id + ".js";
+          s.onload = function () {
+            if (!window.APOLLO_NETWORK_DATA) {
+              reject(new Error("APOLLO_NETWORK_DATA não definido após carregar " + s.src));
+              return;
+            }
+            resolve(window.APOLLO_NETWORK_DATA);
+          };
+          s.onerror = function () {
+            reject(new Error("Não foi possível carregar " + s.src));
+          };
+          document.head.appendChild(s);
+        });
+      }
+
+      function loadBundle(id) {
+        if (location.protocol === "file:") {
+          return loadSkuScript(id);
+        }
+        return fetch("data/processed/sku_" + id + ".json")
+          .then(function (r) {
+            if (r.ok) return r.json();
+            return loadSkuScript(id);
+          })
+          .catch(function () {
+            return loadSkuScript(id);
+          });
+      }
+
+      function fillStores(bundle) {
+        const sel = document.getElementById("storeSel");
+        const root = bundle.results || bundle;
+        const names = Object.keys(root).filter(function (k) {
+          return root[k] && root[k].timeline;
+        });
+        names.sort(function (a, b) {
+          return a.localeCompare(b, "pt-BR");
+        });
+        sel.innerHTML = names.map(function (n) {
+          return '<option value="' + n.replace(/"/g, "&quot;") + '">' + n + "</option>";
+        }).join("");
+        if (names.indexOf(store) >= 0) sel.value = store;
+        else if (names.length) {
+          store = names[0];
+          sel.value = store;
+        }
+      }
+
+      function renderChart(bundle) {
+        destroyChart();
+        const errEl = document.getElementById("err");
+        const metaEl = document.getElementById("meta");
+        errEl.textContent = "";
+        store = document.getElementById("storeSel").value;
+        const WINDOW = Number(document.getElementById("inpW").value) || 56;
+        const LT = Number(document.getElementById("inpLt").value) || 14;
+        const years = Number(document.getElementById("inpYears").value) || 2;
+
+        const raw = getTimeline(bundle, store);
+        const tl = filterTimelineChartWindow(raw, { years: years, excludeSundays: true });
+        if (tl.length < WINDOW + 5) {
+          errEl.textContent = "Aviso: poucos pontos após filtro temporal / sem domingos.";
+        }
+
+        const info = bundle.info || {};
+        const miraOut = computeMira100(tl, WINDOW, LT);
+        const mira = miraOut.series;
+        function scaleMira(arr, k) {
+          return arr.map(function (v) {
+            return v == null ? null : v * k;
+          });
+        }
+        const p10 = scaleMira(mira, 0.1);
+        const p50z = scaleMira(mira, 0.5);
+        const p80z = scaleMira(mira, 0.8);
+        const p150z = scaleMira(mira, 1.5);
+        const p200z = scaleMira(mira, 2.0);
+        const p300z = scaleMira(mira, 3.0);
+        const p600z = scaleMira(mira, 6.0);
+        const disp = tl.map(function (d) {
+          return Number(d.availableStock);
+        });
+        const fis = tl.map(function (d) {
+          return Number(d.physicalStock);
+        });
+        const leg = fis.slice();
+        const labels = tl.map(function (d) {
+          return formatBR(d.date);
+        });
+        const ruptSkip = raw.filter(function (d) {
+          return Number(d.availableStock) < 0;
+        }).length;
+
+        metaEl.textContent =
+          "SKU interno: " +
+          (info.id != null ? info.id : skuId) +
+          " | ERP: " +
+          (info.code || "—") +
+          " | " +
+          (info.name || "") +
+          "\nLoja: " +
+          store +
+          " | pontos: " +
+          tl.length +
+          " | W=" +
+          WINDOW +
+          "d LT=" +
+          LT +
+          "d | anos=" +
+          years +
+          "\nDias com availableStock<0 (bruto): " +
+          ruptSkip +
+          " | fallbacks mira: " +
+          miraOut.fallbackWindows;
+
+        document.getElementById("linkApollo").href =
+          "ceo_product_detail_layout.html?sku=" + encodeURIComponent(String(info.id != null ? info.id : skuId));
+
+        const zoneOpts = { tension: 0, pointRadius: 0, spanGaps: true };
+        const stockOpts = { tension: 0, pointRadius: 0, spanGaps: true, stepped: true };
+
+        const ctx = document.getElementById("modelChart").getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              { label: "P10", data: p10, borderColor: "#111111", borderWidth: 1, ...zoneOpts },
+              { label: "P50", data: p50z, borderColor: "#ef4444", borderWidth: 1, ...zoneOpts },
+              { label: "P80", data: p80z, borderColor: "#fbbf24", borderWidth: 1, ...zoneOpts },
+              { label: "P100 mira", data: mira, borderColor: "#22c55e", borderWidth: 2.2, ...zoneOpts },
+              { label: "P150", data: p150z, borderColor: "#3b82f6", borderWidth: 1, ...zoneOpts },
+              { label: "P200", data: p200z, borderColor: "#06b6d4", borderWidth: 1, ...zoneOpts },
+              { label: "P300", data: p300z, borderColor: "#8b5cf6", borderWidth: 1, ...zoneOpts },
+              { label: "P600", data: p600z, borderColor: "#4c1d95", borderWidth: 1, ...zoneOpts },
+              {
+                label: "Legado (= físico)",
+                data: leg,
+                borderColor: "rgba(218, 177, 119, 0.65)",
+                borderDash: [5, 4],
+                borderWidth: 1.2,
+                ...stockOpts,
+              },
+              {
+                label: "Físico",
+                data: fis,
+                borderColor: "#94a3b8",
+                borderDash: [4, 3],
+                borderWidth: 2,
+                ...stockOpts,
+              },
+              {
+                label: "Disponível",
+                data: disp,
+                borderColor: "#3b82f6",
+                borderWidth: 3.5,
+                ...stockOpts,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: "nearest", intersect: false, axis: "x" },
+            plugins: {
+              legend: {
+                labels: { color: "#cbd5e1", font: { size: 9 }, boxWidth: 8, padding: 6 },
+              },
+              tooltip: {
+                mode: "nearest",
+                intersect: false,
+                callbacks: {
+                  label: function (ctx) {
+                    const v = ctx.parsed.y;
+                    if (v == null) return "—";
+                    const lab = ctx.dataset.label || "";
+                    const intSeries =
+                      lab.indexOf("Disponível") === 0 ||
+                      lab.indexOf("Físico") === 0 ||
+                      lab.indexOf("Legado") === 0;
+                    const s = intSeries
+                      ? String(Math.round(v))
+                      : v.toLocaleString("pt-BR", { maximumFractionDigits: 3 });
+                    return lab + ": " + s + " u";
+                  },
+                },
+              },
+              title: {
+                display: true,
+                text:
+                  (info.code ? info.code + " · " : "") +
+                  (info.name ? String(info.name).slice(0, 40) + " · " : "") +
+                  store +
+                  " · modelo Mira",
+                color: "#94a3b8",
+                font: { size: 12 },
+              },
+            },
+            scales: {
+              x: {
+                ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 14, color: "#94a3b8" },
+                grid: { color: "rgba(218,177,119,0.06)", lineWidth: 0.55 },
+              },
+              y: {
+                title: { display: true, text: "Unidades", color: "#64748b", font: { size: 11 } },
+                ticks: { color: "#94a3b8" },
+                grid: { color: "rgba(218,177,119,0.06)", lineWidth: 0.55 },
+              },
+            },
+          },
+        });
+
+        history.replaceState(
+          null,
+          "",
+          "?sku=" +
+            encodeURIComponent(String(info.id != null ? info.id : skuId)) +
+            "&store=" +
+            encodeURIComponent(store) +
+            "&w=" +
+            WINDOW +
+            "&lt=" +
+            LT +
+            "&years=" +
+            years
+        );
+      }
+
+      function buildDatalist() {
+        const dl = document.getElementById("dlProducts");
+        dl.innerHTML = "";
+        const list = typeof PRODUCT_CATALOG !== "undefined" && Array.isArray(PRODUCT_CATALOG) ? PRODUCT_CATALOG : [];
+        list.forEach(function (p) {
+          const o = document.createElement("option");
+          o.value = (p.code || "") + " — " + (p.name || "").slice(0, 80);
+          o.label = String(p.id);
+          dl.appendChild(o);
+        });
+      }
+
+      function resolveSkuFromSearch(q) {
+        const t = String(q || "").trim().toLowerCase();
+        if (!t) return null;
+        const list = typeof PRODUCT_CATALOG !== "undefined" && Array.isArray(PRODUCT_CATALOG) ? PRODUCT_CATALOG : [];
+        const byCode = list.find(function (p) {
+          return String(p.code || "").toLowerCase() === t;
+        });
+        if (byCode) return String(byCode.id);
+        const byId = list.find(function (p) {
+          return String(p.id) === t;
+        });
+        if (byId) return String(byId.id);
+        const partial = list.find(function (p) {
+          return (p.name && p.name.toLowerCase().indexOf(t) >= 0) || String(p.code || "").toLowerCase().indexOf(t) >= 0;
+        });
+        return partial ? String(partial.id) : null;
+      }
+
+      function loadRank() {
+        return fetch("data/client/sku_sales_rank.json")
+          .then(function (r) {
+            if (!r.ok) return;
+            return r.json();
+          })
+          .then(function (j) {
+            if (j && j.rows) rankOrder = j.rows.map(function (x) {
+              return String(x.id);
+            });
+          })
+          .catch(function () {
+            rankOrder = [];
+          });
+      }
+
+      function rankNavigate(dir) {
+        if (!rankOrder.length) return;
+        const cur = String(skuId);
+        let idx = rankOrder.indexOf(cur);
+        if (idx < 0) idx = 0;
+        else idx = Math.min(rankOrder.length - 1, Math.max(0, idx + dir));
+        skuId = rankOrder[idx];
+        go();
+      }
+
+      function go() {
+        const errEl = document.getElementById("err");
+        const manual = resolveSkuFromSearch(document.getElementById("q").value);
+        if (manual) skuId = manual;
+        loadBundle(skuId)
+          .then(function (bundle) {
+            if (bundle.info && bundle.info.id != null) skuId = String(bundle.info.id);
+            fillStores(bundle);
+            const info = bundle.info || {};
+            document.getElementById("q").placeholder =
+              (info.code || skuId) + " — " + (info.name || "").slice(0, 60);
+            renderChart(bundle);
+          })
+          .catch(function (e) {
+            errEl.textContent = String(e.message || e);
+          });
+      }
+
+      document.getElementById("btnGo").addEventListener("click", go);
+      document.getElementById("storeSel").addEventListener("change", function () {
+        if (!window.APOLLO_NETWORK_DATA) return;
+        renderChart(window.APOLLO_NETWORK_DATA);
+      });
+      document.getElementById("btnPrev").addEventListener("click", function () {
+        rankNavigate(-1);
+      });
+      document.getElementById("btnNext").addEventListener("click", function () {
+        rankNavigate(1);
+      });
+
+      buildDatalist();
+      loadRank().finally(function () {
+        const wq = params.get("w");
+        const ltq = params.get("lt");
+        const yq = params.get("years");
+        if (wq) document.getElementById("inpW").value = wq;
+        if (ltq) document.getElementById("inpLt").value = ltq;
+        if (yq) document.getElementById("inpYears").value = yq;
+        go();
+      });
+    })();
+  </script>
+</body>
+</html>

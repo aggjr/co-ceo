@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1696,
+    "code": "11073",
+    "name": "FRONHA PLUSH HIP NEUTRO",
+    "timestamp": "2026-04-30T11:32:28.952Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-04-26T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

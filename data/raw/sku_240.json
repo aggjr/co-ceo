@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 240,
+    "code": "10628",
+    "name": "UNICA 2,60X1,80 JACQ EST, ROSE",
+    "timestamp": "2026-04-30T11:28:14.653Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

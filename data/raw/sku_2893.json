@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2893,
+    "code": "11961",
+    "name": "TEC LINHO EST JARDIM BRANCO 3.00 MT",
+    "timestamp": "2026-04-30T11:35:52.176Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 22.5,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

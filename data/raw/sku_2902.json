@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2902,
+    "code": "11970",
+    "name": "DUPLEX 5,80X2,60 LINHO EST FLOR AREIA",
+    "timestamp": "2026-04-30T11:35:53.620Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-12T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-16T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

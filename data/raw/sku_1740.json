@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1740,
+    "code": "11167",
+    "name": "LENÇOL SOLT 150 FIOS DELICATA C/ ELAST, EST",
+    "timestamp": "2026-04-30T11:32:36.290Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-05-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

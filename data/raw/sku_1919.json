@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1919,
+    "code": "11221",
+    "name": "TAPETE 0,40X0,60 PORTA COLORS",
+    "timestamp": "2026-04-30T11:33:05.553Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-11-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-06-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

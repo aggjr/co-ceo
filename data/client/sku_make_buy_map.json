@@ -1,0 +1,12 @@
+{
+  "generated_at": "manual",
+  "note": "Mapa opcional para classificar SKU como produzível (has_composition=true) ou compra direta.",
+  "rows": [
+    {
+      "erp_code": "EXEMPLO_ERP",
+      "has_composition": true,
+      "source": "manual"
+    }
+  ]
+}
+

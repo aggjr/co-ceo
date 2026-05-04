@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1084,
+    "code": "9243",
+    "name": "TEC. VOIL XADREZ ROSA BB 2.80",
+    "timestamp": "2026-04-30T11:30:43.144Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 5.684341886080802e-14,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.1368683772161603e-13,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

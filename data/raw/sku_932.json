@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 932,
+    "code": "10584",
+    "name": "TEC CORTA LUZ EST. VERDE 2.80 MT",
+    "timestamp": "2026-04-30T11:30:18.019Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 1.1368683772161603e-13,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1.1368683772161603e-13,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

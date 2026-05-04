@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2151,
+    "code": "11394",
+    "name": "PASSADEIRA 0,45X1,20 MARKA JOANA",
+    "timestamp": "2026-04-30T11:33:45.988Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2024-10-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

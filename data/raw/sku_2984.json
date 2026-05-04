@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2984,
+    "code": "12043",
+    "name": "CORTA LUZ 2,60X1,80 SANJAN BEGE",
+    "timestamp": "2026-04-30T11:36:06.920Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

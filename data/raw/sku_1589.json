@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 1589,
+    "code": "10963",
+    "name": "MANTA P/ SOFA 1,50X2,00 J&C RAYSSA",
+    "timestamp": "2026-04-30T11:32:10.878Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-08-03T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1584,
+    "code": "10951",
+    "name": "JOGO CAPA P/ SOFA REQUINTE VERMELHO",
+    "timestamp": "2026-04-30T11:32:10.057Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-12T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

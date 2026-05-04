@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2045,
+    "code": "11025",
+    "name": "FORRO ARGOLA 2,00X2,58 V, LUZ 60% PEROLA",
+    "timestamp": "2026-04-30T11:33:27.626Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-03-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

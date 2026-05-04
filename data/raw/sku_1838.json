@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1838,
+    "code": "K524",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 524",
+    "timestamp": "2026-04-30T11:32:52.394Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 2,
+        "data_evento": "2024-06-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

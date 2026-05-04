@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 538,
+    "code": "5601",
+    "name": "INF PRATIKA SANT MICKEY PLAY - 2.60X1.80",
+    "timestamp": "2026-04-30T11:29:04.908Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-08-10T03:00:00.000Z",
+        "natureza": "Devolução de Venda",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

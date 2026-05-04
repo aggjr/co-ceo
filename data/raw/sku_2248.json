@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 2248,
+    "code": "11478",
+    "name": "CAPA ALMOFADA 40X40 PORT FLANELA OMG DANCE",
+    "timestamp": "2026-04-30T11:34:02.331Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-03-19T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

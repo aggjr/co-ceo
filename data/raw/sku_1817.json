@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1817,
+    "code": "K442",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 442",
+    "timestamp": "2026-04-30T11:32:49.037Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-22T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

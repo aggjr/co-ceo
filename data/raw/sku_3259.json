@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 3259,
+    "code": "12378",
+    "name": "CESTO MODENA 0.25X0.25 TESSI",
+    "timestamp": "2026-04-30T11:36:52.743Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 6,
+        "data_evento": "2023-10-02T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2024-12-13T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-09T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-02-05T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

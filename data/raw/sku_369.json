@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 369,
+    "code": "10793",
+    "name": "PUFF ADAPT HIPER 30X30X30",
+    "timestamp": "2026-04-30T11:28:35.603Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-09-06T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

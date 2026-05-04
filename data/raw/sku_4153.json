@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4153,
+    "code": "13299",
+    "name": "FAST FORRO CTL70 CRU 2.50X até2.68",
+    "timestamp": "2026-04-30T11:39:15.039Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 3185,
+    "code": "12310",
+    "name": "BUCHA DUOPOWER 8MM (PCTE/60)",
+    "timestamp": "2026-04-30T11:36:39.829Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 9,
+        "data_evento": "2023-08-25T03:00:00.000Z",
+        "natureza": "Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

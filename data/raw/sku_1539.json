@@ -1,0 +1,32 @@
+{
+  "info": {
+    "id": 1539,
+    "code": "10537",
+    "name": "PONTEIRA PAR INFINITY PRATA 28MM",
+    "timestamp": "2026-04-30T11:32:00.957Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-04-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-05-08T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ],
+    "Tupis": [
+      {
+        "quantidade": 7,
+        "data_evento": "2024-06-11T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

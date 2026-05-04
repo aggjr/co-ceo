@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1482,
+    "code": "10396",
+    "name": "PORTA TRAVESSEIRO CENTURY BOHEMIA 55X80",
+    "timestamp": "2026-04-30T11:31:49.448Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-25T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

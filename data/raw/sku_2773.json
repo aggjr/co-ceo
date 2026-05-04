@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2773,
+    "code": "11855",
+    "name": "UNICA 4,00X2,50 TERGAL QUAD BEGE",
+    "timestamp": "2026-04-30T11:35:31.540Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

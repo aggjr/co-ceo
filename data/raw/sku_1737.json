@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1737,
+    "code": "11164",
+    "name": "TAPETE 1,40X2,00 VS SKIN BEGE",
+    "timestamp": "2026-04-30T11:32:35.811Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-09T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

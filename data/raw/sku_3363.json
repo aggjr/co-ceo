@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3363,
+    "code": "12479",
+    "name": "PUFF RETRO BASE DE FERRO 35 X 35 X 48 VINHO",
+    "timestamp": "2026-04-30T11:37:10.190Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-11-16T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-07-29T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

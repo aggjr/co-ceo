@@ -1,0 +1,40 @@
+{
+  "name": "stockspin",
+  "version": "1.0.0",
+  "description": "O STOCKSPIN é um modelador de inteligência de cadeia de suprimentos focado em varejo de alta performance. Diferente de um ERP tradicional, ele atua como uma camada de decisão estatística para garantir a disponibilidade plena de produtos com o mínimo de inventário possível.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client-matrix": "node build_client_network_matrix.js",
+    "build:enterprise-js": "node apollo_enterprise_engine.js",
+    "replicate:legacy-local": "node scripts/replicate_legacy_to_local.js",
+    "seed:ceo-ranked": "node scripts/seed_ceo_ranked_skus.js",
+    "build:top-important": "node scripts/seed_ceo_ranked_skus.js --rank-only && node scripts/build_top_important_skus.js",
+    "sync:catalog": "node reindex_catalog.js",
+    "sync:catalog-grid": "node apollo_grid_miner.js",
+    "sync:raw": "node apollo_enterprise_miner.js",
+    "sync:apollo-js": "node apollo_enterprise_engine.js",
+    "verify:sku-bundle-coverage": "node scripts/verify_sku_bundle_coverage.js",
+    "reprocess:apollo-network": "node scripts/reprocess_apollo_network_full.js",
+    "reprocess:apollo-js-only": "node scripts/reprocess_apollo_network_full.js --skip-miner",
+    "sync:apollo-full": "node reindex_catalog.js && node apollo_enterprise_miner.js && node apollo_enterprise_engine.js && node apollo_grid_miner.js && node build_client_network_matrix.js",
+    "sim:mira": "node scripts/simulate_mira_scenarios.js",
+    "export:mira-snapshot": "node scripts/export_mira_snapshot_all.js",
+    "build:network-demands": "node scripts/build_network_demands.js",
+    "job:daily-9am": "npm run build:client-matrix && npm run build:network-demands && npm run build:cd-plan",
+    "job:daily-from-legacy": "node scripts/run_daily_pipeline.js",
+    "setup:daily-task": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Register-CoCeoDaily9amTask.ps1",
+    "build:cd-plan": "node scripts/build_cd_purchase_plan.js",
+    "build:cd-production-divergence": "node scripts/build_cd_production_divergence.js",
+    "build:stock-health": "node scripts/build_stock_health_histogram.js",
+    "build:legacy-ops-map": "node scripts/build_legacy_ops_mapping.js",
+    "map:legacy-schema": "node database_mapper.js",
+    "serve:legacy-live": "node scripts/legacy_live_bridge_server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.22.0"
+  }
+}

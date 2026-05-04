@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 4009,
+    "code": "114",
+    "name": "TEC. LINHO MIAMI BEGE 3.00 MT",
+    "timestamp": "2026-04-30T11:38:52.439Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 37.5,
+        "data_evento": "2026-03-19T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 25,
+        "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 22.5,
+        "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 44,
+        "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

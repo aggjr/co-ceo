@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2844,
+    "code": "11922",
+    "name": "TEC POLIESTER RAFIA PEROLA 3,00 MT",
+    "timestamp": "2026-04-30T11:35:44.222Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 25.200000000000003,
+        "data_evento": "2023-03-17T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 169.3,
+        "data_evento": "2023-04-03T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

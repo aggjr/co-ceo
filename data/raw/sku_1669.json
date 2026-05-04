@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1669,
+    "code": "11006",
+    "name": "PANO DE PRATO 0,40X0,68 FAVO GROH XADREZ",
+    "timestamp": "2026-04-30T11:32:24.418Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 4,
+        "data_evento": "2024-05-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

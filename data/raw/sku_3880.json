@@ -1,0 +1,26 @@
+{
+  "info": {
+    "id": 3880,
+    "code": "13006",
+    "name": "CORTINA OUTLET -F8-",
+    "timestamp": "2026-04-30T11:38:32.230Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-25T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      }
+    ],
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-08-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

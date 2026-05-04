@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2005,
+    "code": "11261",
+    "name": "CAPA ALMOFADA 45X45 PATCH CLEAN VERMELHO",
+    "timestamp": "2026-04-30T11:33:20.846Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-10-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2704,
+    "code": "11777",
+    "name": "TEC BORD LINHO EVORA BCO/BRANCO",
+    "timestamp": "2026-04-30T11:35:19.838Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 15.8,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

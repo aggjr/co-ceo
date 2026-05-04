@@ -1,0 +1,762 @@
+
+=== LOGIN DEBUG 2026-02-10T16:31:08.617Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$EI7kr0sD0wrB5J7mtqSRFO130IMqJNDWf1v.bxkG0U1wt4GEcccVLC
+Provided Password: Dani160779!
+Password Valid: false
+
+=== LOGIN DEBUG 2026-02-10T16:34:02.714Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$UTTYkLeAqNMmswLZ9Bw55uK5P.4eM1REyJ5lS4rBUFgR36vZL55BcO
+Provided Password: Dani160779!
+Password Valid: false
+
+=== LOGIN DEBUG 2026-02-10T16:34:50.606Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T16:38:14.096Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T16:38:32.526Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: 26149742165
+Password Valid: false
+
+=== LOGIN DEBUG 2026-02-10T18:40:22.689Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T19:02:33.111Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T19:02:54.936Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T19:07:30.314Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T19:09:15.880Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T19:48:21.694Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:12:14.107Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:19:52.601Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:21:49.757Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:22:31.548Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:37:17.721Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:47:45.886Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:49:42.069Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:52:00.808Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:52:42.714Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-10T22:55:04.746Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-11T10:47:10.297Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-11T10:52:12.188Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-11T13:45:43.362Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T10:49:38.862Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T11:01:04.277Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T12:56:54.493Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:00:42.691Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:00:50.648Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:03:26.134Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:03:37.993Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:06:26.231Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:09:15.710Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:15:44.188Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:18:23.895Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:21:47.039Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:27:35.750Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:34:50.340Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:37:14.800Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:41:31.227Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T13:47:05.175Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T14:12:32.922Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T14:21:00.241Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-13T14:30:24.508Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-15T23:23:51.403Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-23T14:15:37.045Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-23T14:33:52.675Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T17:27:06.908Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T17:28:17.756Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: SuperVortex@2026
+Password Valid: false
+
+=== LOGIN DEBUG 2026-02-24T17:29:16.165Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T17:42:23.880Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T20:40:52.341Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T20:46:36.335Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T21:01:24.083Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-02-24T21:34:54.036Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-03-14T01:39:02.174Z ===
+Email: admin@vortex.com.br
+Stored Hash: $2b$10$qllknfAEvWClrwm2aach.OR7wVXPE.WWcXhEdOULhRFMyqVmPZgu.
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T22:31:40.154Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T22:37:30.724Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T22:44:55.389Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T23:02:43.395Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T23:29:18.149Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T23:47:49.767Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: SuperAdmin12345678
+Password Valid: false
+
+=== LOGIN DEBUG 2026-04-28T23:48:13.085Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: SuperAdmin12345678
+Password Valid: false
+
+=== LOGIN DEBUG 2026-04-28T23:54:15.710Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-28T23:56:50.868Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T00:11:14.574Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T00:33:49.228Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T00:39:24.225Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T00:49:51.236Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T00:58:32.742Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T01:03:04.001Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T01:14:17.882Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T01:22:50.408Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T10:19:25.412Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T10:56:23.850Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T10:56:57.087Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T11:00:32.355Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T11:07:41.735Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T11:16:57.964Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T11:42:53.620Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T11:55:09.446Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T12:00:41.507Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T12:19:01.545Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T12:39:38.737Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T12:44:33.254Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T12:48:28.832Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T13:45:36.159Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T13:57:17.768Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T14:16:35.785Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T14:39:20.445Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T14:56:26.621Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T15:00:07.894Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T15:35:30.225Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T15:35:51.165Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T15:53:03.067Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T15:59:24.944Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:33:49.024Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:40:56.599Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:49:53.791Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:54:57.660Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:57:04.440Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:57:20.867Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T18:59:29.320Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T19:05:42.055Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T19:25:57.402Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T19:46:06.620Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T19:55:28.409Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T20:03:00.218Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T20:13:16.759Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T20:21:38.504Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T20:22:29.365Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T20:32:25.347Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:37:42.710Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:40:54.194Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:45:43.631Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:51:58.815Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:52:47.812Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T21:56:03.669Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:04:50.563Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:16:28.036Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:36:09.300Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:38:32.734Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:41:27.473Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:41:34.604Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:43:11.748Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T22:59:47.111Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true
+
+=== LOGIN DEBUG 2026-04-29T23:06:02.324Z ===
+Email: admin@coceo.com.br
+Stored Hash: $2b$10$vlG1ANfRtXiUVtBecwQfxOCdldiCupomJ8y1/Yq3PSFJiV8spCyaC
+Provided Password: Dani160779!
+Password Valid: true

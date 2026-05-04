@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1465,
+    "code": "10376",
+    "name": "MANTA QUEEN 2,20X2,40 COBERTOR MICRO LISA",
+    "timestamp": "2026-04-30T11:31:46.710Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-08-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+.env
+.env.local
+.env.*.local
+
+**/node_modules/
+**/dist/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+/logs/
+/tmp/
+tmp/
+**/Dump_*.sql
+
+# Relatório gerado a partir do MySQL legado (pode ser grande / específico do cliente)
+data/mapping/schema_report_legacy.generated.md
+data/mapping/tenant_bindings.local.json

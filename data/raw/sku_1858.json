@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1858,
+    "code": "K621",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 621",
+    "timestamp": "2026-04-30T11:32:55.592Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

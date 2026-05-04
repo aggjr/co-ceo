@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2554,
+    "code": "11627",
+    "name": "EDREDOM CASAL 2,20X2,40 PRIV PREMIUM EST",
+    "timestamp": "2026-04-30T11:34:52.704Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-08-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

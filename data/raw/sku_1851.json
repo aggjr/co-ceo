@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1851,
+    "code": "K574",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 574",
+    "timestamp": "2026-04-30T11:32:54.467Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 3,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-01-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

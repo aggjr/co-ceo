@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 4210,
+    "code": "13348",
+    "name": "FAST FORRO OXFORD CRU 5.00X até2.88",
+    "timestamp": "2026-04-30T11:39:23.836Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-17T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-02-13T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

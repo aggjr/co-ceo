@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2425,
+    "code": "8967",
+    "name": "TOALHA DE MESA 1,40X2,00 LEP CROCHE VENEZUELA BCO",
+    "timestamp": "2026-04-30T11:34:31.379Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-09-24T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

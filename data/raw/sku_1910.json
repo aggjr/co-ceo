@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1910,
+    "code": "11207",
+    "name": "PASSADEIRA 0,48X1,47 GOUVEA XADREZ",
+    "timestamp": "2026-04-30T11:33:04.068Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-06T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-09-15T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

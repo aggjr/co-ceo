@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1565,
+    "code": "9684",
+    "name": "PASSADEIRA 0,42X1,50 J&C FRANJAS",
+    "timestamp": "2026-04-30T11:32:06.889Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2024-12-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3776,
+    "code": "12820",
+    "name": "PUFF RETRO 35 X 35 X 48 CORINO AZUL",
+    "timestamp": "2026-04-30T11:38:15.899Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-02T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

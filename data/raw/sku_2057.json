@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2057,
+    "code": "11219",
+    "name": "LENÇOL CASAL MALHA SERENA AZUL",
+    "timestamp": "2026-04-30T11:33:29.696Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 2,
+        "data_evento": "2025-02-07T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 2,
+        "data_evento": "2025-07-09T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

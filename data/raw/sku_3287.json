@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3287,
+    "code": "45",
+    "name": "TEC MICROFIBRA VERDE CLARO 2.55 MT",
+    "timestamp": "2026-04-30T11:36:57.587Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 158,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 158,
+        "data_evento": "2024-01-23T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "info": {
+    "id": 913,
+    "code": "10400",
+    "name": "TEC. MICROFIBRA MARROM - 2.25 MT",
+    "timestamp": "2026-04-30T11:30:14.894Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 173,
+        "data_evento": "2023-07-28T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 50,
+        "data_evento": "2023-08-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 62,
+        "data_evento": "2023-09-27T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 61,
+        "data_evento": "2023-10-30T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

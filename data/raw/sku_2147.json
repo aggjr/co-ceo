@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 2147,
+    "code": "11390",
+    "name": "TAPETE 0,45X0,60 MARKA OLIVIA",
+    "timestamp": "2026-04-30T11:33:45.348Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-05-11T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

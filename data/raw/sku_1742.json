@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1742,
+    "code": "11169",
+    "name": "LENÇOL CASAL 150 FIOS DELICATA C/ ELAST, EST",
+    "timestamp": "2026-04-30T11:32:36.613Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-06-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-11T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

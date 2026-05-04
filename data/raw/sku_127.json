@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 127,
+    "code": "10417",
+    "name": "KIT ESPANHA 28MM C/ EMENDA CROMADO 3,00",
+    "timestamp": "2026-04-30T11:27:56.340Z"
+  },
+  "data": {
+    "Betim": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-12T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-04T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

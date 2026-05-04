@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2894,
+    "code": "11962",
+    "name": "TEC LINHO EST FLOR BRANCO 3.00 MT",
+    "timestamp": "2026-04-30T11:35:52.335Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 66.49999999999999,
+        "data_evento": "2023-05-31T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 93.2,
+        "data_evento": "2023-06-29T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

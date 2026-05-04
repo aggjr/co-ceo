@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4117,
+    "code": "13251",
+    "name": "FAST WAVE DUAL MIAMI PRATA 4.00X até2.90",
+    "timestamp": "2026-04-30T11:39:09.459Z"
+  },
+  "data": {
+    "Venda Nova": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-03-21T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 1804,
+    "code": "K264",
+    "name": "PERSIANA 1.50x1.70 TEC RESINADA 264",
+    "timestamp": "2026-04-30T11:32:46.953Z"
+  },
+  "data": {
+    "Guaranis": [
+      {
+        "quantidade": 3,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

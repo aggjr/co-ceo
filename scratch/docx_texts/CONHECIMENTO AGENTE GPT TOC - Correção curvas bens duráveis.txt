@@ -1,0 +1,67 @@
+Como seria a curva de um produto tipo bem durável com vida útil de 5 anos e um bem durável de 2 anos? Faça gráficos sobrepostos para melhor análise. Faça gráficos melhores como este último que vc apresentou
+
+
+qui estão as curvas comparativas:
+Primeiro gráfico – Vendas ao longo do tempo:
+O bem durável com vida útil de 5 anos (linha contínua) apresenta picos de reposição mais espaçados, com um ciclo de demanda mais estável.
+O bem durável com vida útil de 2 anos (linha tracejada) mostra oscilações mais frequentes, representando recompras regulares, típicas de produtos que se desgastam rapidamente (como eletrônicos portáteis ou calçados técnicos).
+Em ambos os casos, há um crescimento inicial de adoção, seguido pela saturação do mercado e posterior estabilização com ciclos de reposição periódica.
+Segundo gráfico – Adoção cumulativa:
+A curva em “S” mostra o crescimento da base instalada de consumidores — lenta no início, acelerada na metade e finalmente estável quando quase todos os consumidores potenciais já adquiriram o produto.
+Essas formas seguem os princípios sistêmicos descritos por Donella Meadows em Thinking in Systems, capítulo 2 (“A Brief Visit to the Systems Zoo”), sobre sistemas com feedback de reforço seguido de limitação e ciclos de reposição. 
+
+não concordo com esta curva. Ela está quase igual a uma curva de sino tradicional, subindo, esgotando mercado e caindo, sendo que é um bem que vai precisar ser recomprado, gerando oscilações até a identificação de uma média na qual o mercado vai ficar oscilando em torno de uma quantidade média. Da forma que está, parece que o produto vai acabar como petroleo ou itens do tipo
+
+O gráfico anterior representa bem o padrão de um recurso esgotável, mas não captura o comportamento de equilíbrio dinâmico típico de bens duráveis com reposição recorrente.
+Vamos corrigir o modelo, baseando-nos na teoria de sistemas (Meadows, Thinking in Systems, cap. 2 e 5) e na lógica de estoques e fluxos estáveis com retroalimentação periódica.
+
+🔍 Conceito sistêmico correto
+Estrutura causal:
+Estoque de consumidores ativos cresce com a adoção inicial e se estabiliza quando quase todos possuem o produto.
+Cada consumidor gera fluxos periódicos de reposição, conforme a vida útil média do bem.
+A taxa de vendas total tende a oscilar em torno de um nível médio de equilíbrio (reposição estável), podendo apresentar ondas amortecidas até estabilizar.
+
+📈 Forma esperada da curva
+Fase 1: crescimento inicial (adoção primária);
+Fase 2: pico e transição — quando as reposições começam a substituir a adoção primária;
+Fase 3: oscilações de reposição (ciclos de 2 ou 5 anos, conforme a vida útil);
+Fase 4: estabilização — o mercado entra em equilíbrio dinâmico, com vendas médias constantes.
+O comportamento é parecido com um sistema de segunda ordem amortecido em torno de um ponto de equilíbrio.
+
+Se desejar, posso gerar o gráfico revisado com oscilações periódicas, mostrando:
+um bem durável de vida útil de 5 anos (oscilações suaves e espaçadas),
+um bem durável de vida útil de 2 anos (oscilações mais rápidas e regulares),
+e a linha de equilíbrio médio em torno da qual o mercado se estabiliza.
+Você tem razão: para bem durável o padrão correto é “adoção inicial” + ciclos de reposição que oscilem em torno de um nível médio, não uma queda rumo a zero. Abaixo está o modelo matemático (renovação/renewal) que produz exatamente esse comportamento — com oscilações periódicas cujo período ≈ vida útil.
+Modelo (renovação com reposição)
+Adoção primária (vendas do lançamento): use uma taxa concentrada no início (p.ex., um pulso gaussiano) com uma cauda logística para “varrer os retardatários”:
+
+onde é o mercado potencial normalizado (ex.: ).
+Distribuição da vida útil (lognormal com média e variabilidade ):
+
+.
+Observação: cv pequeno (ex.: 5–10%) gera ciclos bem marcados; cv maior suaviza.
+Equação de renovação (vendas totais) — toda unidade vendida um dia falha e é reposta conforme :
+
+Essa equação gera:
+pulsos de reposição em (e com , picos alargados),
+amplitude decrescente até estabilizar (equilíbrio dinâmico),
+nível médio de longo prazo (após saturação do mercado).
+Leitura do resultado (o que esperar dos gráficos)
+Vida útil 5 anos: ciclos mais espaçados (picos perto de 5, 10, 15 anos). Oscilações mais suaves; convergem para a média .
+Vida útil 2 anos: ciclos mais frequentes (picos em 2, 4, 6… anos). Oscilações mais visíveis; convergem para (nível médio mais alto, pois a frota gira mais rápido).
+Referência conceitual
+A lógica “estoque–fluxo + realimentação periódica” vem de Meadows, Donella H. Thinking in Systems – A Primer (2008), especialmente os capítulos “The Basics” e “Why Systems Surprise Us”, que tratam de sistemas com reforço inicial, limites e ciclos de reposição (estrutura de renovação).
+ 
+Pronto. Agora você tem duas figuras:
+Vendas com reposição recorrente (equação de renovação) — curvas sobrepostas:
+Vida útil 5 anos: pulsos de reposição em ~5, 10, 15… anos; convergência para a média .
+Vida útil 2 anos: pulsos a cada ~2 anos; convergência para .
+As linhas tracejadas horizontais mostram os níveis médios de equilíbrio após a saturação.
+Zoom 0–12 anos — evidencia claramente as oscilações periódicas: mais espaçadas (5 anos) vs. mais frequentes (2 anos).
+O que foi modelado
+Adoção primária concentrada no lançamento + cauda logística para os retardatários.
+Reposição via equação de renovação: , com lognormal (média = vida útil , ).
+Resultado: oscilações amortecidas em torno de , coerentes com a dinâmica de bens duráveis.
+Referência conceitual
+Baseado na estrutura de estoques e fluxos com realimentação de Donella H. Meadows, Thinking in Systems – A Primer (2008) — dinâmica de sistemas com reforço inicial e limites, estendendo para processos de renovação que estabilizam em um equilíbrio dinâmico.

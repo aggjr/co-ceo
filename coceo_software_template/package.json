@@ -1,0 +1,32 @@
+{
+    "name": "co-ceo",
+    "private": true,
+    "version": "0.1.73",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "dev:all": "concurrently -k -n backend,frontend -c cyan,magenta \"npm run dev --prefix backend\" \"npm run dev\"",
+        "coceo:init": "node scripts/init-coceo.mjs"
+    },
+    "devDependencies": {
+        "concurrently": "^9.2.1",
+        "vite": "^7.2.4"
+    },
+    "dependencies": {
+        "axios": "^1.13.2",
+        "exceljs": "^4.4.0",
+        "file-saver": "^2.0.5",
+        "echarts": "^5.6.0",
+        "quill": "^2.0.3",
+        "quill-blot-formatter": "^1.0.5",
+        "date-fns": "^3.3.1",
+        "socket.io-client": "^4.7.4"
+    },
+    "overrides": {
+        "quill-blot-formatter": {
+            "quill": "$quill"
+        }
+    }
+}

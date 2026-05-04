@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 1411,
+    "code": "10389",
+    "name": "CAPA ALMOFADA 45X45 PLUSH AZUL PACIFICO",
+    "timestamp": "2026-04-30T11:31:36.564Z"
+  },
+  "data": {
+    "Eldorado 2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-12-01T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

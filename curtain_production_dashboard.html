@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Curtain Production Master | Apollo Factory</title>
+    <script src="curtain_production_data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #020617;
+            --bg-surface: #0f172a;
+            --border-ui: #1e293b;
+            --accent: #6366f1;
+            --urgente: #ef4444;
+            --critico: #f59e0b;
+            --alerta: #facc15;
+            --saudavel: #10b981;
+            --produzir: #3b82f6;
+            --texto: #94a3b8;
+        }
+
+        body { font-family: 'Outfit', sans-serif; background: var(--bg-main); color: white; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+        /* header */
+        .header { padding: 25px 50px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border-bottom: 2px solid var(--border-ui); display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+        .factory-title { display: flex; align-items: center; gap: 20px; }
+        .factory-title h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px; text-transform: uppercase; color: #fff; }
+        .factory-title .badge { background: var(--urgente); padding: 5px 15px; border-radius: 20px; font-size: 11px; font-weight: 600; box-shadow: 0 0 15px rgba(239, 68, 68, 0.3); }
+
+        /* Grid */
+        .content { flex: 1; padding: 30px 50px; overflow-y: auto; }
+        .table-container { background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--border-ui); box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; }
+        
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        thead { background: #1e293b; position: sticky; top: 0; z-index: 5; }
+        th { text-align: left; padding: 20px; font-size: 11px; text-transform: uppercase; color: var(--texto); letter-spacing: 1.5px; border-bottom: 1px solid var(--border-ui); }
+        
+        tbody tr { border-bottom: 1px solid var(--border-ui); cursor: pointer; transition: background 0.2s; }
+        tbody tr:hover { background: #1e293b; }
+        
+        td { padding: 22px 20px; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        
+        .status-badge { padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; text-transform: uppercase; }
+        .status-ruptura { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .status-crítico { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .status-abaixo { background: rgba(250, 204, 21, 0.1); color: #fbbf24; }
+        .status-acima { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .status-muito\ acima { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .status-encalhado\ 1 { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .status-encalhado\ 2 { background: rgba(76, 29, 149, 0.1); color: #a78bfa; }
+
+        .qty-val { font-size: 20px; font-weight: 600; color: #fff; }
+        .sku-code { font-weight: 600; color: var(--accent); font-family: monospace; font-size: 16px; }
+        .sku-name { font-weight: 400; color: #e2e8f0; font-size: 16px; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="factory-title">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M2 20h20M2 10l5-8h10l5 8M3 10h18M3 14h18M3 18h18M7 10v10M17 10v10"/></svg>
+            <h1>CONDOMÍNIO DE PRODUÇÃO DE CORTINAS</h1>
+            <span class="badge" id="totalCount">...</span>
+        </div>
+        <div style="text-align: right;">
+            <div style="font-size: 12px; color: #fff; font-weight: 600;">APOLLO ENGINE v21.1</div>
+            <div style="font-size: 10px; color: var(--texto);">PRIORIDADE BASEADA EM STATUS OPERACIONAL E DEMANDA CD</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="120">Código</th>
+                        <th>Descrição do Produto</th>
+                        <th width="200">Status Operacional</th>
+                        <th width="150" style="text-align: center;">Vols. Produzir</th>
+                    </tr>
+                </thead>
+                <tbody id="productionList">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script>
+    async function init() {
+        if (window.CURTAIN_DATA) {
+            const pData = window.CURTAIN_DATA;
+            document.getElementById('totalCount').innerText = `${pData.totalNeeded} ITENS COM DEMANDA ATIVA`;
+            
+            const tbody = document.getElementById('productionList');
+            tbody.innerHTML = pData.items.map(item => `
+                <tr onclick="goToDetail(${item.id})">
+                    <td class="sku-code">${item.code}</td>
+                    <td class="sku-name">${item.name}</td>
+                    <td>
+                        <span class="status-badge status-${item.status.toLowerCase()}">
+                            ${item.status}
+                        </span>
+                    </td>
+                    <td style="text-align: center;"><span class="qty-val">${item.sugestao}</span> <small style="color:var(--texto)">un</small></td>
+                </tr>
+            `).join('');
+        }
+    }
+
+    function goToDetail(id) {
+        // Redireciona para o dashboard estável com o parâmetro do SKU
+        window.location.href = `apollo_v17.4_STABLE.html?sku=${id}`;
+    }
+
+    init();
+</script>
+</body>
+</html>

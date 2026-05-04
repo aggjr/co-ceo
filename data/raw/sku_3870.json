@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3870,
+    "code": "12996",
+    "name": "CORTINA OUTLET -E8-",
+    "timestamp": "2026-04-30T11:38:30.695Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-06-14T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

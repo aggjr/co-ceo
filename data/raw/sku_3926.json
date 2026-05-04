@@ -1,0 +1,30 @@
+{
+  "info": {
+    "id": 3926,
+    "code": "107",
+    "name": "TEC VOIL SONHO DE SEDA PRATA 3,00 MT",
+    "timestamp": "2026-04-30T11:38:39.400Z"
+  },
+  "data": {
+    "Fábrica": [
+      {
+        "quantidade": 156.7,
+        "data_evento": "2025-08-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 42,
+        "data_evento": "2025-08-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 56,
+        "data_evento": "2025-08-22T03:00:00.000Z",
+        "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

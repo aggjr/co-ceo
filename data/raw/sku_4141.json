@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 4141,
+    "code": "13276",
+    "name": "FAST FORRO BLACK100 PEROLA 4.00X até2.68",
+    "timestamp": "2026-04-30T11:39:13.135Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 2,
+        "data_evento": "2026-01-28T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

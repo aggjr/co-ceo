@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 2008,
+    "code": "11262",
+    "name": "CAPA ALMOFADA 45X45 PATCH DECOR FOLHAS",
+    "timestamp": "2026-04-30T11:33:21.360Z"
+  },
+  "data": {
+    "Babita": [
+      {
+        "quantidade": 1,
+        "data_evento": "2023-07-31T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2023-09-01T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

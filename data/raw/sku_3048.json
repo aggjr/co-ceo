@@ -1,0 +1,18 @@
+{
+  "info": {
+    "id": 3048,
+    "code": "K282",
+    "name": "PERSIANA 2.00X2.00 ROLO MADA 282",
+    "timestamp": "2026-04-30T11:36:17.536Z"
+  },
+  "data": {
+    "Tupis": [
+      {
+        "quantidade": 2,
+        "data_evento": "2023-05-26T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}

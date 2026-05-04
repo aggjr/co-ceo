@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3779,
+    "code": "12823",
+    "name": "PUFF RETRO 35 X 35 X 48 CORINO MARROM",
+    "timestamp": "2026-04-30T11:38:16.355Z"
+  },
+  "data": {
+    "G2": [
+      {
+        "quantidade": 1,
+        "data_evento": "2025-05-07T03:00:00.000Z",
+        "natureza": "Transferência Saída Loja",
+        "operacao": "DEBITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2025-07-14T03:00:00.000Z",
+        "natureza": "Acerto Entrada",
+        "operacao": "CREDITO"
+      }
+    ]
+  }
+}

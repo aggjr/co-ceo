@@ -1,0 +1,24 @@
+{
+  "info": {
+    "id": 3766,
+    "code": "12810",
+    "name": "PUFF BAò 35 X 35 X 47 CORINO PRATA",
+    "timestamp": "2026-04-30T11:38:14.383Z"
+  },
+  "data": {
+    "Barreiro": [
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-23T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "quantidade": 1,
+        "data_evento": "2026-01-23T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
+      }
+    ]
+  }
+}
