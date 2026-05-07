@@ -14,6 +14,13 @@ export const STOCKSPIN_SCREENS = [
     excelView: "transfer"
   },
   {
+    id: "stockspin-admin-coceo-audit",
+    label: "Divergências ADMIN × CO-CEO",
+    icon: "🧾",
+    path: "__INTERNAL_ADMIN_COCEO_AUDIT__",
+    excelView: "adminCoceoAudit"
+  },
+  {
     id: "stockspin-production-program",
     label: "Programação de produção",
     icon: "⚙️",
@@ -51,13 +58,5 @@ export const STOCKSPIN_SCREENS = [
     icon: "⭐",
     path: "/top_important_skus.html",
     excelView: "top"
-  },
-  {
-    id: "stockspin-admin-coceo-audit",
-    label: "Divergências ADMIN × CO-CEO",
-    icon: "🧾",
-    path: "__INTERNAL_ADMIN_COCEO_AUDIT__",
-    excelView: "adminCoceoAudit"
   }
 ];
-
