@@ -33,6 +33,10 @@ COPY --from=builder /app/backend ./
 # Define as variáveis de ambiente necessárias
 ENV NODE_ENV=production
 ENV PORT=3001
+ENV STOCKSPIN_DATA_DIR=/dados_stockspin
+
+# Cria o diretório de dados do STOCKSPIN (será sobrescrito pelo volume do Easypanel)
+RUN mkdir -p /dados_stockspin
 
 # Expõe a porta que a aplicação vai rodar
 EXPOSE 3001

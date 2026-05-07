@@ -90,6 +90,21 @@ app.get('/health', (req, res) => {
 // Static Uploads Serving
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// ── Dados estáticos do STOCKSPIN (catalog_grid.js, curtain, etc.) ──────────
+// Volume montado no Easypanel: /root/dados_stockspin (host) → /dados_stockspin (container)
+// URL de acesso: https://co-ceo.com.br/stockspin-data/data/catalog_grid.js
+const STOCKSPIN_DATA_DIR = process.env.STOCKSPIN_DATA_DIR || '/dados_stockspin';
+app.use('/stockspin-data', (req, res, next) => {
+    // Bloqueia path traversal
+    if (req.path.includes('..')) return res.status(403).send('Forbidden');
+    next();
+}, express.static(STOCKSPIN_DATA_DIR, {
+    setHeaders: (res) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Cache-Control', 'public, max-age=300'); // 5 min cache
+    }
+}));
+
 // Serve static files from the frontend
 const frontendPath = path.join(__dirname, 'public');
 app.use(express.static(frontendPath));
