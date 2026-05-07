@@ -17,3 +17,12 @@ tmp/
 # Relatório gerado a partir do MySQL legado (pode ser grande / específico do cliente)
 data/mapping/schema_report_legacy.generated.md
 data/mapping/tenant_bindings.local.json
+
+# Saídas de auditorias / relatórios (auto-geráveis, podem ficar grandes)
+/reports/
+
+# Scratch / debug local (prefixados com "_")
+scripts/_*.cjs
+scripts/_*.ps1
+scripts/_*.js
+fix_tenant_staticbaseurl.sql
