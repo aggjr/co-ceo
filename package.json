@@ -28,6 +28,8 @@
     "build:cd-production-divergence": "node scripts/build_cd_production_divergence.js",
     "build:stock-health": "node scripts/build_stock_health_histogram.js",
     "build:legacy-ops-map": "node scripts/build_legacy_ops_mapping.js",
+    "build:admin-coceo-audit": "node scripts/build_admin_coceo_audit_view.js",
+    "audit:admin-coceo-and-build": "node scripts/audit_admin_total_vs_coceo_per_store.js && node scripts/build_admin_coceo_audit_view.js",
     "map:legacy-schema": "node database_mapper.js",
     "serve:legacy-live": "node scripts/legacy_live_bridge_server.js"
   },

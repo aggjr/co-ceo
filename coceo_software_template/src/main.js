@@ -239,6 +239,9 @@ async function renderStockspinScreen(screenId) {
       } else if (cfg.excelView === "catalog") {
         const m = await import("./modules/stockspin/views/catalogGridView.js");
         await m.mount(host);
+      } else if (cfg.excelView === "adminCoceoAudit") {
+        const m = await import("./modules/stockspin/views/adminCoceoAuditView.js");
+        await m.mount(host);
       } else {
         host.innerHTML = `<div style="padding:1rem;color:#f87171;">View STOCKSPIN desconhecida: ${cfg.excelView}</div>`;
       }
