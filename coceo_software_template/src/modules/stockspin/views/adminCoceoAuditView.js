@@ -13,7 +13,12 @@ import "../stockspin-excel.css";
  * ADMIN totalizador), a diferença `Δ admin − CO-CEO`, o **motivo** classificado
  * (`Admin sem reprocessamento`, `Diferença de loja`, `Estoque legado órfão`, ...)
  * e uma `descrição` humanizada com pistas para a tratativa em lote.
+ *
+ * Estilo da tabela: idêntico ao `catalogGridView` (Mix de Produtos) — fundo
+ * claro com zebra, texto preto, cabeçalho azul primário, hover laranja-creme.
  */
+
+const COL_TEXT_COLOR = "#0f172a"; // preto-slate, igual ao catálogo
 
 const fmtNum = (n, frac = 2) =>
     n == null || !Number.isFinite(Number(n))
@@ -24,34 +29,45 @@ const fmtInt = (n) =>
         ? "—"
         : Number(n).toLocaleString("pt-BR", { maximumFractionDigits: 0 });
 
+/**
+ * Cores dos badges por motivo, calibradas para fundo claro (mesma intenção
+ * dos badges de "cadastroEstado" do catálogo). Fundo translúcido + texto
+ * sempre escuro para garantir contraste em zebra branca/azul.
+ */
 const MOTIVO_COLOR = {
-    ADMIN_STALE: { bg: "rgba(245,158,11,.22)", fg: "#fbbf24", border: "rgba(245,158,11,.55)" },
-    STORE_LEVEL: { bg: "rgba(59,130,246,.22)", fg: "#93c5fd", border: "rgba(59,130,246,.55)" },
-    ORPHAN_LEGACY: { bg: "rgba(168,85,247,.22)", fg: "#d8b4fe", border: "rgba(168,85,247,.55)" },
-    ALINHADO: { bg: "rgba(34,197,94,.22)", fg: "#86efac", border: "rgba(34,197,94,.55)" }
+    ADMIN_STALE: { bg: "rgba(245,158,11,.28)", fg: "#92400e", border: "rgba(245,158,11,.55)" },
+    STORE_LEVEL: { bg: "rgba(59,130,246,.25)", fg: "#1e3a8a", border: "rgba(59,130,246,.55)" },
+    ORPHAN_LEGACY: { bg: "rgba(168,85,247,.25)", fg: "#581c87", border: "rgba(168,85,247,.55)" },
+    ALINHADO: { bg: "rgba(16,185,129,.22)", fg: "#065f46", border: "rgba(16,185,129,.55)" }
 };
 function motivoColors(codigo) {
-    if (!codigo) return { bg: "rgba(148,163,184,.22)", fg: "#cbd5e1", border: "rgba(148,163,184,.45)" };
+    if (!codigo) return { bg: "rgba(148,163,184,.28)", fg: "#334155", border: "rgba(148,163,184,.55)" };
     if (MOTIVO_COLOR[codigo]) return MOTIVO_COLOR[codigo];
     if (String(codigo).startsWith("MIXED:")) {
-        return { bg: "rgba(244,114,182,.22)", fg: "#f9a8d4", border: "rgba(244,114,182,.55)" };
+        return { bg: "rgba(244,114,182,.25)", fg: "#9d174d", border: "rgba(244,114,182,.55)" };
     }
-    return { bg: "rgba(148,163,184,.22)", fg: "#cbd5e1", border: "rgba(148,163,184,.45)" };
+    return { bg: "rgba(148,163,184,.28)", fg: "#334155", border: "rgba(148,163,184,.55)" };
 }
 
 function motivoBadge(row) {
     const span = document.createElement("span");
     span.textContent = row.motivo || row.motivo_codigo || "—";
     const c = motivoColors(row.motivo_codigo);
+    /* Tamanho/forma alinhados ao catálogo (cadastroEstadoBadge). */
+    span.style.fontSize = "12px";
+    span.style.fontWeight = "600";
+    span.style.padding = "3px 8px";
+    span.style.borderRadius = "6px";
     span.style.display = "inline-block";
-    span.style.padding = "2px 8px";
-    span.style.borderRadius = "999px";
-    span.style.fontSize = "11px";
-    span.style.fontWeight = "700";
+    span.style.maxWidth = "180px";
+    span.style.whiteSpace = "nowrap";
+    span.style.overflow = "hidden";
+    span.style.textOverflow = "ellipsis";
+    span.style.lineHeight = "1.35";
     span.style.background = c.bg;
     span.style.color = c.fg;
     span.style.border = `1px solid ${c.border}`;
-    span.title = row.motivo_codigo || "";
+    span.title = (row.motivo_codigo || "") + (row.motivo ? ` — ${row.motivo}` : "");
     return span;
 }
 
@@ -60,10 +76,16 @@ function deltaCell(value) {
     const n = Number(value);
     span.textContent = Number.isFinite(n) ? fmtNum(n) : "—";
     span.style.fontWeight = "700";
+    span.style.fontSize = "12px";
+    span.style.display = "block";
+    span.style.width = "100%";
+    span.style.textAlign = "right";
     if (Number.isFinite(n)) {
-        if (n > 0.01) span.style.color = "#fdba74";
-        else if (n < -0.01) span.style.color = "#fca5a5";
-        else span.style.color = "#86efac";
+        if (n > 0.01) span.style.color = "#9a3412"; // vermelho-laranja escuro p/ Δ positivo
+        else if (n < -0.01) span.style.color = "#991b1b"; // vermelho escuro p/ Δ negativo
+        else span.style.color = "#065f46"; // verde escuro p/ zero
+    } else {
+        span.style.color = COL_TEXT_COLOR;
     }
     return span;
 }
@@ -97,7 +119,7 @@ export async function mount(mainEl) {
     const base = stockspinDataBase();
     mainEl.classList.add("stockspin-in-app");
     mainEl.innerHTML = `
-<div class="stockspin-panel">
+<div class="stockspin-panel" style="padding:8px 10px 10px;gap:8px;display:flex;flex-direction:column;flex:1;min-height:0;">
   <div class="stockspin-panel__head">
     <h1>Divergências ADMIN × CO-CEO</h1>
     <p>
@@ -122,8 +144,8 @@ export async function mount(mainEl) {
   </div>
   <div id="adv-chips" class="stockspin-tabs" role="tablist" aria-label="Filtrar por motivo"></div>
   <div class="stockspin-kpis" id="adv-kpis"></div>
-  <p class="stockspin-meta" id="adv-meta"></p>
-  <div id="adv-grid" class="stockspin-table-root"></div>
+  <p class="stockspin-meta" id="adv-meta" style="margin:0;"></p>
+  <div id="adv-grid" class="stockspin-table-root" style="flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;"></div>
 </div>`;
 
     const chipsEl = mainEl.querySelector("#adv-chips");
@@ -132,6 +154,70 @@ export async function mount(mainEl) {
     const gridEl = mainEl.querySelector("#adv-grid");
     const exportBtn = mainEl.querySelector("#adv-export");
     const reloadBtn = mainEl.querySelector("#adv-reload");
+
+    /**
+     * Tema visual idêntico ao catálogo (Mix de Produtos):
+     *   - cabeçalho com cor primária + texto branco
+     *   - linhas com zebra (#fff / #dbeafe), hover laranja-creme (#edd8bb)
+     *   - texto do corpo preto (#0f172a) 12px
+     *   - rodapé navy escuro com texto dourado (#f5cf96)
+     * Estilo aplicado via <style> escopado em #adv-grid (mesma técnica do
+     * catalogGridView), o que sobrepõe o tema escuro padrão do .stockspin-in-app.
+     */
+    const themeFix = document.createElement("style");
+    themeFix.textContent = `
+      #adv-grid .table-wrapper {
+        background: #ffffff !important;
+        border: 1px solid rgba(15,23,42,0.12) !important;
+        border-radius: 10px !important;
+        box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+      }
+      #adv-grid .table-wrapper table {
+        width: max-content !important;
+        table-layout: fixed !important;
+      }
+
+      #adv-grid .table-wrapper table thead tr th {
+        background-color: var(--color-primary) !important;
+        color: #ffffff !important;
+      }
+
+      #adv-grid .table-wrapper table tbody tr.hoverable-row td {
+        background-color: var(--row-bg) !important;
+        color: ${COL_TEXT_COLOR} !important;
+        font-size: 12px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+        transition: background-color 0.12s ease;
+      }
+      #adv-grid .table-wrapper table tbody tr.hoverable-row:hover td {
+        background-color: var(--row-hover-bg, #edd8bb) !important;
+      }
+      #adv-grid .table-wrapper table tbody tr.hoverable-row td[style*="position: sticky"] {
+        background-color: var(--row-bg) !important;
+      }
+      #adv-grid .table-wrapper table tbody tr.hoverable-row:hover td[style*="position: sticky"] {
+        background-color: var(--row-hover-bg, #edd8bb) !important;
+      }
+      #adv-grid .table-wrapper table tbody tr.hoverable-row td a {
+        color: ${COL_TEXT_COLOR} !important;
+      }
+
+      #adv-grid .table-footer-summary {
+        background: rgba(10,28,52,0.97) !important;
+        border-top: 1px solid rgba(218,177,119,0.35) !important;
+        padding: 0.6rem 1rem !important;
+      }
+      #adv-grid .table-footer-summary,
+      #adv-grid .table-footer-summary * {
+        color: #f5cf96 !important;
+        font-size: 0.9rem !important;
+      }
+      #adv-grid .table-footer-summary strong {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+      }
+    `;
+    gridEl.appendChild(themeFix);
 
     let payload = null;
     let allRows = [];
@@ -143,7 +229,7 @@ export async function mount(mainEl) {
         try {
             await loadClientScript(url, { force: !!force });
         } catch (e) {
-            metaEl.style.color = "#fca5a5";
+            metaEl.style.color = "#991b1b";
             metaEl.textContent =
                 "Não foi possível carregar admin_coceo_audit.js. " +
                 "Gere com: node scripts/build_admin_coceo_audit_view.js (após o auditor admin × CO-CEO).";
@@ -151,14 +237,88 @@ export async function mount(mainEl) {
         }
         const data = window.ADMIN_COCEO_AUDIT;
         if (!data || !Array.isArray(data.rows)) {
-            metaEl.style.color = "#fca5a5";
+            metaEl.style.color = "#991b1b";
             metaEl.textContent = "ADMIN_COCEO_AUDIT inválido ou vazio.";
             return null;
         }
         return data;
     }
 
+    /**
+     * Colunas — ordem alinhada ao catálogo (Código + Descrição sticky à esquerda),
+     * mas adaptada para a auditoria: ERP (sticky), Produto (sticky), Motivo,
+     * quantidades, Δ, sinais por loja, descrição.
+     */
     const columns = [
+        // 1. ERP — sticky
+        {
+            key: "erp_code",
+            label: "ERP",
+            type: "number",
+            numberPlain: true,
+            width: "90px",
+            align: "center",
+            sticky: true,
+            render: (item) => {
+                const id = item.product_id != null ? String(item.product_id) : "";
+                const a = document.createElement("a");
+                a.href = id ? `${base}/ceo_product_detail_layout.html?sku=${encodeURIComponent(id)}&hub=1` : "#";
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.textContent = item.erp_code || "—";
+                a.style.color = COL_TEXT_COLOR;
+                a.style.textDecoration = "none";
+                a.style.fontWeight = "600";
+                a.style.fontSize = "12px";
+                a.style.display = "inline-block";
+                a.style.maxWidth = "100%";
+                a.style.textAlign = "center";
+                a.onmouseenter = () => {
+                    a.style.textDecoration = "underline";
+                };
+                a.onmouseleave = () => {
+                    a.style.textDecoration = "none";
+                };
+                return a;
+            }
+        },
+
+        // 2. Produto — sticky
+        {
+            key: "name",
+            label: "Produto",
+            type: "text",
+            width: "260px",
+            align: "center",
+            sticky: true,
+            wrap: true,
+            render: (item) => {
+                const id = item.product_id != null ? String(item.product_id) : "";
+                const a = document.createElement("a");
+                a.href = id ? `${base}/ceo_product_detail_layout.html?sku=${encodeURIComponent(id)}&hub=1` : "#";
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.textContent = item.name || "—";
+                a.style.color = COL_TEXT_COLOR;
+                a.style.textDecoration = "none";
+                a.style.fontWeight = "600";
+                a.style.fontSize = "12px";
+                a.style.display = "block";
+                a.style.textAlign = "center";
+                a.style.whiteSpace = "normal";
+                a.style.wordBreak = "break-word";
+                a.style.lineHeight = "1.2";
+                a.onmouseenter = () => {
+                    a.style.textDecoration = "underline";
+                };
+                a.onmouseleave = () => {
+                    a.style.textDecoration = "none";
+                };
+                return a;
+            }
+        },
+
+        // 3. Motivo
         {
             key: "motivo",
             label: "Motivo",
@@ -167,57 +327,43 @@ export async function mount(mainEl) {
             align: "center",
             render: (item) => motivoBadge(item)
         },
-        { key: "erp_code", label: "ERP", type: "text", width: "90px", align: "center" },
-        {
-            key: "name",
-            label: "Produto",
-            type: "text",
-            width: "260px",
-            sticky: true,
-            render: (item) => {
-                const id = item.product_id != null ? String(item.product_id) : "";
-                const a = document.createElement("a");
-                a.href = id ? `${base}/ceo_product_detail_layout.html?sku=${encodeURIComponent(id)}&hub=1` : "#";
-                a.target = "_blank";
-                a.rel = "noopener noreferrer";
-                a.textContent = item.name || "—";
-                a.style.color = "inherit";
-                a.style.textDecoration = "none";
-                a.style.fontWeight = "600";
-                a.onmouseenter = () => {
-                    a.style.color = "var(--color-accent)";
-                    a.style.textDecoration = "underline";
-                };
-                a.onmouseleave = () => {
-                    a.style.color = "inherit";
-                    a.style.textDecoration = "none";
-                };
-                return a;
-            }
-        },
+
+        // 4. CO-CEO TOTAL
         {
             key: "coceo_total",
-            label: "CO-CEO TOTAL",
+            label: "CO-CEO<br>TOTAL",
             type: "number",
             width: "120px",
-            align: "right",
+            align: "center",
             render: (item) => {
                 const s = document.createElement("span");
                 s.textContent = fmtNum(item.coceo_total);
                 s.style.fontWeight = "600";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
                 return s;
             }
         },
+
+        // 5. ADMIN comparado
         {
             key: "admin_compared",
-            label: "ADMIN (comparado)",
+            label: "ADMIN<br>(comparado)",
             type: "number",
             width: "140px",
-            align: "right",
+            align: "center",
             render: (item) => {
                 const s = document.createElement("span");
                 s.textContent = fmtNum(item.admin_compared);
                 s.style.fontWeight = "600";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
                 s.title =
                     `Fonte: ${item.admin_compared_source || "—"}` +
                     (item.admin_produtototalizador != null
@@ -227,63 +373,102 @@ export async function mount(mainEl) {
                 return s;
             }
         },
+
+        // 6. Δ
         {
             key: "delta_admin_minus_coceo",
-            label: "Δ (admin − CO-CEO)",
+            label: "Δ (admin −<br>CO-CEO)",
             type: "number",
             width: "150px",
-            align: "right",
+            align: "center",
             render: (item) => deltaCell(item.delta_admin_minus_coceo)
         },
+
+        // 7. |Δ|
         {
             key: "delta_abs",
             label: "|Δ|",
             type: "number",
             width: "110px",
-            align: "right",
+            align: "center",
             render: (item) => {
                 const s = document.createElement("span");
                 s.textContent = fmtNum(item.delta_abs);
                 s.style.fontWeight = "700";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
                 return s;
             }
         },
+
+        // 8. #lojas off
         {
             key: "n_stores_with_diff",
-            label: "#lojas off",
+            label: "#lojas<br>off",
             type: "number",
             width: "92px",
-            align: "right"
+            align: "center",
+            render: (item) => {
+                const s = document.createElement("span");
+                const n = Number(item.n_stores_with_diff) || 0;
+                s.textContent = fmtInt(n);
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
+                return s;
+            }
         },
+
+        // 9. max |Δ| loja
         {
             key: "max_abs_store_diff",
-            label: "max |Δ| loja",
+            label: "max |Δ|<br>loja",
             type: "number",
             width: "110px",
-            align: "right",
+            align: "center",
             render: (item) => {
                 const s = document.createElement("span");
                 s.textContent = fmtNum(item.max_abs_store_diff);
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
                 return s;
             }
         },
+
+        // 10. legado órfão
         {
             key: "orphan_qty",
-            label: "legado órfão",
+            label: "Legado<br>órfão",
             type: "number",
             width: "110px",
-            align: "right",
+            align: "center",
             render: (item) => {
                 const s = document.createElement("span");
                 s.textContent = fmtNum(item.orphan_qty);
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "right";
                 return s;
             }
         },
+
+        // 11. Descrição
         {
             key: "descricao",
             label: "Descrição da diferença",
             type: "text",
             width: "420px",
+            align: "left",
             wrap: true,
             render: (item) => {
                 const s = document.createElement("span");
@@ -292,21 +477,108 @@ export async function mount(mainEl) {
                 s.style.wordBreak = "break-word";
                 s.style.lineHeight = "1.35";
                 s.style.fontSize = "11px";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.display = "block";
                 return s;
             }
         }
     ];
 
+    /**
+     * Totais agregados no rodapé (mesma técnica do catálogo via footerAggregate).
+     * Reflete linhas visíveis após filtros — alinhado com os KPIs do topo.
+     */
+    function buildFooterAggregate({ currentData }) {
+        const wrap = document.createElement("div");
+        wrap.style.display = "inline-flex";
+        wrap.style.flexWrap = "wrap";
+        wrap.style.gap = "8px 14px";
+        wrap.style.alignItems = "baseline";
+        wrap.style.justifyContent = "flex-end";
+        const rows = Array.isArray(currentData) ? currentData : [];
+        if (!rows.length) {
+            const em = document.createElement("span");
+            em.textContent = "Sem linhas para totalizar.";
+            em.style.opacity = "0.85";
+            wrap.appendChild(em);
+            return wrap;
+        }
+        let sumAbs = 0;
+        let nNeg = 0;
+        let nPos = 0;
+        let maxStoreDiffSum = 0;
+        let orphanSum = 0;
+        for (const r of rows) {
+            const d = Number(r.delta_admin_minus_coceo);
+            const a = Number(r.delta_abs);
+            if (Number.isFinite(a)) sumAbs += Math.abs(a);
+            if (Number.isFinite(d)) {
+                if (d < -0.01) nNeg++;
+                else if (d > 0.01) nPos++;
+            }
+            maxStoreDiffSum += Number(r.max_abs_store_diff) || 0;
+            orphanSum += Number(r.orphan_qty) || 0;
+        }
+        const chip = (label, value) => {
+            const s = document.createElement("span");
+            s.style.whiteSpace = "nowrap";
+            const b = document.createElement("strong");
+            b.textContent = label;
+            b.style.fontWeight = "700";
+            s.appendChild(b);
+            s.appendChild(document.createTextNode("\u00A0" + value));
+            return s;
+        };
+        wrap.appendChild(chip("Linhas:", fmtInt(rows.length)));
+        wrap.appendChild(chip("Σ |Δ|:", fmtInt(sumAbs)));
+        wrap.appendChild(chip("Δ < 0:", fmtInt(nNeg)));
+        wrap.appendChild(chip("Δ > 0:", fmtInt(nPos)));
+        wrap.appendChild(chip("Σ max |Δ| loja:", fmtInt(maxStoreDiffSum)));
+        wrap.appendChild(chip("Σ legado órfão:", fmtInt(orphanSum)));
+        return wrap;
+    }
+
     const excel = new ExcelTable({
         container: gridEl,
         columns,
-        gridId: "admin-coceo-audit-grid-v1",
+        gridId: "admin-coceo-audit-grid-v2",
         projectId: 0,
         endpointPrefix: null,
         enableSelection: false,
-        fixedLeadingColumns: 0,
-        summaryLabels: { total: "Linhas exibidas:", selected: "" }
+        fixedLeadingColumns: 2,
+        columnWidthLimits: {
+            erp_code: { minPx: 60, maxPx: 200 },
+            name: { minPx: 160, maxPx: 480 }
+        },
+        summaryLabels: { total: "Linhas exibidas", selected: "" },
+        footerAggregate: (ctx) => buildFooterAggregate(ctx),
+        tableTheme: {
+            rowEvenBg: "#ffffff",
+            rowOddBg: "#dbeafe",
+            rowHoverBg: "#edd8bb",
+            textColor: COL_TEXT_COLOR,
+            bodyFontSize: "12px"
+        }
     });
+
+    /** Mantém o rodapé com texto dourado mesmo após re-render (igual ao catálogo). */
+    const paintFooterGold = () => {
+        const footer = gridEl.querySelector(".table-footer-summary");
+        if (!footer) return;
+        footer.style.color = "#f5cf96";
+        footer.querySelectorAll("*").forEach((el) => {
+            if (el.tagName === "STRONG") {
+                el.style.color = "#ffffff";
+            } else if (!el.style.color) {
+                el.style.color = "#f5cf96";
+            }
+        });
+    };
+    const originalRender = excel.render.bind(excel);
+    excel.render = (data) => {
+        originalRender(data);
+        paintFooterGold();
+    };
 
     function renderChips(groups) {
         const total = allRows.length;
@@ -404,15 +676,16 @@ export async function mount(mainEl) {
 
     function refresh() {
         const rows = applyFilters();
+        const tableRows = rows.map((r) => ({ id: String(r.product_id != null ? r.product_id : r.erp_code), ...r }));
         updateKpis(rows);
-        excel.render(rows);
+        excel.render(tableRows);
         renderChips(payload && payload.groups ? payload.groups : []);
     }
 
     function exportRows() {
         const rows = applyFilters();
         if (!rows.length) {
-            metaEl.style.color = "#fca5a5";
+            metaEl.style.color = "#991b1b";
             metaEl.textContent = "Nada para exportar com os filtros atuais.";
             return;
         }
@@ -466,6 +739,7 @@ export async function mount(mainEl) {
     allRows = payload.rows;
 
     const meta = payload.meta || {};
+    metaEl.style.color = "";
     metaEl.textContent =
         (meta.source_generated_at
             ? `Auditoria gerada em ${meta.source_generated_at}.`
