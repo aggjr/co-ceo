@@ -3,22 +3,10 @@
     "id": 2488,
     "code": "12655",
     "name": "UNICA 4.00X2.60 MICROFIBRA OCRE 07",
-    "timestamp": "2026-04-30T11:34:42.009Z"
+    "timestamp": "2026-05-05T20:06:20.153Z"
   },
   "data": {
     "Fábrica": [
-      {
-        "quantidade": 3,
-        "data_evento": "2024-05-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-05-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 3,
         "data_evento": "2024-05-16T03:00:00.000Z",
@@ -57,12 +45,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-06-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2024-06-03T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

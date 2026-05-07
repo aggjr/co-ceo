@@ -3,7 +3,7 @@
     "id": 3843,
     "code": "12969",
     "name": "CORTINA OUTLET -C1-",
-    "timestamp": "2026-04-30T11:38:26.410Z"
+    "timestamp": "2026-05-05T20:07:23.044Z"
   },
   "data": {
     "Venda Nova": [
@@ -121,12 +121,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-10-04T03:00:00.000Z",

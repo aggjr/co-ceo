@@ -3,7 +3,7 @@
     "id": 886,
     "code": "10188",
     "name": "TEC CORTA LUZ LISO PRATA 2.80 MT",
-    "timestamp": "2026-04-30T11:30:10.427Z"
+    "timestamp": "2026-05-05T20:02:08.700Z"
   },
   "data": {
     "Fábrica": [
@@ -58,12 +58,6 @@
       {
         "quantidade": 29.400000000000002,
         "data_evento": "2023-04-25T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2023-04-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -195,12 +189,6 @@
       },
       {
         "quantidade": 21,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 16.8,
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -764,12 +752,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 4.2,
-        "data_evento": "2024-06-21T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3.8,
         "data_evento": "2024-06-25T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -861,12 +843,6 @@
       },
       {
         "quantidade": 6,
-        "data_evento": "2024-07-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 36,
         "data_evento": "2024-07-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

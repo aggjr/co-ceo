@@ -3,7 +3,7 @@
     "id": 3946,
     "code": "13080",
     "name": "FORRO RETO FAST CTL LISO BRANCO 4,00XS.M.",
-    "timestamp": "2026-04-30T11:38:42.540Z"
+    "timestamp": "2026-05-05T20:07:41.416Z"
   },
   "data": {
     "Fábrica": [
@@ -23,12 +23,6 @@
         "quantidade": 1,
         "data_evento": "2025-09-24T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {

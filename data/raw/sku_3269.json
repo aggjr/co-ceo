@@ -3,7 +3,7 @@
     "id": 3269,
     "code": "12388",
     "name": "KIT COLCHA MIRAGGIO QUEEN MARROM TESSI",
-    "timestamp": "2026-04-30T11:36:54.330Z"
+    "timestamp": "2026-05-05T20:05:50.547Z"
   },
   "data": {
     "Eldorado 2": [
@@ -32,12 +32,6 @@
         "data_evento": "2024-05-09T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 4028,
     "code": "13174",
     "name": "FAST WAVE TRANSL. ELEGANCE PEROLA 3.00X até2.90",
-    "timestamp": "2026-04-30T11:38:55.500Z"
+    "timestamp": "2026-05-05T20:07:57.369Z"
   },
   "data": {
     "G2": [
@@ -28,12 +28,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-02-19T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -70,12 +64,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 15,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 15,

@@ -3,7 +3,7 @@
     "id": 1864,
     "code": "K629",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 629",
-    "timestamp": "2026-04-30T11:32:56.555Z"
+    "timestamp": "2026-05-05T20:04:41.736Z"
   },
   "data": {
     "Tupis": [
@@ -79,12 +79,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-11-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -106,12 +100,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-07-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-09-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

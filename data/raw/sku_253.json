@@ -3,7 +3,7 @@
     "id": 253,
     "code": "10642",
     "name": "UNICA 4,00X2,60 JACQ EST, TABACO",
-    "timestamp": "2026-04-30T11:28:16.952Z"
+    "timestamp": "2026-05-05T20:00:25.176Z"
   },
   "data": {
     "Guaranis": [
@@ -212,12 +212,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 21,
         "data_evento": "2023-12-04T03:00:00.000Z",
         "natureza": "Entrada Produção",
@@ -225,42 +219,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-12-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

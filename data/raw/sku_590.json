@@ -3,7 +3,7 @@
     "id": 590,
     "code": "6029",
     "name": "CORTA LUZ 4,00X2,60 LINHO AREIA",
-    "timestamp": "2026-04-30T11:29:13.554Z"
+    "timestamp": "2026-05-05T20:01:19.397Z"
   },
   "data": {
     "Tupis": [
@@ -51,12 +51,6 @@
       }
     ],
     "Fábrica": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-10T03:00:00.000Z",
@@ -119,42 +113,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-05-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

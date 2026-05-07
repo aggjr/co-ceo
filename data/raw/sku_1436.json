@@ -3,7 +3,7 @@
     "id": 1436,
     "code": "10235",
     "name": "EDREDOM CASAL 2,00X2,20 PORT DUO",
-    "timestamp": "2026-04-30T11:31:41.266Z"
+    "timestamp": "2026-05-05T20:03:33.692Z"
   },
   "data": {
     "Fábrica": [
@@ -56,22 +56,10 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-07-17T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2023-08-22T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -127,12 +115,6 @@
         "quantidade": 1,
         "data_evento": "2024-02-16T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-06-06T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

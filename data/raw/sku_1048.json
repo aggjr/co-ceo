@@ -3,7 +3,7 @@
     "id": 1048,
     "code": "9172",
     "name": "TEC. MICROFIBRA PRETO 2.80",
-    "timestamp": "2026-04-30T11:30:37.236Z"
+    "timestamp": "2026-05-05T20:02:33.594Z"
   },
   "data": {
     "Fábrica": [
@@ -120,12 +120,6 @@
         "data_evento": "2023-10-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2023-10-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 30,

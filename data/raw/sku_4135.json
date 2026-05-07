@@ -3,7 +3,7 @@
     "id": 4135,
     "code": "13274",
     "name": "FAST FORRO BLACK100 PEROLA 3.00X até2.68",
-    "timestamp": "2026-04-30T11:39:12.224Z"
+    "timestamp": "2026-05-05T20:08:17.906Z"
   },
   "data": {
     "G2": [
@@ -46,12 +46,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

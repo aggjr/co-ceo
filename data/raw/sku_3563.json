@@ -3,7 +3,7 @@
     "id": 3563,
     "code": "12662",
     "name": "TROCAR RODIZIO CORTINA EFEITO ILHOS (COM FORRO E SEM FORRO) MT",
-    "timestamp": "2026-04-30T11:37:40.717Z"
+    "timestamp": "2026-05-05T20:06:35.102Z"
   },
   "data": {
     "G2": [
@@ -50,12 +50,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-02-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-06T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

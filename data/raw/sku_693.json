@@ -3,7 +3,7 @@
     "id": 693,
     "code": "841",
     "name": "UNICA 4,00X2,60 OXFORD LISO VERMELHO",
-    "timestamp": "2026-04-30T11:29:37.686Z"
+    "timestamp": "2026-05-05T20:01:37.721Z"
   },
   "data": {
     "Betim": [
@@ -135,12 +135,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-08-10T03:00:00.000Z",

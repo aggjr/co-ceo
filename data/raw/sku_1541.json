@@ -3,7 +3,7 @@
     "id": 1541,
     "code": "8307",
     "name": "RODIZIO MAX",
-    "timestamp": "2026-04-30T11:32:01.570Z"
+    "timestamp": "2026-05-05T20:03:50.942Z"
   },
   "data": {
     "Barreiro": [
@@ -650,12 +650,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-02-27T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 26,
         "data_evento": "2024-02-28T03:00:00.000Z",
         "natureza": "Venda",
@@ -670,12 +664,6 @@
       {
         "quantidade": 10,
         "data_evento": "2024-03-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-03-08T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -858,12 +846,6 @@
         "data_evento": "2024-06-14T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-06-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 100,
@@ -1146,12 +1128,6 @@
         "data_evento": "2024-10-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-10-29T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 50,
@@ -1454,12 +1430,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-03-10T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 90,
         "data_evento": "2025-03-11T03:00:00.000Z",
         "natureza": "Venda",
@@ -1494,12 +1464,6 @@
         "data_evento": "2025-03-22T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-03-25T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 100,
@@ -2193,12 +2157,6 @@
       },
       {
         "quantidade": 10,
-        "data_evento": "2025-12-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
         "data_evento": "2025-12-24T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -2349,12 +2307,6 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2026-02-23T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2026-02-26T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
@@ -2454,12 +2406,6 @@
         "data_evento": "2026-04-09T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2026-04-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 30,
@@ -3038,12 +2984,6 @@
         "data_evento": "2025-02-03T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 100,
@@ -3684,12 +3624,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 20,
-        "data_evento": "2023-07-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 28,
         "data_evento": "2023-07-10T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -4006,12 +3940,6 @@
         "data_evento": "2024-04-08T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 40,
-        "data_evento": "2024-04-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 40,
@@ -5704,12 +5632,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2023-04-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2023-04-27T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -5728,18 +5650,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2023-05-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-05-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2023-05-08T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -5754,18 +5664,6 @@
       {
         "quantidade": 50,
         "data_evento": "2023-05-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-05-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -5807,24 +5705,6 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2023-06-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2023-06-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -5837,12 +5717,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2023-06-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2023-06-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -5862,24 +5736,6 @@
       {
         "quantidade": 50,
         "data_evento": "2023-07-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-07-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-07-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-07-10T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -5956,12 +5812,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2023-08-17T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 52,
         "data_evento": "2023-08-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -5999,24 +5849,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2023-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-09-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2023-09-14T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -6035,38 +5867,8 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2023-09-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2023-09-21T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-09-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-09-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-09-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1320,
-        "data_evento": "2023-09-27T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -6089,43 +5891,7 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2023-10-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6150,18 +5916,6 @@
       {
         "quantidade": 100,
         "data_evento": "2023-10-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-10-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2023-10-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6208,18 +5962,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2023-11-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-11-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 440,
         "data_evento": "2023-11-14T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -6238,12 +5980,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2023-11-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 352,
         "data_evento": "2023-11-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -6253,24 +5989,6 @@
         "quantidade": 176,
         "data_evento": "2023-11-29T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-11-30T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-11-30T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-11-30T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -6306,12 +6024,6 @@
       {
         "quantidade": 50,
         "data_evento": "2023-12-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2023-12-11T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6358,52 +6070,10 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 308,
-        "data_evento": "2024-01-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 308,
-        "data_evento": "2024-01-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 5000,
         "data_evento": "2024-01-29T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 100,
@@ -6472,18 +6142,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-02-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-02-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2024-02-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -6509,26 +6167,8 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2024-03-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-03-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 264,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -6563,19 +6203,7 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2024-03-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2024-03-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-03-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6618,30 +6246,6 @@
       {
         "quantidade": 50,
         "data_evento": "2024-04-01T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-04-01T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-04-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-04-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-04-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6706,38 +6310,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2024-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-05-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6763,12 +6337,6 @@
         "quantidade": 352,
         "data_evento": "2024-05-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-05-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -6868,18 +6436,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2024-06-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-06-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2024-06-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -6928,12 +6484,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2024-07-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2024-07-11T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -6954,12 +6504,6 @@
       {
         "quantidade": 50,
         "data_evento": "2024-07-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-07-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -6995,12 +6539,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2024-08-01T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2024-08-01T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7048,24 +6586,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-08-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2024-08-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -7103,12 +6623,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2024-08-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2024-09-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7122,18 +6636,6 @@
       {
         "quantidade": 50,
         "data_evento": "2024-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-09-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -7175,12 +6677,6 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2024-09-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2024-09-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7210,12 +6706,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-10-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 264,
         "data_evento": "2024-10-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -7240,38 +6730,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2024-10-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-10-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2024-10-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-10-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-10-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-10-17T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -7302,18 +6762,6 @@
       {
         "quantidade": 100,
         "data_evento": "2024-10-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-10-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-10-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -7385,12 +6833,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2024-11-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2024-11-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7402,12 +6844,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-11-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2024-11-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -7421,24 +6857,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2024-11-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-11-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2024-11-28T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7451,54 +6869,6 @@
       },
       {
         "quantidade": 270,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 270,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 480,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 506,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 270,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 270,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
         "data_evento": "2024-11-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -7540,12 +6910,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2024-12-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2024-12-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -7554,30 +6918,6 @@
       {
         "quantidade": 50,
         "data_evento": "2024-12-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-12-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2024-12-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-12-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-12-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -7618,19 +6958,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2024-12-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
-        "data_evento": "2024-12-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2024-12-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -7644,12 +6972,6 @@
       {
         "quantidade": 50,
         "data_evento": "2024-12-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-01-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -7744,12 +7066,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 330,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 660,
         "data_evento": "2025-01-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -7762,61 +7078,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 660,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 660,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 480,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 480,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 480,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 480,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 480,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 440,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 440,
-        "data_evento": "2025-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 660,
         "data_evento": "2025-01-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -7841,18 +7103,6 @@
       },
       {
         "quantidade": 110,
-        "data_evento": "2025-01-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 110,
-        "data_evento": "2025-01-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 288,
         "data_evento": "2025-01-31T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -7942,18 +7192,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 154,
-        "data_evento": "2025-02-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2025-02-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 220,
         "data_evento": "2025-02-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -8026,72 +7264,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-02-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-03-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-03-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2025-03-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -8123,18 +7295,6 @@
       },
       {
         "quantidade": 440,
-        "data_evento": "2025-03-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 440,
-        "data_evento": "2025-03-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
         "data_evento": "2025-03-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -8200,12 +7360,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 160,
-        "data_evento": "2025-03-19T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-03-20T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -8248,18 +7402,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-03-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-03-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 528,
         "data_evento": "2025-03-25T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -8281,12 +7423,6 @@
         "quantidade": 192,
         "data_evento": "2025-03-26T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-03-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -8326,12 +7462,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 264,
-        "data_evento": "2025-04-01T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 224,
         "data_evento": "2025-04-01T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -8357,12 +7487,6 @@
       },
       {
         "quantidade": 308,
-        "data_evento": "2025-04-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 192,
         "data_evento": "2025-04-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -8435,12 +7559,6 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2025-04-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2025-04-14T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -8491,12 +7609,6 @@
         "quantidade": 50,
         "data_evento": "2025-04-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 210,
-        "data_evento": "2025-04-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -8566,37 +7678,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-05-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-05-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 264,
-        "data_evento": "2025-05-06T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 264,
-        "data_evento": "2025-05-06T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 192,
-        "data_evento": "2025-05-06T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 192,
         "data_evento": "2025-05-06T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -8650,25 +7732,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-05-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-05-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 264,
-        "data_evento": "2025-05-13T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
         "data_evento": "2025-05-13T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -8713,30 +7777,6 @@
         "quantidade": 100,
         "data_evento": "2025-05-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-05-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-05-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-05-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2025-05-15T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -8818,18 +7858,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2025-06-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -8896,12 +7924,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-06-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 440,
         "data_evento": "2025-06-11T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -8923,18 +7945,6 @@
         "quantidade": 88,
         "data_evento": "2025-06-11T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -8980,36 +7990,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-06-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 300,
-        "data_evento": "2025-06-17T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 300,
         "data_evento": "2025-06-17T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9023,12 +8003,6 @@
       },
       {
         "quantidade": 360,
-        "data_evento": "2025-06-17T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 300,
         "data_evento": "2025-06-17T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -9094,12 +8068,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-06-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-06-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -9107,26 +8075,8 @@
       },
       {
         "quantidade": 50,
-        "data_evento": "2025-06-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2025-06-30T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-06-30T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 128,
-        "data_evento": "2025-07-03T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -9143,18 +8093,6 @@
       },
       {
         "quantidade": 396,
-        "data_evento": "2025-07-03T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 132,
-        "data_evento": "2025-07-03T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 132,
         "data_evento": "2025-07-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -9185,12 +8123,6 @@
       },
       {
         "quantidade": 420,
-        "data_evento": "2025-07-03T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
         "data_evento": "2025-07-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -9232,18 +8164,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-07-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -9274,12 +8194,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1540,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 220,
         "data_evento": "2025-07-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9292,25 +8206,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-07-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-07-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 180,
-        "data_evento": "2025-07-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 132,
         "data_evento": "2025-07-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -9424,18 +8320,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 110,
-        "data_evento": "2025-07-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2025-07-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 220,
         "data_evento": "2025-07-31T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9496,37 +8380,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2025-08-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -9562,12 +8416,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-08-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 220,
         "data_evento": "2025-08-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9577,18 +8425,6 @@
         "quantidade": 180,
         "data_evento": "2025-08-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 220,
-        "data_evento": "2025-08-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-08-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -9634,24 +8470,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-08-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-08-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-08-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 352,
         "data_evento": "2025-08-19T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9679,12 +8497,6 @@
         "quantidade": 384,
         "data_evento": "2025-08-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-08-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -9748,12 +8560,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-08-28T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 256,
         "data_evento": "2025-08-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9762,12 +8568,6 @@
       {
         "quantidade": 264,
         "data_evento": "2025-08-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 240,
-        "data_evento": "2025-08-29T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -9808,12 +8608,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-09-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-09-08T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -9823,12 +8617,6 @@
         "quantidade": 220,
         "data_evento": "2025-09-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-09-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -9859,30 +8647,6 @@
         "quantidade": 210,
         "data_evento": "2025-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 180,
-        "data_evento": "2025-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 154,
-        "data_evento": "2025-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-09-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-09-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -9934,18 +8698,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-09-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-09-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 176,
         "data_evento": "2025-09-19T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -9988,19 +8740,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-09-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
-        "data_evento": "2025-09-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2025-09-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -10150,12 +8890,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 180,
-        "data_evento": "2025-10-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 192,
         "data_evento": "2025-10-07T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -10213,24 +8947,6 @@
         "quantidade": 50,
         "data_evento": "2025-10-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 154,
-        "data_evento": "2025-10-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 154,
-        "data_evento": "2025-10-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 154,
-        "data_evento": "2025-10-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -10312,12 +9028,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 10,
-        "data_evento": "2025-10-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 80,
         "data_evento": "2025-10-20T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -10348,18 +9058,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 210,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 210,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 20,
         "data_evento": "2025-10-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -10367,12 +9065,6 @@
       },
       {
         "quantidade": 40,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
         "data_evento": "2025-10-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -10396,12 +9088,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 180,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 176,
         "data_evento": "2025-10-23T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -10411,24 +9097,6 @@
         "quantidade": 132,
         "data_evento": "2025-10-23T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 132,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 132,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2025-10-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -10492,12 +9160,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 10,
-        "data_evento": "2025-11-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 256,
         "data_evento": "2025-11-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -10507,12 +9169,6 @@
         "quantidade": 440,
         "data_evento": "2025-11-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-11-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -10552,12 +9208,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 30,
-        "data_evento": "2025-11-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 154,
         "data_evento": "2025-11-11T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -10582,12 +9232,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 110,
-        "data_evento": "2025-11-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2025-11-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -10596,12 +9240,6 @@
       {
         "quantidade": 30,
         "data_evento": "2025-11-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-11-17T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -10642,12 +9280,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2025-11-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 176,
         "data_evento": "2025-11-21T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -10666,26 +9298,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 40,
-        "data_evento": "2025-11-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-11-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2025-11-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2025-11-27T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -10745,12 +9359,6 @@
       },
       {
         "quantidade": 60,
-        "data_evento": "2025-12-04T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
         "data_evento": "2025-12-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -10840,30 +9448,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-12-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2025-12-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-12-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 60,
-        "data_evento": "2025-12-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2025-12-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -10890,18 +9474,6 @@
       {
         "quantidade": 50,
         "data_evento": "2025-12-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-12-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-01-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -10920,24 +9492,6 @@
       {
         "quantidade": 80,
         "data_evento": "2026-01-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-01-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-01-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2026-01-08T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -10997,12 +9551,6 @@
       },
       {
         "quantidade": 80,
-        "data_evento": "2026-01-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2026-01-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -11074,18 +9622,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 132,
-        "data_evento": "2026-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 180,
-        "data_evento": "2026-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 180,
         "data_evento": "2026-01-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -11146,12 +9682,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 180,
-        "data_evento": "2026-01-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 10,
         "data_evento": "2026-01-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -11167,12 +9697,6 @@
         "quantidade": 264,
         "data_evento": "2026-01-27T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2026-01-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -11236,12 +9760,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 40,
-        "data_evento": "2026-02-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 180,
         "data_evento": "2026-02-09T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -11284,12 +9802,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 70,
-        "data_evento": "2026-02-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2026-02-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -11309,12 +9821,6 @@
       },
       {
         "quantidade": 180,
-        "data_evento": "2026-02-27T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 88,
         "data_evento": "2026-02-27T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -11368,12 +9874,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 120,
-        "data_evento": "2026-03-06T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 88,
         "data_evento": "2026-03-06T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -11404,12 +9904,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 40,
-        "data_evento": "2026-03-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 192,
         "data_evento": "2026-03-11T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -11423,12 +9917,6 @@
       },
       {
         "quantidade": 10,
-        "data_evento": "2026-03-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2026-03-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -11461,12 +9949,6 @@
         "quantidade": 264,
         "data_evento": "2026-03-17T03:00:00.000Z",
         "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -11531,12 +10013,6 @@
       },
       {
         "quantidade": 204,
-        "data_evento": "2026-03-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 168,
         "data_evento": "2026-03-23T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -11632,12 +10108,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2026-03-31T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 70,
         "data_evento": "2026-03-31T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -11645,12 +10115,6 @@
       },
       {
         "quantidade": 15,
-        "data_evento": "2026-03-31T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
         "data_evento": "2026-03-31T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -11710,36 +10174,12 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 132,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 112,
         "data_evento": "2026-04-02T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 72,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 168,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 136,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2026-04-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -11747,18 +10187,6 @@
       },
       {
         "quantidade": 100,
-        "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 100,
-        "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2026-04-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -11902,12 +10330,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 10,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 50,
         "data_evento": "2026-04-16T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -11956,18 +10378,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2026-04-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-04-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 220,
         "data_evento": "2026-04-23T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -12004,25 +10414,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50,
-        "data_evento": "2026-04-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2026-04-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
-        "data_evento": "2026-04-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
         "data_evento": "2026-04-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -12043,6 +10435,13 @@
         "quantidade": 256,
         "data_evento": "2026-04-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
+        "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038527,
+        "quantidade": 100,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       }
     ],
@@ -12250,12 +10649,6 @@
         "data_evento": "2023-09-20T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 15,
-        "data_evento": "2023-09-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 15,
@@ -13092,12 +11485,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 100,
-        "data_evento": "2025-12-22T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 10,
         "data_evento": "2026-02-02T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -13593,12 +11980,6 @@
       },
       {
         "quantidade": 6,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
         "data_evento": "2024-02-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -14522,12 +12903,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 30,
-        "data_evento": "2025-03-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100,
         "data_evento": "2025-03-25T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -14826,12 +13201,6 @@
         "data_evento": "2025-07-01T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2025-07-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 20,
@@ -15218,12 +13587,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 5,
-        "data_evento": "2025-10-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 20,
         "data_evento": "2025-10-25T03:00:00.000Z",
         "natureza": "Venda",
@@ -15294,12 +13657,6 @@
         "data_evento": "2025-11-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2025-11-21T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 50,
@@ -15708,6 +14065,20 @@
         "data_evento": "2026-04-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038747,
+        "quantidade": 100,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "movimento_id": 1038799,
+        "quantidade": 27,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Acerto Saída",
+        "operacao": "DEBITO"
       }
     ],
     "Tupis": [
@@ -15880,21 +14251,9 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-08-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 19,
         "data_evento": "2023-08-25T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 40,
-        "data_evento": "2023-09-01T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {
@@ -17124,12 +15483,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 20,
-        "data_evento": "2023-12-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 5,
         "data_evento": "2023-12-26T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
@@ -17146,12 +15499,6 @@
         "data_evento": "2024-01-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 10,
@@ -17391,12 +15738,6 @@
         "quantidade": 7,
         "data_evento": "2024-08-26T03:00:00.000Z",
         "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 50,
-        "data_evento": "2024-08-26T03:00:00.000Z",
-        "natureza": "Acerto Saída",
         "operacao": "DEBITO"
       },
       {

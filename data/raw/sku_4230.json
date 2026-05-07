@@ -3,7 +3,7 @@
     "id": 4230,
     "code": "13368",
     "name": "TRILHO MAX UNICO PEA 4.00M",
-    "timestamp": "2026-04-30T11:39:26.916Z"
+    "timestamp": "2026-05-05T20:08:35.771Z"
   },
   "data": {
     "Fábrica": [
@@ -12,48 +12,6 @@
         "data_evento": "2026-01-21T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 6,
@@ -86,12 +44,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-03-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-03-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -105,18 +57,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2026-03-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-03-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-03-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -148,18 +88,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -180,6 +108,13 @@
         "data_evento": "2026-04-22T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
+      },
+      {
+        "movimento_id": 1038374,
+        "quantidade": 2,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
       }
     ],
     "Eldorado 2": [
@@ -350,12 +285,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-04-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-04-06T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -378,6 +307,13 @@
       {
         "quantidade": 6,
         "data_evento": "2026-01-23T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "movimento_id": 1038744,
+        "quantidade": 2,
+        "data_evento": "2026-05-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
       }

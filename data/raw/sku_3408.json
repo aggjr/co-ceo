@@ -3,7 +3,7 @@
     "id": 3408,
     "code": "12524",
     "name": "ILHOS PTC. C/100 REDONDO BRANCO 28 MM",
-    "timestamp": "2026-04-30T11:37:17.737Z"
+    "timestamp": "2026-05-05T20:06:13.092Z"
   },
   "data": {
     "Fábrica": [
@@ -12,36 +12,6 @@
         "data_evento": "2024-01-03T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,
@@ -204,12 +174,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-03-09T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-09-24T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
       },

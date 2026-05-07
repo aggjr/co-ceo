@@ -3,7 +3,7 @@
     "id": 494,
     "code": "3762",
     "name": "DUPLEX 2,60X2,60 VOIL LISO OCRE 24",
-    "timestamp": "2026-04-30T11:28:56.495Z"
+    "timestamp": "2026-05-05T20:01:03.459Z"
   },
   "data": {
     "Tupis": [
@@ -183,19 +183,7 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-12-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-12-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

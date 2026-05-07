@@ -3,7 +3,7 @@
     "id": 798,
     "code": "9700",
     "name": "CORTA LUZ 4,00X2,60 LINHO KAKI",
-    "timestamp": "2026-04-30T11:29:55.467Z"
+    "timestamp": "2026-05-05T20:01:54.728Z"
   },
   "data": {
     "Tupis": [
@@ -58,12 +58,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-04-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-03T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

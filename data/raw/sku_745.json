@@ -3,7 +3,7 @@
     "id": 745,
     "code": "9286",
     "name": "CORTINA VOIL LISO BELLA TAUPE C/ BLACKOUT PVC 2.60X1.70",
-    "timestamp": "2026-04-30T11:29:46.757Z"
+    "timestamp": "2026-05-05T20:01:46.285Z"
   },
   "data": {
     "Barreiro": [
@@ -54,12 +54,6 @@
         "data_evento": "2023-04-19T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-19T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,
@@ -153,12 +147,6 @@
         "quantidade": 4,
         "data_evento": "2023-04-05T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {

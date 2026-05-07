@@ -3,7 +3,7 @@
     "id": 3501,
     "code": "12590",
     "name": "MANTA DE MICROFIBRA QUEEN FLANNEL PLUSH LISO",
-    "timestamp": "2026-04-30T11:37:30.210Z"
+    "timestamp": "2026-05-05T20:06:25.021Z"
   },
   "data": {
     "Fábrica": [
@@ -26,19 +26,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 9,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

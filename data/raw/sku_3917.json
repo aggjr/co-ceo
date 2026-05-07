@@ -3,7 +3,7 @@
     "id": 3917,
     "code": "13056",
     "name": "CORTINA LUX DUAL LINHO ELEGANCE PRATA 5.80X2.80",
-    "timestamp": "2026-04-30T11:38:37.960Z"
+    "timestamp": "2026-05-05T20:07:36.468Z"
   },
   "data": {
     "Fábrica": [
@@ -12,54 +12,6 @@
         "data_evento": "2025-07-21T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 3,
@@ -152,12 +104,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-08-21T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-08-21T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -225,12 +171,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-09-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-10-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -278,12 +218,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-11-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 7,
         "data_evento": "2025-11-27T03:00:00.000Z",
         "natureza": "Entrada Produção",
@@ -310,18 +244,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-12-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-12-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-12-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -356,20 +278,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-01-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-01-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-26T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -884,6 +794,13 @@
         "data_evento": "2026-03-05T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
+      },
+      {
+        "movimento_id": 1038787,
+        "quantidade": 1,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
       }
     ],
     "Venda Nova": [
@@ -1046,18 +963,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2025-08-21T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2025-08-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
         "data_evento": "2025-08-26T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -1214,12 +1119,6 @@
         "data_evento": "2026-02-11T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-19T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

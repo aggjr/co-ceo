@@ -3,7 +3,7 @@
     "id": 3420,
     "code": "12535",
     "name": "PERSIANA TELA SOLAR 1,40X1,60 BRANCO",
-    "timestamp": "2026-04-30T11:37:19.814Z"
+    "timestamp": "2026-05-05T20:06:15.066Z"
   },
   "data": {
     "Fábrica": [
@@ -12,54 +12,6 @@
         "data_evento": "2024-02-26T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-02-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 3,
@@ -143,20 +95,8 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-02-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-02-11T03:00:00.000Z",
         "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-14T03:00:00.000Z",
-        "natureza": "Devolução de Venda",
         "operacao": "CREDITO"
       },
       {
@@ -411,12 +351,6 @@
         "quantidade": 1,
         "data_evento": "2025-02-11T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-07T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

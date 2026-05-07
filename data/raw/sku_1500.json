@@ -3,7 +3,7 @@
     "id": 1500,
     "code": "10519",
     "name": "ABRAÇADEIRA INFINITY IMA PRETO",
-    "timestamp": "2026-04-30T11:31:52.544Z"
+    "timestamp": "2026-05-05T20:03:43.732Z"
   },
   "data": {
     "Tupis": [
@@ -73,12 +73,6 @@
         "quantidade": 1,
         "data_evento": "2025-03-11T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-13T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {
@@ -168,36 +162,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2024-03-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -257,12 +221,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-12-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-07-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -278,12 +236,6 @@
         "data_evento": "2026-01-13T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-03-26T03:00:00.000Z",
-        "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

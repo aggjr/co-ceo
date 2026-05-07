@@ -3,7 +3,7 @@
     "id": 1501,
     "code": "10522",
     "name": "ABRAADEIRA INFINITY IMA ROSE GOLD",
-    "timestamp": "2026-04-30T11:31:52.715Z"
+    "timestamp": "2026-05-05T20:03:43.898Z"
   },
   "data": {
     "Betim": [
@@ -136,12 +136,6 @@
         "data_evento": "2023-10-31T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 3809,
     "code": "12927",
     "name": "CORTINA LUX UNICA CETIM CINZA 4.00X2.60",
-    "timestamp": "2026-04-30T11:38:21.046Z"
+    "timestamp": "2026-05-05T20:07:17.083Z"
   },
   "data": {
     "Fábrica": [
@@ -12,60 +12,6 @@
         "data_evento": "2025-04-29T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 4,
@@ -182,12 +128,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-06-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2025-06-30T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -262,12 +202,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-08-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-08-28T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -418,18 +352,6 @@
         "data_evento": "2025-05-02T03:00:00.000Z",
         "natureza": "Devolução de Venda",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -721,12 +643,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-09-19T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-09-27T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -875,12 +791,6 @@
         "quantidade": 1,
         "data_evento": "2025-09-03T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-12T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

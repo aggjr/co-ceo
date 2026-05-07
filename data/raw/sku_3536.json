@@ -3,7 +3,7 @@
     "id": 3536,
     "code": "12640",
     "name": "TOALHA DE BANHO UNIQUE 0.70X1.35 HEAVEN",
-    "timestamp": "2026-04-30T11:37:36.222Z"
+    "timestamp": "2026-05-05T20:06:30.760Z"
   },
   "data": {
     "Fábrica": [
@@ -22,66 +22,6 @@
       {
         "quantidade": 5,
         "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -416,12 +356,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-09-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-07T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

@@ -3,7 +3,7 @@
     "id": 3061,
     "code": "12121",
     "name": "TAPETE 1,50X2,00 VS SIENA BEGE",
-    "timestamp": "2026-04-30T11:36:19.648Z"
+    "timestamp": "2026-05-05T20:05:17.318Z"
   },
   "data": {
     "Barreiro": [
@@ -127,30 +127,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2023-11-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

@@ -3,7 +3,7 @@
     "id": 2994,
     "code": "12061",
     "name": "CORTINA VOIL LISO BELLA SILVESTRE C/ BLACKOUT PVC 2.60X1.70",
-    "timestamp": "2026-04-30T11:36:08.576Z"
+    "timestamp": "2026-05-05T20:05:06.625Z"
   },
   "data": {
     "Barreiro": [
@@ -206,18 +206,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-06-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

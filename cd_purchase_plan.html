@@ -360,6 +360,25 @@
       color: #fecaca;
       background: rgba(127, 29, 29, 0.28);
     }
+    .badge-scissors-mix {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      border: none !important;
+      background: #dc2626;
+      color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    }
+    .mix-cell-ok {
+      color: var(--muted);
+      font-size: 12px;
+    }
     .small { color: var(--muted); font-size: 12px; }
     .killer-panel {
       margin: 0 18px 12px;
@@ -639,7 +658,7 @@
 
   <script>
     const columns = [
-      { key: "fora_mix", label: "Fora<br>mix", type: "text", align: "center", width: "62px" },
+      { key: "fora_mix", label: "✂️<br>Mix", type: "text", align: "center", width: "72px" },
       { key: "status_urgencia", label: "Status", type: "text", align: "center", width: "78px" },
       { key: "category", label: "Categoria", type: "text", align: "center", width: "78px" },
       { key: "subcategory", label: "Subcat", type: "text", align: "center", width: "86px" },
@@ -1169,7 +1188,13 @@
       const items = values
         .map((v) => {
           const label =
-            v === "__EMPTY__" ? "(Vazio)" : key === "fora_mix" ? (String(v) === "true" ? "SIM" : "NÃO") : v;
+            v === "__EMPTY__"
+              ? "(Vazio)"
+              : key === "fora_mix"
+                ? String(v) === "true"
+                  ? "✂️ Fora do mix"
+                  : "No mix"
+                : v;
           return `<div class="flt-opt"><input type="checkbox" data-v="${encodeURIComponent(v)}" ${
             selected.has(v) ? "checked" : ""
           }><label>${label}</label></div>`;
@@ -1284,7 +1309,11 @@
           : `<span class="erp-plain">${r.erp_code}</span>`;
         return `
           <tr>
-            <td class="td-center"><span class="prio ${r.fora_mix ? "p-fora-mix" : "p-acima"}">${r.fora_mix ? "SIM" : "NÃO"}</span></td>
+            <td class="td-center">${
+              r.fora_mix
+                ? `<span class="prio p-fora-mix badge-scissors-mix" title="Produto fora do mix — não recomprar">✂️ Fora do mix</span>`
+                : `<span class="mix-cell-ok" title="No mix ativo">—</span>`
+            }</td>
             <td class="td-center"><span class="prio ${statusBadgeClass(r.status_urgencia)}">${r.status_urgencia || "ACIMA"}</span></td>
             <td class="td-center">${r.category}</td>
             <td class="td-center">${r.subcategory}</td>
@@ -1308,7 +1337,7 @@
         views: [{ state: "frozen", ySplit: 1 }]
       });
       ws.columns = [
-        { header: "Fora Mix", key: "fora_mix_text", width: 11 },
+        { header: "Fora do mix (✂️)", key: "fora_mix_text", width: 22 },
         { header: "Status", key: "status_urgencia", width: 12 },
         { header: "Categoria", key: "category", width: 22 },
         { header: "Subcategoria", key: "subcategory", width: 22 },
@@ -1340,7 +1369,7 @@
       rows.forEach((r) => {
         ws.addRow({
           ...r,
-          fora_mix_text: r.fora_mix ? "SIM" : "NÃO",
+          fora_mix_text: r.fora_mix ? "✂️ Fora do mix" : "",
           top_lojas: (r.lojas || []).slice(0, 3).map((x) => `${x.store}: ${fmtInt(x.demanda)}u`).join(" | "),
           link_grafico: productDetailHref(r) || ""
         });

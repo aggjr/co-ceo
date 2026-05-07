@@ -3,7 +3,7 @@
     "id": 595,
     "code": "6067",
     "name": "UNICA 2,60X1,80 OXFORD LISO CARAMELO",
-    "timestamp": "2026-04-30T11:29:14.449Z"
+    "timestamp": "2026-05-05T20:01:20.212Z"
   },
   "data": {
     "Tupis": [
@@ -24,12 +24,6 @@
         "data_evento": "2023-08-09T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -120,12 +114,6 @@
         "data_evento": "2023-09-11T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-04-02T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

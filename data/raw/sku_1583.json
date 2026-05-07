@@ -3,7 +3,7 @@
     "id": 1583,
     "code": "10948",
     "name": "ABRACADEIRA PAR PVC OVAL CROMADO",
-    "timestamp": "2026-04-30T11:32:09.891Z"
+    "timestamp": "2026-05-05T20:03:58.109Z"
   },
   "data": {
     "Venda Nova": [
@@ -29,30 +29,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2023-11-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-11-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2023-11-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

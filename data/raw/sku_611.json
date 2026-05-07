@@ -3,7 +3,7 @@
     "id": 611,
     "code": "640",
     "name": "CORTA LUZ 4,00X2,60 LINHO MARROM",
-    "timestamp": "2026-04-30T11:29:17.081Z"
+    "timestamp": "2026-05-05T20:01:22.710Z"
   },
   "data": {
     "Fábrica": [
@@ -42,18 +42,6 @@
         "data_evento": "2023-06-22T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -356,12 +344,6 @@
         "data_evento": "2024-08-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-03T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

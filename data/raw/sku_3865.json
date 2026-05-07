@@ -3,7 +3,7 @@
     "id": 3865,
     "code": "12991",
     "name": "CORTINA OUTLET -E3-",
-    "timestamp": "2026-04-30T11:38:29.935Z"
+    "timestamp": "2026-05-05T20:07:26.929Z"
   },
   "data": {
     "Betim": [
@@ -49,18 +49,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-01T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-01T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-04-01T03:00:00.000Z",

@@ -3,7 +3,7 @@
     "id": 3400,
     "code": "12518",
     "name": "PERSIANA ROLO BLACKOUT 1,60X1,60 BRANCA",
-    "timestamp": "2026-04-30T11:37:16.383Z"
+    "timestamp": "2026-05-05T20:06:11.834Z"
   },
   "data": {
     "Guaranis": [
@@ -329,12 +329,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-05-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-08-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -440,12 +434,6 @@
       {
         "quantidade": 2,
         "data_evento": "2024-12-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-12-05T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

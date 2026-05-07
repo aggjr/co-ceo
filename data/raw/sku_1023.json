@@ -3,7 +3,7 @@
     "id": 1023,
     "code": "18",
     "name": "TEC BLACK PVC LISO 1.40 MT PEROLA",
-    "timestamp": "2026-04-30T11:30:33.098Z"
+    "timestamp": "2026-05-05T20:02:29.739Z"
   },
   "data": {
     "Fábrica": [
@@ -788,12 +788,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 3.8,
-        "data_evento": "2024-08-13T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 8.4,
         "data_evento": "2024-08-13T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -952,18 +946,6 @@
       {
         "quantidade": 38,
         "data_evento": "2025-02-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 38,
-        "data_evento": "2025-02-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 45.599999999999994,
-        "data_evento": "2025-02-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

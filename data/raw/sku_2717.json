@@ -3,7 +3,7 @@
     "id": 2717,
     "code": "11770",
     "name": "KIT BASTAO METAL CROMADO DUPLO 19/28MM 2,00",
-    "timestamp": "2026-04-30T11:35:21.948Z"
+    "timestamp": "2026-05-05T20:04:22.562Z"
   },
   "data": {
     "Venda Nova": [
@@ -200,12 +200,6 @@
         "data_evento": "2024-10-01T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -594,12 +588,6 @@
       {
         "quantidade": 2,
         "data_evento": "2023-06-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -1096,12 +1084,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 6,
-        "data_evento": "2024-03-22T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2024-04-10T03:00:00.000Z",
         "natureza": "Venda",
@@ -1212,12 +1194,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2024-07-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2024-07-10T03:00:00.000Z",
         "natureza": "Venda",
@@ -1258,12 +1234,6 @@
         "data_evento": "2024-07-30T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-07-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,
@@ -1348,12 +1318,6 @@
         "data_evento": "2025-01-07T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 8,
-        "data_evento": "2025-01-17T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 8,

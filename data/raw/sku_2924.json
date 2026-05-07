@@ -3,7 +3,7 @@
     "id": 2924,
     "code": "11992",
     "name": "CORTINA LINHO IP3 GRAFITE C/ MICROFIBRA 4.00X2.60",
-    "timestamp": "2026-04-30T11:35:57.045Z"
+    "timestamp": "2026-05-05T20:04:55.680Z"
   },
   "data": {
     "Barreiro": [
@@ -113,31 +113,7 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-02-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-02-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-02-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-02-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-02-29T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -157,12 +133,6 @@
         "quantidade": 1,
         "data_evento": "2024-03-19T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
@@ -582,12 +552,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-04-26T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

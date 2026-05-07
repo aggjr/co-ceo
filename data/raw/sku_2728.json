@@ -3,7 +3,7 @@
     "id": 2728,
     "code": "11794",
     "name": "DUPLEX 2,60X1,80 BORD L LEAF BCO/BEGE",
-    "timestamp": "2026-04-30T11:35:23.959Z"
+    "timestamp": "2026-05-05T20:04:24.475Z"
   },
   "data": {
     "Barreiro": [
@@ -102,12 +102,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-08-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-28T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

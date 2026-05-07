@@ -3,7 +3,7 @@
     "id": 1850,
     "code": "K573",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 573",
-    "timestamp": "2026-04-30T11:32:54.309Z"
+    "timestamp": "2026-05-05T20:04:39.583Z"
   },
   "data": {
     "Guaranis": [
@@ -40,18 +40,6 @@
         "data_evento": "2023-09-28T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

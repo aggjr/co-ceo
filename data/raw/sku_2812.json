@@ -3,16 +3,10 @@
     "id": 2812,
     "code": "11879",
     "name": "CORTINA VOIL GLACE OCRE 24 C/ MICROFIBRA 4.00X2.60",
-    "timestamp": "2026-04-30T11:35:38.860Z"
+    "timestamp": "2026-05-05T20:04:37.997Z"
   },
   "data": {
     "Guaranis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-03-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-03-28T03:00:00.000Z",
@@ -278,12 +272,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-04-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 1,
         "data_evento": "2023-04-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -316,36 +304,6 @@
       {
         "quantidade": 3,
         "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -398,12 +356,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-07-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2023-08-31T03:00:00.000Z",
         "natureza": "Entrada",
@@ -447,12 +399,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-08T03:00:00.000Z",
@@ -592,12 +538,6 @@
         "data_evento": "2023-09-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

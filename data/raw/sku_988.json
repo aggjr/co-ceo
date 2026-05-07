@@ -3,7 +3,7 @@
     "id": 988,
     "code": "8212",
     "name": "TEC RENDA 1.20 MT MAÇA BRANCO",
-    "timestamp": "2026-04-30T11:30:27.250Z"
+    "timestamp": "2026-05-05T20:02:24.360Z"
   },
   "data": {
     "Fábrica": [
@@ -30,12 +30,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 26.400000000000002,
-        "data_evento": "2023-06-29T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 26.400000000000002,

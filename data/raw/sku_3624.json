@@ -3,7 +3,7 @@
     "id": 3624,
     "code": "12721",
     "name": "KIT COLCHA CORTTEX INF. MASCULINO",
-    "timestamp": "2026-04-30T11:37:50.968Z"
+    "timestamp": "2026-05-05T20:06:45.455Z"
   },
   "data": {
     "Babita": [
@@ -137,48 +137,6 @@
       },
       {
         "quantidade": 6,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2024-08-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
         "data_evento": "2024-08-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -413,18 +371,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-28T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-12-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -610,12 +556,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-08T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
       },
@@ -630,12 +570,6 @@
         "data_evento": "2024-12-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-07T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,
@@ -667,12 +601,6 @@
         "quantidade": 1,
         "data_evento": "2024-08-22T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-30T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

@@ -3,7 +3,7 @@
     "id": 3156,
     "code": "12280",
     "name": "CAPA COLCHÌO IMPERMEAVEL CH CASAL 35CM",
-    "timestamp": "2026-04-30T11:36:34.815Z"
+    "timestamp": "2026-05-05T20:05:31.967Z"
   },
   "data": {
     "Fábrica": [
@@ -12,18 +12,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

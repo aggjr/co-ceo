@@ -3,7 +3,7 @@
     "id": 3130,
     "code": "12239",
     "name": "JOGO DE CAMA QUEEN BORD INGLES MARFIM 4PS",
-    "timestamp": "2026-04-30T11:36:30.480Z"
+    "timestamp": "2026-05-05T20:05:27.940Z"
   },
   "data": {
     "Fábrica": [
@@ -18,27 +18,9 @@
         "data_evento": "2023-04-27T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-26T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-26T03:00:00.000Z",

@@ -3,7 +3,7 @@
     "id": 3318,
     "code": "12432",
     "name": "PUFF RETRO 35 X 35 X 48 SUEDE VINHO",
-    "timestamp": "2026-04-30T11:37:02.679Z"
+    "timestamp": "2026-05-05T20:05:58.668Z"
   },
   "data": {
     "Barreiro": [
@@ -17,12 +17,6 @@
         "quantidade": 1,
         "data_evento": "2024-05-23T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-05T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {
@@ -83,12 +77,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-31T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-10-31T03:00:00.000Z",

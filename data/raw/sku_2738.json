@@ -3,7 +3,7 @@
     "id": 2738,
     "code": "11804",
     "name": "DUPLEX 2,60X1,80 BORD L RAMADO PER/BEGE",
-    "timestamp": "2026-04-30T11:35:25.592Z"
+    "timestamp": "2026-05-05T20:04:26.055Z"
   },
   "data": {
     "Tupis": [
@@ -101,12 +101,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-20T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-01-20T03:00:00.000Z",

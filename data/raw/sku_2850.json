@@ -3,7 +3,7 @@
     "id": 2850,
     "code": "11911",
     "name": "UNICA 2,60X1,80 POLIESTER RAFIA PEROLA",
-    "timestamp": "2026-04-30T11:35:45.181Z"
+    "timestamp": "2026-05-05T20:04:44.045Z"
   },
   "data": {
     "Fábrica": [
@@ -160,12 +160,6 @@
         "data_evento": "2023-04-11T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-03T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

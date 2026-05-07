@@ -3,7 +3,7 @@
     "id": 3070,
     "code": "12130",
     "name": "DUPLEX 2,60X1,80 VOIL TAFETA AMASSADO BRANCO",
-    "timestamp": "2026-04-30T11:36:21.127Z"
+    "timestamp": "2026-05-05T20:05:18.843Z"
   },
   "data": {
     "Tupis": [
@@ -62,12 +62,6 @@
         "data_evento": "2023-05-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-20T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 2062,
     "code": "11300",
     "name": "TEC. LINHO SUISSO PEROLA 3.00 MT",
-    "timestamp": "2026-04-30T11:33:30.588Z"
+    "timestamp": "2026-05-05T20:05:13.305Z"
   },
   "data": {
     "Fábrica": [
@@ -326,19 +326,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 16.8,
-        "data_evento": "2023-09-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 42,
-        "data_evento": "2023-09-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 16.8,
         "data_evento": "2023-09-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -657,12 +645,6 @@
       },
       {
         "quantidade": 37.2,
-        "data_evento": "2024-01-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
         "data_evento": "2024-01-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -1226,19 +1208,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 6,
-        "data_evento": "2024-04-05T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 9.7,
-        "data_evento": "2024-04-05T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
         "data_evento": "2024-04-05T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -1292,12 +1262,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 4.7,
-        "data_evento": "2024-04-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 37.2,
         "data_evento": "2024-04-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -1331,12 +1295,6 @@
         "quantidade": 2,
         "data_evento": "2024-04-16T03:00:00.000Z",
         "natureza": "Perda produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 7,
-        "data_evento": "2024-04-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -2006,12 +1964,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 37.2,
-        "data_evento": "2024-07-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2024-07-12T03:00:00.000Z",
         "natureza": "Perda produção",
@@ -2144,19 +2096,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 6,
-        "data_evento": "2024-08-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 26.8,
-        "data_evento": "2024-08-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
         "data_evento": "2024-08-02T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -2252,12 +2192,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 9,
-        "data_evento": "2024-08-13T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 100.80000000000001,
         "data_evento": "2024-08-14T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -2301,12 +2235,6 @@
       },
       {
         "quantidade": 62,
-        "data_evento": "2024-08-22T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
         "data_evento": "2024-08-22T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -2672,12 +2600,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 58.800000000000004,
-        "data_evento": "2025-01-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 62,
         "data_evento": "2025-01-29T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -2948,12 +2870,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2025-04-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 36,
         "data_evento": "2025-04-15T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -3140,12 +3056,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 42,
-        "data_evento": "2025-06-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 29.400000000000002,
         "data_evento": "2025-06-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -3189,12 +3099,6 @@
       },
       {
         "quantidade": 8.4,
-        "data_evento": "2025-07-03T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 16.8,
         "data_evento": "2025-07-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -3428,12 +3332,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 49.6,
-        "data_evento": "2025-09-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 29.400000000000002,
         "data_evento": "2025-09-05T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -3578,20 +3476,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 43.4,
-        "data_evento": "2025-10-15T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 29.400000000000002,
         "data_evento": "2025-10-15T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2025-10-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -3717,12 +3603,6 @@
       },
       {
         "quantidade": 33.6,
-        "data_evento": "2025-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 33.6,
         "data_evento": "2025-12-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -3831,12 +3711,6 @@
       },
       {
         "quantidade": 25.200000000000003,
-        "data_evento": "2026-01-22T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 37.2,
         "data_evento": "2026-01-22T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

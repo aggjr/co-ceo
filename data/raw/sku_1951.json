@@ -3,7 +3,7 @@
     "id": 1951,
     "code": "11124",
     "name": "CORTA LUZ 2,60X1,80 EST MARROM",
-    "timestamp": "2026-04-30T11:33:11.356Z"
+    "timestamp": "2026-05-05T20:04:55.687Z"
   },
   "data": {
     "Betim": [
@@ -92,18 +92,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-06-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

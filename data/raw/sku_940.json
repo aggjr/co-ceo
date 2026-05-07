@@ -3,7 +3,7 @@
     "id": 940,
     "code": "10607",
     "name": "TEC JACQ EST. PEROLA - 2.80 MT",
-    "timestamp": "2026-04-30T11:30:19.328Z"
+    "timestamp": "2026-05-05T20:02:16.994Z"
   },
   "data": {
     "Fábrica": [
@@ -68,12 +68,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 45,
-        "data_evento": "2023-06-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 63,
         "data_evento": "2023-06-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -84,12 +78,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 24,
@@ -342,12 +330,6 @@
         "data_evento": "2024-09-25T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2024-09-26T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 25.200000000000003,

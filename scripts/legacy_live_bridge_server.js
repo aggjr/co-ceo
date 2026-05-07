@@ -5,7 +5,12 @@ const url = require("url");
 const mysql = require("mysql2/promise");
 const path = require("path");
 const { assertLegacyConfig } = require(path.join(__dirname, "..", "coceo_db_config"));
-const { isClosedRetailStore } = require(path.join(__dirname, "..", "lib", "closed_retail_stores"));
+const { isClosedRetailExcludedFromStockNetwork } = require(path.join(
+  __dirname,
+  "..",
+  "lib",
+  "closed_retail_stores"
+));
 
 const PORT = Number(process.env.LEGACY_LIVE_PORT || 8787);
 const HOST = process.env.LEGACY_LIVE_HOST || "127.0.0.1";
@@ -41,19 +46,31 @@ function rawGuid(v) {
  * Descobre IdUnidadeNegocio do legado a partir do nome da loja no bundle,
  * usando ativos do SKU (mesma base que alimenta snapshots).
  */
+function physicalFromAtivoRow(r) {
+  const availRaw = Number(r.available_stock);
+  const vitRaw = Number(r.vitrine_stock);
+  const avail = Number.isFinite(availRaw) ? Math.max(0, availRaw) : 0;
+  const vitrine = Number.isFinite(vitRaw) ? Math.max(0, vitRaw) : 0;
+  return avail + vitrine;
+}
+
 function resolveUnidadeIdFromAtivoRows(rows, storeFilter) {
   const want = normalizeStoreName(storeFilter);
   if (!want) return null;
-  const open = (rows || []).filter((r) => !isClosedRetailStore(String(r.store_name || "")));
-  for (let i = 0; i < open.length; i++) {
-    if (normalizeStoreName(open[i].store_name) === want) {
-      return rawGuid(open[i].id_unidade_negocio);
+  const eligible = (rows || []).filter((r) => {
+    const name = String(r.store_name || "");
+    const phys = physicalFromAtivoRow(r);
+    return !isClosedRetailExcludedFromStockNetwork(name, phys);
+  });
+  for (let i = 0; i < eligible.length; i++) {
+    if (normalizeStoreName(eligible[i].store_name) === want) {
+      return rawGuid(eligible[i].id_unidade_negocio);
     }
   }
-  for (let i = 0; i < open.length; i++) {
-    const sn = normalizeStoreName(open[i].store_name);
+  for (let i = 0; i < eligible.length; i++) {
+    const sn = normalizeStoreName(eligible[i].store_name);
     if (sn.includes(want) || want.includes(sn)) {
-      return rawGuid(open[i].id_unidade_negocio);
+      return rawGuid(eligible[i].id_unidade_negocio);
     }
   }
   return null;
@@ -98,7 +115,10 @@ async function getSkuYesterdaySnapshot(skuId, legacyStoreName) {
     );
 
     const snapshots = rows
-      .filter((r) => !isClosedRetailStore(String(r.store_name || "")))
+      .filter((r) => {
+        const phys = physicalFromAtivoRow(r);
+        return !isClosedRetailExcludedFromStockNetwork(String(r.store_name || ""), phys);
+      })
       .map((r) => {
       const availRaw = Number(r.available_stock);
       const vitRaw = Number(r.vitrine_stock);
@@ -181,8 +201,18 @@ async function getSkuYesterdaySnapshot(skuId, legacyStoreName) {
       `,
       [skuId]
     );
+    const peakByStore = new Map();
+    for (const r of historyRows) {
+      const nm = String(r.store_name || "");
+      const v = Math.max(0, Number(r.physical_stock) || 0);
+      peakByStore.set(nm, Math.max(peakByStore.get(nm) || 0, v));
+    }
     const history = historyRows
-      .filter((r) => !isClosedRetailStore(String(r.store_name || "")))
+      .filter((r) => {
+        const nm = String(r.store_name || "");
+        const peak = peakByStore.get(nm) || 0;
+        return !isClosedRetailExcludedFromStockNetwork(nm, peak);
+      })
       .map((r) => ({
       store_name: String(r.store_name || ""),
       date: r.ref_date ? isoDay(r.ref_date) : "",

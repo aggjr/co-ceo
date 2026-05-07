@@ -3,7 +3,7 @@
     "id": 1504,
     "code": "8235",
     "name": "ABRACADEIRA METAL CENTRAL GALHOS OURO VELHO",
-    "timestamp": "2026-04-30T11:31:53.257Z"
+    "timestamp": "2026-05-05T20:03:44.409Z"
   },
   "data": {
     "Tupis": [
@@ -291,18 +291,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2023-04-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-04-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-04-25T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -562,12 +550,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-12-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-12-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

@@ -3,7 +3,7 @@
     "id": 116,
     "code": "10352",
     "name": "CORTINA VOIL LISO BELLA INDIGO C/ BLACKOUT PVC 2.60X1.70",
-    "timestamp": "2026-04-30T11:27:54.422Z"
+    "timestamp": "2026-05-05T20:00:02.851Z"
   },
   "data": {
     "Barreiro": [
@@ -156,12 +156,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-08T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

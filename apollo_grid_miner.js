@@ -290,6 +290,7 @@ async function runMiner() {
                 LIMIT 1
             ) AS IdCategoria,
             p.IndAtivo AS ind_ativo,
+            p.IndForaMix AS ind_fora_mix,
             p.IndDeletado AS ind_deletado,
             p.Status AS legacy_status,
             p.StatusReprocessamento AS status_reprocessamento,
@@ -422,6 +423,8 @@ async function runMiner() {
             pctLucro12m,
             rupturaPonderadaVendasPct,
             legacyAtivo: asBool(p.ind_ativo !== undefined ? p.ind_ativo : p.IndAtivo),
+            /** Legado: produto em descontinuação — não entra em recompra/produção (mesmo IndForaMix da tabela produto). */
+            foraMix: asBool(p.ind_fora_mix !== undefined ? p.ind_fora_mix : p.IndForaMix),
             indDeletado: asBool(p.ind_deletado !== undefined ? p.ind_deletado : p.IndDeletado),
             legacyStatus: String(p.legacy_status !== undefined ? p.legacy_status : p.Status || ''),
             statusReprocessamento: String(

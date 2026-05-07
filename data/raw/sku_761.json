@@ -3,7 +3,7 @@
     "id": 761,
     "code": "9558",
     "name": "DUPLEX 2,60X1,80 LINHO RUSTICO PRATA",
-    "timestamp": "2026-04-30T11:29:49.421Z"
+    "timestamp": "2026-05-05T20:01:48.930Z"
   },
   "data": {
     "Babita": [
@@ -189,12 +189,6 @@
       }
     ],
     "Betim": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-03-01T03:00:00.000Z",

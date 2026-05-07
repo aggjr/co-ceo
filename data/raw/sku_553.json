@@ -3,7 +3,7 @@
     "id": 553,
     "code": "5800",
     "name": "BLACKOUT 5,80X2,60 RUSTICO BRANYL",
-    "timestamp": "2026-04-30T11:29:07.365Z"
+    "timestamp": "2026-05-05T20:01:13.298Z"
   },
   "data": {
     "Fábrica": [
@@ -57,12 +57,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-05-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-05-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -152,12 +146,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-05-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -314,12 +302,6 @@
         "data_evento": "2025-02-21T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-21T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

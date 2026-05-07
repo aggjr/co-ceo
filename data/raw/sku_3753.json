@@ -3,7 +3,7 @@
     "id": 3753,
     "code": "12922",
     "name": "CORTINA MALTA CAMURÇA 2.60X1.80",
-    "timestamp": "2026-04-30T11:38:12.386Z"
+    "timestamp": "2026-05-05T20:07:07.726Z"
   },
   "data": {
     "Barreiro": [
@@ -80,12 +80,6 @@
         "data_evento": "2025-03-27T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-04-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -332,6 +326,13 @@
         "data_evento": "2025-11-24T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038810,
+        "quantidade": 1,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Venda",
+        "operacao": "DEBITO"
       }
     ],
     "Fábrica": [
@@ -340,18 +341,6 @@
         "data_evento": "2025-05-21T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-21T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

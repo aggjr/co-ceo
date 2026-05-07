@@ -3,7 +3,7 @@
     "id": 1543,
     "code": "8331",
     "name": "SUPORTE ESPANHA DUPLO METAL",
-    "timestamp": "2026-04-30T11:32:02.017Z"
+    "timestamp": "2026-05-05T20:03:51.319Z"
   },
   "data": {
     "Tupis": [
@@ -162,12 +162,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-10-31T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-11-12T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

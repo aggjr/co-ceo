@@ -3,16 +3,10 @@
     "id": 909,
     "code": "10327",
     "name": "TEC. FLAME MARROM - 3.00 MT",
-    "timestamp": "2026-04-30T11:30:14.215Z"
+    "timestamp": "2026-05-05T20:02:12.236Z"
   },
   "data": {
     "Fábrica": [
-      {
-        "quantidade": 24,
-        "data_evento": "2023-03-17T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 24,
         "data_evento": "2023-03-17T03:00:00.000Z",

@@ -3,7 +3,7 @@
     "id": 1731,
     "code": "11158",
     "name": "TAPETE 0,50X1,00 VS SKIN BEGE",
-    "timestamp": "2026-04-30T11:32:34.826Z"
+    "timestamp": "2026-05-05T20:04:21.149Z"
   },
   "data": {
     "G2": [
@@ -20,12 +20,6 @@
         "data_evento": "2023-05-24T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-30T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

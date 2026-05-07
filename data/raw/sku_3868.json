@@ -3,7 +3,7 @@
     "id": 3868,
     "code": "12994",
     "name": "CORTINA OUTLET -E6-",
-    "timestamp": "2026-04-30T11:38:30.393Z"
+    "timestamp": "2026-05-05T20:07:27.468Z"
   },
   "data": {
     "Barreiro": [
@@ -131,12 +131,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-09-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-10-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -166,12 +160,6 @@
         "data_evento": "2025-08-28T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2025-08-28T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

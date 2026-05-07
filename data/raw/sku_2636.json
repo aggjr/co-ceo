@@ -3,7 +3,7 @@
     "id": 2636,
     "code": "11704",
     "name": "TEC BLACKOUT CT RUSTICO PRATA 2.80 MT",
-    "timestamp": "2026-04-30T11:35:08.525Z"
+    "timestamp": "2026-05-05T20:04:09.602Z"
   },
   "data": {
     "Fábrica": [
@@ -214,12 +214,6 @@
       {
         "quantidade": 9.9,
         "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2024-01-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -626,12 +620,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 50.400000000000006,
-        "data_evento": "2024-08-27T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 615.2000000000004,
         "data_evento": "2024-08-28T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -922,12 +910,6 @@
       {
         "quantidade": 25.200000000000003,
         "data_evento": "2025-06-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2025-06-26T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

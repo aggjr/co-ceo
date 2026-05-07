@@ -3,7 +3,7 @@
     "id": 1348,
     "code": "9616",
     "name": "CORTINA LINHO LINEN LOSANGO C/ MICROFIBRA CRU 4.00X2.60",
-    "timestamp": "2026-04-30T11:31:26.307Z"
+    "timestamp": "2026-05-05T20:03:19.812Z"
   },
   "data": {
     "Fábrica": [
@@ -15,12 +15,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2023-05-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-08T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -72,30 +66,6 @@
         "data_evento": "2023-10-23T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

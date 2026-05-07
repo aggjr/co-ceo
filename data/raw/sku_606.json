@@ -3,7 +3,7 @@
     "id": 606,
     "code": "6229",
     "name": "CORTA LUZ 2,60X1,80 LINHO KRAFT",
-    "timestamp": "2026-04-30T11:29:16.235Z"
+    "timestamp": "2026-05-05T20:01:21.922Z"
   },
   "data": {
     "Guaranis": [
@@ -73,12 +73,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-06-17T03:00:00.000Z",

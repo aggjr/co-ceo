@@ -3,7 +3,7 @@
     "id": 819,
     "code": "9847",
     "name": "BLACK PVC 4,00X2,60 BRANCO",
-    "timestamp": "2026-04-30T11:29:59.298Z"
+    "timestamp": "2026-05-05T20:01:58.203Z"
   },
   "data": {
     "Tupis": [
@@ -237,12 +237,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-07-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -262,18 +256,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-10T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

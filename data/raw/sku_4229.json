@@ -3,7 +3,7 @@
     "id": 4229,
     "code": "13367",
     "name": "PASSADEIRA 0,52X1,50 BT ISTAMBUL",
-    "timestamp": "2026-04-30T11:39:26.765Z"
+    "timestamp": "2026-05-05T20:08:35.590Z"
   },
   "data": {
     "Babita": [
@@ -42,6 +42,13 @@
         "data_evento": "2026-04-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038743,
+        "quantidade": 2,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
       }
     ],
     "Barreiro": [
@@ -90,42 +97,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 6,
         "data_evento": "2026-04-20T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -146,6 +117,20 @@
       {
         "quantidade": 2,
         "data_evento": "2026-04-23T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038373,
+        "quantidade": 2,
+        "data_evento": "2026-05-04T03:00:00.000Z",
+        "natureza": "Transferência Saída Fábrica",
+        "operacao": "DEBITO"
+      },
+      {
+        "movimento_id": 1038537,
+        "quantidade": 1,
+        "data_evento": "2026-05-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       }
@@ -194,6 +179,13 @@
       {
         "quantidade": 2,
         "data_evento": "2026-04-16T03:00:00.000Z",
+        "natureza": "Transferência Entrada",
+        "operacao": "CREDITO"
+      },
+      {
+        "movimento_id": 1038757,
+        "quantidade": 1,
+        "data_evento": "2026-05-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
       }

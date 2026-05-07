@@ -3,34 +3,10 @@
     "id": 3348,
     "code": "12462",
     "name": "EDREDOM CASAL 2,00X2,20 PORT DOCE VIDA",
-    "timestamp": "2026-04-30T11:37:07.709Z"
+    "timestamp": "2026-05-05T20:06:03.568Z"
   },
   "data": {
     "Fábrica": [
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 2,
         "data_evento": "2023-11-16T03:00:00.000Z",
@@ -108,12 +84,6 @@
         "data_evento": "2024-09-27T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-09-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       }
     ],
     "Venda Nova": [
@@ -122,12 +92,6 @@
         "data_evento": "2023-11-17T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-06-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 3831,
     "code": "12954",
     "name": "CORTINA OUTLET -A6-",
-    "timestamp": "2026-04-30T11:38:24.483Z"
+    "timestamp": "2026-05-05T20:07:20.930Z"
   },
   "data": {
     "Babita": [
@@ -37,12 +37,6 @@
       }
     ],
     "Guaranis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-27T03:00:00.000Z",

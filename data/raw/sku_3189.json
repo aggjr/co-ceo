@@ -3,7 +3,7 @@
     "id": 3189,
     "code": "33",
     "name": "TEC FLAME ROSA BB 3.00 MT",
-    "timestamp": "2026-04-30T11:36:40.513Z"
+    "timestamp": "2026-05-05T20:05:37.181Z"
   },
   "data": {
     "Fábrica": [
@@ -42,12 +42,6 @@
         "data_evento": "2023-12-27T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 20,

@@ -3,7 +3,7 @@
     "id": 3471,
     "code": "12608",
     "name": "JOGO DE TOALHAS 2 PEÇAS PALAVRAS DO BEM",
-    "timestamp": "2026-04-30T11:37:25.222Z"
+    "timestamp": "2026-05-05T20:06:20.275Z"
   },
   "data": {
     "Fábrica": [
@@ -26,19 +26,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 8,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 9,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -218,12 +206,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-02-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-30T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

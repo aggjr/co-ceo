@@ -3,7 +3,7 @@
     "id": 3417,
     "code": "61",
     "name": "TEC VOIL C/B BORDADO DUQUESA OFF WHITE 2.80 MT",
-    "timestamp": "2026-04-30T11:37:19.294Z"
+    "timestamp": "2026-05-05T20:06:14.575Z"
   },
   "data": {
     "Fábrica": [
@@ -54,18 +54,6 @@
         "data_evento": "2024-07-04T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 4.2,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4.2,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 4.2,

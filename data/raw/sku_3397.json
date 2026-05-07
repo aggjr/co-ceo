@@ -3,7 +3,7 @@
     "id": 3397,
     "code": "12516",
     "name": "PERSIANA ROLO TRANSLUCIDA 1,60X1,40 BEGE",
-    "timestamp": "2026-04-30T11:37:15.878Z"
+    "timestamp": "2026-05-05T20:06:11.377Z"
   },
   "data": {
     "Venda Nova": [
@@ -74,12 +74,6 @@
         "data_evento": "2023-12-28T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-10-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -383,12 +377,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-11-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-11-14T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

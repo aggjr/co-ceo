@@ -3,7 +3,7 @@
     "id": 3005,
     "code": "12072",
     "name": "CORTA LUZ 2,60X1,80 SANJAN VERMELHO",
-    "timestamp": "2026-04-30T11:36:10.456Z"
+    "timestamp": "2026-05-05T20:05:08.478Z"
   },
   "data": {
     "Fábrica": [
@@ -250,12 +250,6 @@
         "data_evento": "2023-11-08T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-11-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 2832,
     "code": "11897",
     "name": "DUPLEX 4,00X2,60 LINHO ESPECIAL NATURAL",
-    "timestamp": "2026-04-30T11:35:42.145Z"
+    "timestamp": "2026-05-05T20:04:41.142Z"
   },
   "data": {
     "Fábrica": [
@@ -48,12 +48,6 @@
         "data_evento": "2023-06-14T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-06-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,
@@ -330,12 +324,6 @@
         "data_evento": "2023-11-21T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-11-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

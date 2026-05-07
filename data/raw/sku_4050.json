@@ -3,7 +3,7 @@
     "id": 4050,
     "code": "13184",
     "name": "FAST WAVE TRANSL. MIAMI PRATA 3.00X até2.90",
-    "timestamp": "2026-04-30T11:38:58.965Z"
+    "timestamp": "2026-05-05T20:08:01.165Z"
   },
   "data": {
     "Tupis": [
@@ -42,12 +42,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 4,

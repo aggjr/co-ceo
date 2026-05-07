@@ -3,7 +3,7 @@
     "id": 3407,
     "code": "12523",
     "name": "ILHOS KIT C/10 REDONDO CRISTAL (TRANSPARENTE) 28MM",
-    "timestamp": "2026-04-30T11:37:17.573Z"
+    "timestamp": "2026-05-05T20:06:12.935Z"
   },
   "data": {
     "Fábrica": [
@@ -24,54 +24,6 @@
         "data_evento": "2024-01-04T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 20,
@@ -124,12 +76,6 @@
       {
         "quantidade": 5,
         "data_evento": "2024-04-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-04-29T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -206,12 +152,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 5,
-        "data_evento": "2024-08-26T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 30,
         "data_evento": "2024-09-02T03:00:00.000Z",
         "natureza": "Entrada",
@@ -238,12 +178,6 @@
       {
         "quantidade": 5,
         "data_evento": "2024-11-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-11-21T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

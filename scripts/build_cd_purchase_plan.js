@@ -6,7 +6,7 @@
  *   -> usa somente demandas positivas de lojas (não CD/Fábrica).
  *
  * Enriquecimento:
- * - data/catalog_grid.js (categoria/subcategoria por código ERP)
+ * - data/catalog_grid.js (categoria/subcategoria por código ERP, foraMix = produto.IndForaMix)
  * - ruptura_ponderada_vendas_pct: média do % ruptura (matrix) ponderada por vendas na loja (fallback: demanda CD).
  *
  * Metadados operacionais:
@@ -40,6 +40,14 @@ function loadNetworkMatrix() {
   return Array.isArray(j.rows) ? j.rows : [];
 }
 
+function legacyBitToBool(v) {
+  if (v == null) return false;
+  if (Buffer.isBuffer(v)) return v[0] === 1;
+  const n = Number(v);
+  if (!Number.isNaN(n)) return n !== 0;
+  return Boolean(v);
+}
+
 function loadCatalogByCode() {
   if (!fs.existsSync(CATALOG_GRID_PATH)) return new Map();
   const raw = fs.readFileSync(CATALOG_GRID_PATH, "utf8").trim();
@@ -53,7 +61,7 @@ function loadCatalogByCode() {
       m.set(code, {
         category: String(r.category || "SEM CATEGORIA"),
         subcategory: String(r.subcategory || "-"),
-        fora_mix: r.legacyAtivo === false,
+        fora_mix: Boolean(r.foraMix),
         source: "catalog_grid",
       });
     }
@@ -68,6 +76,7 @@ async function loadLegacyCategoryByCode() {
       SELECT
         COALESCE(NULLIF(TRIM(p.ErpCodigo), ''), NULLIF(TRIM(p.IdExterno), '')) AS erp_code,
         p.IndAtivo AS ind_ativo,
+        p.IndForaMix AS ind_fora_mix,
         c.Nome AS cat_nome,
         c.IdParent AS cat_parent_id,
         pcat.Nome AS cat_parent_nome
@@ -88,9 +97,7 @@ async function loadLegacyCategoryByCode() {
     for (const r of rows) {
       const code = normalizeCode(r.erp_code);
       if (!code || out.has(code)) continue;
-      const legacyAtivo =
-        r.ind_ativo != null && Buffer.isBuffer(r.ind_ativo) ? Boolean(r.ind_ativo[0]) : Boolean(Number(r.ind_ativo));
-      const foraMix = legacyAtivo === false;
+      const foraMix = legacyBitToBool(r.ind_fora_mix);
       if (r.cat_nome) {
         if (r.cat_parent_id != null && r.cat_parent_nome) {
           out.set(code, {
@@ -262,6 +269,29 @@ function urgencySummaryBucket(statusText) {
   return "ACIMA";
 }
 
+/** SKUs com demanda positiva na matriz mas IndForaMix (= não entram no plano agregado). */
+function countSkusDemandExcludedForaMix(matrixRows, legacyByCode, catalogByCode) {
+  const withDemand = new Set();
+  for (const r of matrixRows) {
+    if (r.is_factory_or_cd) continue;
+    if (isClosedRetailStore(r.store)) continue;
+    const demand = Number(r.sugestao_unidades);
+    if (!Number.isFinite(demand) || demand <= 0) continue;
+    const code = normalizeCode(r.erp_code);
+    if (!code) continue;
+    withDemand.add(code);
+  }
+  let n = 0;
+  for (const code of withDemand) {
+    const cat =
+      legacyByCode.get(code) ||
+      catalogByCode.get(code) ||
+      { fora_mix: false };
+    if (Boolean(cat.fora_mix)) n++;
+  }
+  return n;
+}
+
 function buildPlanRows(rows, legacyByCode, catalogByCode) {
   const bySku = new Map();
   for (const r of rows) {
@@ -276,7 +306,9 @@ function buildPlanRows(rows, legacyByCode, catalogByCode) {
     const cat =
       legacyByCode.get(code) ||
       catalogByCode.get(code) ||
-      { category: "SEM CATEGORIA", subcategory: "-", source: "none" };
+      { category: "SEM CATEGORIA", subcategory: "-", source: "none", fora_mix: false };
+    /** Espelha legado: IndForaMix → não entra em pedidos de compra/produção agregados. */
+    if (Boolean(cat.fora_mix)) continue;
     const productName = String(r.product_name || "");
 
     const cur = bySku.get(skuKey) || {
@@ -591,6 +623,7 @@ async function main() {
   const ceoDateMeta = await loadCeoDateMeta();
   const salesWindow = resolveSalesWindow(ceoDateMeta);
   const legacySalesByCode = await loadLegacySalesMetricsByCode(salesWindow);
+  const skusDemandExcludedForaMix = countSkusDemandExcludedForaMix(rows, legacyByCode, catalogByCode);
   let planRows = buildPlanRows(rows, legacyByCode, catalogByCode);
   planRows = attachLegacySuggestions(planRows, legacyCdFactoryByCode);
   planRows = attachLegacySalesMetrics(planRows, legacySalesByCode);
@@ -652,7 +685,7 @@ async function main() {
       subcategories_with_demand: categorySummary.length,
       skus_with_legacy_category: planRows.filter((r) => r.category_source === "legacy").length,
       skus_with_non_legacy_category: planRows.filter((r) => r.category_source !== "legacy").length,
-      skus_fora_mix: planRows.filter((r) => r.fora_mix).length,
+      skus_fora_mix_excluded_from_plan: skusDemandExcludedForaMix,
       urgency_summary: {
         RUPTURA: planRows.filter((r) => urgencySummaryBucket(r.status_urgencia) === "RUPTURA").length,
         "CRÍTICO": planRows.filter((r) => urgencySummaryBucket(r.status_urgencia) === "CRÍTICO").length,

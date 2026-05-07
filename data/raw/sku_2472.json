@@ -3,7 +3,7 @@
     "id": 2472,
     "code": "11547",
     "name": "DUPLEX 2,60x1,80 LINHO VALVERDE PEROLA",
-    "timestamp": "2026-04-30T11:34:39.399Z"
+    "timestamp": "2026-05-05T20:06:17.651Z"
   },
   "data": {
     "Fábrica": [
@@ -27,24 +27,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-01-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-01-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-01-25T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

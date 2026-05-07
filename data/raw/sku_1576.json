@@ -3,19 +3,13 @@
     "id": 1576,
     "code": "9921",
     "name": "TAPETE 0,45X0,60 MARKA PELO MARFIM",
-    "timestamp": "2026-04-30T11:32:08.698Z"
+    "timestamp": "2026-05-05T20:03:56.932Z"
   },
   "data": {
     "Babita": [
       {
         "quantidade": 1,
         "data_evento": "2023-05-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

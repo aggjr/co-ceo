@@ -3,7 +3,7 @@
     "id": 1958,
     "code": "11195",
     "name": "CORTA LUZ 4,00X2,60 EST ROXO",
-    "timestamp": "2026-04-30T11:33:12.941Z"
+    "timestamp": "2026-05-05T20:04:56.988Z"
   },
   "data": {
     "Barreiro": [
@@ -125,12 +125,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-04-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-04-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -144,12 +138,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-05-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

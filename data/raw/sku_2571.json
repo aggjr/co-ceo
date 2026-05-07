@@ -3,7 +3,7 @@
     "id": 2571,
     "code": "12352",
     "name": "CAPA P/ CADEIRA DE MALHA EST ETNIA",
-    "timestamp": "2026-04-30T11:34:55.149Z"
+    "timestamp": "2026-05-05T20:06:32.925Z"
   },
   "data": {
     "Tupis": [
@@ -344,12 +344,6 @@
       {
         "quantidade": 4,
         "data_evento": "2023-05-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
       },
@@ -385,18 +379,6 @@
       },
       {
         "quantidade": 5,
-        "data_evento": "2023-09-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2023-09-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
         "data_evento": "2023-09-14T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -492,20 +474,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2024-03-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
         "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -615,18 +585,6 @@
         "quantidade": 10,
         "data_evento": "2024-11-14T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-11-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 12,
-        "data_evento": "2024-11-14T03:00:00.000Z",
-        "natureza": "Acerto Saída",
         "operacao": "DEBITO"
       },
       {

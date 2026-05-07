@@ -3,7 +3,7 @@
     "id": 3634,
     "code": "12726",
     "name": "TOALHA DE MESA 8 LUG. 1,80X2,50",
-    "timestamp": "2026-04-30T11:37:51.991Z"
+    "timestamp": "2026-05-05T20:06:46.519Z"
   },
   "data": {
     "Fábrica": [
@@ -12,12 +12,6 @@
         "data_evento": "2024-08-28T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-08-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 4,
@@ -80,12 +74,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-10-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

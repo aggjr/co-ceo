@@ -3,16 +3,10 @@
     "id": 208,
     "code": "10575",
     "name": "TRILHO COMUM DUPLO",
-    "timestamp": "2026-04-30T11:28:09.321Z"
+    "timestamp": "2026-05-05T20:00:17.807Z"
   },
   "data": {
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-03-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-03-28T03:00:00.000Z",
@@ -196,18 +190,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-10-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2023-10-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -272,18 +254,6 @@
       {
         "quantidade": 3,
         "data_evento": "2023-05-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-09T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -407,12 +377,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-07-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-10-14T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -426,12 +390,6 @@
       {
         "quantidade": 2,
         "data_evento": "2024-10-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-04T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

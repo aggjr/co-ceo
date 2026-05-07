@@ -3,7 +3,7 @@
     "id": 1996,
     "code": "11253",
     "name": "CAPA ALMOFADA 45X45 JACQUARD LISO AVELA",
-    "timestamp": "2026-04-30T11:33:19.557Z"
+    "timestamp": "2026-05-05T20:05:03.040Z"
   },
   "data": {
     "Tupis": [
@@ -162,24 +162,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 4,
-        "data_evento": "2023-11-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-11-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-11-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2023-11-30T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -258,19 +240,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2024-02-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
-        "data_evento": "2024-02-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-02-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -336,12 +306,6 @@
         "data_evento": "2024-11-14T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-11-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

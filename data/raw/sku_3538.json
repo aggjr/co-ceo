@@ -3,7 +3,7 @@
     "id": 3538,
     "code": "12635",
     "name": "TOALHA DE BANHO YASMIN 0.70X1.35 BRANCO",
-    "timestamp": "2026-04-30T11:37:36.549Z"
+    "timestamp": "2026-05-05T20:06:31.084Z"
   },
   "data": {
     "Fábrica": [
@@ -18,48 +18,6 @@
         "data_evento": "2024-04-15T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 6,

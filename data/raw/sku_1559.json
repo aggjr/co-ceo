@@ -3,7 +3,7 @@
     "id": 1559,
     "code": "8359",
     "name": "SUPORTE PVC TRILHO LUXO",
-    "timestamp": "2026-04-30T11:32:05.375Z"
+    "timestamp": "2026-05-05T20:03:54.128Z"
   },
   "data": {
     "Tupis": [
@@ -414,12 +414,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 10,
-        "data_evento": "2024-08-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 5,
         "data_evento": "2024-08-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -618,12 +612,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 3,
-        "data_evento": "2026-01-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 32,
         "data_evento": "2026-02-26T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -662,24 +650,6 @@
       {
         "quantidade": 2,
         "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-04-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -1106,12 +1076,6 @@
       {
         "quantidade": 20,
         "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 10,
-        "data_evento": "2023-07-13T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
       },

@@ -3,7 +3,7 @@
     "id": 3871,
     "code": "12997",
     "name": "CORTINA OUTLET -E9-",
-    "timestamp": "2026-04-30T11:38:30.846Z"
+    "timestamp": "2026-05-05T20:07:27.972Z"
   },
   "data": {
     "Guaranis": [
@@ -104,12 +104,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-01-29T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-02-10T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -155,18 +149,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-30T03:00:00.000Z",

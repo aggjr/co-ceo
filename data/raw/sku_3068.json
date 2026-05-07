@@ -3,7 +3,7 @@
     "id": 3068,
     "code": "12128",
     "name": "TAPETE 2,00X2,50 VS VICTORIA",
-    "timestamp": "2026-04-30T11:36:20.804Z"
+    "timestamp": "2026-05-05T20:05:18.491Z"
   },
   "data": {
     "Barreiro": [
@@ -126,12 +126,6 @@
         "data_evento": "2025-01-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-01-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

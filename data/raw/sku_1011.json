@@ -3,7 +3,7 @@
     "id": 1011,
     "code": "9095",
     "name": "TEC CORTA LUZ LISO ROSA BB 2.80 MT",
-    "timestamp": "2026-04-30T11:30:31.132Z"
+    "timestamp": "2026-05-05T20:02:27.905Z"
   },
   "data": {
     "Fábrica": [
@@ -130,18 +130,6 @@
       {
         "quantidade": 24,
         "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 16,
-        "data_evento": "2023-09-18T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

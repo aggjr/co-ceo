@@ -3,7 +3,7 @@
     "id": 2853,
     "code": "11914",
     "name": "UNICA 4,00X2,60 POLIESTER RAFIA VERMELHO",
-    "timestamp": "2026-04-30T11:35:45.672Z"
+    "timestamp": "2026-05-05T20:04:44.527Z"
   },
   "data": {
     "Guaranis": [
@@ -29,12 +29,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-08-10T03:00:00.000Z",

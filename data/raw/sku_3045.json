@@ -3,7 +3,7 @@
     "id": 3045,
     "code": "12265",
     "name": "PERSIANA 2,00X2,00 ROLO RAMI 144",
-    "timestamp": "2026-04-30T11:36:17.049Z"
+    "timestamp": "2026-05-05T20:05:14.808Z"
   },
   "data": {
     "Tupis": [
@@ -50,24 +50,6 @@
         "data_evento": "2023-05-26T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

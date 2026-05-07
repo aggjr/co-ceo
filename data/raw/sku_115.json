@@ -3,7 +3,7 @@
     "id": 115,
     "code": "10351",
     "name": "CORTINA VOIL LISO ROSA BB C/ BLACKOUT PVC 2.60X1.70",
-    "timestamp": "2026-04-30T11:27:54.260Z"
+    "timestamp": "2026-05-05T20:00:02.693Z"
   },
   "data": {
     "Barreiro": [
@@ -270,12 +270,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-04-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 1,
         "data_evento": "2023-04-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -325,12 +319,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2024-08-01T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-08-01T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

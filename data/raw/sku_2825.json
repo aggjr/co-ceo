@@ -3,7 +3,7 @@
     "id": 2825,
     "code": "11892",
     "name": "TAPETE 0,40X0,60 KAP VINIL LIGTH CINZA",
-    "timestamp": "2026-04-30T11:35:41.001Z"
+    "timestamp": "2026-05-05T20:04:40.041Z"
   },
   "data": {
     "Guaranis": [
@@ -90,18 +90,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2023-07-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -109,18 +97,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2023-07-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -342,12 +318,6 @@
         "data_evento": "2023-07-15T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

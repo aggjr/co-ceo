@@ -3,7 +3,7 @@
     "id": 2613,
     "code": "11688",
     "name": "EF ILHOS 3,00X2,60 DUPLEX VOIL GLACE PEROLA",
-    "timestamp": "2026-04-30T11:35:03.452Z"
+    "timestamp": "2026-05-05T20:04:05.960Z"
   },
   "data": {
     "Tupis": [
@@ -86,12 +86,6 @@
         "data_evento": "2023-04-25T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -267,12 +261,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-04-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-04-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -288,12 +276,6 @@
         "data_evento": "2023-05-15T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -324,12 +306,6 @@
         "data_evento": "2023-06-06T03:00:00.000Z",
         "natureza": "Entrada Produção",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

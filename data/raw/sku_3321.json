@@ -3,7 +3,7 @@
     "id": 3321,
     "code": "56",
     "name": "TEC. CORTA LUZ EST. FLORAL AZUL 2.80 MT",
-    "timestamp": "2026-04-30T11:37:03.160Z"
+    "timestamp": "2026-05-05T20:05:59.189Z"
   },
   "data": {
     "Fábrica": [
@@ -142,12 +142,6 @@
       {
         "quantidade": 42,
         "data_evento": "2024-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-04-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

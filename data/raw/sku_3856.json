@@ -3,7 +3,7 @@
     "id": 3856,
     "code": "12982",
     "name": "CORTINA OUTLET -D4-",
-    "timestamp": "2026-04-30T11:38:28.504Z"
+    "timestamp": "2026-05-05T20:07:25.328Z"
   },
   "data": {
     "Betim": [
@@ -197,24 +197,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-03T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-02-03T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -230,12 +212,6 @@
         "data_evento": "2026-04-01T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

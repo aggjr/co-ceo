@@ -3,7 +3,7 @@
     "id": 3211,
     "code": "12333",
     "name": "TOALHA DE BANHO 0,77 X 1,45 HIP GLAMOR PRATA",
-    "timestamp": "2026-04-30T11:36:44.192Z"
+    "timestamp": "2026-05-05T20:05:40.766Z"
   },
   "data": {
     "Fábrica": [
@@ -160,12 +160,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-06-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-07-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

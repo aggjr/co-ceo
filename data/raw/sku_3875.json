@@ -3,7 +3,7 @@
     "id": 3875,
     "code": "13001",
     "name": "CORTINA OUTLET -F3-",
-    "timestamp": "2026-04-30T11:38:31.460Z"
+    "timestamp": "2026-05-05T20:07:28.656Z"
   },
   "data": {
     "Betim": [
@@ -120,12 +120,6 @@
         "data_evento": "2025-09-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-18T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

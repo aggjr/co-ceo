@@ -3,7 +3,7 @@
     "id": 2960,
     "code": "12027",
     "name": "PUFF 35X35X46 ARTE MINAS DIVERSOS",
-    "timestamp": "2026-04-30T11:36:03.024Z"
+    "timestamp": "2026-05-05T20:05:01.294Z"
   },
   "data": {
     "Babita": [
@@ -225,12 +225,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-11-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-11-21T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -272,12 +266,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-01-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-01-06T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

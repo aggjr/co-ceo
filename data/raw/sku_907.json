@@ -3,7 +3,7 @@
     "id": 907,
     "code": "10325",
     "name": "TEC. FLAME BRANCO - 3.00 MT",
-    "timestamp": "2026-04-30T11:30:13.860Z"
+    "timestamp": "2026-05-05T20:02:11.924Z"
   },
   "data": {
     "Fábrica": [
@@ -29,12 +29,6 @@
         "quantidade": 50.19999999999999,
         "data_evento": "2023-05-31T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2023-06-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -84,12 +78,6 @@
         "data_evento": "2023-08-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 109.2,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 109.2,

@@ -3,7 +3,7 @@
     "id": 3399,
     "code": "12519",
     "name": "PERSIANA ROLO BLACKOUT 1,40X1,60 CREME",
-    "timestamp": "2026-04-30T11:37:16.220Z"
+    "timestamp": "2026-05-05T20:06:11.682Z"
   },
   "data": {
     "Guaranis": [
@@ -127,12 +127,6 @@
       }
     ],
     "Betim": [
-      {
-        "quantidade": 8,
-        "data_evento": "2023-12-28T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 8,
         "data_evento": "2023-12-28T03:00:00.000Z",

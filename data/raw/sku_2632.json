@@ -3,7 +3,7 @@
     "id": 2632,
     "code": "11700",
     "name": "UNICA 4,00X2,60 MAQUINETADO CINZA",
-    "timestamp": "2026-04-30T11:35:07.866Z"
+    "timestamp": "2026-05-05T20:04:08.966Z"
   },
   "data": {
     "Tupis": [
@@ -100,12 +100,6 @@
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-24T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

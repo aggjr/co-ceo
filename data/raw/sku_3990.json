@@ -3,7 +3,7 @@
     "id": 3990,
     "code": "13131",
     "name": "TAPETE 0,38X0,58 POPCORN ANTIDERRAPANTE",
-    "timestamp": "2026-04-30T11:38:49.438Z"
+    "timestamp": "2026-05-05T20:07:49.941Z"
   },
   "data": {
     "Guaranis": [
@@ -34,12 +34,6 @@
       {
         "quantidade": 3,
         "data_evento": "2025-11-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2025-12-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -84,12 +78,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-10-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -260,12 +248,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-11-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-11-07T03:00:00.000Z",
         "natureza": "Venda",
@@ -340,12 +322,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-11-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-11-13T03:00:00.000Z",
         "natureza": "Venda",
@@ -360,12 +336,6 @@
       {
         "quantidade": 2,
         "data_evento": "2025-11-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2025-12-06T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -433,18 +403,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2025-11-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-11-08T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -659,12 +617,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-11-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-11-18T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -745,12 +697,6 @@
       },
       {
         "quantidade": 7,
-        "data_evento": "2026-04-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
         "data_evento": "2026-04-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

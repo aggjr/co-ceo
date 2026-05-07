@@ -3,7 +3,7 @@
     "id": 2018,
     "code": "11269",
     "name": "CAPA ALMOFADA 45X45 JACQ TROPICAL MIX TROPICAL",
-    "timestamp": "2026-04-30T11:33:23.066Z"
+    "timestamp": "2026-05-05T20:05:06.322Z"
   },
   "data": {
     "Barreiro": [
@@ -64,12 +64,6 @@
         "data_evento": "2024-02-16T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

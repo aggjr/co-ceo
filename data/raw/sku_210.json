@@ -3,7 +3,7 @@
     "id": 210,
     "code": "10577",
     "name": "PAR DE SUPORTES ESPANHA TETO CHAPINHA",
-    "timestamp": "2026-04-30T11:28:09.649Z"
+    "timestamp": "2026-05-05T20:00:18.107Z"
   },
   "data": {
     "Tupis": [
@@ -57,12 +57,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 8,
-        "data_evento": "2023-05-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 8,
         "data_evento": "2023-05-27T03:00:00.000Z",

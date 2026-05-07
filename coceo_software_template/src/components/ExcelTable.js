@@ -109,21 +109,12 @@ export class ExcelTable {
         this.activeFilters = {};
         this.sortConfig = { key: null, direction: 'asc' };
 
-        // GridPreferences: persiste larguras e ordem de colunas por usuário
+        // GridPreferences: persiste larguras, ordem de colunas e ordenação (não persiste filtros).
         this.gridPrefs = new GridPreferences(gridId || container.id || 'default');
         // Restaurar preferências salvas (largura + ordem)
         this.columns = this.gridPrefs.applyToColumns(this.columns, this.fixedLeadingColumns);
         const persistedPrefs = this.gridPrefs.load();
         const columnKeys = new Set(this.columns.map((c) => c.key));
-        if (persistedPrefs && persistedPrefs.filters && typeof persistedPrefs.filters === 'object') {
-            const restored = {};
-            for (const [k, v] of Object.entries(persistedPrefs.filters)) {
-                if (!columnKeys.has(k)) continue;
-                if (!v || typeof v !== 'object') continue;
-                restored[k] = v;
-            }
-            this.activeFilters = restored;
-        }
         if (persistedPrefs && persistedPrefs.sortConfig && typeof persistedPrefs.sortConfig === 'object') {
             const sKey = persistedPrefs.sortConfig.key;
             const sDir = persistedPrefs.sortConfig.direction === 'desc' ? 'desc' : 'asc';
@@ -354,7 +345,11 @@ export class ExcelTable {
     applyClientSideFilter() {
         if (!this.activeFilters || Object.keys(this.activeFilters).length === 0) return;
 
-        console.log('🔄 Applying Client-Side Filters:', JSON.stringify(this.activeFilters));
+        try {
+            console.log('🔄 Applying Client-Side Filters:', JSON.stringify(this.activeFilters));
+        } catch (_) {
+            console.log('🔄 Applying Client-Side Filters: (objeto não serializável para log)');
+        }
 
         try {
             this.currentData = this.currentData.filter(item => {
@@ -421,10 +416,11 @@ export class ExcelTable {
 
                         const txt = String(cellVal || '').toLowerCase();
 
-                        // List Checkbox Filter
+                        // List Checkbox Filter (Set usa String; célula pode vir com tipo misto do JSON)
                         if (filter.textIn?.length > 0) {
-                            // Check against raw value provided in list
-                            if (!filter.textIn.includes(cellVal)) return false;
+                            const cellStr = String(cellVal);
+                            const ok = filter.textIn.some((t) => String(t) === cellStr);
+                            if (!ok) return false;
                         }
 
                         // Operator Filter
@@ -1298,7 +1294,14 @@ export class ExcelTable {
         let draft = this.activeFilters[colKey] ? { ...this.activeFilters[colKey] } : {};
 
         // ── Helpers ──────────────────────────────────────────────────────────
-        const fmtNum = v => Number.isFinite(+v) ? (+v).toLocaleString('pt-BR') : (v ?? '');
+        // Códigos ERP / IDs: sem separador de milhar (evita "1.062" e filtro por "1062").
+        const usePlainNumber =
+            colDef && (colDef.numberPlain === true || colDef.numberFormat === 'plain');
+        const fmtNum = (v) => {
+            if (!Number.isFinite(+v)) return v ?? '';
+            if (usePlainNumber) return String(Math.trunc(Number(v)));
+            return (+v).toLocaleString('pt-BR');
+        };
         const fmtCur = v => this.formatCurrency ? this.formatCurrency(v) : fmtNum(v);
         const parseNum = s => {
             if (!s) return NaN;
@@ -1341,7 +1344,6 @@ export class ExcelTable {
                 (!draft.dateIn || draft.dateIn.length  === 0);
             if (empty) delete this.activeFilters[colKey];
             else        this.activeFilters[colKey] = draft;
-            this.gridPrefs.saveFilters(this.activeFilters);
             if (this.onFilterChange) this.onFilterChange(this.activeFilters);
             this.render();
             menu.remove();
@@ -1636,11 +1638,102 @@ export class ExcelTable {
         // ── Search filter on list ─────────────────────────────────────────────
         searchInput.oninput = () => {
             const q = searchInput.value.toLowerCase();
+            const qDigits = q.replace(/[^\d-]/g, '');
             rowMap.forEach(({ row }, val) => {
                 const label = formatVal(val).toLowerCase();
+                if (colType === 'number' || colType === 'currency') {
+                    // Permite procurar por "1062" mesmo que a label apareça formatada como "1.062" (pt-BR).
+                    const labelDigits = label.replace(/[^\d-]/g, '');
+                    row.style.display = labelDigits.includes(qDigits) ? '' : 'none';
+                    return;
+                }
                 row.style.display = label.includes(q) ? '' : 'none';
             });
         };
+
+        /** Igualdade exata no texto da busca → atualiza selSet/draft (Enter e OK). */
+        const resolveExactMatchFromSearchTrim = (raw) => {
+            if (!raw) return null;
+            let match = null;
+            if (colType === 'number' || colType === 'currency') {
+                const n = parseNum(raw);
+                if (Number.isFinite(n)) {
+                    match = normalVals.find((v) => Number(v) === n);
+                }
+            } else if (colType === 'date') {
+                const iso = normalizeToIsoDate(raw);
+                if (iso) match = normalVals.find((v) => String(v) === iso);
+                if (match == null) match = normalVals.find((v) => String(v) === raw);
+            } else {
+                match =
+                    normalVals.find((v) => String(v) === raw) ||
+                    normalVals.find((v) => String(v).toLowerCase() === raw.toLowerCase());
+            }
+            return match;
+        };
+
+        /**
+         * OK: colar na pesquisa só filtra a lista visualmente; selSet ainda pode ser “tudo”.
+         * Antes de aplicar, grava no draft só o que está visível (intersecção) ou o match exato.
+         */
+        const syncDraftFromSearchBeforeOk = () => {
+            const raw = searchInput.value.trim();
+            if (!raw) return;
+
+            const exact = resolveExactMatchFromSearchTrim(raw);
+            if (exact != null) {
+                selSet.clear();
+                selSet.add(String(exact));
+                rowMap.forEach(({ cb }, val) => {
+                    cb.checked = val === String(exact);
+                });
+                allCb.checked = false;
+                saveListToDraft();
+                return;
+            }
+
+            const visibleSet = new Set();
+            rowMap.forEach(({ row }, val) => {
+                if (row.style.display !== 'none') visibleSet.add(String(val));
+            });
+            const narrowed = new Set([...selSet].filter((v) => visibleSet.has(String(v))));
+            if (narrowed.size === 0) return;
+
+            selSet = narrowed;
+            rowMap.forEach(({ cb }, val) => {
+                cb.checked = selSet.has(String(val));
+            });
+            allCb.checked = selSet.size === allValues.length;
+            saveListToDraft();
+        };
+
+        /**
+         * Enter no campo de pesquisa: mesmo fluxo do OK — match exato (ex. código) OU
+         * restringir seleção às linhas visíveis após a busca e aplicar (ex. "duplex" na descrição).
+         */
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== 'NumpadEnter') return;
+            e.preventDefault();
+            e.stopPropagation();
+            const raw = searchInput.value.trim();
+            if (!raw) {
+                applyFilter();
+                return;
+            }
+            const match = resolveExactMatchFromSearchTrim(raw);
+            if (match != null) {
+                selSet.clear();
+                selSet.add(String(match));
+                rowMap.forEach(({ cb }, val) => {
+                    cb.checked = val === String(match);
+                });
+                allCb.checked = false;
+                saveListToDraft();
+            } else {
+                syncDraftFromSearchBeforeOk();
+            }
+            applyFilter();
+        });
 
         // ══════════════════════════════════════════════════════════════════════
         //  OPERATOR SUB-PANEL
@@ -1749,13 +1842,20 @@ export class ExcelTable {
         btnClear.onclick = e => {
             e.stopPropagation();
             delete this.activeFilters[colKey];
-            this.gridPrefs.saveFilters(this.activeFilters);
             if (this.onFilterChange) this.onFilterChange(this.activeFilters);
             this.render(); menu.remove();
         };
 
-        const btnOk = document.createElement('button'); btnOk.className = 'ef-btn primary'; btnOk.textContent = 'OK';
-        btnOk.onclick = e => { e.stopPropagation(); applyFilter(); };
+        const btnOk = document.createElement('button');
+        btnOk.type = 'button';
+        btnOk.className = 'ef-btn primary';
+        btnOk.textContent = 'OK';
+        btnOk.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            syncDraftFromSearchBeforeOk();
+            applyFilter();
+        };
 
         footer.appendChild(btnClear); footer.appendChild(btnOk);
         menu.appendChild(footer);
@@ -1772,9 +1872,13 @@ export class ExcelTable {
         menu.style.top  = top  + 'px';
         menu.style.left = left + 'px';
 
-        // ── Close on outside click ────────────────────────────────────────────
-        const close = () => { menu.remove(); document.removeEventListener('click', close); };
-        setTimeout(() => document.addEventListener('click', close), 0);
+        // ── Close on outside click (ignorar cliques dentro do menu → OK/Clear funcionam) ──
+        const close = (ev) => {
+            if (ev && menu.contains(ev.target)) return;
+            menu.remove();
+            document.removeEventListener('click', close, true);
+        };
+        setTimeout(() => document.addEventListener('click', close, true), 0);
 
         // Focus search
         setTimeout(() => searchInput.focus(), 50);

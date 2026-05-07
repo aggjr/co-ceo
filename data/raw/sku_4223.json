@@ -3,7 +3,7 @@
     "id": 4223,
     "code": "13360",
     "name": "TAPETE 0,46X0,65 BT PERSA",
-    "timestamp": "2026-04-30T11:39:25.819Z"
+    "timestamp": "2026-05-05T20:08:34.548Z"
   },
   "data": {
     "Tupis": [
@@ -38,18 +38,6 @@
       {
         "quantidade": 2,
         "data_evento": "2026-01-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-21T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

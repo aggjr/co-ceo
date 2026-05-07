@@ -3,7 +3,7 @@
     "id": 2761,
     "code": "11828",
     "name": "CAPA ALMOFADA 45X45 PATCH BK WHITE COST, ADÌO",
-    "timestamp": "2026-04-30T11:35:29.495Z"
+    "timestamp": "2026-05-05T20:04:29.758Z"
   },
   "data": {
     "Barreiro": [
@@ -85,12 +85,6 @@
       }
     ],
     "Fábrica": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-01-30T03:00:00.000Z",

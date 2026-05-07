@@ -3,7 +3,7 @@
     "id": 384,
     "code": "10807",
     "name": "EDREDOM SOLT 1,40X2,20 TODO DIA",
-    "timestamp": "2026-04-30T11:28:37.985Z"
+    "timestamp": "2026-05-05T20:00:45.799Z"
   },
   "data": {
     "Fábrica": [
@@ -64,12 +64,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-01-20T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
       },
@@ -336,12 +330,6 @@
         "data_evento": "2024-02-16T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-20T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

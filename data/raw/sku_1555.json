@@ -3,7 +3,7 @@
     "id": 1555,
     "code": "8353",
     "name": "SUPORTE METAL CURTO 19MM CROMADO",
-    "timestamp": "2026-04-30T11:32:04.369Z"
+    "timestamp": "2026-05-05T20:03:53.400Z"
   },
   "data": {
     "Barreiro": [
@@ -384,24 +384,6 @@
       {
         "quantidade": 5,
         "data_evento": "2025-08-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2025-10-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2025-10-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2025-10-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

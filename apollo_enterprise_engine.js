@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
 const { assertLegacyConfig } = require(path.join(__dirname, 'coceo_db_config'));
-const { isClosedRetailStore } = require(path.join(__dirname, 'lib', 'closed_retail_stores'));
+const {
+    isClosedRetailExcludedFromStockNetwork,
+    isClosedRetailStore,
+} = require(path.join(__dirname, 'lib', 'closed_retail_stores'));
+const { remapSkuDataStoreKeys, legacyStoreNamesToTry } = require(path.join(__dirname, 'lib', 'store_key_aliases'));
 
 /**
  * APOLLO ENTERPRISE ENGINE v20.1
@@ -14,6 +18,35 @@ const JS_DIR = path.join(__dirname, 'data', 'js'); // Dashboard busca aqui
 
 const VITRINE_LOJA = 1;      
 const VITRINE_CD = 0;
+
+function asBool(v) {
+    if (v == null) return false;
+    if (Buffer.isBuffer(v)) return v[0] === 1;
+    const n = Number(v);
+    if (!Number.isNaN(n)) return n !== 0;
+    return Boolean(v);
+}
+
+async function loadForaMixByProductIds(conn, productIds) {
+    const map = new Map();
+    if (!conn || !productIds.length) return map;
+    const ids = [...new Set(productIds.map((x) => Number(x)).filter((id) => Number.isFinite(id) && id > 0))];
+    const CHUNK = 500;
+    for (let i = 0; i < ids.length; i += CHUNK) {
+        const chunk = ids.slice(i, i + CHUNK);
+        const placeholders = chunk.map(() => '?').join(',');
+        const [rows] = await conn.query(
+            `SELECT Id AS id, IndForaMix AS ind_fora_mix FROM produto WHERE Id IN (${placeholders})`,
+            chunk
+        );
+        for (const r of rows) {
+            const id = Number(r.id);
+            if (!Number.isFinite(id) || id <= 0) continue;
+            map.set(id, asBool(r.ind_fora_mix));
+        }
+    }
+    return map;
+}
 const MIN_STOCK_USER = 3;
 const WINDOW_DEMAND = 365; 
 const WINDOW_LT = 90; 
@@ -27,6 +60,12 @@ let END_GLOBAL = (() => {
     d.setDate(d.getDate() - 1);
     return d;
 })();
+
+// Quando true, ignora snapshots de físico do legado (ativoposicaoestoque) e calcula tudo apenas por movimentações.
+// Útil quando o legado está inconsistente e queremos o CO-CEO como fonte mais confiável.
+const DISABLE_LEGACY_PHYSICAL =
+    /^1|true|yes$/i.test(String(process.env.APOLLO_ENGINE_DISABLE_LEGACY_PHYSICAL || "")) ||
+    /^1|true|yes$/i.test(String(process.env.LEGACY_PHYSICAL_DISABLE || ""));
 
 function toIsoDay(d) {
     return new Date(d).toISOString().slice(0, 10);
@@ -121,15 +160,46 @@ async function loadLegacyPhysicalForProducts(conn, productIds) {
     return legacyByProduct;
 }
 
+function legacyPeakPhysicalForStore(legacyByStore, storeName) {
+    const dayMap = getLegacyDayMapForStore(legacyByStore, storeName);
+    if (!dayMap || !dayMap.size) return 0;
+    let maxv = 0;
+    for (const v of dayMap.values()) {
+        maxv = Math.max(maxv, Math.max(0, Number(v) || 0));
+    }
+    return maxv;
+}
+
+function movesPeakPhysicalInWindow(moves) {
+    if (!moves || !moves.length) return 0;
+    const tl = buildTimelineFromMoves(moves);
+    let maxv = 0;
+    for (let i = 0; i < tl.length; i++) {
+        maxv = Math.max(maxv, Math.max(0, Number(tl[i].stock) || 0));
+    }
+    return maxv;
+}
+
+function peakPhysicalHintForStoreNetwork(storeName, legacyByStore, rawMoves) {
+    const movePeak = movesPeakPhysicalInWindow(rawMoves || []);
+    if (DISABLE_LEGACY_PHYSICAL) return movePeak;
+    return Math.max(legacyPeakPhysicalForStore(legacyByStore, storeName), movePeak);
+}
+
 function getLegacyDayMapForStore(legacyByStore, storeName) {
     if (!legacyByStore || !legacyByStore.size) return null;
-    if (legacyByStore.has(storeName)) {
-        const m = legacyByStore.get(storeName);
-        return m && m.size ? m : null;
-    }
-    const want = normalizeStoreName(storeName);
-    for (const [k, m] of legacyByStore) {
-        if (normalizeStoreName(k) === want && m && m.size) return m;
+    const candidates = legacyStoreNamesToTry(storeName);
+    const tryNames = candidates.length ? candidates : [storeName];
+    for (let ti = 0; ti < tryNames.length; ti++) {
+        const nm = tryNames[ti];
+        if (legacyByStore.has(nm)) {
+            const m = legacyByStore.get(nm);
+            if (m && m.size) return m;
+        }
+        const want = normalizeStoreName(nm);
+        for (const [k, m] of legacyByStore) {
+            if (normalizeStoreName(k) === want && m && m.size) return m;
+        }
     }
     return null;
 }
@@ -140,22 +210,44 @@ async function runEngine() {
     END_GLOBAL = win.end;
     console.log("🧬 Sincronizando Apollo Enterprise v21.1 -> Dashboard...");
     console.log(`🗓️ Janela de cálculo (engine): ${toIsoDay(START_GLOBAL)} → ${toIsoDay(END_GLOBAL)}`);
+    if (DISABLE_LEGACY_PHYSICAL) {
+        console.log("🧯 APOLLO_ENGINE_DISABLE_LEGACY_PHYSICAL=1 → ignorando físico do legado (ativoposicaoestoque); usando movimentos.");
+    }
     
     if (!fs.existsSync(RAW_DIR)) fs.mkdirSync(RAW_DIR, { recursive: true });
     if (!fs.existsSync(JS_DIR)) fs.mkdirSync(JS_DIR, { recursive: true });
     
-    const rawFiles = fs.readdirSync(RAW_DIR).filter(f => f.endsWith('.json'));
+    const onlySkuId = (() => {
+        // Permite regenerar só 1 SKU: --sku=232 ou APOLLO_ENGINE_ONLY_SKU=232
+        const arg = process.argv.find((a) => String(a || '').toLowerCase().startsWith('--sku='));
+        const fromArg = arg ? String(arg).split('=')[1] : null;
+        const raw = fromArg != null && fromArg !== '' ? fromArg : (process.env.APOLLO_ENGINE_ONLY_SKU || '');
+        const n = Number(String(raw).trim());
+        return Number.isFinite(n) && n > 0 ? n : null;
+    })();
+
+    const rawFiles = fs
+        .readdirSync(RAW_DIR)
+        .filter((f) => f.endsWith('.json'))
+        .filter((f) => {
+            if (!onlySkuId) return true;
+            const m = /^sku_(\d+)\.json$/i.exec(String(f));
+            return m ? Number(m[1]) === onlySkuId : false;
+        });
     const index = [];
     let errCount = 0;
     let legacyConn = null;
-    try {
-        legacyConn = await mysql.createConnection(assertLegacyConfig());
-        await legacyConn.query("SET NAMES 'utf8mb4'");
-    } catch (e) {
-        console.warn('⚠️ Legado MySQL indisponível — físico volta ao cálculo por movimentos:', e.message || e);
+    if (!DISABLE_LEGACY_PHYSICAL) {
+        try {
+            legacyConn = await mysql.createConnection(assertLegacyConfig());
+            await legacyConn.query("SET NAMES 'utf8mb4'");
+        } catch (e) {
+            console.warn('⚠️ Legado MySQL indisponível — físico volta ao cálculo por movimentos:', e.message || e);
+        }
     }
 
     let legacyByProduct = new Map();
+    let foraMixByProductId = new Map();
     if (legacyConn) {
         const idSet = new Set();
         for (const file of rawFiles) {
@@ -173,6 +265,15 @@ async function runEngine() {
             console.warn('⚠️ Falha ao pré-carregar estoque legado — usando movimentos por SKU:', e.message || e);
             legacyByProduct = new Map();
         }
+        try {
+            foraMixByProductId = await loadForaMixByProductIds(legacyConn, allIds);
+            if (foraMixByProductId.size) {
+                console.log(`✂️ IndForaMix carregado para ${foraMixByProductId.size} produto(s) (merge em bundle.info).`);
+            }
+        } catch (e) {
+            console.warn('⚠️ Falha ao carregar IndForaMix — bundles sem info.foraMix:', e.message || e);
+            foraMixByProductId = new Map();
+        }
     }
 
     for (let idx = 0; idx < rawFiles.length; idx++) {
@@ -181,11 +282,16 @@ async function runEngine() {
         try {
             const skuContent = JSON.parse(fs.readFileSync(path.join(RAW_DIR, file), 'utf8'));
             const pid = Number(skuContent?.info?.id);
+            const baseInfo = { ...(skuContent.info || {}) };
+            if (Number.isFinite(pid) && pid > 0 && foraMixByProductId.has(pid)) {
+                baseInfo.foraMix = foraMixByProductId.get(pid);
+            }
+            const enrichedSkuContent = { ...skuContent, info: baseInfo };
             const legacyByStore =
                 legacyConn && Number.isFinite(pid) && pid > 0 && legacyByProduct.has(pid)
                     ? legacyByProduct.get(pid)
                     : new Map();
-            const skuResults = processSKUNetwork(skuContent, legacyByStore);
+            const skuResults = processSKUNetwork(enrichedSkuContent, legacyByStore);
             
             const jsFile = file.replace('.json', '.js');
             const outPath = path.join(JS_DIR, jsFile);
@@ -194,9 +300,9 @@ async function runEngine() {
             fs.writeFileSync(outPath, jsContent);
             
             index.push({
-                id: skuContent.info.id,
-                code: skuContent.info.code,
-                name: skuContent.info.name,
+                id: enrichedSkuContent.info.id,
+                code: enrichedSkuContent.info.code,
+                name: enrichedSkuContent.info.name,
                 file: jsFile
             });
         } catch (err) {
@@ -211,28 +317,112 @@ async function runEngine() {
         } catch (_) {}
     }
 
-    index.sort((a, b) => (parseInt(a.code) || 0) - (parseInt(b.code) || 0));
-    fs.writeFileSync(path.join(__dirname, 'data', 'catalog_index.json'), JSON.stringify(index, null, 2));
+    const catalogPath = path.join(__dirname, 'data', 'catalog_index.json');
+    let mergedIndex = index;
+    if (onlySkuId && index.length) {
+        let prev = [];
+        try {
+            prev = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+        } catch (_) {}
+        if (!Array.isArray(prev)) prev = [];
+        const touched = new Set(index.map((e) => Number(e.id)).filter((n) => Number.isFinite(n)));
+        mergedIndex = prev.filter((e) => !touched.has(Number(e.id))).concat(index);
+    }
+    mergedIndex.sort((a, b) => (parseInt(a.code) || 0) - (parseInt(b.code) || 0));
+    fs.writeFileSync(catalogPath, JSON.stringify(mergedIndex, null, 2));
     console.log(
         `💎 Concluído: ${index.length} SKU(s) em data/js/ a partir de ${rawFiles.length} JSON em data/raw/` +
             (errCount ? ` (${errCount} arquivo(s) com erro).` : ".") +
-            " catalog_index.json atualizado."
+            ` catalog_index.json → ${mergedIndex.length} entradas.`
     );
 }
 
 function processSKUNetwork(skuContent, legacyByStore) {
-    const rawData = skuContent.data;
+    const rawData = remapSkuDataStoreKeys(skuContent.data);
+    // Loja fechada com físico no legado mas sem movimentos no JSON bruto (janela / miner antigo).
+    if (legacyByStore && legacyByStore.size) {
+        for (const [legacyStoreName] of legacyByStore) {
+            if (!isClosedRetailStore(legacyStoreName)) continue;
+            if (legacyPeakPhysicalForStore(legacyByStore, legacyStoreName) <= 0) continue;
+            if (!Array.isArray(rawData[legacyStoreName])) {
+                rawData[legacyStoreName] = [];
+            }
+        }
+    }
     const networkResults = {};
-    const storeNames = Object.keys(rawData).filter(
-        (s) => !s.includes('Fábrica') && !s.includes('CD') && !isClosedRetailStore(s)
-    );
+    const storeNames = Object.keys(rawData).filter((s) => {
+        if (s.includes('Fábrica') || s.includes('CD')) return false;
+        const hint = peakPhysicalHintForStoreNetwork(s, legacyByStore, rawData[s] || []);
+        return !isClosedRetailExcludedFromStockNetwork(s, hint);
+    });
     const factoryKey = Object.keys(rawData).find(s => s.includes('Fábrica') || s.includes('CD')) || 'Fábrica';
 
-    storeNames.forEach(s => {
-        networkResults[s] = processUnit(s, rawData[s], false, null, legacyByStore);
-    });
+    // 1) Pré-constrói timeline base (dia a dia) por loja para permitir agregações.
+    const baseTimelineByStore = {};
+    for (let i = 0; i < storeNames.length; i++) {
+        const s = storeNames[i];
+        baseTimelineByStore[s] =
+            (DISABLE_LEGACY_PHYSICAL ? null : buildTimelineFromLegacyPositions(s, rawData[s] || [], legacyByStore)) ||
+            buildTimelineFromMoves(rawData[s] || []);
+    }
 
-    networkResults[factoryKey] = processUnit(factoryKey, rawData[factoryKey] || [], true, networkResults, legacyByStore);
+    const factoryMoves = rawData[factoryKey] || [];
+    const baseTimelineFactory =
+        (DISABLE_LEGACY_PHYSICAL ? null : buildTimelineFromLegacyPositions(factoryKey, factoryMoves, legacyByStore)) ||
+        buildTimelineFromMoves(factoryMoves);
+
+    // 2) Calcula curvas por loja (varejo).
+    for (let i = 0; i < storeNames.length; i++) {
+        const s = storeNames[i];
+        networkResults[s] = processUnitFromBaseTimeline(s, baseTimelineByStore[s], false, null, legacyByStore);
+    }
+
+    // 3) Calcula hub/CD (usa p100 das lojas para demanda de rede).
+    networkResults[factoryKey] = processUnitFromBaseTimeline(factoryKey, baseTimelineFactory, true, networkResults, legacyByStore);
+
+    // 4) "TOTAL" — agrega físico dia a dia de todas as lojas + CD, e recomputa curvas como unidade separada.
+    //    - Estoque: soma físico de todas as lojas abertas + hub/CD.
+    //    - Vendas: soma vendas do varejo (CD não é ponto de venda; evita dupla contagem por transferências).
+    //    - Vitrine: na visão TOTAL, vitrine conta como estoque (financeiro). Então, não subtrair vitrine:
+    //      disponível = físico (override vitrine = 0).
+    if (storeNames.length) {
+        const vitrineTotal = 0;
+        const totalBase = [];
+        const n = Math.min(
+            baseTimelineFactory ? baseTimelineFactory.length : Infinity,
+            ...storeNames.map((s) => (baseTimelineByStore[s] ? baseTimelineByStore[s].length : 0))
+        );
+        for (let i = 0; i < n; i++) {
+            let stockSum = 0;
+            let salesSum = 0;
+            let date = null;
+            for (let si = 0; si < storeNames.length; si++) {
+                const s = storeNames[si];
+                const row = baseTimelineByStore[s] && baseTimelineByStore[s][i];
+                if (!row) continue;
+                if (!date) date = row.date;
+                stockSum += Math.max(0, Number(row.stock) || 0);
+                salesSum += Math.max(0, Number(row.sales) || 0);
+            }
+            const hubRow = baseTimelineFactory && baseTimelineFactory[i];
+            if (hubRow) {
+                if (!date) date = hubRow.date;
+                stockSum += Math.max(0, Number(hubRow.stock) || 0);
+            }
+            if (!date) continue;
+            totalBase.push({ date: date, stock: stockSum, sales: salesSum });
+        }
+        if (totalBase.length) {
+            networkResults["TOTAL"] = processUnitFromBaseTimeline(
+                "TOTAL",
+                totalBase,
+                false,
+                null,
+                legacyByStore,
+                { vitrineOverride: vitrineTotal }
+            );
+        }
+    }
 
     return { info: skuContent.info, results: networkResults };
 }
@@ -318,12 +508,18 @@ function buildTimelineFromMoves(moves) {
     return fullTimeline;
 }
 
-function processUnit(storeName, moves, isCD, otherStoresData = null, legacyByStore = null) {
-    let fullTimeline =
-        buildTimelineFromLegacyPositions(storeName, moves || [], legacyByStore) ||
-        buildTimelineFromMoves(moves || []);
-
-    const vitrine = isCD ? VITRINE_CD : VITRINE_LOJA;
+function processUnitFromBaseTimeline(
+    storeName,
+    fullTimeline,
+    isCD,
+    otherStoresData = null,
+    legacyByStore = null,
+    opts = null
+) {
+    const vitrine =
+        opts && Number.isFinite(Number(opts.vitrineOverride))
+            ? Math.max(0, Number(opts.vitrineOverride))
+            : (isCD ? VITRINE_CD : VITRINE_LOJA);
     const finalTimelineFluid = [];
     
     // VARIÁVEIS DE CONTROLE DE DEMANDA

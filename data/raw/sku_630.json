@@ -3,7 +3,7 @@
     "id": 630,
     "code": "7637",
     "name": "UNICA 2,60X1,80 MAQUINETADO VERMELHO",
-    "timestamp": "2026-04-30T11:29:21.084Z"
+    "timestamp": "2026-05-05T20:01:26.005Z"
   },
   "data": {
     "Barreiro": [
@@ -114,12 +114,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-11-30T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -324,12 +318,6 @@
         "data_evento": "2023-09-28T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

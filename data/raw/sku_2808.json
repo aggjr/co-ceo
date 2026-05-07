@@ -3,7 +3,7 @@
     "id": 2808,
     "code": "11875",
     "name": "TEC. MICROFIBRA ROSA BB 2.25 MT",
-    "timestamp": "2026-04-30T11:35:38.205Z"
+    "timestamp": "2026-05-05T20:04:37.344Z"
   },
   "data": {
     "Fábrica": [
@@ -36,12 +36,6 @@
         "data_evento": "2023-07-28T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 45,
-        "data_evento": "2023-08-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 45,
@@ -172,12 +166,6 @@
       {
         "quantidade": 120,
         "data_evento": "2024-10-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2024-10-24T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

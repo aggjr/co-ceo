@@ -3,7 +3,7 @@
     "id": 3271,
     "code": "12380",
     "name": "KIT COLCHA MIRAGGIO QUEEN NUDE TESSI",
-    "timestamp": "2026-04-30T11:36:54.650Z"
+    "timestamp": "2026-05-05T20:05:50.865Z"
   },
   "data": {
     "Eldorado 2": [
@@ -62,12 +62,6 @@
         "data_evento": "2024-05-09T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

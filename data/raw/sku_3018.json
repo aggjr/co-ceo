@@ -3,7 +3,7 @@
     "id": 3018,
     "code": "12079",
     "name": "CORTINA MICROFIBRA CINZA 2.60X1.70",
-    "timestamp": "2026-04-30T11:36:12.573Z"
+    "timestamp": "2026-05-05T20:05:10.518Z"
   },
   "data": {
     "Barreiro": [
@@ -80,12 +80,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-04-05T03:00:00.000Z",
-        "natureza": "Devolução de Venda",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2023-04-06T03:00:00.000Z",
         "natureza": "Venda",
@@ -120,18 +114,6 @@
         "data_evento": "2023-04-19T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -183,18 +165,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-05-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-08T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -219,12 +189,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-05-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -238,18 +202,6 @@
       {
         "quantidade": 3,
         "data_evento": "2023-05-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -340,12 +292,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-22T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -461,24 +407,12 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2023-05-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-05-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
       {
         "quantidade": 3,
-        "data_evento": "2023-05-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -515,18 +449,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-05-29T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -584,21 +506,9 @@
         "data_evento": "2023-07-17T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-17T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       }
     ],
     "Betim": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-03-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-03-27T03:00:00.000Z",

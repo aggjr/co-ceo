@@ -3,7 +3,7 @@
     "id": 3304,
     "code": "12415",
     "name": "TAPETE 2,00 X 2,40 HIP SOFT JACQUARD CINZA",
-    "timestamp": "2026-04-30T11:37:00.387Z"
+    "timestamp": "2026-05-05T20:05:56.403Z"
   },
   "data": {
     "Fábrica": [
@@ -14,25 +14,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-10-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

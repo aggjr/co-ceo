@@ -3,7 +3,7 @@
     "id": 3748,
     "code": "12919",
     "name": "CORTINA LIRIO SALMÃO 2.80X1.70",
-    "timestamp": "2026-04-30T11:38:11.446Z"
+    "timestamp": "2026-05-05T20:07:06.834Z"
   },
   "data": {
     "Barreiro": [
@@ -16,12 +16,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-03-31T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-04-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

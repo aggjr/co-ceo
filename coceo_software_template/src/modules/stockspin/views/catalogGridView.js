@@ -7,6 +7,16 @@ function isHubStoreName(name) {
     return n === "Fábrica" || n === "CD SARON" || /fábrica|fabrica/i.test(n);
 }
 
+/** IndForaMix no catálogo (miner) ou valor legado numérico/string. */
+function isCatalogForaMix(row) {
+    const v = row && row.foraMix;
+    if (v === true) return true;
+    if (v === false || v == null) return false;
+    if (typeof v === "number") return v !== 0;
+    if (typeof v === "string") return /^1|true|sim$/i.test(String(v).trim());
+    return false;
+}
+
 function extractStockHealthSkuIds(filterPack) {
     if (!window.STOCK_HEALTH_HISTOGRAM_DATA || typeof window.STOCK_HEALTH_HISTOGRAM_DATA !== "object") return null;
     if (!filterPack || filterPack.source !== "stock_health" || !filterPack.status) return null;
@@ -194,7 +204,10 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
     let wr = 0;
     let wv = 0;
 
-    for (const r of rows) {
+    /** Alinha ao legado: totais do rodapé ignoram IndForaMix (foraMix). */
+    const rowsForTotals = rows.filter((r) => !isCatalogForaMix(r));
+
+    for (const r of rowsForTotals) {
         sumV += Number(r.vendaBruta12m) || 0;
         sumL += Number(r.lucroBruto12m) || 0;
         sumU += Number(r.totalSales) || 0;
@@ -210,7 +223,7 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
     const margPct = sumV > 0 ? (sumL / sumV) * 100 : null;
     const ruptPond = wv > 0 ? wr / wv : null;
 
-    const sorted = [...rows].sort((a, b) => (Number(b.vendaBruta12m) || 0) - (Number(a.vendaBruta12m) || 0));
+    const sorted = [...rowsForTotals].sort((a, b) => (Number(b.vendaBruta12m) || 0) - (Number(a.vendaBruta12m) || 0));
     const topN = Math.min(10, sorted.length);
     let top10v = 0;
     for (let i = 0; i < topN; i++) {
@@ -254,7 +267,11 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
     hint.style.fontSize = "10px";
     hint.style.opacity = "0.82";
     hint.style.marginLeft = "6px";
-    hint.textContent = "· visíveis após filtros";
+    const nOut =
+        rows.length > rowsForTotals.length ? rows.length - rowsForTotals.length : 0;
+    hint.textContent =
+        "\u00B7 vis\u00EDveis ap\u00F3s filtros" +
+        (nOut > 0 ? ` \u00B7 ${nOut} fora do mix excl.\u00EDdo(s) dos totais` : "");
     wrap.appendChild(hint);
 
     return wrap;
@@ -428,16 +445,47 @@ export async function mount(mainEl) {
             key: "code",
             label: "Código",
             type: "number",
+            /** Sem máscara de milhar no filtro/lista (1062, não 1.062). */
+            numberPlain: true,
             width: "2cm",
             align: "center",
             sticky: true,
             render: (item) => {
+                const wrap = document.createElement("span");
+                wrap.style.display = "inline-flex";
+                wrap.style.alignItems = "center";
+                wrap.style.justifyContent = "center";
+                wrap.style.gap = "4px";
+                wrap.style.flexWrap = "wrap";
+                wrap.style.maxWidth = "100%";
+
+                if (isCatalogForaMix(item)) {
+                    const sci = document.createElement("span");
+                    sci.textContent = "\u2702\uFE0F";
+                    sci.title = "Fora do mix — não recomprar (legado)";
+                    sci.setAttribute("aria-label", "Fora do mix");
+                    sci.style.fontSize = "13px";
+                    sci.style.lineHeight = "1";
+                    wrap.appendChild(sci);
+                }
+
                 const id = item.id != null ? String(item.id) : "";
                 const a = document.createElement("a");
                 a.href = id ? `${base}/ceo_product_detail_layout.html?sku=${encodeURIComponent(id)}&hub=1` : "#";
                 a.target = "_blank";
                 a.rel = "noopener noreferrer";
-                a.textContent = item.code != null && item.code !== "" ? String(item.code) : "—";
+                const raw = item.code;
+                let label = "—";
+                if (raw != null && raw !== "") {
+                    const s = String(raw).trim();
+                    if (/^\d+$/.test(s)) label = s;
+                    else if (/^\d{1,3}(\.\d{3})+$/.test(s)) label = s.replace(/\./g, "");
+                    else {
+                        const n = Number(s.replace(/\./g, "").replace(",", "."));
+                        label = Number.isFinite(n) && /^[\d.,\s]+$/.test(s) ? String(Math.trunc(n)) : s;
+                    }
+                }
+                a.textContent = label;
                 a.style.color = COL_TEXT_COLOR;
                 a.style.textDecoration = "none";
                 a.style.fontWeight = "600";
@@ -451,7 +499,8 @@ export async function mount(mainEl) {
                 a.onmouseleave = () => {
                     a.style.textDecoration = "none";
                 };
-                return a;
+                wrap.appendChild(a);
+                return wrap;
             }
         },
 

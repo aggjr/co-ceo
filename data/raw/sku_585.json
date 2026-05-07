@@ -3,7 +3,7 @@
     "id": 585,
     "code": "5928",
     "name": "CORTA LUZ 2,60X1,80 LINHO AREIA",
-    "timestamp": "2026-04-30T11:29:12.719Z"
+    "timestamp": "2026-05-05T20:01:18.595Z"
   },
   "data": {
     "Tupis": [
@@ -137,12 +137,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-05-11T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -156,12 +150,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-06-01T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -198,12 +186,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-03T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -433,12 +415,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-07-27T03:00:00.000Z",

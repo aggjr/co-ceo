@@ -3,22 +3,10 @@
     "id": 2877,
     "code": "11945",
     "name": "TAPETE DE BORRACHA 0,38 X 0,58",
-    "timestamp": "2026-04-30T11:35:49.613Z"
+    "timestamp": "2026-05-05T20:04:48.291Z"
   },
   "data": {
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-03-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-03-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-03-17T03:00:00.000Z",
@@ -252,12 +240,6 @@
         "data_evento": "2023-10-10T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

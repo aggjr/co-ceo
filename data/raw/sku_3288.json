@@ -3,7 +3,7 @@
     "id": 3288,
     "code": "44",
     "name": "TEC MICROFIBRA VERDE ESCURO 2.80 MT",
-    "timestamp": "2026-04-30T11:36:57.755Z"
+    "timestamp": "2026-05-05T20:05:53.814Z"
   },
   "data": {
     "Fábrica": [
@@ -136,12 +136,6 @@
       {
         "quantidade": 112,
         "data_evento": "2024-05-24T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2024-05-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

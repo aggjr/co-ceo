@@ -3,7 +3,7 @@
     "id": 3969,
     "code": "13105",
     "name": "CORTINA LUX UNICA OXFORD AZUL ROYAL 2.60X2.60",
-    "timestamp": "2026-04-30T11:38:46.124Z"
+    "timestamp": "2026-05-05T20:07:46.271Z"
   },
   "data": {
     "Barreiro": [
@@ -40,12 +40,6 @@
       {
         "quantidade": 2,
         "data_evento": "2025-09-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-30T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -117,18 +111,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-11-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2025-11-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -221,12 +203,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2026-03-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2026-03-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

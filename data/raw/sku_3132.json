@@ -3,7 +3,7 @@
     "id": 3132,
     "code": "12250",
     "name": "PUFF BAò 35 X 35 X 47 SUEDE BEGE",
-    "timestamp": "2026-04-30T11:36:30.840Z"
+    "timestamp": "2026-05-05T20:05:28.251Z"
   },
   "data": {
     "Fábrica": [
@@ -12,18 +12,6 @@
         "data_evento": "2023-04-26T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 3205,
     "code": "12339",
     "name": "JOGO DE CAMA QUEEN150 FIOS CASAL HIP BLUMEN",
-    "timestamp": "2026-04-30T11:36:43.218Z"
+    "timestamp": "2026-05-05T20:05:39.835Z"
   },
   "data": {
     "Venda Nova": [
@@ -38,12 +38,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-18T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

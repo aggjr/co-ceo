@@ -3,7 +3,7 @@
     "id": 2497,
     "code": "11605",
     "name": "TAPETE 1,00X1,40 PV GEOMETRICO",
-    "timestamp": "2026-04-30T11:34:43.461Z"
+    "timestamp": "2026-05-05T20:06:21.661Z"
   },
   "data": {
     "Betim": [
@@ -89,12 +89,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-12-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-12-27T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
@@ -130,12 +124,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-06-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-30T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

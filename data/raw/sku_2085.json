@@ -3,7 +3,7 @@
     "id": 2085,
     "code": "11301",
     "name": "DUPLEX 2,60X1,80 LINHO SUISSO BEGE",
-    "timestamp": "2026-04-30T11:33:35.162Z"
+    "timestamp": "2026-05-05T20:05:17.299Z"
   },
   "data": {
     "Barreiro": [
@@ -217,24 +217,12 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-11-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-12-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-09-14T03:00:00.000Z",

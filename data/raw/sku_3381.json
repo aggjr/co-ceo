@@ -3,7 +3,7 @@
     "id": 3381,
     "code": "12497",
     "name": "PERSIANA HORIZONTAL PVC 25MM 1,40X1,60 BRANCA",
-    "timestamp": "2026-04-30T11:37:13.162Z"
+    "timestamp": "2026-05-05T20:06:08.814Z"
   },
   "data": {
     "Babita": [
@@ -104,12 +104,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-01-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-07-18T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

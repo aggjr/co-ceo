@@ -3,7 +3,7 @@
     "id": 3815,
     "code": "12935",
     "name": "TAPETE 1,40 X 2,00 HIP SOFT JACQ. MARROCOS OFF WHITE",
-    "timestamp": "2026-04-30T11:38:21.997Z"
+    "timestamp": "2026-05-05T20:07:18.142Z"
   },
   "data": {
     "Fábrica": [
@@ -22,18 +22,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

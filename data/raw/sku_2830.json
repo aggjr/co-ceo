@@ -3,7 +3,7 @@
     "id": 2830,
     "code": "11904",
     "name": "TEC CORTA LUZ RUST LINHO PRATA 2.80 MT",
-    "timestamp": "2026-04-30T11:35:41.821Z"
+    "timestamp": "2026-05-05T20:04:40.826Z"
   },
   "data": {
     "Fábrica": [
@@ -96,12 +96,6 @@
         "data_evento": "2023-09-27T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 16.8,
-        "data_evento": "2023-10-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 16.8,

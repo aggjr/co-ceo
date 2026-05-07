@@ -3,16 +3,10 @@
     "id": 3953,
     "code": "13090",
     "name": "FORRO RETO FAST BLACK LISO PEROLA 4,00XS.M.",
-    "timestamp": "2026-04-30T11:38:43.650Z"
+    "timestamp": "2026-05-05T20:07:42.967Z"
   },
   "data": {
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-08-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-08-23T03:00:00.000Z",
@@ -128,12 +122,6 @@
         "data_evento": "2025-09-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       }
     ],
     "Guaranis": [
@@ -145,18 +133,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-10-23T03:00:00.000Z",

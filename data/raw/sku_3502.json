@@ -3,7 +3,7 @@
     "id": 3502,
     "code": "12613",
     "name": "PANO DE COPA FELPUDO BISTRO",
-    "timestamp": "2026-04-30T11:37:30.379Z"
+    "timestamp": "2026-05-05T20:06:25.179Z"
   },
   "data": {
     "Fábrica": [
@@ -26,19 +26,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 33,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 10,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 34,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -48,18 +36,6 @@
         "data_evento": "2024-04-15T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-04-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 6,
@@ -105,12 +81,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2024-04-25T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-04-25T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -494,12 +464,6 @@
       {
         "quantidade": 2,
         "data_evento": "2024-10-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-05T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

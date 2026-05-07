@@ -3,7 +3,7 @@
     "id": 402,
     "code": "10832",
     "name": "JOGO DE CAMA QUEEN 150 FIOS DUPLO DELICATA 4PS",
-    "timestamp": "2026-04-30T11:28:40.939Z"
+    "timestamp": "2026-05-05T20:00:48.621Z"
   },
   "data": {
     "Tupis": [
@@ -48,12 +48,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-10-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

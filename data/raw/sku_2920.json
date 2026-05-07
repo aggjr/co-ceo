@@ -3,7 +3,7 @@
     "id": 2920,
     "code": "11988",
     "name": "DUPLEX 4,00X2,60 LINHO IP1 BRANCO",
-    "timestamp": "2026-04-30T11:35:56.370Z"
+    "timestamp": "2026-05-05T20:04:55.062Z"
   },
   "data": {
     "Babita": [
@@ -82,12 +82,6 @@
         "data_evento": "2024-11-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-22T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

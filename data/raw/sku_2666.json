@@ -3,7 +3,7 @@
     "id": 2666,
     "code": "11734",
     "name": "DUPLEX 2,60X1,80 BORD L TULIPAS BCO/PRATA",
-    "timestamp": "2026-04-30T11:35:13.544Z"
+    "timestamp": "2026-05-05T20:04:14.408Z"
   },
   "data": {
     "G2": [
@@ -113,12 +113,6 @@
         "quantidade": 1,
         "data_evento": "2023-08-15T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-07T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

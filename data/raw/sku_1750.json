@@ -3,7 +3,7 @@
     "id": 1750,
     "code": "11178",
     "name": "CAPA P/ CADEIRA JOGO MALHA DUPLA BROWNIE",
-    "timestamp": "2026-04-30T11:32:37.889Z"
+    "timestamp": "2026-05-05T20:04:24.189Z"
   },
   "data": {
     "Betim": [
@@ -27,12 +27,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-09-12T03:00:00.000Z",

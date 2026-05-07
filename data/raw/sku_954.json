@@ -3,7 +3,7 @@
     "id": 954,
     "code": "10691",
     "name": "TEC BLACK PVC DOUBLE 2.05 MT BRANCO",
-    "timestamp": "2026-04-30T11:30:21.614Z"
+    "timestamp": "2026-05-05T20:02:19.139Z"
   },
   "data": {
     "Fábrica": [
@@ -131,18 +131,6 @@
         "quantidade": 8.526512829121202e-14,
         "data_evento": "2024-02-28T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 28,
-        "data_evento": "2024-03-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 28,
-        "data_evento": "2024-03-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {

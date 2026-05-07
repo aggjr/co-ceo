@@ -3,7 +3,7 @@
     "id": 3301,
     "code": "12416",
     "name": "TAPETE 1,40 X 2,00 HIP SOFT JACQUARD MARROM",
-    "timestamp": "2026-04-30T11:36:59.901Z"
+    "timestamp": "2026-05-05T20:05:55.942Z"
   },
   "data": {
     "Fábrica": [
@@ -14,25 +14,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-10-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-10-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

@@ -3,7 +3,7 @@
     "id": 1830,
     "code": "K506",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 506",
-    "timestamp": "2026-04-30T11:32:51.119Z"
+    "timestamp": "2026-05-05T20:04:36.511Z"
   },
   "data": {
     "Venda Nova": [
@@ -40,12 +40,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-01-20T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
       },

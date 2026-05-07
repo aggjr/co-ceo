@@ -3,7 +3,7 @@
     "id": 1862,
     "code": "K627",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 627",
-    "timestamp": "2026-04-30T11:32:56.231Z"
+    "timestamp": "2026-05-05T20:04:41.436Z"
   },
   "data": {
     "Guaranis": [
@@ -44,12 +44,6 @@
         "data_evento": "2023-09-28T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-02-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

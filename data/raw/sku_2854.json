@@ -3,7 +3,7 @@
     "id": 2854,
     "code": "11915",
     "name": "UNICA 2,60X1,80 POLIESTER RAFIA MARROM",
-    "timestamp": "2026-04-30T11:35:45.841Z"
+    "timestamp": "2026-05-05T20:04:44.684Z"
   },
   "data": {
     "Fábrica": [
@@ -110,18 +110,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2023-06-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-06T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 7,
         "data_evento": "2023-06-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -149,12 +137,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-03-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-03-29T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
@@ -170,12 +152,6 @@
         "data_evento": "2023-04-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -245,25 +221,7 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-04-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -389,12 +347,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-06-27T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -414,12 +366,6 @@
       {
         "quantidade": 2,
         "data_evento": "2023-07-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

@@ -3,7 +3,7 @@
     "id": 1627,
     "code": "10983",
     "name": "INF UNICA 2,60X1,80 OXFORD SPORTS",
-    "timestamp": "2026-04-30T11:32:17.424Z"
+    "timestamp": "2026-05-05T20:04:04.970Z"
   },
   "data": {
     "Fábrica": [
@@ -49,12 +49,6 @@
         "quantidade": 1,
         "data_evento": "2023-05-23T03:00:00.000Z",
         "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-23T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
       },
       {

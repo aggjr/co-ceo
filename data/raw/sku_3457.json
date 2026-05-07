@@ -3,7 +3,7 @@
     "id": 3457,
     "code": "12547",
     "name": "JOGO DE CAMA CASAL150 FIOS FLIESE",
-    "timestamp": "2026-04-30T11:37:22.951Z"
+    "timestamp": "2026-05-05T20:06:18.022Z"
   },
   "data": {
     "Fábrica": [
@@ -12,24 +12,6 @@
         "data_evento": "2024-03-06T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

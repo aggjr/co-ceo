@@ -3,7 +3,7 @@
     "id": 2612,
     "code": "12255",
     "name": "EF ILHOS 3,00X2,60 DUPLEX VOIL GLACE BRANCO",
-    "timestamp": "2026-04-30T11:35:03.288Z"
+    "timestamp": "2026-05-05T20:04:05.799Z"
   },
   "data": {
     "Barreiro": [
@@ -164,12 +164,6 @@
         "data_evento": "2023-09-23T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 2635,
     "code": "11703",
     "name": "TEC BLACKOUT CT RUSTICO BEGE 2.80 MT",
-    "timestamp": "2026-04-30T11:35:08.361Z"
+    "timestamp": "2026-05-05T20:04:09.448Z"
   },
   "data": {
     "Fábrica": [
@@ -36,12 +36,6 @@
         "data_evento": "2023-05-31T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 33.6,
-        "data_evento": "2023-05-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 33.6,
@@ -243,12 +237,6 @@
       },
       {
         "quantidade": 9.9,
-        "data_evento": "2024-02-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 16.8,
         "data_evento": "2024-02-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

@@ -3,7 +3,7 @@
     "id": 3192,
     "code": "35",
     "name": "TEC BLACK TECIDO DUPLA FACE 100% PRATA 2.80 MT",
-    "timestamp": "2026-04-30T11:36:41.044Z"
+    "timestamp": "2026-05-05T20:05:37.666Z"
   },
   "data": {
     "Fábrica": [
@@ -120,18 +120,6 @@
         "data_evento": "2024-01-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2.4,
@@ -464,12 +452,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 18,
-        "data_evento": "2024-10-24T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 24,
         "data_evento": "2024-10-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -652,12 +634,6 @@
       {
         "quantidade": 25.200000000000003,
         "data_evento": "2025-03-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
-        "data_evento": "2025-03-18T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

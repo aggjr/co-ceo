@@ -3,7 +3,7 @@
     "id": 3159,
     "code": "12283",
     "name": "PAR PINGENTE FRANJAS CILINDRO AKKAR",
-    "timestamp": "2026-04-30T11:36:35.319Z"
+    "timestamp": "2026-05-05T20:05:32.443Z"
   },
   "data": {
     "Fábrica": [
@@ -12,18 +12,6 @@
         "data_evento": "2023-07-10T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-07-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 3,

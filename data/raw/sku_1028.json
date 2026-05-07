@@ -3,7 +3,7 @@
     "id": 1028,
     "code": "9142",
     "name": "TEC. LINHO RUSTICO NATURAL 2,80",
-    "timestamp": "2026-04-30T11:30:33.921Z"
+    "timestamp": "2026-05-05T20:02:30.527Z"
   },
   "data": {
     "Fábrica": [
@@ -17,12 +17,6 @@
         "quantidade": 89.80000000000007,
         "data_evento": "2023-04-03T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
-        "data_evento": "2023-04-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -681,12 +675,6 @@
       },
       {
         "quantidade": 42,
-        "data_evento": "2024-08-29T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 60,
         "data_evento": "2024-08-29T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

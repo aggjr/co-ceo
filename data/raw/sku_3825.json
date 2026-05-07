@@ -3,7 +3,7 @@
     "id": 3825,
     "code": "12946",
     "name": "KIT COLCHA MESCLA CLASSIC SOLTEIRO 2 PÇS",
-    "timestamp": "2026-04-30T11:38:23.538Z"
+    "timestamp": "2026-05-05T20:07:19.858Z"
   },
   "data": {
     "Fábrica": [
@@ -80,12 +80,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-01-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

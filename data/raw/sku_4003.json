@@ -3,7 +3,7 @@
     "id": 4003,
     "code": "1212",
     "name": "CORTINA VENDA EXTERNA",
-    "timestamp": "2026-04-30T11:38:51.492Z"
+    "timestamp": "2026-05-05T20:07:52.212Z"
   },
   "data": {
     "Barreiro": [
@@ -30,12 +30,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-11-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-26T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

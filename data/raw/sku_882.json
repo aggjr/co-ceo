@@ -3,7 +3,7 @@
     "id": 882,
     "code": "10147",
     "name": "TEC. VOIL AMASSADO BRANCO - 2.80 MT",
-    "timestamp": "2026-04-30T11:30:09.758Z"
+    "timestamp": "2026-05-05T20:02:08.087Z"
   },
   "data": {
     "Fábrica": [
@@ -41,12 +41,6 @@
         "quantidade": 19.499999999999886,
         "data_evento": "2023-12-27T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 12,
-        "data_evento": "2024-01-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {

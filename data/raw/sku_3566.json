@@ -3,28 +3,10 @@
     "id": 3566,
     "code": "12667",
     "name": "CORTINA FLAME VERMELHO 4.00X2.60",
-    "timestamp": "2026-04-30T11:37:41.200Z"
+    "timestamp": "2026-05-05T20:06:35.558Z"
   },
   "data": {
     "Fábrica": [
-      {
-        "quantidade": 3,
-        "data_evento": "2024-05-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-05-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 3,
         "data_evento": "2024-05-20T03:00:00.000Z",
@@ -57,18 +39,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-06-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-06-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-06-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

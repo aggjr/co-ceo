@@ -3,7 +3,7 @@
     "id": 2073,
     "code": "11311",
     "name": "TEC BLACKOUT CORTTEX PRATA 2.80 MT",
-    "timestamp": "2026-04-30T11:33:32.738Z"
+    "timestamp": "2026-05-05T20:05:15.181Z"
   },
   "data": {
     "Fábrica": [
@@ -230,12 +230,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 33.6,
-        "data_evento": "2023-08-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 75,
         "data_evento": "2023-08-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -381,12 +375,6 @@
       },
       {
         "quantidade": 33.6,
-        "data_evento": "2023-11-09T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
         "data_evento": "2023-11-09T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -618,12 +606,6 @@
         "data_evento": "2024-01-23T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 110,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 110,
@@ -1550,12 +1532,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 29.400000000000002,
-        "data_evento": "2025-03-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 42,
         "data_evento": "2025-03-18T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -1946,12 +1922,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 29.400000000000002,
-        "data_evento": "2025-10-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 21,
         "data_evento": "2025-10-07T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -1959,12 +1929,6 @@
       },
       {
         "quantidade": 16.8,
-        "data_evento": "2025-10-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 29.400000000000002,
         "data_evento": "2025-10-07T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -2056,12 +2020,6 @@
       {
         "quantidade": 24,
         "data_evento": "2025-11-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2025-11-11T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

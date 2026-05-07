@@ -3,7 +3,7 @@
     "id": 1732,
     "code": "11159",
     "name": "TAPETE 0,50X1,00 VS SKIN PRATA",
-    "timestamp": "2026-04-30T11:32:34.988Z"
+    "timestamp": "2026-05-05T20:04:21.302Z"
   },
   "data": {
     "Barreiro": [
@@ -55,12 +55,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-06-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-06-27T03:00:00.000Z",

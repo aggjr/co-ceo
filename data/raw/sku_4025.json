@@ -3,7 +3,7 @@
     "id": 4025,
     "code": "13168",
     "name": "FAST WAVE TRANSL. ELEGANCE PRATA 2.50X até2.90",
-    "timestamp": "2026-04-30T11:38:55.019Z"
+    "timestamp": "2026-05-05T20:07:56.823Z"
   },
   "data": {
     "Tupis": [
@@ -26,12 +26,6 @@
         "data_evento": "2026-01-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       }
     ],
     "Fábrica": [
@@ -46,12 +40,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 14,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

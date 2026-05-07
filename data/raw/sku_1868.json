@@ -3,7 +3,7 @@
     "id": 1868,
     "code": "K907",
     "name": "PERSIANA 1.60X1.80 PVC LISA 907",
-    "timestamp": "2026-04-30T11:32:57.256Z"
+    "timestamp": "2026-05-05T20:04:42.406Z"
   },
   "data": {
     "Babita": [
@@ -52,12 +52,6 @@
         "data_evento": "2023-08-11T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-02T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

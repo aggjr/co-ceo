@@ -3,7 +3,7 @@
     "id": 3254,
     "code": "12369",
     "name": "TOALHA DE ROSTO IBIZA 0.50X0.80 TERRRACOTA",
-    "timestamp": "2026-04-30T11:36:51.913Z"
+    "timestamp": "2026-05-05T20:05:48.094Z"
   },
   "data": {
     "Fábrica": [
@@ -16,18 +16,6 @@
       {
         "quantidade": 4,
         "data_evento": "2023-10-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-10-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

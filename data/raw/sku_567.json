@@ -3,7 +3,7 @@
     "id": 567,
     "code": "5873",
     "name": "UNICA 5,80X2,60 OXFORD LISO PEROLA",
-    "timestamp": "2026-04-30T11:29:09.714Z"
+    "timestamp": "2026-05-05T20:01:15.662Z"
   },
   "data": {
     "Barreiro": [
@@ -71,12 +71,6 @@
       }
     ],
     "Tupis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-05T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-05T03:00:00.000Z",

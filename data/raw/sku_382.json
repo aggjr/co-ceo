@@ -3,7 +3,7 @@
     "id": 382,
     "code": "10805",
     "name": "KIT COLCHA CASAL ULTRA LISSE EST",
-    "timestamp": "2026-04-30T11:28:37.665Z"
+    "timestamp": "2026-05-05T20:00:45.485Z"
   },
   "data": {
     "Barreiro": [
@@ -221,12 +221,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-01-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-01-22T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
@@ -252,12 +246,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-02-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-02-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

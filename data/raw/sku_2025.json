@@ -3,7 +3,7 @@
     "id": 2025,
     "code": "11202",
     "name": "UNICA 4,00X2,60 JACQ EST, AREIA",
-    "timestamp": "2026-04-30T11:33:24.266Z"
+    "timestamp": "2026-05-05T20:05:07.442Z"
   },
   "data": {
     "Tupis": [
@@ -49,12 +49,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-08-09T03:00:00.000Z",

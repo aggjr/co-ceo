@@ -3,7 +3,7 @@
     "id": 1022,
     "code": "9106",
     "name": "TEC BLACK PVC LISO 1.40 MT NUDE",
-    "timestamp": "2026-04-30T11:30:32.924Z"
+    "timestamp": "2026-05-05T20:02:29.585Z"
   },
   "data": {
     "Fábrica": [
@@ -446,12 +446,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2024-07-19T03:00:00.000Z",
-        "natureza": "Perda produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 8.6,
         "data_evento": "2024-08-02T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -700,12 +694,6 @@
       {
         "quantidade": 129.2,
         "data_evento": "2026-01-08T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 22.799999999999997,
-        "data_evento": "2026-03-10T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

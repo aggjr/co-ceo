@@ -3,7 +3,7 @@
     "id": 3524,
     "code": "65",
     "name": "TEC FLAME PRATA 3.00 MT",
-    "timestamp": "2026-04-30T11:37:34.190Z"
+    "timestamp": "2026-05-05T20:06:28.782Z"
   },
   "data": {
     "Fábrica": [
@@ -681,12 +681,6 @@
       },
       {
         "quantidade": 16,
-        "data_evento": "2026-01-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 33.6,
         "data_evento": "2026-01-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

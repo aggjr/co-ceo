@@ -3,7 +3,7 @@
     "id": 3617,
     "code": "12714",
     "name": "PRODUTO MAR 23",
-    "timestamp": "2026-04-30T11:37:49.794Z"
+    "timestamp": "2026-05-05T20:06:44.283Z"
   },
   "data": {
     "Barreiro": [
@@ -130,12 +130,6 @@
         "data_evento": "2024-10-14T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 4038,
     "code": "13177",
     "name": "FAST WAVE TRANSL. RUSTICO NATURAL 2.00X até2.90",
-    "timestamp": "2026-04-30T11:38:57.080Z"
+    "timestamp": "2026-05-05T20:07:59.012Z"
   },
   "data": {
     "G2": [
@@ -56,12 +56,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 8,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 8,

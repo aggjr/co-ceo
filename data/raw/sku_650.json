@@ -3,7 +3,7 @@
     "id": 650,
     "code": "799",
     "name": "UNICA 2,60X1,80 OXFORD LISO PRETO",
-    "timestamp": "2026-04-30T11:29:24.813Z"
+    "timestamp": "2026-05-05T20:01:29.484Z"
   },
   "data": {
     "Barreiro": [
@@ -67,12 +67,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-09-11T03:00:00.000Z",

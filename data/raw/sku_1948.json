@@ -3,7 +3,7 @@
     "id": 1948,
     "code": "11227",
     "name": "TEC RENDA 1.50 MT FRUTAS BRANCO",
-    "timestamp": "2026-04-30T11:33:10.841Z"
+    "timestamp": "2026-05-05T20:04:55.217Z"
   },
   "data": {
     "Fábrica": [
@@ -42,12 +42,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 22,
-        "data_evento": "2023-08-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 22,

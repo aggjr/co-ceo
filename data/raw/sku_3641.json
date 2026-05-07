@@ -3,7 +3,7 @@
     "id": 3641,
     "code": "72",
     "name": "TEC BLACKOUT 100% TEC/PVC GRAFITE",
-    "timestamp": "2026-04-30T11:37:53.120Z"
+    "timestamp": "2026-05-05T20:06:47.710Z"
   },
   "data": {
     "Fábrica": [
@@ -22,12 +22,6 @@
       {
         "quantidade": 12,
         "data_evento": "2024-09-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2024-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -102,12 +96,6 @@
         "data_evento": "2024-12-04T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2024-12-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 30,

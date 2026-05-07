@@ -3,7 +3,7 @@
     "id": 2029,
     "code": "11286",
     "name": "TAPETE 0,45X0,70 VS DURA STAR PRETO",
-    "timestamp": "2026-04-30T11:33:24.950Z"
+    "timestamp": "2026-05-05T20:05:08.069Z"
   },
   "data": {
     "Tupis": [
@@ -89,12 +89,6 @@
       }
     ],
     "Fábrica": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-01-22T03:00:00.000Z",

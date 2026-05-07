@@ -3,7 +3,7 @@
     "id": 3587,
     "code": "12680",
     "name": "PRODUTO MAR 3",
-    "timestamp": "2026-04-30T11:37:44.775Z"
+    "timestamp": "2026-05-05T20:06:39.032Z"
   },
   "data": {
     "Barreiro": [
@@ -22,18 +22,6 @@
       {
         "quantidade": 2,
         "data_evento": "2024-07-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-07-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-07-17T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -116,18 +104,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2024-07-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-07-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 1,
         "data_evento": "2024-07-29T03:00:00.000Z",
         "natureza": "Venda",
@@ -141,18 +117,6 @@
       },
       {
         "quantidade": 4,
-        "data_evento": "2024-07-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-07-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-07-30T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -183,19 +147,7 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-08-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-08-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -220,12 +172,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-08-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-24T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -285,12 +231,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-09-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-09-12T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -310,12 +250,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-10-01T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-10-08T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -404,12 +338,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2024-12-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-01-03T03:00:00.000Z",
         "natureza": "Venda",
@@ -424,12 +352,6 @@
       {
         "quantidade": 2,
         "data_evento": "2025-01-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-01-09T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -571,12 +493,6 @@
       }
     ],
     "Betim": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-08-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-08-27T03:00:00.000Z",

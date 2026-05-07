@@ -3,7 +3,7 @@
     "id": 3391,
     "code": "12508",
     "name": "PERSIANA ROLO DUPLA 1,60X1,60 BRANCA",
-    "timestamp": "2026-04-30T11:37:14.854Z"
+    "timestamp": "2026-05-05T20:06:10.462Z"
   },
   "data": {
     "Tupis": [
@@ -133,12 +133,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-04-10T03:00:00.000Z",
-        "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-04-17T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -226,12 +220,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-02-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

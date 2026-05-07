@@ -3,7 +3,7 @@
     "id": 1593,
     "code": "10959",
     "name": "ESPECIAL 2,60X2,60 VOIL LISO PRATA",
-    "timestamp": "2026-04-30T11:32:11.560Z"
+    "timestamp": "2026-05-05T20:03:59.665Z"
   },
   "data": {
     "Betim": [
@@ -94,12 +94,6 @@
         "data_evento": "2023-08-09T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

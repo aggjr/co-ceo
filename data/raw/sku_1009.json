@@ -3,7 +3,7 @@
     "id": 1009,
     "code": "9093",
     "name": "TEC CORTA LUZ LISO PEROLA 2.80 MT",
-    "timestamp": "2026-04-30T11:30:30.791Z"
+    "timestamp": "2026-05-05T20:02:27.600Z"
   },
   "data": {
     "Fábrica": [
@@ -141,12 +141,6 @@
       },
       {
         "quantidade": 29.400000000000002,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

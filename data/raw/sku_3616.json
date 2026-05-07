@@ -3,7 +3,7 @@
     "id": 3616,
     "code": "12713",
     "name": "PRODUTO MAR 22",
-    "timestamp": "2026-04-30T11:37:49.631Z"
+    "timestamp": "2026-05-05T20:06:44.109Z"
   },
   "data": {
     "Eldorado 2": [
@@ -23,12 +23,6 @@
         "quantidade": 1,
         "data_evento": "2024-11-11T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-16T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {
@@ -134,12 +128,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-11-11T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -271,12 +259,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-11-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-11-09T03:00:00.000Z",
         "natureza": "Devolução de Venda",
         "operacao": "CREDITO"
@@ -284,18 +266,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

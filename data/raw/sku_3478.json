@@ -3,7 +3,7 @@
     "id": 3478,
     "code": "12612",
     "name": "KIT COLCHA KING MIRAGGIO TOQUE DE AREIA",
-    "timestamp": "2026-04-30T11:37:26.425Z"
+    "timestamp": "2026-05-05T20:06:21.415Z"
   },
   "data": {
     "Fábrica": [
@@ -20,25 +20,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 4,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

@@ -3,7 +3,7 @@
     "id": 1439,
     "code": "10915",
     "name": "ENCHIMENTO 45X45 ALGODAO",
-    "timestamp": "2026-04-30T11:31:41.769Z"
+    "timestamp": "2026-05-05T20:03:34.166Z"
   },
   "data": {
     "Babita": [
@@ -30,12 +30,6 @@
       {
         "quantidade": 4,
         "data_evento": "2023-04-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-04-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

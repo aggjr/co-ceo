@@ -3,7 +3,7 @@
     "id": 3477,
     "code": "12567",
     "name": "KIT COLCHA KING MIRAGGIO NEW ROSE",
-    "timestamp": "2026-04-30T11:37:26.261Z"
+    "timestamp": "2026-05-05T20:06:21.257Z"
   },
   "data": {
     "Fábrica": [
@@ -20,25 +20,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 4,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -182,12 +164,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-08-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-09-04T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

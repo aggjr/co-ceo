@@ -3,7 +3,7 @@
     "id": 3867,
     "code": "12993",
     "name": "CORTINA OUTLET -E5-",
-    "timestamp": "2026-04-30T11:38:30.240Z"
+    "timestamp": "2026-05-05T20:07:27.290Z"
   },
   "data": {
     "Betim": [
@@ -41,27 +41,9 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-09-18T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-09-22T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

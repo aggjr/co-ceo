@@ -3,7 +3,7 @@
     "id": 1783,
     "code": "11064",
     "name": "TEC OXFORD COZ LEGUMES BEGE 1.50 MT",
-    "timestamp": "2026-04-30T11:32:43.407Z"
+    "timestamp": "2026-05-05T20:04:29.300Z"
   },
   "data": {
     "Fábrica": [
@@ -36,12 +36,6 @@
         "data_evento": "2023-07-28T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 32,
-        "data_evento": "2023-08-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 32,

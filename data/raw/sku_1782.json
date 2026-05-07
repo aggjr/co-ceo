@@ -3,7 +3,7 @@
     "id": 1782,
     "code": "11069",
     "name": "TEC OXFORD COZ GALOS 1.50 MT",
-    "timestamp": "2026-04-30T11:32:43.240Z"
+    "timestamp": "2026-05-05T20:04:29.146Z"
   },
   "data": {
     "Fábrica": [
@@ -44,12 +44,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 20,
-        "data_evento": "2023-05-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 8.526512829121202e-14,
         "data_evento": "2023-05-31T03:00:00.000Z",
         "natureza": "Acerto Saída",
@@ -60,12 +54,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2023-06-29T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 24,
@@ -110,19 +98,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 20,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 38.400000000000006,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

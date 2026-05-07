@@ -3,7 +3,7 @@
     "id": 707,
     "code": "8814",
     "name": "PRATIKA 4,00X2,60 VOIL XADREZ PEROLA",
-    "timestamp": "2026-04-30T11:29:40.526Z"
+    "timestamp": "2026-05-05T20:01:40.165Z"
   },
   "data": {
     "Tupis": [
@@ -169,12 +169,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-04-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-02T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -182,12 +176,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-05-08T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

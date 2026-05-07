@@ -3,7 +3,7 @@
     "id": 1041,
     "code": "9163",
     "name": "TEC. MICROFIBRA CHOCOLATE - 3.00 MT",
-    "timestamp": "2026-04-30T11:30:36.034Z"
+    "timestamp": "2026-05-05T20:02:32.521Z"
   },
   "data": {
     "Fábrica": [
@@ -44,20 +44,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 45,
-        "data_evento": "2023-05-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 21,
         "data_evento": "2023-05-17T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
-        "data_evento": "2023-05-24T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

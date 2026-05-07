@@ -3,7 +3,7 @@
     "id": 3661,
     "code": "12758",
     "name": "TUBO ILHOS 28MM CROMADO MT",
-    "timestamp": "2026-04-30T11:37:56.630Z"
+    "timestamp": "2026-05-05T20:06:51.270Z"
   },
   "data": {
     "Barreiro": [
@@ -39,12 +39,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-12-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-12-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -57,12 +51,6 @@
       }
     ],
     "Guaranis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-01-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-01-15T03:00:00.000Z",
@@ -155,12 +143,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-08-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-03-07T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -219,12 +201,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-30T03:00:00.000Z",

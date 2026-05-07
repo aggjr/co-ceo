@@ -3,7 +3,7 @@
     "id": 3034,
     "code": "12101",
     "name": "MANTA P/ SOFA 1,40X1,55 JAC, BEGE",
-    "timestamp": "2026-04-30T11:36:15.264Z"
+    "timestamp": "2026-05-05T20:05:13.079Z"
   },
   "data": {
     "G2": [
@@ -53,12 +53,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-06-22T03:00:00.000Z",

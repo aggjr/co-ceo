@@ -3,7 +3,7 @@
     "id": 3511,
     "code": "12601",
     "name": "TOALHA DE PISO 50X70 PREMIUM CONCRETE",
-    "timestamp": "2026-04-30T11:37:31.930Z"
+    "timestamp": "2026-05-05T20:06:26.602Z"
   },
   "data": {
     "Fábrica": [
@@ -30,18 +30,6 @@
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       }
     ],
     "Eldorado 2": [
@@ -54,12 +42,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-03-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-03-14T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

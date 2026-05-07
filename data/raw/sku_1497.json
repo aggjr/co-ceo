@@ -3,7 +3,7 @@
     "id": 1497,
     "code": "8229",
     "name": "ABRAADEIRA INFINITY IMA IMBUIA",
-    "timestamp": "2026-04-30T11:31:51.942Z"
+    "timestamp": "2026-05-05T20:03:43.228Z"
   },
   "data": {
     "Tupis": [
@@ -137,12 +137,6 @@
     "Fábrica": [
       {
         "quantidade": 3,
-        "data_evento": "2023-03-23T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-03-23T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -338,12 +332,6 @@
         "data_evento": "2025-05-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-21T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,
@@ -639,12 +627,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 2,
-        "data_evento": "2024-06-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 2,
         "data_evento": "2024-06-07T03:00:00.000Z",

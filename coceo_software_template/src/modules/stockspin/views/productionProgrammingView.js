@@ -43,7 +43,7 @@ function isoDate(d) {
 
 /** Mix + origem da classificação (legado vs catálogo). */
 function formatStatusCadastro(r) {
-    const mix = r.fora_mix ? "FORA MIX" : "NO MIX";
+    const mix = r.fora_mix ? "\u2702\uFE0F FORA MIX" : "NO MIX";
     const src = String(r.category_source || "none").toLowerCase();
     const srcShort =
         src === "legacy" ? "Cat. legado" : src === "none" ? "Sem cat." : src.includes("catalog") ? "Catálogo" : r.category_source;

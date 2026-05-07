@@ -3,7 +3,7 @@
     "id": 993,
     "code": "8217",
     "name": "TEC RENDA 1.50 MT TULIPA BRANCO",
-    "timestamp": "2026-04-30T11:30:28.128Z"
+    "timestamp": "2026-05-05T20:02:25.127Z"
   },
   "data": {
     "Fábrica": [
@@ -41,12 +41,6 @@
         "quantidade": 5.799999999999997,
         "data_evento": "2023-07-28T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 22,
-        "data_evento": "2023-08-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {

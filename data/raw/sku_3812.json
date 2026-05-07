@@ -3,7 +3,7 @@
     "id": 3812,
     "code": "12932",
     "name": "TAPETE 1,40 X 2,00 HIP SOFT JACQ. CHEVRON CINZA",
-    "timestamp": "2026-04-30T11:38:21.528Z"
+    "timestamp": "2026-05-05T20:07:17.612Z"
   },
   "data": {
     "Fábrica": [
@@ -45,27 +45,9 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-05-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-05-21T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-21T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-09T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

@@ -3,7 +3,7 @@
     "id": 2815,
     "code": "11882",
     "name": "TAPETE 0,40X0,60 KAP CLEAN KASA HOME ARABESCO",
-    "timestamp": "2026-04-30T11:35:39.366Z"
+    "timestamp": "2026-05-05T20:04:38.481Z"
   },
   "data": {
     "Venda Nova": [
@@ -102,12 +102,6 @@
         "data_evento": "2025-05-21T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

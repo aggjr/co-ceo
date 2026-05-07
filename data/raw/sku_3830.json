@@ -3,7 +3,7 @@
     "id": 3830,
     "code": "12953",
     "name": "CORTINA OUTLET -A5-",
-    "timestamp": "2026-04-30T11:38:24.325Z"
+    "timestamp": "2026-05-05T20:07:20.760Z"
   },
   "data": {
     "Barreiro": [
@@ -42,12 +42,6 @@
         "data_evento": "2025-06-13T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -117,12 +111,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-06-16T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-07-03T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -173,12 +161,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-07-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-11-18T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -212,12 +194,6 @@
         "data_evento": "2026-01-09T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

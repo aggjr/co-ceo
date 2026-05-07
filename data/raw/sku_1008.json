@@ -3,7 +3,7 @@
     "id": 1008,
     "code": "9092",
     "name": "TEC CORTA LUZ LISO CINZA 2.80 MT",
-    "timestamp": "2026-04-30T11:30:30.627Z"
+    "timestamp": "2026-05-05T20:02:27.449Z"
   },
   "data": {
     "Fábrica": [
@@ -94,12 +94,6 @@
       {
         "quantidade": 58.800000000000004,
         "data_evento": "2023-06-29T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2023-07-07T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

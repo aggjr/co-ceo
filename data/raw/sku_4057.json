@@ -3,16 +3,10 @@
     "id": 4057,
     "code": "13194",
     "name": "FAST WAVE TRANSL. SONHO BRANCO 3.00X até2.90",
-    "timestamp": "2026-04-30T11:39:00.023Z"
+    "timestamp": "2026-05-05T20:08:02.336Z"
   },
   "data": {
     "Tupis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-02-19T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-02-19T03:00:00.000Z",

@@ -3,7 +3,7 @@
     "id": 2828,
     "code": "11895",
     "name": "PASSADEIRA 0,50X1,30 KAP COMFORT MARMORE",
-    "timestamp": "2026-04-30T11:35:41.491Z"
+    "timestamp": "2026-05-05T20:04:40.513Z"
   },
   "data": {
     "Guaranis": [
@@ -34,12 +34,6 @@
         "data_evento": "2024-01-20T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

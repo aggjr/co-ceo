@@ -3,7 +3,7 @@
     "id": 1027,
     "code": "9141",
     "name": "TEC. LINHO PARATI CRU 2.90",
-    "timestamp": "2026-04-30T11:30:33.741Z"
+    "timestamp": "2026-05-05T20:02:30.359Z"
   },
   "data": {
     "Fábrica": [
@@ -18,12 +18,6 @@
         "data_evento": "2023-04-03T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 33.6,
-        "data_evento": "2023-04-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 33.6,
@@ -207,12 +201,6 @@
       },
       {
         "quantidade": 33.6,
-        "data_evento": "2024-04-02T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 48,
         "data_evento": "2024-04-02T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

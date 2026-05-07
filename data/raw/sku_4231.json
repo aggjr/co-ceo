@@ -3,7 +3,7 @@
     "id": 4231,
     "code": "13369",
     "name": "TRILHO MAX DUPLO ESPAÇADO PEÇA 4.00M",
-    "timestamp": "2026-04-30T11:39:27.072Z"
+    "timestamp": "2026-05-05T20:08:35.942Z"
   },
   "data": {
     "Fábrica": [
@@ -34,24 +34,6 @@
       {
         "quantidade": 6,
         "data_evento": "2026-03-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-03-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-03-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 6,
-        "data_evento": "2026-03-09T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

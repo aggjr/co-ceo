@@ -3,7 +3,7 @@
     "id": 2855,
     "code": "11916",
     "name": "UNICA 4,00X2,60 POLIESTER RAFIA MARROM",
-    "timestamp": "2026-04-30T11:35:46.020Z"
+    "timestamp": "2026-05-05T20:04:44.845Z"
   },
   "data": {
     "Fábrica": [
@@ -75,24 +75,6 @@
       },
       {
         "quantidade": 6,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-06-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-06-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -176,12 +158,6 @@
         "data_evento": "2023-04-25T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -294,12 +270,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-07T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

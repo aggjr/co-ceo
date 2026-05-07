@@ -3,7 +3,7 @@
     "id": 3028,
     "code": "12092",
     "name": "CORTA LUZ 4,00X2,60 EST LOSANGO",
-    "timestamp": "2026-04-30T11:36:14.297Z"
+    "timestamp": "2026-05-05T20:05:12.150Z"
   },
   "data": {
     "Babita": [
@@ -155,12 +155,6 @@
       }
     ],
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-05-13T03:00:00.000Z",

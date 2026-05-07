@@ -3,7 +3,7 @@
     "id": 3863,
     "code": "12989",
     "name": "CORTINA OUTLET -E1-",
-    "timestamp": "2026-04-30T11:38:29.630Z"
+    "timestamp": "2026-05-05T20:07:26.578Z"
   },
   "data": {
     "Tupis": [
@@ -32,12 +32,6 @@
         "data_evento": "2025-06-04T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

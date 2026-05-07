@@ -3,7 +3,7 @@
     "id": 2716,
     "code": "11789",
     "name": "TEC BLACKOUT CORTTEX NUDE 2.80 MT",
-    "timestamp": "2026-04-30T11:35:21.772Z"
+    "timestamp": "2026-05-05T20:04:22.400Z"
   },
   "data": {
     "Fábrica": [
@@ -58,12 +58,6 @@
       {
         "quantidade": 36,
         "data_evento": "2023-05-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2023-06-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -294,12 +288,6 @@
         "data_evento": "2024-01-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 106,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 106,
@@ -702,12 +690,6 @@
         "data_evento": "2024-06-26T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 42,
-        "data_evento": "2024-06-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 42,
@@ -1162,12 +1144,6 @@
       {
         "quantidade": 14.700000000000001,
         "data_evento": "2025-10-22T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2025-11-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

@@ -73,6 +73,36 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+    /* Fora do mix (legado IndForaMix) — mesmo conceito da tesoura no ADMIN */
+    .fora-mix-banner {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      max-width: min(520px, 94vw);
+      box-shadow: 0 2px 12px rgba(220, 38, 38, 0.38);
+      border: 1px solid rgba(254, 202, 202, 0.35);
+    }
+    .fora-mix-banner .fora-mix-ico {
+      font-size: 15px;
+      line-height: 1;
+    }
+    .fora-mix-sug {
+      font-weight: 700;
+      font-size: 11px;
+      color: #fecaca;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
     .main-area {
       flex: 1 1 auto;
       min-height: 0;
@@ -89,17 +119,71 @@
         var(--surface);
       padding: 10px;
       min-height: 0;
-      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.04),
         0 0 0 1px rgba(218, 177, 119, 0.18);
+    }
+    .stores-panel-head {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
     }
     .stores-title {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--muted);
-      margin-bottom: 8px;
+      margin: 0;
+      min-width: 0;
+    }
+    .stores-stock-heading {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #f87171;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .store-list-total {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .stores-panel-divider {
+      flex: 0 0 auto;
+      height: 1px;
+      margin: 8px 0 6px;
+      border: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(218, 177, 119, 0.35) 20%,
+        rgba(218, 177, 119, 0.55) 50%,
+        rgba(218, 177, 119, 0.35) 80%,
+        transparent 100%
+      );
+    }
+    .stores-panel-divider[hidden] {
+      display: none !important;
+      margin: 0;
+    }
+    .store-list-scroll {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scrollbar-width: thin;
     }
     .store-list { display: flex; flex-direction: column; gap: 6px; }
     .store-item {
@@ -113,6 +197,33 @@
       font-weight: 600;
       text-align: left;
       cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .store-item .store-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1 1 auto;
+      text-align: left;
+    }
+    .store-item .store-qty {
+      flex-shrink: 0;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      opacity: 0.9;
+      color: #cbd5e1;
+    }
+    .store-item.hub .store-qty {
+      color: var(--gold-dim);
     }
     .store-item.active {
       border-color: rgba(59, 130, 246, 0.55);
@@ -122,6 +233,28 @@
     }
     .store-item.hub {
       border-style: dashed;
+      color: var(--gold);
+    }
+    /* TOTAL: fundo escuro como as demais; destaque só em texto + borda dourada */
+    .store-item.store-item-total {
+      border-color: rgba(218, 177, 119, 0.65);
+      border-width: 1px;
+      background: rgba(4, 16, 34, 0.55);
+      color: var(--gold);
+    }
+    .store-item.store-item-total .store-name,
+    .store-item.store-item-total .store-qty {
+      color: var(--gold);
+      opacity: 1;
+    }
+    .store-item.store-item-total.active {
+      border-color: rgba(218, 177, 119, 0.9);
+      color: var(--gold);
+      background: rgba(17, 43, 78, 0.88);
+      box-shadow: inset 0 0 0 1px rgba(218, 177, 119, 0.32);
+    }
+    .store-item.store-item-total.active .store-name,
+    .store-item.store-item-total.active .store-qty {
       color: var(--gold);
     }
 
@@ -412,6 +545,7 @@
       position: relative;
       width: 100%;
     }
+    /* Painel flutuante “Composição do TOTAL” — desativado (quantidades na sidebar). */
     .chart-canvas-area.secondary {
       flex: 0 0 auto;
       min-height: 170px;
@@ -876,7 +1010,7 @@
     @media (max-width: 1100px) {
       .top-shell { grid-template-columns: 1fr; text-align: center; }
       .main-area { grid-template-columns: 1fr; }
-      .stores-panel { max-height: 160px; }
+      .stores-panel { max-height: min(200px, 38vh); }
       .chart-controls {
         justify-content: flex-start;
       }
@@ -896,6 +1030,10 @@
 <body>
   <header class="top-shell">
     <div class="identity">
+      <div id="foraMixBanner" class="fora-mix-banner" hidden role="status" aria-live="polite">
+        <span class="fora-mix-ico" aria-hidden="true">✂️</span>
+        <span>Produto fora do mix — não recomprar para reposição</span>
+      </div>
       <h1 id="titleLine">12159 · CORTINA LUX UNICA FLAME TRIGO 4.00X2.60</h1>
     </div>
   </header>
@@ -947,8 +1085,13 @@
 
   <div class="main-area">
     <aside class="stores-panel" aria-label="Navegação de unidades">
-      <div class="stores-title">Unidades e CD</div>
-      <div class="store-list" id="storeList">
+      <div class="stores-panel-head">
+        <div class="stores-title">Unidades</div>
+        <div class="stores-stock-heading" id="storesStockHeading">Estoque</div>
+      </div>
+      <div class="store-list store-list-total" id="storeListTotal" aria-label="Total da rede"></div>
+      <div class="stores-panel-divider" id="storesPanelDivider" hidden></div>
+      <div class="store-list store-list-scroll" id="storeListScroll">
         <button type="button" class="store-item hub" data-store="CD SARON">CD SARON</button>
       </div>
     </aside>
@@ -1101,6 +1244,27 @@
       }
 
       const SKU = resolveSkuFromUrl();
+
+      function catalogGridRowBySkuId(skuId) {
+        if (typeof CATALOG_GRID === "undefined" || !CATALOG_GRID || !CATALOG_GRID.length) return null;
+        const sid = String(skuId);
+        for (let i = 0; i < CATALOG_GRID.length; i++) {
+          if (String(CATALOG_GRID[i].id) === sid) return CATALOG_GRID[i];
+        }
+        return null;
+      }
+
+      /** IndForaMix / foraMix em linha do catálogo ou em bundle.info. */
+      function rowForaMixFlag(obj) {
+        if (!obj) return false;
+        const v = obj.foraMix;
+        if (v === true) return true;
+        if (v === false || v == null) return false;
+        if (typeof v === "number") return v !== 0;
+        if (typeof v === "string") return /^1|true|sim$/i.test(String(v).trim());
+        return false;
+      }
+
       const transferContext = {
         active:
           transferQtyFromUrl != null ||
@@ -1213,10 +1377,14 @@
             if (String(r.id) === String(SKU)) tr.className += (tr.className ? " " : "") + "row-current";
             const rupt = r.rupture != null && Number.isFinite(Number(r.rupture)) ? Number(r.rupture).toFixed(1) : "—";
             const vend = Number(r.totalSales) || 0;
+            const mixIco = rowForaMixFlag(r)
+              ? '<span class="fora-mix-ico" title="Fora do mix (legado)">\u2702\uFE0F </span>'
+              : "";
             tr.innerHTML =
               '<td class="mono">' +
               escapeHtml(String(r.id)) +
               '</td><td class="mono">' +
+              mixIco +
               escapeHtml(String(r.code || "")) +
               '</td><td class="name-cell">' +
               escapeHtml(String(r.name || "")) +
@@ -1310,7 +1478,7 @@
       const LT_BY_SKU_STORE = {
         "3104": {
           Babita: { mean: 14, sigma: 2 },
-          G2: { mean: 14, sigma: 2 },
+          Goitacazes: { mean: 14, sigma: 2 },
           Betim: { mean: 14, sigma: 2 },
           "Venda Nova": { mean: 14, sigma: 2 },
           Barreiro: { mean: 14, sigma: 2 },
@@ -1394,7 +1562,7 @@
         return Math.max(0, Math.round((db - da) / 86400000));
       }
       function listRetailStoreKeys(results, cdKey) {
-        const exclude = new Set(["Fábrica", "CD SARON"]);
+        const exclude = new Set(["Fábrica", "CD SARON", "TOTAL"]);
         if (cdKey) exclude.add(cdKey);
         return Object.keys(results || {}).filter(function (s) {
           if (exclude.has(s)) return false;
@@ -1407,6 +1575,11 @@
         const k = normalizeNameBasic(storeName);
         return k === "carijos";
       }
+      /** Loja fechada sem estoque residual — fora da média de ruptura da rede. */
+      function isClosedRetailExcludedFromRuptureNetworkUi(storeName, currentPhysical) {
+        if (!isClosedRetailStoreUi(storeName)) return false;
+        return !((Number(currentPhysical) || 0) > 0);
+      }
       /**
        * Na vista CD/Fábrica: % tempo em ruptura só da rede de lojas abertas (sem CD/hub),
        * ponderado pelo volume de vendas na janela do gráfico em cada loja (sem peso → média simples).
@@ -1414,7 +1587,13 @@
       function computeRetailNetworkRuptureRatePct(bundle, cdKey, windowOpts) {
         const results = (bundle && bundle.results) || {};
         const stores = listRetailStoreKeys(results, cdKey).filter(function (s) {
-          return !isClosedRetailStoreUi(s);
+          try {
+            const mStore = getMetrics(bundle, s);
+            const phys = Math.max(0, Number(mStore.currentPhysical) || 0);
+            return !isClosedRetailExcludedFromRuptureNetworkUi(s, phys);
+          } catch (e) {
+            return !isClosedRetailStoreUi(s);
+          }
         });
         let wSum = 0;
         let wrSum = 0;
@@ -2075,7 +2254,8 @@
           } catch (e) {}
           const s = document.createElement("script");
           s.id = "sku-data-loader";
-          s.src = "data/js/sku_" + id + ".js";
+          // Cache-busting: bundles mudam com frequência (reprocessos) e o browser pode servir JS antigo.
+          s.src = "data/js/sku_" + id + ".js?_ts=" + Date.now();
           s.onload = function () {
             if (!window.APOLLO_NETWORK_DATA) return reject(new Error("APOLLO_NETWORK_DATA ausente"));
             resolve(window.APOLLO_NETWORK_DATA);
@@ -2088,9 +2268,15 @@
       }
       function loadBundle(id) {
         if (location.protocol === "file:") return loadSkuScript(id);
-        return fetch("data/processed/sku_" + id + ".json")
-          .then((r) => (r.ok ? r.json() : loadSkuScript(id)))
-          .catch(() => loadSkuScript(id));
+        // Fonte de verdade em dev: bundle JS gerado pelo engine (data/js/sku_*.js).
+        // O JSON em data/processed pode ficar desatualizado e não refletir reprocessos recentes (ex.: TOTAL).
+        const source = paramsUrl.get("source");
+        if (source && String(source).toLowerCase() === "processed") {
+          return fetch("data/processed/sku_" + id + ".json", { cache: "no-store" })
+            .then((r) => (r.ok ? r.json() : loadSkuScript(id)))
+            .catch(() => loadSkuScript(id));
+        }
+        return loadSkuScript(id);
       }
       function normalizeNameBasic(v) {
         return String(v || "")
@@ -2164,8 +2350,9 @@
         const results = (bundle && bundle.results) || {};
         const allStores = Object.keys(results);
         const CD_NAMES = new Set(["Fábrica", "CD SARON"]);
+        const NON_RETAIL = new Set(["TOTAL"]);
         const stores = allStores.filter(function (s) {
-          return !CD_NAMES.has(s);
+          return !CD_NAMES.has(s) && !NON_RETAIL.has(s);
         });
         const cdKey = resolveCdStoreKey(results);
         let current = DEFAULT_STORE;
@@ -3062,7 +3249,70 @@
       }
       */
 
+      /** Quantidade à direita na sidebar: número sem parênteses; zero / sem dado → " - " (evita 0 parecer 8). */
+      function sidebarStockLabel(raw) {
+        if (!Number.isFinite(Number(raw)) || Math.abs(Number(raw)) < 1e-9) return " - ";
+        const n = Number(raw);
+        const r = Math.round(n * 100) / 100;
+        if (Math.abs(r - Math.round(r)) < 1e-6) return String(Math.round(r));
+        return r.toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+      }
+
+      /** Último físico da série do bundle (timeline), com fallback em metrics — alinha ao gráfico. */
+      function getSidebarStockQty(results, key) {
+        if (!results || key == null || key === "") return NaN;
+        const block = results[key];
+        if (!block) return NaN;
+        const tl = block.timeline;
+        if (Array.isArray(tl) && tl.length) {
+          const last = tl[tl.length - 1];
+          const p = Number(last.physicalStock);
+          if (Number.isFinite(p)) return p;
+        }
+        const m = block.metrics;
+        const q = m ? Number(m.currentPhysical) : NaN;
+        return Number.isFinite(q) ? q : NaN;
+      }
+
+      function refreshStoreSidebarQuantities(results) {
+        if (!results) return;
+        const roots = [
+          document.getElementById("storeListTotal"),
+          document.getElementById("storeListScroll"),
+        ];
+        for (let r = 0; r < roots.length; r++) {
+          const root = roots[r];
+          if (!root) continue;
+          const nodes = root.querySelectorAll(".store-item");
+          for (let i = 0; i < nodes.length; i++) {
+            const btn = nodes[i];
+            const dataKey = btn.getAttribute("data-store");
+            if (!dataKey) continue;
+            const qEl = btn.querySelector(".store-qty");
+            if (!qEl) continue;
+            const raw = getSidebarStockQty(results, dataKey);
+            qEl.textContent = sidebarStockLabel(raw);
+          }
+        }
+      }
+
+      /** Nome à esquerda, físico à direita — padrão fixo da listagem. */
+      function fillStoreSidebarButton(btn, displayName, metricsKey, results) {
+        if (!btn) return;
+        while (btn.firstChild) btn.removeChild(btn.firstChild);
+        const nm = document.createElement("span");
+        nm.className = "store-name";
+        nm.textContent = displayName;
+        const qEl = document.createElement("span");
+        qEl.className = "store-qty";
+        const raw = getSidebarStockQty(results, metricsKey);
+        qEl.textContent = sidebarStockLabel(raw);
+        btn.appendChild(nm);
+        btn.appendChild(qEl);
+      }
+
       function renderForStore(storeName) {
+        const info = (bundleRef && bundleRef.info) || {};
         const resultsRoot = (bundleRef && bundleRef.results) || {};
         const cdKey = resolveCdStoreKey(resultsRoot);
         const isCdView = Boolean(cdKey && storeName === cdKey);
@@ -3209,7 +3459,22 @@
             ? Math.round(legacySuggestedFromUrl)
             : (Number.isFinite(Number(legacySuggestionQty)) ? Math.round(Number(legacySuggestionQty)) : null);
         const statusPct = Number.isFinite(pctToday) ? pctToday : 0;
-        document.getElementById("kSug").textContent = sugestaoLegado != null ? sugestaoLegado + " un" : "--";
+        const cgRow = catalogGridRowBySkuId(info.id != null ? info.id : SKU);
+        const foraMixSku = rowForaMixFlag(cgRow) || rowForaMixFlag(info);
+        const banMix = document.getElementById("foraMixBanner");
+        if (banMix) {
+          banMix.hidden = !foraMixSku;
+          banMix.style.display = foraMixSku ? "inline-flex" : "none";
+        }
+        const kSugEl = document.getElementById("kSug");
+        if (kSugEl) {
+          if (foraMixSku) {
+            kSugEl.innerHTML =
+              '<span class="fora-mix-sug" title="IndForaMix no legado — não entra em compra/produção agregada">\u2702 Fora do mix</span>';
+          } else {
+            kSugEl.textContent = sugestaoLegado != null ? sugestaoLegado + " un" : "--";
+          }
+        }
         const fisStrip = Math.round(fisToday);
         const dispStrip = Math.round(dispToday);
         const vitStrip = Math.max(0, fisStrip - dispStrip);
@@ -3224,7 +3489,6 @@
             "%)";
         }
 
-        const info = bundleRef.info || {};
         const baseTitle = (info.code || "12159") + " · " + (info.name || "Produto");
         document.getElementById("titleLine").textContent = baseTitle + " · " + storeName;
         const divergencia = sugestaoLegado != null ? Math.round(reposicaoComparavel - sugestaoLegado) : null;
@@ -3437,6 +3701,7 @@
         if (_ltDaysIn) _ltDaysIn.value = String(ltDaysOperational);
         if (_ltDaysLab) _ltDaysLab.textContent = "dias";
         // updateChartInsightPanel(bundleRef, storeName, chartWindowOpts, cdKey, isCdView);
+        if (bundleRef && bundleRef.results) refreshStoreSidebarQuantities(bundleRef.results);
       }
 
       Chart.defaults.color = "#94a3b8";
@@ -3626,12 +3891,12 @@
       syncProtectionUi();
 
 
-      const storeListEl = document.getElementById("storeList");
-      if (storeListEl) {
-        storeListEl.addEventListener("click", function (ev) {
+      const storesPanelEl = document.querySelector(".stores-panel");
+      if (storesPanelEl) {
+        storesPanelEl.addEventListener("click", function (ev) {
           const btn = ev.target.closest(".store-item");
           if (!btn) return;
-          const all = storeListEl.querySelectorAll(".store-item");
+          const all = storesPanelEl.querySelectorAll(".store-item");
           for (let i = 0; i < all.length; i++) all[i].classList.remove("active");
           btn.classList.add("active");
           let storeName = btn.getAttribute("data-store") || "";
@@ -3737,7 +4002,8 @@
           const results = (bundle && bundle.results) || {};
           const allStores = Object.keys(results);
           const CD_NAMES = new Set(["Fábrica", "CD SARON"]);
-          const stores = allStores.filter((s) => !CD_NAMES.has(s));
+          const NON_RETAIL = new Set(["TOTAL"]);
+          const stores = allStores.filter((s) => !CD_NAMES.has(s) && !NON_RETAIL.has(s));
           const cdKey = resolveCdStoreKey(results);
           const storeFromUrlResolved = storeFromUrl ? findStoreKeyByName(results, storeFromUrl) : null;
           if (storeFromUrlResolved) {
@@ -3745,13 +4011,30 @@
           } else if (hubFromUrl && cdKey) {
             currentStore = cdKey;
           }
-          const storeList = document.getElementById("storeList");
-          if (storeList) {
-            const hubBtn = storeList.querySelector(".store-item.hub");
-            storeList.innerHTML = "";
+          const storeListTotal = document.getElementById("storeListTotal");
+          const storeListScroll = document.getElementById("storeListScroll");
+          const storesDivider = document.getElementById("storesPanelDivider");
+          if (storeListTotal && storeListScroll) {
+            const hubBtn = storeListScroll.querySelector(".store-item.hub");
+            storeListTotal.innerHTML = "";
+            storeListScroll.innerHTML = "";
+            const hasTotal = Boolean(results["TOTAL"] && results["TOTAL"].timeline && results["TOTAL"].timeline.length);
+            if (storesDivider) storesDivider.hidden = !hasTotal;
+            if (hasTotal) {
+              const bTotal = document.createElement("button");
+              bTotal.type = "button";
+              bTotal.className =
+                "store-item store-item-total" + (String(currentStore) === "TOTAL" ? " active" : "");
+              bTotal.setAttribute("data-store", "TOTAL");
+              fillStoreSidebarButton(bTotal, "TOTAL", "TOTAL", results);
+              storeListTotal.appendChild(bTotal);
+            }
             if (hubBtn) {
               hubBtn.className = "store-item hub" + (cdKey && currentStore === cdKey ? " active" : "");
-              storeList.appendChild(hubBtn);
+              if (cdKey) hubBtn.setAttribute("data-store", cdKey);
+              const hubLabel = cdKey || hubBtn.getAttribute("data-store") || "CD";
+              fillStoreSidebarButton(hubBtn, hubLabel, cdKey || hubLabel, results);
+              storeListScroll.appendChild(hubBtn);
             }
             for (let i = 0; i < stores.length; i++) {
               const s = stores[i];
@@ -3759,12 +4042,13 @@
               b.type = "button";
               b.className = "store-item" + (s === currentStore ? " active" : "");
               b.setAttribute("data-store", s);
-              b.textContent = s;
-              storeList.appendChild(b);
+              fillStoreSidebarButton(b, s, s, results);
+              storeListScroll.appendChild(b);
             }
           }
           const resultStores = new Set(stores);
           if (cdKey) resultStores.add(cdKey);
+          if (results["TOTAL"] && results["TOTAL"].timeline && results["TOTAL"].timeline.length) resultStores.add("TOTAL");
           if (!resultStores.has(currentStore)) {
             const firstStore = stores[0];
             if (firstStore) currentStore = firstStore;

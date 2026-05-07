@@ -3,7 +3,7 @@
     "id": 3116,
     "code": "12228",
     "name": "DUPLEX 4,00X2,60 LINHO STRIP CRU",
-    "timestamp": "2026-04-30T11:36:28.113Z"
+    "timestamp": "2026-05-05T20:05:25.662Z"
   },
   "data": {
     "Fábrica": [
@@ -15,18 +15,6 @@
       },
       {
         "quantidade": 3,
-        "data_evento": "2023-04-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-04-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2023-04-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

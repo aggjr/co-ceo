@@ -3,16 +3,10 @@
     "id": 345,
     "code": "10767",
     "name": "KIT COUSELO BASTAO CROMADO 28MM 1,50",
-    "timestamp": "2026-04-30T11:28:31.742Z"
+    "timestamp": "2026-05-05T20:00:39.651Z"
   },
   "data": {
     "Betim": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-05-17T03:00:00.000Z",

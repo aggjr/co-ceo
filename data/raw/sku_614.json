@@ -3,7 +3,7 @@
     "id": 614,
     "code": "645",
     "name": "CORTA LUZ 4,00X2,60 LINHO PEROLA",
-    "timestamp": "2026-04-30T11:29:17.593Z"
+    "timestamp": "2026-05-05T20:01:23.211Z"
   },
   "data": {
     "Venda Nova": [
@@ -27,12 +27,6 @@
       }
     ],
     "Tupis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-04T03:00:00.000Z",
@@ -171,12 +165,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-04-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-05-31T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -222,18 +210,6 @@
         "data_evento": "2024-05-16T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-05-16T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

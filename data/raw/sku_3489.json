@@ -3,7 +3,7 @@
     "id": 3489,
     "code": "12575",
     "name": "LENÇOL QUEEN AVULSO SERENA VERDE",
-    "timestamp": "2026-04-30T11:37:28.225Z"
+    "timestamp": "2026-05-05T20:06:23.168Z"
   },
   "data": {
     "Fábrica": [
@@ -12,12 +12,6 @@
         "data_evento": "2024-03-06T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 3,

@@ -3,7 +3,7 @@
     "id": 3980,
     "code": "13114",
     "name": "KIT TB. ESPANHA DUPLO 19/28MM (P/ TETO) CROMADO MT",
-    "timestamp": "2026-04-30T11:38:47.836Z"
+    "timestamp": "2026-05-05T20:07:48.183Z"
   },
   "data": {
     "Barreiro": [
@@ -21,24 +21,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-17T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-04-17T03:00:00.000Z",

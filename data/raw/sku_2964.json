@@ -3,7 +3,7 @@
     "id": 2964,
     "code": "12031",
     "name": "UNICA 2,60X1,70 DECORI ESMERALDA VERMELHO",
-    "timestamp": "2026-04-30T11:36:03.677Z"
+    "timestamp": "2026-05-05T20:05:01.917Z"
   },
   "data": {
     "G2": [
@@ -33,12 +33,6 @@
         "quantidade": 1,
         "data_evento": "2023-07-14T03:00:00.000Z",
         "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-14T03:00:00.000Z",
-        "natureza": "Acerto Saída",
         "operacao": "DEBITO"
       },
       {

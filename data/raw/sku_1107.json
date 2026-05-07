@@ -3,7 +3,7 @@
     "id": 1107,
     "code": "9108",
     "name": "TEC BLACK PVC LISO 1.40 MT ROSA",
-    "timestamp": "2026-04-30T11:30:46.967Z"
+    "timestamp": "2026-05-05T20:02:42.689Z"
   },
   "data": {
     "Fábrica": [
@@ -64,12 +64,6 @@
       {
         "quantidade": 95,
         "data_evento": "2023-07-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 45.599999999999994,
-        "data_evento": "2023-07-21T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

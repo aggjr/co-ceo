@@ -3,7 +3,7 @@
     "id": 3597,
     "code": "12690",
     "name": "PRODUTO MAR 13",
-    "timestamp": "2026-04-30T11:37:46.449Z"
+    "timestamp": "2026-05-05T20:06:40.785Z"
   },
   "data": {
     "Barreiro": [
@@ -54,12 +54,6 @@
         "data_evento": "2025-02-04T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

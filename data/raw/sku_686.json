@@ -3,7 +3,7 @@
     "id": 686,
     "code": "8277",
     "name": "KIT BASTAO CROMADO DUPLO 19/28MM 2,00",
-    "timestamp": "2026-04-30T11:29:36.518Z"
+    "timestamp": "2026-05-05T20:01:36.605Z"
   },
   "data": {
     "Betim": [
@@ -84,12 +84,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-08T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -196,12 +190,6 @@
         "data_evento": "2025-08-06T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 5,
-        "data_evento": "2025-08-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 5,

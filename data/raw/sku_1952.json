@@ -3,7 +3,7 @@
     "id": 1952,
     "code": "11131",
     "name": "CORTA LUZ 4,00X2,60 EST MARROM",
-    "timestamp": "2026-04-30T11:33:11.523Z"
+    "timestamp": "2026-05-05T20:04:55.876Z"
   },
   "data": {
     "Barreiro": [
@@ -28,12 +28,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-05-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-09T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

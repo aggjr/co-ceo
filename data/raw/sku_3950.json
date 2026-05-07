@@ -3,7 +3,7 @@
     "id": 3950,
     "code": "13089",
     "name": "FORRO RETO FAST BLACK LISO PEROLA 2,60XS.M.",
-    "timestamp": "2026-04-30T11:38:43.176Z"
+    "timestamp": "2026-05-05T20:07:42.129Z"
   },
   "data": {
     "Tupis": [
@@ -64,12 +64,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-11-25T03:00:00.000Z",
-        "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-12-01T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
@@ -83,12 +77,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-06T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-09-06T03:00:00.000Z",

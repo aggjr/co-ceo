@@ -3,7 +3,7 @@
     "id": 3190,
     "code": "34",
     "name": "TEC BLACK TECIDO DUPLA FACE 100% BRANCO 2.80 MT",
-    "timestamp": "2026-04-30T11:36:40.684Z"
+    "timestamp": "2026-05-05T20:05:37.340Z"
   },
   "data": {
     "Fábrica": [
@@ -538,12 +538,6 @@
       {
         "quantidade": 25.200000000000003,
         "data_evento": "2025-05-13T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 14,
-        "data_evento": "2025-05-14T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

@@ -3,7 +3,7 @@
     "id": 1689,
     "code": "11056",
     "name": "TAPETE 0,40X0,60 NEW SHAGGY PRETO",
-    "timestamp": "2026-04-30T11:32:27.814Z"
+    "timestamp": "2026-05-05T20:04:14.609Z"
   },
   "data": {
     "Barreiro": [
@@ -84,18 +84,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-20T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-24T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -276,12 +264,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-07-03T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

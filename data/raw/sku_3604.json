@@ -3,7 +3,7 @@
     "id": 3604,
     "code": "71",
     "name": "TEC VOIL C/B BORDADO DUQUESA BEGE/BCO 2.80 MT",
-    "timestamp": "2026-04-30T11:37:47.599Z"
+    "timestamp": "2026-05-05T20:06:41.961Z"
   },
   "data": {
     "Fábrica": [
@@ -26,18 +26,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 48,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 56.4,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 56.4,
         "data_evento": "2024-07-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -51,18 +39,6 @@
       },
       {
         "quantidade": 62,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4.2,
-        "data_evento": "2024-07-04T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4.2,
         "data_evento": "2024-07-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

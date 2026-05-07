@@ -3,7 +3,7 @@
     "id": 3128,
     "code": "12241",
     "name": "JOGO DE CAMA QUEEN BORD INGLES ROSA 4PS",
-    "timestamp": "2026-04-30T11:36:30.153Z"
+    "timestamp": "2026-05-05T20:05:27.633Z"
   },
   "data": {
     "Fábrica": [
@@ -18,27 +18,9 @@
         "data_evento": "2023-04-27T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-26T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-26T03:00:00.000Z",

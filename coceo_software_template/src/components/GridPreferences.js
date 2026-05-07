@@ -6,9 +6,10 @@
  * {
  *   columnWidths:  { [colKey]: "120px" },
  *   columnOrder:   ["key1", "key2", ...],  // apenas colunas não-sticky
- *   filters:       { [colKey]: {...} },
  *   sortConfig:    { key: "col", direction: "asc" | "desc" }
  * }
+ *
+ * Filtros de coluna não são persistidos (sempre abrir sem filtro); chave `filters` legada é removida no load.
  */
 export class GridPreferences {
     constructor(gridId) {
@@ -49,7 +50,16 @@ export class GridPreferences {
     load() {
         try {
             const raw = localStorage.getItem(this.storageKey);
-            return raw ? JSON.parse(raw) : {};
+            if (!raw) return {};
+            const prefs = JSON.parse(raw);
+            if (!prefs || typeof prefs !== 'object') return {};
+            if (prefs.filters != null) {
+                delete prefs.filters;
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(prefs));
+                } catch (_) { /* ignore quota */ }
+            }
+            return prefs;
         } catch (_) {
             return {};
         }
@@ -72,12 +82,6 @@ export class GridPreferences {
     saveColumnOrder(orderedKeys) {
         const prefs = this.load();
         prefs.columnOrder = orderedKeys;
-        localStorage.setItem(this.storageKey, JSON.stringify(prefs));
-    }
-
-    saveFilters(filters) {
-        const prefs = this.load();
-        prefs.filters = filters && typeof filters === 'object' ? filters : {};
         localStorage.setItem(this.storageKey, JSON.stringify(prefs));
     }
 

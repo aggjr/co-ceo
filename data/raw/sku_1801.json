@@ -3,7 +3,7 @@
     "id": 1801,
     "code": "K356",
     "name": "PERSIANA 1.50x1.70 TEC LIGHT 356",
-    "timestamp": "2026-04-30T11:32:46.453Z"
+    "timestamp": "2026-05-05T20:04:32.056Z"
   },
   "data": {
     "Guaranis": [
@@ -77,12 +77,6 @@
       }
     ],
     "Tupis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-05-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-05-24T03:00:00.000Z",

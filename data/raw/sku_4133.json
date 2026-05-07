@@ -3,16 +3,10 @@
     "id": 4133,
     "code": "13278",
     "name": "FAST FORRO BLACK100 PRATA 2.50X até2.68",
-    "timestamp": "2026-04-30T11:39:11.919Z"
+    "timestamp": "2026-05-05T20:08:17.311Z"
   },
   "data": {
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-15T03:00:00.000Z",

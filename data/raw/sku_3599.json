@@ -3,7 +3,7 @@
     "id": 3599,
     "code": "12692",
     "name": "PRODUTO MAR 15",
-    "timestamp": "2026-04-30T11:37:46.788Z"
+    "timestamp": "2026-05-05T20:06:41.111Z"
   },
   "data": {
     "Venda Nova": [
@@ -16,12 +16,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-12-21T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -60,12 +54,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-14T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

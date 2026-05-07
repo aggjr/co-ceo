@@ -3,7 +3,7 @@
     "id": 3313,
     "code": "12427",
     "name": "PUFF RETRO 35 X 35 X 48 SUEDE AZUL",
-    "timestamp": "2026-04-30T11:37:01.870Z"
+    "timestamp": "2026-05-05T20:05:57.861Z"
   },
   "data": {
     "Eldorado 2": [
@@ -183,12 +183,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-05-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-05-13T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

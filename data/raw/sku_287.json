@@ -3,7 +3,7 @@
     "id": 287,
     "code": "10684",
     "name": "TAPETE 1,40X2,00 NEW SHAGGY CARAMELO",
-    "timestamp": "2026-04-30T11:28:22.394Z"
+    "timestamp": "2026-05-05T20:00:30.655Z"
   },
   "data": {
     "G2": [
@@ -75,12 +75,6 @@
       }
     ],
     "Fábrica": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-02-07T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-02-07T03:00:00.000Z",

@@ -3,7 +3,7 @@
     "id": 3197,
     "code": "41",
     "name": "TEC JACQ RAJADO VERDE AGUA 2.80 MT",
-    "timestamp": "2026-04-30T11:36:41.903Z"
+    "timestamp": "2026-05-05T20:05:38.577Z"
   },
   "data": {
     "Fábrica": [
@@ -15,12 +15,6 @@
       },
       {
         "quantidade": 60,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 126,
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

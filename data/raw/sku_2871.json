@@ -3,7 +3,7 @@
     "id": 2871,
     "code": "11939",
     "name": "CAPA ALMOFADA 45X45 DELUXE ART GEOMETRICO BEGE",
-    "timestamp": "2026-04-30T11:35:48.627Z"
+    "timestamp": "2026-05-05T20:04:47.362Z"
   },
   "data": {
     "Barreiro": [
@@ -73,30 +73,6 @@
       },
       {
         "quantidade": 4,
-        "data_evento": "2024-04-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-04-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-04-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2024-04-22T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-04-22T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

@@ -3,7 +3,7 @@
     "id": 1049,
     "code": "9173",
     "name": "TEC. MICROFIBRA RATO - 3.00 MT",
-    "timestamp": "2026-04-30T11:30:37.396Z"
+    "timestamp": "2026-05-05T20:02:33.743Z"
   },
   "data": {
     "Fábrica": [
@@ -47,12 +47,6 @@
         "quantidade": 31.999999999999957,
         "data_evento": "2023-05-31T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 75,
-        "data_evento": "2023-06-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -117,12 +111,6 @@
       },
       {
         "quantidade": 30,
-        "data_evento": "2023-10-31T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
         "data_evento": "2023-11-03T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -135,12 +123,6 @@
       },
       {
         "quantidade": 33.6,
-        "data_evento": "2023-11-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 20,
         "data_evento": "2023-11-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"

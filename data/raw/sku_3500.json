@@ -3,7 +3,7 @@
     "id": 3500,
     "code": "12592",
     "name": "MANTA DE MICROFIBRA QUEEN FLANNEL PLUSH ESTAMPADO",
-    "timestamp": "2026-04-30T11:37:30.037Z"
+    "timestamp": "2026-05-05T20:06:24.864Z"
   },
   "data": {
     "Fábrica": [
@@ -27,18 +27,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 9,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

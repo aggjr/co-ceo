@@ -83,7 +83,7 @@ app.get('/health', (req, res) => {
         status: 'ok',
         timestamp: new Date(),
         service: 'CO-CEO Backend',
-        version: '1.0.0'
+        version: '0.1.83'
     });
 });
 

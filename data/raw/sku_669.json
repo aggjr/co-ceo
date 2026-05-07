@@ -3,7 +3,7 @@
     "id": 669,
     "code": "8260",
     "name": "KIT BASTAO CROMADO 19MM 2,50",
-    "timestamp": "2026-04-30T11:29:28.683Z"
+    "timestamp": "2026-05-05T20:01:32.818Z"
   },
   "data": {
     "Babita": [
@@ -436,12 +436,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-10-31T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

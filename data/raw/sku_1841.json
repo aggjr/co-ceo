@@ -3,7 +3,7 @@
     "id": 1841,
     "code": "K527",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 527",
-    "timestamp": "2026-04-30T11:32:52.871Z"
+    "timestamp": "2026-05-05T20:04:38.200Z"
   },
   "data": {
     "Barreiro": [
@@ -35,12 +35,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
         "data_evento": "2024-06-19T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -56,12 +50,6 @@
         "data_evento": "2025-04-04T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2025-05-21T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 2,

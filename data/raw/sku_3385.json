@@ -3,7 +3,7 @@
     "id": 3385,
     "code": "12504",
     "name": "PERSIANA HORIZONTAL PVC 25MM 1,60X1,60 PRETA",
-    "timestamp": "2026-04-30T11:37:13.828Z"
+    "timestamp": "2026-05-05T20:06:09.433Z"
   },
   "data": {
     "Betim": [
@@ -53,12 +53,6 @@
         "quantidade": 3,
         "data_evento": "2024-08-26T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-01-08T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

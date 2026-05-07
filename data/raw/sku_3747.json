@@ -3,7 +3,7 @@
     "id": 3747,
     "code": "12917",
     "name": "CORTINA LIRIO PEROLA 2.80X1.70",
-    "timestamp": "2026-04-30T11:38:11.278Z"
+    "timestamp": "2026-05-05T20:07:06.651Z"
   },
   "data": {
     "Barreiro": [
@@ -28,12 +28,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-07-21T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-11-11T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

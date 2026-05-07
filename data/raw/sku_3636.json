@@ -3,7 +3,7 @@
     "id": 3636,
     "code": "12730",
     "name": "CAPACHO 0,60X1,20 KAP VINIL SILVER AMARELO",
-    "timestamp": "2026-04-30T11:37:52.311Z"
+    "timestamp": "2026-05-05T20:06:46.870Z"
   },
   "data": {
     "Eldorado 2": [
@@ -73,12 +73,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-07-24T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-07-24T03:00:00.000Z",

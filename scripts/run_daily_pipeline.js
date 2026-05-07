@@ -17,13 +17,21 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 
 function runNpm(scriptName) {
-  const cmd = process.platform === "win32" ? "npm.cmd" : "npm";
-  const r = spawnSync(cmd, ["run", scriptName], {
-    cwd: ROOT,
-    stdio: "inherit",
-    env: process.env,
-    shell: false,
-  });
+  // Windows: spawnSync com npm.cmd e shell:false costuma encerrar com código ≠ 0 sem rodar o script.
+  const useShell = process.platform === "win32";
+  const r = useShell
+    ? spawnSync(`npm.cmd run ${scriptName}`, {
+        cwd: ROOT,
+        stdio: "inherit",
+        env: process.env,
+        shell: true,
+      })
+    : spawnSync("npm", ["run", scriptName], {
+        cwd: ROOT,
+        stdio: "inherit",
+        env: process.env,
+        shell: false,
+      });
   const code = r.status != null ? r.status : 1;
   if (code !== 0) {
     throw new Error(`Falha ao executar npm run ${scriptName} (código ${code})`);

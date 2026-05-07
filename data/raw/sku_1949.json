@@ -3,7 +3,7 @@
     "id": 1949,
     "code": "11199",
     "name": "TEC JACQ EST. AREIA 2.80 MT",
-    "timestamp": "2026-04-30T11:33:11.015Z"
+    "timestamp": "2026-05-05T20:04:55.366Z"
   },
   "data": {
     "Fábrica": [
@@ -94,18 +94,6 @@
       {
         "quantidade": 24,
         "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 24,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2023-09-13T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

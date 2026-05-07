@@ -3,7 +3,7 @@
     "id": 3072,
     "code": "12132",
     "name": "DUPLEX 2,60X1,80 VOIL AMASSADO CHA",
-    "timestamp": "2026-04-30T11:36:21.466Z"
+    "timestamp": "2026-05-05T20:05:19.162Z"
   },
   "data": {
     "Barreiro": [
@@ -84,12 +84,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-08-15T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-08-17T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

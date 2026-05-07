@@ -3,7 +3,7 @@
     "id": 1042,
     "code": "9165",
     "name": "TEC. MICROFIBRA KAKI 2,80",
-    "timestamp": "2026-04-30T11:30:36.198Z"
+    "timestamp": "2026-05-05T20:02:32.673Z"
   },
   "data": {
     "Fábrica": [
@@ -102,12 +102,6 @@
         "data_evento": "2023-08-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 21,
@@ -472,12 +466,6 @@
       {
         "quantidade": 44,
         "data_evento": "2024-07-11T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
-        "data_evento": "2024-07-12T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

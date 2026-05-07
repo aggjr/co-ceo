@@ -3,7 +3,7 @@
     "id": 4168,
     "code": "13306",
     "name": "FAST FORRO CTL70 CRU 5.00X até2.88",
-    "timestamp": "2026-04-30T11:39:17.441Z"
+    "timestamp": "2026-05-05T20:08:23.762Z"
   },
   "data": {
     "G2": [
@@ -50,12 +50,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

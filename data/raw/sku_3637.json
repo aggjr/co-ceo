@@ -3,7 +3,7 @@
     "id": 3637,
     "code": "12729",
     "name": "CAPACHO 0,60X1,20 KAP VINIL SILVER PRETO",
-    "timestamp": "2026-04-30T11:37:52.469Z"
+    "timestamp": "2026-05-05T20:06:47.051Z"
   },
   "data": {
     "Eldorado 2": [
@@ -48,12 +48,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-14T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

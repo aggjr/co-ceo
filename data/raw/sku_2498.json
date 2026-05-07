@@ -3,7 +3,7 @@
     "id": 2498,
     "code": "11606",
     "name": "TAPETE 1,40X2,00 PV GEOMETRICO",
-    "timestamp": "2026-04-30T11:34:43.629Z"
+    "timestamp": "2026-05-05T20:06:21.833Z"
   },
   "data": {
     "Tupis": [
@@ -34,12 +34,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-05-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -366,12 +360,6 @@
         "data_evento": "2024-01-05T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

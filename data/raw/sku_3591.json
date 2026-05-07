@@ -3,7 +3,7 @@
     "id": 3591,
     "code": "12684",
     "name": "PRODUTO MAR 7",
-    "timestamp": "2026-04-30T11:37:45.440Z"
+    "timestamp": "2026-05-05T20:06:39.742Z"
   },
   "data": {
     "Barreiro": [
@@ -70,18 +70,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-11-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -178,18 +166,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-07-09T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -242,12 +218,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-03-07T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 14,
         "data_evento": "2025-05-20T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -262,12 +232,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-06-11T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-06-17T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

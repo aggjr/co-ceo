@@ -3,7 +3,7 @@
     "id": 627,
     "code": "7634",
     "name": "UNICA 2,60X1,80 MAQUINETADO TABACO",
-    "timestamp": "2026-04-30T11:29:20.585Z"
+    "timestamp": "2026-05-05T20:01:25.529Z"
   },
   "data": {
     "Venda Nova": [
@@ -48,12 +48,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-04-13T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-05-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -173,12 +167,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-07-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -253,12 +241,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-13T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-09-13T03:00:00.000Z",

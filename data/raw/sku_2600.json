@@ -3,7 +3,7 @@
     "id": 2600,
     "code": "11664",
     "name": "TEC VOIL GLACE BRANCO 2.80 MT",
-    "timestamp": "2026-04-30T11:35:00.462Z"
+    "timestamp": "2026-05-05T20:04:03.886Z"
   },
   "data": {
     "Fábrica": [
@@ -47,12 +47,6 @@
         "quantidade": 103.20000000000002,
         "data_evento": "2023-07-28T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 63.599999999999994,
-        "data_evento": "2023-08-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -174,12 +168,6 @@
         "data_evento": "2024-01-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 129.7,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 129.7,

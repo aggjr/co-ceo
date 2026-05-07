@@ -3,7 +3,7 @@
     "id": 3137,
     "code": "12258",
     "name": "\"\"\"OUTLET 3.00X2.70-2,90 BORD\"\"\"",
-    "timestamp": "2026-04-30T11:36:31.708Z"
+    "timestamp": "2026-05-05T20:05:29.040Z"
   },
   "data": {
     "Barreiro": [
@@ -244,12 +244,6 @@
         "data_evento": "2023-12-05T03:00:00.000Z",
         "natureza": "Devolução de Venda",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-05T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -501,12 +495,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-19T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-01-19T03:00:00.000Z",

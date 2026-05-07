@@ -3,7 +3,7 @@
     "id": 3267,
     "code": "12386",
     "name": "KIT COLCHA MIRAGGIO QUEEN ROSE TESSI",
-    "timestamp": "2026-04-30T11:36:54.011Z"
+    "timestamp": "2026-05-05T20:05:50.193Z"
   },
   "data": {
     "Eldorado 2": [
@@ -72,12 +72,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-01-18T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

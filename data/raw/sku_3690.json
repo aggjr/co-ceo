@@ -3,7 +3,7 @@
     "id": 3690,
     "code": "76",
     "name": "LINHO SUISSO PRATA",
-    "timestamp": "2026-04-30T11:38:01.446Z"
+    "timestamp": "2026-05-05T20:06:56.364Z"
   },
   "data": {
     "Fábrica": [
@@ -224,24 +224,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 147,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 210,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 210,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 52,
         "data_evento": "2025-07-21T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -292,12 +274,6 @@
       {
         "quantidade": 36,
         "data_evento": "2025-08-15T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 36,
-        "data_evento": "2025-08-19T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -446,12 +422,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2025-10-23T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 41.6,
         "data_evento": "2025-11-04T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -526,12 +496,6 @@
       {
         "quantidade": 36,
         "data_evento": "2025-12-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 42,
-        "data_evento": "2025-12-22T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

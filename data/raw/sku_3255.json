@@ -3,7 +3,7 @@
     "id": 3255,
     "code": "12373",
     "name": "TOALHA DE ROSTO TURIN 0.50X0.80 GRAFITE",
-    "timestamp": "2026-04-30T11:36:52.074Z"
+    "timestamp": "2026-05-05T20:05:48.262Z"
   },
   "data": {
     "Fábrica": [
@@ -16,18 +16,6 @@
       {
         "quantidade": 4,
         "data_evento": "2023-10-02T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-10-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2023-10-05T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -168,12 +156,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-02-17T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

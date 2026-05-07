@@ -3,7 +3,7 @@
     "id": 1068,
     "code": "9199",
     "name": "TEC. OXFORD LISO TRIGO - 3.00 MT",
-    "timestamp": "2026-04-30T11:30:40.448Z"
+    "timestamp": "2026-05-05T20:02:36.645Z"
   },
   "data": {
     "Fábrica": [
@@ -68,12 +68,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 33.6,
-        "data_evento": "2023-06-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 24,
         "data_evento": "2023-06-16T03:00:00.000Z",
         "natureza": "Baixa Produção",
@@ -88,12 +82,6 @@
       {
         "quantidade": 29.400000000000002,
         "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 30,
-        "data_evento": "2023-07-14T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

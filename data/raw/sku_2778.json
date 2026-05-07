@@ -3,7 +3,7 @@
     "id": 2778,
     "code": "11860",
     "name": "UNICA 4,00X2,50 TERGAL QUAD VERDE",
-    "timestamp": "2026-04-30T11:35:32.358Z"
+    "timestamp": "2026-05-05T20:04:32.512Z"
   },
   "data": {
     "Guaranis": [
@@ -89,12 +89,6 @@
       }
     ],
     "Fábrica": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-03T03:00:00.000Z",

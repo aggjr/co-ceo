@@ -3,7 +3,7 @@
     "id": 3586,
     "code": "12679",
     "name": "PRODUTO MAR 2",
-    "timestamp": "2026-04-30T11:37:44.612Z"
+    "timestamp": "2026-05-05T20:06:38.852Z"
   },
   "data": {
     "Barreiro": [
@@ -45,12 +45,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2024-11-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2024-11-25T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"

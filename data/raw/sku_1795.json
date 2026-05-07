@@ -3,7 +3,7 @@
     "id": 1795,
     "code": "K309",
     "name": "PERSIANA 1.50x1.70 TEC LIGHT 309",
-    "timestamp": "2026-04-30T11:32:45.449Z"
+    "timestamp": "2026-05-05T20:04:31.134Z"
   },
   "data": {
     "Barreiro": [
@@ -86,12 +86,6 @@
         "data_evento": "2023-12-04T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,
@@ -490,12 +484,6 @@
         "data_evento": "2024-11-19T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-11-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

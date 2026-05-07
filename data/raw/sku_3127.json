@@ -3,7 +3,7 @@
     "id": 3127,
     "code": "12240",
     "name": "JOGO DE CAMA QUEEN BORD INGLES BRANCO 4PS",
-    "timestamp": "2026-04-30T11:36:29.990Z"
+    "timestamp": "2026-05-05T20:05:27.476Z"
   },
   "data": {
     "Fábrica": [
@@ -12,12 +12,6 @@
         "data_evento": "2023-04-26T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2023-04-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 3,

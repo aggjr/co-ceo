@@ -3,7 +3,7 @@
     "id": 2077,
     "code": "11302",
     "name": "DUPLEX 2,60X1,80 LINHO SUISSO BRANCO",
-    "timestamp": "2026-04-30T11:33:33.497Z"
+    "timestamp": "2026-05-05T20:05:15.864Z"
   },
   "data": {
     "G2": [
@@ -268,12 +268,6 @@
         "data_evento": "2023-09-11T03:00:00.000Z",
         "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-12T03:00:00.000Z",
-        "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

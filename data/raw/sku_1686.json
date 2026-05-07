@@ -3,7 +3,7 @@
     "id": 1686,
     "code": "11053",
     "name": "TAPETE 0,40X0,60 NEW SHAGGY BEGE",
-    "timestamp": "2026-04-30T11:32:27.284Z"
+    "timestamp": "2026-05-05T20:04:14.150Z"
   },
   "data": {
     "Guaranis": [
@@ -98,12 +98,6 @@
       {
         "quantidade": 2,
         "data_evento": "2023-05-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

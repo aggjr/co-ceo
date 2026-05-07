@@ -3,19 +3,13 @@
     "id": 1846,
     "code": "K562",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 562",
-    "timestamp": "2026-04-30T11:32:53.667Z"
+    "timestamp": "2026-05-05T20:04:38.967Z"
   },
   "data": {
     "Fábrica": [
       {
         "quantidade": 1,
         "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-01-30T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
       },

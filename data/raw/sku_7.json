@@ -3,7 +3,7 @@
     "id": 7,
     "code": "10023",
     "name": "BLACKOUT 2,60X1,80 RUSTICO BRANYL",
-    "timestamp": "2026-04-30T11:27:36.462Z"
+    "timestamp": "2026-05-05T19:59:45.667Z"
   },
   "data": {
     "Babita": [
@@ -290,12 +290,6 @@
       {
         "quantidade": 2,
         "data_evento": "2023-11-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

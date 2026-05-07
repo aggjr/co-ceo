@@ -3,16 +3,10 @@
     "id": 3976,
     "code": "13110",
     "name": "KIT TB. ESPANHA 28MM (P/ TETO) CROMADO MT",
-    "timestamp": "2026-04-30T11:38:47.232Z"
+    "timestamp": "2026-05-05T20:07:47.526Z"
   },
   "data": {
     "Guaranis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2025-10-20T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2025-10-20T03:00:00.000Z",

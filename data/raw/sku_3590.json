@@ -3,7 +3,7 @@
     "id": 3590,
     "code": "12683",
     "name": "PRODUTO MAR 6",
-    "timestamp": "2026-04-30T11:37:45.275Z"
+    "timestamp": "2026-05-05T20:06:39.570Z"
   },
   "data": {
     "Venda Nova": [
@@ -46,12 +46,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-01-31T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-02-04T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -105,12 +99,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-06-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-06-06T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -150,24 +138,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-08-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-07T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -435,12 +405,6 @@
         "quantidade": 1,
         "data_evento": "2025-04-05T03:00:00.000Z",
         "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-12-19T03:00:00.000Z",
-        "natureza": "Transferência Saída Loja",
         "operacao": "DEBITO"
       },
       {

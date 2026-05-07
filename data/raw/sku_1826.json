@@ -3,7 +3,7 @@
     "id": 1826,
     "code": "K473",
     "name": "PERSIANA 1.50x1.70 TEC RESINADA 473",
-    "timestamp": "2026-04-30T11:32:50.482Z"
+    "timestamp": "2026-05-05T20:04:35.894Z"
   },
   "data": {
     "Venda Nova": [
@@ -183,12 +183,6 @@
     "Fábrica": [
       {
         "quantidade": 2,
-        "data_evento": "2024-01-22T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-01-22T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"

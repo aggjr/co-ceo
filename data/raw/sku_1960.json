@@ -3,7 +3,7 @@
     "id": 1960,
     "code": "11132",
     "name": "CORTA LUZ 4,00X2,60 EST ROSA",
-    "timestamp": "2026-04-30T11:33:13.279Z"
+    "timestamp": "2026-05-05T20:04:57.301Z"
   },
   "data": {
     "Barreiro": [
@@ -29,12 +29,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-04-26T03:00:00.000Z",

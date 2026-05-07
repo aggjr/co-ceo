@@ -3,7 +3,7 @@
     "id": 3858,
     "code": "12984",
     "name": "CORTINA OUTLET -D6-",
-    "timestamp": "2026-04-30T11:38:28.843Z"
+    "timestamp": "2026-05-05T20:07:25.675Z"
   },
   "data": {
     "Venda Nova": [
@@ -30,18 +30,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-29T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
       },
@@ -116,12 +104,6 @@
         "operacao": "CREDITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-03-10T03:00:00.000Z",
         "natureza": "Entrada",
@@ -147,36 +129,12 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2026-04-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-04-25T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       }
     ],
     "Betim": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-27T03:00:00.000Z",

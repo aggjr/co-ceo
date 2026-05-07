@@ -3,7 +3,7 @@
     "id": 4149,
     "code": "13288",
     "name": "FAST FORRO CTL70 BRANCO 2.00X até2.68",
-    "timestamp": "2026-04-30T11:39:14.399Z"
+    "timestamp": "2026-05-05T20:08:20.669Z"
   },
   "data": {
     "Eldorado 2": [
@@ -16,12 +16,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-03-07T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-03-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

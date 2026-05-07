@@ -3,7 +3,7 @@
     "id": 2987,
     "code": "12054",
     "name": "UNICA 2,60X1,70 TAFETA LISO BEGE",
-    "timestamp": "2026-04-30T11:36:07.400Z"
+    "timestamp": "2026-05-05T20:05:05.499Z"
   },
   "data": {
     "Tupis": [
@@ -15,12 +15,6 @@
       }
     ],
     "G2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-02T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-06-02T03:00:00.000Z",

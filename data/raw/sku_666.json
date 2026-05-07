@@ -3,7 +3,7 @@
     "id": 666,
     "code": "8258",
     "name": "KIT BASTAO BRANCO 19MM 2,50",
-    "timestamp": "2026-04-30T11:29:28.197Z"
+    "timestamp": "2026-05-05T20:01:32.339Z"
   },
   "data": {
     "Tupis": [
@@ -305,12 +305,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-12-20T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-01-13T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -482,12 +476,6 @@
       {
         "quantidade": 14,
         "data_evento": "2024-04-29T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 15,
-        "data_evento": "2024-06-06T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -714,12 +702,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-04-28T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

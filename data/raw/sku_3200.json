@@ -3,7 +3,7 @@
     "id": 3200,
     "code": "12332",
     "name": "TOALHA DE BANHO 0,77 X 1,45 HIP GLAMOR BEGE",
-    "timestamp": "2026-04-30T11:36:42.419Z"
+    "timestamp": "2026-05-05T20:05:39.066Z"
   },
   "data": {
     "Fábrica": [
@@ -68,12 +68,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-05-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-10-29T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

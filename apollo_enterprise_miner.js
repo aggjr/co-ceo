@@ -1,6 +1,5 @@
 const mysql = require('mysql2/promise');
 const { assertLegacyConfig } = require('./coceo_db_config');
-const { isClosedRetailStore } = require('./lib/closed_retail_stores');
 const fs = require('fs');
 const path = require('path');
 
@@ -160,9 +159,8 @@ async function runMiner() {
                     });
                 });
 
-                for (const k of Object.keys(networkRaw)) {
-                    if (isClosedRetailStore(k)) delete networkRaw[k];
-                }
+                // Lojas fechadas com estoque residual (ex. Carijós) mantêm movimentos no raw;
+                // o engine inclui na rede só quando há pico de físico > 0 (legado/movimentos).
 
                 const skuData = {
                     info: { id: skuId, code: skuCode, name: skuName, timestamp: new Date() },

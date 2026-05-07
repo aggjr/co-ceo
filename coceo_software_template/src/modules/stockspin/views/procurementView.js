@@ -188,7 +188,12 @@ export async function mount(mainEl) {
       <div class="stockspin-kpi"><div class="k">Comprar (un)</div><div class="v">${fmtInt(by)}</div></div>
       <div class="stockspin-kpi"><div class="k">Margem total</div><div class="v">${fmtBRL(mg)}</div></div>
       <div class="stockspin-kpi"><div class="k">Cobertura composição</div><div class="v">${covPct}</div></div>`;
-        metaEl.textContent = `Base: cd_purchase_plan (${fmtInt(raw.length)} SKUs). Tabela padrão ExcelTable.`;
+        const st = window.CD_PURCHASE_PLAN_DATA && window.CD_PURCHASE_PLAN_DATA.stats;
+        const exMix = st && st.skus_fora_mix_excluded_from_plan != null ? Number(st.skus_fora_mix_excluded_from_plan) : null;
+        metaEl.textContent =
+            `Base: cd_purchase_plan (${fmtInt(raw.length)} SKUs` +
+            (exMix != null && exMix > 0 ? `; ${fmtInt(exMix)} fora do mix excl. do plano` : "") +
+            `). Tabela padrão ExcelTable.`;
     }
 
     function refresh() {

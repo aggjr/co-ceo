@@ -3,7 +3,7 @@
     "id": 3654,
     "code": "12745",
     "name": "TOALHA DE MESA RENDA 4 LUG. 1,40X1,40",
-    "timestamp": "2026-04-30T11:37:55.443Z"
+    "timestamp": "2026-05-05T20:06:49.997Z"
   },
   "data": {
     "Fábrica": [
@@ -12,24 +12,6 @@
         "data_evento": "2024-09-04T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-09-05T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

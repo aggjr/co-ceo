@@ -3,7 +3,7 @@
     "id": 3265,
     "code": "12379",
     "name": "KIT COLCHA MIRAGGIO CASAL NUDE TESSI",
-    "timestamp": "2026-04-30T11:36:53.693Z"
+    "timestamp": "2026-05-05T20:05:49.878Z"
   },
   "data": {
     "Eldorado 2": [
@@ -27,12 +27,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-10-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-10-26T03:00:00.000Z",

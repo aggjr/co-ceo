@@ -3,7 +3,7 @@
     "id": 1907,
     "code": "11204",
     "name": "TAPETE 0,40X0,60 ARUNA C/ FRANJAS",
-    "timestamp": "2026-04-30T11:33:03.588Z"
+    "timestamp": "2026-05-05T20:04:48.448Z"
   },
   "data": {
     "Tupis": [
@@ -125,19 +125,7 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-08-03T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-09-18T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-21T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -231,12 +219,6 @@
         "quantidade": 1,
         "data_evento": "2024-12-19T03:00:00.000Z",
         "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-26T03:00:00.000Z",
-        "natureza": "Acerto Saída",
         "operacao": "DEBITO"
       },
       {
@@ -373,12 +355,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-11-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-11-23T03:00:00.000Z",

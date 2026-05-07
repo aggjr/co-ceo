@@ -3,7 +3,7 @@
     "id": 2686,
     "code": "11756",
     "name": "CORTA LUZ 2,60X1,80 EST RAMOS NUDE",
-    "timestamp": "2026-04-30T11:35:16.970Z"
+    "timestamp": "2026-05-05T20:04:17.682Z"
   },
   "data": {
     "G2": [
@@ -27,12 +27,6 @@
       }
     ],
     "Babita": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-06-10T03:00:00.000Z",

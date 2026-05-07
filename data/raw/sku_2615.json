@@ -3,7 +3,7 @@
     "id": 2615,
     "code": "11690",
     "name": "DUPLEX 5,80X2,60 LINHO SUISSO BEGE",
-    "timestamp": "2026-04-30T11:35:03.814Z"
+    "timestamp": "2026-05-05T20:04:06.295Z"
   },
   "data": {
     "Babita": [
@@ -72,12 +72,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-27T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-31T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },
@@ -284,12 +278,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2023-10-19T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 1,
         "data_evento": "2023-10-20T03:00:00.000Z",
         "natureza": "Devolução de Venda",
@@ -360,12 +348,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-11-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-02T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

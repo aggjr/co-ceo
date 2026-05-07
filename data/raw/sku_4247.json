@@ -3,7 +3,7 @@
     "id": 4247,
     "code": "001",
     "name": "PERSIANA ENCOMENDA KAZZA",
-    "timestamp": "2026-04-30T11:39:29.515Z"
+    "timestamp": "2026-05-05T20:08:38.598Z"
   },
   "data": {
     "Web": [
@@ -93,12 +93,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2026-03-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-03-28T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -124,30 +118,6 @@
       {
         "quantidade": 1,
         "data_evento": "2026-04-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-04-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

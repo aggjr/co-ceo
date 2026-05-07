@@ -3,7 +3,7 @@
     "id": 3375,
     "code": "12491",
     "name": "PUFF GOTA GRANDE MARROM",
-    "timestamp": "2026-04-30T11:37:12.146Z"
+    "timestamp": "2026-05-05T20:06:07.893Z"
   },
   "data": {
     "Venda Nova": [
@@ -57,12 +57,6 @@
       }
     ],
     "Tupis": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-08T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-12-08T03:00:00.000Z",

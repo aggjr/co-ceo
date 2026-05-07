@@ -3,7 +3,7 @@
     "id": 2938,
     "code": "12005",
     "name": "KIT BASTAO BRANCO 19MM 2,50 (INTEIRO)",
-    "timestamp": "2026-04-30T11:35:59.433Z"
+    "timestamp": "2026-05-05T20:04:57.924Z"
   },
   "data": {
     "Fábrica": [
@@ -42,12 +42,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-07-25T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

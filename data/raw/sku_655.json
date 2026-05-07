@@ -3,7 +3,7 @@
     "id": 655,
     "code": "810",
     "name": "CORTINA LUX UNICA OXFORD BRANCO 2.60X2.60",
-    "timestamp": "2026-04-30T11:29:25.623Z"
+    "timestamp": "2026-05-05T20:01:30.260Z"
   },
   "data": {
     "Betim": [
@@ -432,12 +432,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2026-04-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2026-04-20T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -604,12 +598,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-10-31T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
         "data_evento": "2025-11-07T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -712,20 +700,8 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-12-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
         "data_evento": "2025-12-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2026-01-05T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -794,12 +770,6 @@
         "data_evento": "2026-01-26T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,
@@ -1069,12 +1039,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-10-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-10-31T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -1210,12 +1174,6 @@
         "data_evento": "2025-12-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-12-22T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

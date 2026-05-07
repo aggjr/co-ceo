@@ -3,7 +3,7 @@
     "id": 3896,
     "code": "13036",
     "name": "CAPA DE ALMOFADA PERSA SORTIDA 0.43X0.43",
-    "timestamp": "2026-04-30T11:38:34.669Z"
+    "timestamp": "2026-05-05T20:07:32.154Z"
   },
   "data": {
     "Fábrica": [
@@ -27,18 +27,6 @@
       },
       {
         "quantidade": 9,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
         "data_evento": "2025-07-10T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -201,12 +189,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2026-01-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 5,
         "data_evento": "2026-01-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -754,12 +736,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2025-05-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
         "data_evento": "2025-05-28T03:00:00.000Z",
         "natureza": "Venda",
@@ -954,12 +930,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2025-07-09T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 9,
         "data_evento": "2025-07-10T03:00:00.000Z",
         "natureza": "Transferência Entrada",
@@ -974,12 +944,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-07-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-07-26T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -1356,12 +1320,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 2,
-        "data_evento": "2025-06-25T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 3,
         "data_evento": "2025-06-26T03:00:00.000Z",
         "natureza": "Venda",
@@ -1394,12 +1352,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-08-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-08-22T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

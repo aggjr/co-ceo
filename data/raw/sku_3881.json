@@ -3,7 +3,7 @@
     "id": 3881,
     "code": "13007",
     "name": "CORTINA OUTLET -F9-",
-    "timestamp": "2026-04-30T11:38:32.384Z"
+    "timestamp": "2026-05-05T20:07:29.671Z"
   },
   "data": {
     "Barreiro": [
@@ -21,12 +21,6 @@
       }
     ],
     "Eldorado 2": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-30T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-30T03:00:00.000Z",

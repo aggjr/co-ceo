@@ -3,7 +3,7 @@
     "id": 3131,
     "code": "1000002",
     "name": "TEC VOIL GLACE GRAFITE 2.80 MT",
-    "timestamp": "2026-04-30T11:36:30.641Z"
+    "timestamp": "2026-05-05T20:05:28.097Z"
   },
   "data": {
     "Fábrica": [
@@ -29,12 +29,6 @@
         "quantidade": 70.69999999999999,
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 33.6,
-        "data_evento": "2023-07-14T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {
@@ -170,12 +164,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 31.799999999999997,
-        "data_evento": "2024-01-17T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 31.800000000000182,
         "data_evento": "2024-01-30T03:00:00.000Z",
         "natureza": "Acerto Entrada",
@@ -221,12 +209,6 @@
         "quantidade": 16.900000000000034,
         "data_evento": "2024-03-27T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 31.799999999999997,
-        "data_evento": "2024-03-28T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {

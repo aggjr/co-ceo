@@ -3,7 +3,7 @@
     "id": 3510,
     "code": "12604",
     "name": "TOALHA DE PISO 45X68 LUXO",
-    "timestamp": "2026-04-30T11:37:31.768Z"
+    "timestamp": "2026-05-05T20:06:26.446Z"
   },
   "data": {
     "Fábrica": [
@@ -20,25 +20,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 17,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 17,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 17,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

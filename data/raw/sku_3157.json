@@ -3,7 +3,7 @@
     "id": 3157,
     "code": "12281",
     "name": "CAPA COLCHÌO IMPERMEAVEL CH SOLT 35CM",
-    "timestamp": "2026-04-30T11:36:34.980Z"
+    "timestamp": "2026-05-05T20:05:32.123Z"
   },
   "data": {
     "Fábrica": [
@@ -12,18 +12,6 @@
         "data_evento": "2023-06-29T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2023-07-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,
@@ -56,12 +44,6 @@
         "data_evento": "2023-07-14T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

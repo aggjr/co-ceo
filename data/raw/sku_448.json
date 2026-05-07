@@ -3,7 +3,7 @@
     "id": 448,
     "code": "1215",
     "name": "DUPLEX 5,80X2,60 VOIL XADREZ PEROLA",
-    "timestamp": "2026-04-30T11:28:48.471Z"
+    "timestamp": "2026-05-05T20:00:55.869Z"
   },
   "data": {
     "Fábrica": [
@@ -189,12 +189,6 @@
         "quantidade": 1,
         "data_evento": "2023-08-10T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-21T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

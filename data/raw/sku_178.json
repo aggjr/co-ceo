@@ -3,7 +3,7 @@
     "id": 178,
     "code": "1051",
     "name": "DUPLEX 2,60X1,80 VOIL LISO PRETO",
-    "timestamp": "2026-04-30T11:28:04.420Z"
+    "timestamp": "2026-05-05T20:00:13.032Z"
   },
   "data": {
     "Barreiro": [
@@ -24,12 +24,6 @@
         "data_evento": "2024-02-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-04-02T03:00:00.000Z",
-        "natureza": "Transferência Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

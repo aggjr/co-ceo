@@ -3,7 +3,7 @@
     "id": 4033,
     "code": "13170",
     "name": "FAST WAVE TRANSL. ELEGANCE PRATA 3.50X até2.90",
-    "timestamp": "2026-04-30T11:38:56.289Z"
+    "timestamp": "2026-05-05T20:07:58.213Z"
   },
   "data": {
     "Babita": [
@@ -48,12 +48,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 3,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 3,

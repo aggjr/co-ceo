@@ -3,7 +3,7 @@
     "id": 2282,
     "code": "12183",
     "name": "CORTINA OUTLET N",
-    "timestamp": "2026-04-30T11:34:08.285Z"
+    "timestamp": "2026-05-05T20:05:48.141Z"
   },
   "data": {
     "G2": [
@@ -73,12 +73,6 @@
         "quantidade": 1,
         "data_evento": "2025-03-20T03:00:00.000Z",
         "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-21T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
         "operacao": "CREDITO"
       },
       {
@@ -212,12 +206,6 @@
         "data_evento": "2024-08-24T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2024-08-24T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

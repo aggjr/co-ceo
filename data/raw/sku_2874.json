@@ -3,7 +3,7 @@
     "id": 2874,
     "code": "11942",
     "name": "\"\"\"VARÌO EXTENSIVEL P/ BOX 1,35M A 1,48M BRANC\"\"\"",
-    "timestamp": "2026-04-30T11:35:49.121Z"
+    "timestamp": "2026-05-05T20:04:47.824Z"
   },
   "data": {
     "Fábrica": [
@@ -96,12 +96,6 @@
       {
         "quantidade": 1,
         "data_evento": "2024-05-20T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-10T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

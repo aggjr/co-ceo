@@ -3,19 +3,13 @@
     "id": 2614,
     "code": "11689",
     "name": "EF ILHOS 3,00X2,60 DUPLEX VOIL GLACE PRATA",
-    "timestamp": "2026-04-30T11:35:03.615Z"
+    "timestamp": "2026-05-05T20:04:06.117Z"
   },
   "data": {
     "Fábrica": [
       {
         "quantidade": 1,
         "data_evento": "2023-03-28T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-04-18T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
       },

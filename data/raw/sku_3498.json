@@ -3,7 +3,7 @@
     "id": 3498,
     "code": "12591",
     "name": "MANTA DE MICROFIBRA CASAL FLANNEL PLUSH ESTAMPADO",
-    "timestamp": "2026-04-30T11:37:29.717Z"
+    "timestamp": "2026-05-05T20:06:24.557Z"
   },
   "data": {
     "Fábrica": [
@@ -26,19 +26,7 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 9,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 2,
-        "data_evento": "2024-03-07T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 10,
         "data_evento": "2024-03-07T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"

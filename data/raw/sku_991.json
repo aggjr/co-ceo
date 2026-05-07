@@ -3,7 +3,7 @@
     "id": 991,
     "code": "8215",
     "name": "TEC RENDA 1.50 MT MAÇA PEROLA",
-    "timestamp": "2026-04-30T11:30:27.782Z"
+    "timestamp": "2026-05-05T20:02:24.818Z"
   },
   "data": {
     "Fábrica": [
@@ -41,12 +41,6 @@
         "quantidade": 25.199999999999974,
         "data_evento": "2023-07-28T03:00:00.000Z",
         "natureza": "Acerto Saída",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 22,
-        "data_evento": "2023-08-18T03:00:00.000Z",
-        "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
       {

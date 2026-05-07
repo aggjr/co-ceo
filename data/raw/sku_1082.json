@@ -3,7 +3,7 @@
     "id": 1082,
     "code": "9240",
     "name": "TEC VOIL XADREZ PEROLA 2.80",
-    "timestamp": "2026-04-30T11:30:42.812Z"
+    "timestamp": "2026-05-05T20:02:38.835Z"
   },
   "data": {
     "Fábrica": [
@@ -34,12 +34,6 @@
       {
         "quantidade": 27.3,
         "data_evento": "2023-04-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
-        "data_evento": "2023-04-28T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },
@@ -177,12 +171,6 @@
       },
       {
         "quantidade": 25.200000000000003,
-        "data_evento": "2023-09-20T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 33.6,
         "data_evento": "2023-09-20T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -898,12 +886,6 @@
       {
         "quantidade": 14.700000000000001,
         "data_evento": "2024-11-05T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 25.200000000000003,
-        "data_evento": "2024-11-06T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

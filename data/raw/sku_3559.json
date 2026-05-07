@@ -3,16 +3,10 @@
     "id": 3559,
     "code": "12660",
     "name": "CONFECAO CORTINA TECIDO DO CLIENTE FORRADA (MT)",
-    "timestamp": "2026-04-30T11:37:40.076Z"
+    "timestamp": "2026-05-05T20:06:34.435Z"
   },
   "data": {
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2024-10-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2024-10-15T03:00:00.000Z",

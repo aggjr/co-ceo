@@ -3,7 +3,7 @@
     "id": 2275,
     "code": "12176",
     "name": "CORTINA OUTLET G",
-    "timestamp": "2026-04-30T11:34:07.015Z"
+    "timestamp": "2026-05-05T20:05:46.979Z"
   },
   "data": {
     "G2": [
@@ -227,18 +227,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-06-15T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2023-06-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -294,12 +282,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-09-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-20T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -413,12 +395,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-12-20T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-02-07T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
@@ -462,12 +438,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-05-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-30T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -637,18 +607,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-03-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-03-25T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -715,19 +673,7 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-04-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-05-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-15T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -776,12 +722,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-05-26T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-05-27T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -962,18 +902,6 @@
         "operacao": "DEBITO"
       },
       {
-        "quantidade": 1,
-        "data_evento": "2025-03-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-03-22T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
         "quantidade": 4,
         "data_evento": "2025-03-28T03:00:00.000Z",
         "natureza": "Entrada",
@@ -1096,12 +1024,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-07-10T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-07-14T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },
@@ -1437,12 +1359,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-01-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-01-31T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -1643,12 +1559,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2024-10-30T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2024-11-11T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
@@ -1756,12 +1666,6 @@
         "data_evento": "2024-10-10T03:00:00.000Z",
         "natureza": "Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 2,
-        "data_evento": "2024-10-14T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 2,

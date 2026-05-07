@@ -3,7 +3,7 @@
     "id": 2075,
     "code": "11298",
     "name": "TEC. LINHO SUISSO BRANCO 3.00 MT",
-    "timestamp": "2026-04-30T11:33:33.105Z"
+    "timestamp": "2026-05-05T20:05:15.508Z"
   },
   "data": {
     "Fábrica": [
@@ -640,12 +640,6 @@
       {
         "quantidade": 14.5,
         "data_evento": "2024-07-16T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 29.400000000000002,
-        "data_evento": "2024-07-26T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
       },

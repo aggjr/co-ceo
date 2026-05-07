@@ -3,7 +3,7 @@
     "id": 3094,
     "code": "12149",
     "name": "DARKEN 4,00X2,60 LINHO SUISSO BEGE",
-    "timestamp": "2026-04-30T11:36:24.103Z"
+    "timestamp": "2026-05-05T20:05:21.671Z"
   },
   "data": {
     "G2": [
@@ -385,12 +385,6 @@
         "quantidade": 1,
         "data_evento": "2023-09-30T03:00:00.000Z",
         "natureza": "Transferência Saída Loja",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-02T03:00:00.000Z",
-        "natureza": "Venda",
         "operacao": "DEBITO"
       },
       {

@@ -3,7 +3,7 @@
     "id": 2945,
     "code": "12012",
     "name": "KIT BASTAO TABACO 19MM 2,50 (INTEIRO)",
-    "timestamp": "2026-04-30T11:36:00.590Z"
+    "timestamp": "2026-05-05T20:04:59.003Z"
   },
   "data": {
     "Fábrica": [
@@ -60,12 +60,6 @@
       {
         "quantidade": 1,
         "data_evento": "2023-07-29T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-10-16T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

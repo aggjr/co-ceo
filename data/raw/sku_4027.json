@@ -3,7 +3,7 @@
     "id": 4027,
     "code": "13164",
     "name": "FAST WAVE TRANSL. ELEGANCE FENDI 3.00X até2.90",
-    "timestamp": "2026-04-30T11:38:55.338Z"
+    "timestamp": "2026-05-05T20:07:57.183Z"
   },
   "data": {
     "Betim": [
@@ -26,12 +26,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 9,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 2,

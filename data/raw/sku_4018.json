@@ -3,7 +3,7 @@
     "id": 4018,
     "code": "13157",
     "name": "FAST WAVE TRANSL. ELEGANCE BRANCO 2.00X até2.90",
-    "timestamp": "2026-04-30T11:38:53.908Z"
+    "timestamp": "2026-05-05T20:07:55.584Z"
   },
   "data": {
     "Fábrica": [
@@ -18,12 +18,6 @@
         "data_evento": "2026-03-18T03:00:00.000Z",
         "natureza": "Acerto Saída",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 9,
-        "data_evento": "2026-03-18T03:00:00.000Z",
-        "natureza": "Acerto Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 1,

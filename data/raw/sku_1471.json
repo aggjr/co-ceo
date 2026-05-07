@@ -3,7 +3,7 @@
     "id": 1471,
     "code": "10051",
     "name": "MANTA P/ SOFA 1,40X1,40 MAZE CONCRETO",
-    "timestamp": "2026-04-30T11:31:47.666Z"
+    "timestamp": "2026-05-05T20:03:39.171Z"
   },
   "data": {
     "Betim": [
@@ -113,12 +113,6 @@
       }
     ],
     "Venda Nova": [
-      {
-        "quantidade": 1,
-        "data_evento": "2023-12-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2023-12-23T03:00:00.000Z",

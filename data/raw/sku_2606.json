@@ -3,7 +3,7 @@
     "id": 2606,
     "code": "11681",
     "name": "DUPLEX 2,60X1,80 VOIL GLACE BRANCO",
-    "timestamp": "2026-04-30T11:35:02.077Z"
+    "timestamp": "2026-05-05T20:04:04.831Z"
   },
   "data": {
     "Venda Nova": [
@@ -268,12 +268,6 @@
         "data_evento": "2023-09-12T03:00:00.000Z",
         "natureza": "Transferência Entrada",
         "operacao": "CREDITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2023-09-14T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
       },
       {
         "quantidade": 1,

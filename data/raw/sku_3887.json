@@ -3,7 +3,7 @@
     "id": 3887,
     "code": "13013",
     "name": "CORTINA OUTLET -G5-",
-    "timestamp": "2026-04-30T11:38:33.294Z"
+    "timestamp": "2026-05-05T20:07:30.667Z"
   },
   "data": {
     "Betim": [
@@ -33,12 +33,6 @@
       }
     ],
     "Barreiro": [
-      {
-        "quantidade": 1,
-        "data_evento": "2026-01-27T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
-      },
       {
         "quantidade": 1,
         "data_evento": "2026-01-27T03:00:00.000Z",

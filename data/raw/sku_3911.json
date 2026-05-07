@@ -3,7 +3,7 @@
     "id": 3911,
     "code": "13049",
     "name": "CORTINA ILHOS BASIC SORTIDA 2.60X1.70",
-    "timestamp": "2026-04-30T11:38:36.994Z"
+    "timestamp": "2026-05-05T20:07:34.979Z"
   },
   "data": {
     "Fábrica": [
@@ -21,42 +21,6 @@
       },
       {
         "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 4,
-        "data_evento": "2025-06-12T03:00:00.000Z",
-        "natureza": "Transferência Saída Fábrica",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 8,
         "data_evento": "2025-06-12T03:00:00.000Z",
         "natureza": "Transferência Saída Fábrica",
         "operacao": "DEBITO"
@@ -263,12 +227,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-06-27T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-07-01T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -395,12 +353,6 @@
       },
       {
         "quantidade": 1,
-        "data_evento": "2025-07-04T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2025-09-04T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
@@ -416,12 +368,6 @@
       {
         "quantidade": 1,
         "data_evento": "2025-08-08T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
-        "data_evento": "2025-09-09T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
       },

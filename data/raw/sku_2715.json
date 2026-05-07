@@ -3,7 +3,7 @@
     "id": 2715,
     "code": "11788",
     "name": "TEC BLACKOUT CORTTEX FENDI 2.80 MT",
-    "timestamp": "2026-04-30T11:35:21.593Z"
+    "timestamp": "2026-05-05T20:04:22.240Z"
   },
   "data": {
     "Fábrica": [
@@ -27,12 +27,6 @@
       },
       {
         "quantidade": 33.6,
-        "data_evento": "2023-04-05T03:00:00.000Z",
-        "natureza": "Baixa Produção",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 21,
         "data_evento": "2023-04-05T03:00:00.000Z",
         "natureza": "Baixa Produção",
         "operacao": "DEBITO"
@@ -360,12 +354,6 @@
         "data_evento": "2024-01-26T03:00:00.000Z",
         "natureza": "Perda produção",
         "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 105,
-        "data_evento": "2024-01-29T03:00:00.000Z",
-        "natureza": "Entrada",
-        "operacao": "CREDITO"
       },
       {
         "quantidade": 105,

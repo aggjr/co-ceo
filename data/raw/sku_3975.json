@@ -3,7 +3,7 @@
     "id": 3975,
     "code": "13111",
     "name": "KIT TB. ESPANHA 28MM (P/ PAREDE) CROMADO MT",
-    "timestamp": "2026-04-30T11:38:47.081Z"
+    "timestamp": "2026-05-05T20:07:47.349Z"
   },
   "data": {
     "Barreiro": [
@@ -109,12 +109,6 @@
       },
       {
         "quantidade": 2,
-        "data_evento": "2026-04-23T03:00:00.000Z",
-        "natureza": "Venda",
-        "operacao": "DEBITO"
-      },
-      {
-        "quantidade": 1,
         "data_evento": "2026-04-23T03:00:00.000Z",
         "natureza": "Venda",
         "operacao": "DEBITO"
