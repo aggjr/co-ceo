@@ -30,6 +30,7 @@
     "build:legacy-ops-map": "node scripts/build_legacy_ops_mapping.js",
     "build:admin-coceo-audit": "node scripts/build_admin_coceo_audit_view.js",
     "audit:admin-coceo-and-build": "node scripts/audit_admin_total_vs_coceo_per_store.js && node scripts/build_admin_coceo_audit_view.js",
+    "fill:fora-mix-xlsx": "node scripts/fill_excel_fora_do_mix_saron_legado.js",
     "map:legacy-schema": "node database_mapper.js",
     "serve:legacy-live": "node scripts/legacy_live_bridge_server.js"
   },
@@ -38,5 +39,8 @@
   "license": "ISC",
   "dependencies": {
     "mysql2": "^3.22.0"
+  },
+  "devDependencies": {
+    "xlsx": "^0.18.5"
   }
 }
