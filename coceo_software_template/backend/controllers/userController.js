@@ -321,6 +321,61 @@ exports.update = async (req, res, next) => {
 };
 
 /**
+ * Admin reset password (super admin or same-tenant manager).
+ * Sets the user's password without requiring the current one.
+ * @route POST /api/users/:id/admin-reset-password
+ * @access Super admin (any tenant) or admin of the user's tenant
+ */
+exports.adminResetPassword = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { newPassword } = req.body || {};
+
+        if (!newPassword || typeof newPassword !== 'string') {
+            throw new AppError('VAL-002', 'newPassword é obrigatório');
+        }
+        if (newPassword.length < 8) {
+            throw new AppError('VAL-004', 'Senha deve ter no mínimo 8 caracteres');
+        }
+
+        const [rows] = await db.query(
+            'SELECT id, tenant_id, email FROM users WHERE id = ? AND deleted_at IS NULL',
+            [id]
+        );
+        if (rows.length === 0) throw new AppError('RES-001', 'Usuário não encontrado');
+        const target = rows[0];
+
+        if (!req.user.isSuperUser && target.tenant_id !== req.user.tenantId) {
+            throw new AppError('PERM-001', 'Sem permissão para resetar a senha deste usuário');
+        }
+
+        const hash = await bcrypt.hash(newPassword, 10);
+
+        await db.query(
+            `UPDATE users
+             SET password_hash = ?,
+                 failed_login_attempts = 0,
+                 locked_until = NULL
+             WHERE id = ?`,
+            [hash, id]
+        );
+
+        await logAudit(
+            req.user.id,
+            'UPDATE',
+            'users',
+            id,
+            null,
+            { action: 'ADMIN_RESET_PASSWORD', target_email: target.email }
+        );
+
+        res.json({ message: 'Senha redefinida com sucesso', user: { id: Number(id), email: target.email } });
+    } catch (error) {
+        next(error);
+    }
+};
+
+/**
  * Delete (soft delete) user
  * @route DELETE /api/users/:id
  * @access Authenticated

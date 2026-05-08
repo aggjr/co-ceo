@@ -24,6 +24,9 @@ router.put('/:id', auth, userController.update);
 // Delete user (soft delete)
 router.delete('/:id', auth, userController.delete);
 
+// Admin reset password (super admin or admin do mesmo tenant)
+router.post('/:id/admin-reset-password', auth, userController.adminResetPassword);
+
 // Assign roles to user
 router.post('/:id/roles', auth, userController.assignRoles);
 

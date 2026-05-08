@@ -69,5 +69,15 @@ export const userService = {
     async getUserRoles(userId) {
         const data = await apiGet(`/api/users/${userId}/roles`);
         return data.roles || [];
+    },
+
+    /**
+     * Admin reset password (super admin ou admin do mesmo tenant).
+     * Não exige a senha atual.
+     * @param {number} userId
+     * @param {string} newPassword (mín. 8 caracteres)
+     */
+    async adminResetPassword(userId, newPassword) {
+        return await apiPost(`/api/users/${userId}/admin-reset-password`, { newPassword });
     }
 };

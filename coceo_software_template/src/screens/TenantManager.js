@@ -488,18 +488,19 @@ export function TenantManager() {
                 {
                     key: 'actions',
                     label: 'Ações',
-                    width: '90px',
+                    width: '130px',
                     align: 'center',
                     noFilter: true,
                     render: (item) =>
                         `<button class="btn-icon" data-action="edit" data-id="${item.id}" title="Editar">✏️</button>` +
+                        `<button class="btn-icon" data-action="reset-password" data-id="${item.id}" title="Resetar senha">🔑</button>` +
                         `<button class="btn-icon btn-danger" data-action="delete" data-id="${item.id}" title="Excluir">🗑️</button>`
                 }
             ];
 
             usersExcelTable = new ExcelTable({
                 container,
-                gridId: 'tenant-users-grid-v1',
+                gridId: 'tenant-users-grid-v2',
                 columns,
                 enableSelection: false,
                 summaryLabels: { total: 'Total de Usuários' }
@@ -528,6 +529,24 @@ export function TenantManager() {
 
                 if (action === 'edit') {
                     showUserModal(userId, tenantId, () => loadTenantUsers(tenantId));
+                } else if (action === 'reset-password' && user) {
+                    const newPassword = await Dialogs.prompt(
+                        `Definir nova senha para ${user.firstName} ${user.lastName} (${user.email}). Mínimo 8 caracteres.`,
+                        '',
+                        'Resetar senha'
+                    );
+                    if (newPassword == null) return;
+                    if (String(newPassword).length < 8) {
+                        Dialogs.alert('Senha deve ter no mínimo 8 caracteres.');
+                        return;
+                    }
+                    try {
+                        await userService.adminResetPassword(userId, String(newPassword));
+                        Dialogs.alert(`Senha redefinida com sucesso para ${user.email}.`);
+                    } catch (error) {
+                        console.error('Error resetting password:', error);
+                        Dialogs.alert('Erro ao resetar senha: ' + (error.message || 'desconhecido'));
+                    }
                 } else if (action === 'delete' && user) {
                     const confirmed = await Dialogs.confirm(
                         `Excluir usuário ${user.firstName} ${user.lastName}?`,
