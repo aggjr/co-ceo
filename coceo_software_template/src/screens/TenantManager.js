@@ -460,54 +460,51 @@ export function TenantManager() {
         function renderUsersTable(users) {
             const container = modal.querySelector('#users-table-container');
 
-            // Clear container
             container.innerHTML = '';
 
-            // Define columns for ExcelTable
+            // ExcelTable usa render(item) com item sendo a linha completa,
+            // e o constructor aceita um único objeto com { container, columns, ... }.
             const columns = [
                 {
                     key: 'name',
                     label: 'Nome',
-                    width: 200,
-                    render: (value, row) => `${row.firstName} ${row.lastName}`
+                    type: 'text',
+                    width: '200px',
+                    render: (item) => `${item.firstName || ''} ${item.lastName || ''}`.trim()
                 },
                 {
                     key: 'email',
                     label: 'Email',
-                    width: 250
+                    type: 'text',
+                    width: '250px'
                 },
                 {
                     key: 'role',
-                    label: 'Role',
-                    width: 150,
-                    render: (value, row) => row.role?.name || 'N/A'
+                    label: 'Papel',
+                    type: 'text',
+                    width: '150px',
+                    render: (item) => item.role?.name || 'N/A'
                 },
                 {
                     key: 'actions',
                     label: 'Ações',
-                    width: 80,
-                    sortable: false,
-                    render: (value, row) => {
-                        return `
-                            <button class="btn-icon" data-action="edit" data-id="${row.id}" title="Editar">✏️</button>
-                            <button class="btn-icon" data-action="delete" data-id="${row.id}" title="Excluir">🗑️</button>
-                        `;
-                    }
+                    width: '90px',
+                    align: 'center',
+                    noFilter: true,
+                    render: (item) =>
+                        `<button class="btn-icon" data-action="edit" data-id="${item.id}" title="Editar">✏️</button>` +
+                        `<button class="btn-icon btn-danger" data-action="delete" data-id="${item.id}" title="Excluir">🗑️</button>`
                 }
             ];
 
-            // Create ExcelTable instance
-            usersExcelTable = new ExcelTable(container, {
-                columns: columns,
-                data: users,
-                height: '300px',
-                enableSearch: false,
-                enableColumnResize: false,
-                enableRowSelection: false,
-                summaryLabels: {
-                    total: 'Total de Usuários'
-                }
+            usersExcelTable = new ExcelTable({
+                container,
+                gridId: 'tenant-users-grid-v1',
+                columns,
+                enableSelection: false,
+                summaryLabels: { total: 'Total de Usuários' }
             });
+            usersExcelTable.render(users);
 
             // Attach event listeners for action buttons using delegation
             // We need to remove previous listeners if re-rendering within same modal instance, 
