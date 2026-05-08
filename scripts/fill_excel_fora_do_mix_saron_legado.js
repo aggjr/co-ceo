@@ -3,9 +3,10 @@
  * (ativo × ativototalizador × unidadenegocio) e grava uma nova .xlsx com
  * uma coluna por unidade de negócio (NomeFantasia) e coluna TOTAL GERAL.
  *
- * Coluna CODIGO: aceita Id interno do produto (produto.Id), usual em listas
- * “FORA DO MIX”; se não existir esse Id, tenta ErpCodigo.
- * Estoque/unidade = Σ (disponível + vitrine) no ativototalizador por ativo ativo.
+ * CODIGO da planilha = `produto.IdExterno` (varchar). Como fallback, ainda
+ * tenta `produto.ErpCodigo` e depois `produto.Id` interno.
+ * Estoque/unidade = Σ (disponível + vitrine) no ativototalizador por ativo
+ * não deletado (mesmo critério dos scripts de auditoria do legado).
  *
  * Uso:
  *   node scripts/fill_excel_fora_do_mix_saron_legado.js "C:\path\FORA DO MIX SARON.xlsx"
@@ -61,60 +62,93 @@ function parseArgs(argv) {
 
 async function resolveProducts(conn, codigos) {
   const unique = [...new Set(codigos.filter(Boolean))];
-  if (!unique.length) return { idByCode: new Map(), missingCodes: unique };
+  if (!unique.length) {
+    return { idByCode: new Map(), matchedBy: new Map(), missingCodes: unique };
+  }
 
   /** @type {Map<string, number>} */
   const idByCode = new Map();
+  /** @type {Map<string, "IdExterno"|"ErpCodigo"|"Id">} */
+  const matchedBy = new Map();
+  const ambiguous = new Set();
 
-  /** Chaves que parecem Id numérico (planilhas “FORA DO MIX” costumam usar Id interno, não ErpCodigo). */
-  const numericKeys = unique.filter((k) => /^\d+$/.test(k)).map((k) => parseInt(k, 10));
-
-  if (numericKeys.length) {
-    const ph = numericKeys.map(() => "?").join(",");
-    const [byId] = await conn.query(
-      `
-      SELECT Id AS id
-      FROM produto
-      WHERE COALESCE(IndDeletado, b'0') = b'0'
-        AND Id IN (${ph})
-      `,
-      numericKeys
-    );
-    for (const r of byId) {
-      const id = Number(r.id);
-      if (!Number.isFinite(id)) continue;
-      idByCode.set(String(id), id);
-    }
+  /** 1) IdExterno (chave externa do ERP — caso confirmado pelo cliente Saron). */
+  const ph1 = unique.map(() => "?").join(",");
+  const [byExt] = await conn.query(
+    `
+    SELECT Id AS id, IdExterno AS code
+    FROM produto
+    WHERE COALESCE(IndDeletado, b'0') = b'0'
+      AND IdExterno IS NOT NULL
+      AND TRIM(CAST(IdExterno AS CHAR)) IN (${ph1})
+    `,
+    unique
+  );
+  for (const r of byExt) {
+    const code = normCodigo(r.code);
+    const id = Number(r.id);
+    if (!Number.isFinite(id) || !code) continue;
+    if (idByCode.has(code) && idByCode.get(code) !== id) ambiguous.add(code);
+    idByCode.set(code, id);
+    matchedBy.set(code, "IdExterno");
   }
 
-  const still = unique.filter((k) => !idByCode.has(k));
+  /** 2) Fallback: ErpCodigo. */
+  let still = unique.filter((k) => !idByCode.has(k));
   if (still.length) {
-    const ph = still.map(() => "?").join(",");
+    const ph2 = still.map(() => "?").join(",");
     const [byErp] = await conn.query(
       `
       SELECT Id AS id, ErpCodigo AS code
       FROM produto
       WHERE COALESCE(IndDeletado, b'0') = b'0'
         AND ErpCodigo IS NOT NULL
-        AND TRIM(CAST(ErpCodigo AS CHAR)) IN (${ph})
+        AND TRIM(CAST(ErpCodigo AS CHAR)) IN (${ph2})
       `,
       still
     );
-    const dup = [];
     for (const r of byErp) {
       const code = normCodigo(r.code);
       const id = Number(r.id);
       if (!Number.isFinite(id) || !code) continue;
-      if (idByCode.has(code) && idByCode.get(code) !== id) dup.push(code);
+      if (idByCode.has(code) && idByCode.get(code) !== id) ambiguous.add(code);
       idByCode.set(code, id);
-    }
-    if (dup.length) {
-      console.warn("[AVISO] ErpCodigo duplicado no cadastro (mantém último Id lido):", [...new Set(dup)].slice(0, 15));
+      matchedBy.set(code, "ErpCodigo");
     }
   }
 
+  /** 3) Último fallback: produto.Id interno (apenas se for inteiro). */
+  still = unique.filter((k) => !idByCode.has(k));
+  const numericKeys = still.filter((k) => /^\d+$/.test(k)).map((k) => parseInt(k, 10));
+  if (numericKeys.length) {
+    const ph3 = numericKeys.map(() => "?").join(",");
+    const [byId] = await conn.query(
+      `
+      SELECT Id AS id
+      FROM produto
+      WHERE COALESCE(IndDeletado, b'0') = b'0'
+        AND Id IN (${ph3})
+      `,
+      numericKeys
+    );
+    for (const r of byId) {
+      const id = Number(r.id);
+      if (!Number.isFinite(id)) continue;
+      const code = String(id);
+      idByCode.set(code, id);
+      matchedBy.set(code, "Id");
+    }
+  }
+
+  if (ambiguous.size) {
+    console.warn(
+      "[AVISO] código duplicado no cadastro (manteve último lido):",
+      [...ambiguous].slice(0, 15)
+    );
+  }
+
   const missingCodes = unique.filter((c) => !idByCode.has(c));
-  return { idByCode, missingCodes };
+  return { idByCode, matchedBy, missingCodes };
 }
 
 async function loadStockByProductAndUnit(conn, productIds) {
@@ -185,15 +219,27 @@ async function main() {
   }
 
   const header = matrix[0].map((c) => String(c).trim().toUpperCase());
-  let idxCod = header.indexOf("CODIGO");
-  if (idxCod < 0) idxCod = header.indexOf("CÓDIGO");
-  let idxDesc = header.indexOf("DESCRIÇÃO");
-  if (idxDesc < 0) idxDesc = header.indexOf("DESCRICAO");
+  const codeAliases = ["IDEXTERNO", "ID EXTERNO", "CODIGO", "CÓDIGO", "ID"];
+  const descAliases = ["DESCRIÇÃO", "DESCRICAO"];
+  let idxCod = -1;
+  for (const a of codeAliases) {
+    idxCod = header.indexOf(a);
+    if (idxCod >= 0) break;
+  }
+  let idxDesc = -1;
+  for (const a of descAliases) {
+    idxDesc = header.indexOf(a);
+    if (idxDesc >= 0) break;
+  }
 
   if (idxCod < 0) {
-    console.error('Cabeçalho precisa ter coluna "CODIGO" (ou CÓDIGO). Encontrado:', header);
+    console.error(
+      'Cabeçalho precisa ter coluna "IDEXTERNO" (ou CODIGO/CÓDIGO). Encontrado:',
+      header
+    );
     process.exit(1);
   }
+  console.log('Coluna de código identificada:', header[idxCod]);
 
   const dataRows = matrix.slice(1);
   const codigos = [];
@@ -205,13 +251,22 @@ async function main() {
   const conn = await mysql.createConnection(assertLegacyConfig());
   await conn.query("SET NAMES 'utf8mb4'");
 
-  const { idByCode, missingCodes } = await resolveProducts(conn, codigos);
+  const { idByCode, matchedBy, missingCodes } = await resolveProducts(conn, codigos);
   const ids = [...new Set([...idByCode.values()])];
   const { byPid, unidades } = await loadStockByProductAndUnit(conn, ids);
   await conn.end();
 
+  const matchedStats = { IdExterno: 0, ErpCodigo: 0, Id: 0 };
+  for (const m of matchedBy.values()) matchedStats[m] = (matchedStats[m] || 0) + 1;
+
   const colsUnidades = sortUnidades([...unidades]);
-  const headerOut = ["CODIGO", "DESCRIÇÃO", ...colsUnidades, "TOTAL GERAL"];
+  const codeHeaderOut = matrix[0][idxCod] != null && String(matrix[0][idxCod]).trim()
+    ? String(matrix[0][idxCod]).trim()
+    : "CODIGO";
+  const descHeaderOut = idxDesc >= 0 && matrix[0][idxDesc] != null && String(matrix[0][idxDesc]).trim()
+    ? String(matrix[0][idxDesc]).trim()
+    : "DESCRIÇÃO";
+  const headerOut = [codeHeaderOut, descHeaderOut, ...colsUnidades, "TOTAL GERAL"];
 
   const outMatrix = [headerOut];
   let rowNum = 0;
@@ -253,8 +308,14 @@ async function main() {
 
   console.log("Gerado:", outPath);
   console.log("Produtos na planilha:", dataRows.length);
+  console.log("Match por coluna:", matchedStats);
   console.log("Códigos não encontrados no legado:", missingCodes.length);
-  if (missingCodes.length) console.log(missingCodes.slice(0, 30).join(", "), missingCodes.length > 30 ? "..." : "");
+  if (missingCodes.length) {
+    console.log(
+      missingCodes.slice(0, 30).join(", "),
+      missingCodes.length > 30 ? "..." : ""
+    );
+  }
   console.log("Colunas de unidade:", colsUnidades.length);
 }
 
