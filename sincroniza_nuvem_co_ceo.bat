@@ -20,17 +20,19 @@ echo (Apenas as diferencas serao enviadas - sincronizacao incremental)
 echo.
 
 :: WinSCP scripting:
-::  - "option batch abort" + "option confirm off" garantem execucao nao-interativa
-::    (sem prompt Abortar/Repetir/Pular caso algo falhe).
-::  - "call mkdir -p" roda o comando shell remoto idempotente, evitando o erro
-::    quando /root/dados_stockspin ja existe (motivo do bug anterior).
-::  - "synchronize remote" envia somente o que mudou na arvore C:\co_ceo\data.
+::  - "option batch abort" + "option confirm off" garantem execucao nao-interativa.
+::  - "call mkdir -p" cria a estrutura /root/dados_stockspin/data (idempotente).
+::  - DESTINO IMPORTANTE: sincronizamos para /root/dados_stockspin/DATA (e nao
+::    para a raiz), porque o frontend resolve URLs como
+::    https://data.co-ceo.com.br/data/client/<arquivo>. Sem o sufixo "/data" o
+::    Nginx servia /data/X de uma copia antiga e os ficheiros novos ficavam
+::    fora do alcance do frontend.
 %WINSCP% /command ^
   "option batch abort" ^
   "option confirm off" ^
   "open sftp://%USER%:%SENHA%@%SERVER_IP%/ -hostkey=""*""" ^
-  "call mkdir -p /root/dados_stockspin" ^
-  "synchronize remote C:\co_ceo\data /root/dados_stockspin" ^
+  "call mkdir -p /root/dados_stockspin/data" ^
+  "synchronize remote C:\co_ceo\data /root/dados_stockspin/data" ^
   "exit"
 
 set RC=%ERRORLEVEL%

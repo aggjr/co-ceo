@@ -9,16 +9,12 @@ import "../stockspin-excel.css";
  * `scripts/build_admin_coceo_audit_view.js` a partir do último relatório
  * `reports/admin_coceo_store_audit_*.json`).
  *
- * Cada linha trás as quantidades (CO-CEO TOTAL, ADMIN comparado, ADMIN cadastro,
- * ADMIN totalizador), a diferença `Δ admin − CO-CEO`, o **motivo** classificado
- * (`Admin sem reprocessamento`, `Diferença de loja`, `Estoque legado órfão`, ...)
- * e uma `descrição` humanizada com pistas para a tratativa em lote.
- *
- * Estilo da tabela: idêntico ao `catalogGridView` (Mix de Produtos) — fundo
- * claro com zebra, texto preto, cabeçalho azul primário, hover laranja-creme.
+ * Toda a busca/filtragem/ordenação é feita pela própria ExcelTable (filtro
+ * por coluna nativo, sort por header), espelhando o pattern do
+ * `catalogGridView` (Mix de Produtos). Sem barra de filtros customizada.
  */
 
-const COL_TEXT_COLOR = "#0f172a"; // preto-slate, igual ao catálogo
+const COL_TEXT_COLOR = "#0f172a";
 
 const fmtNum = (n, frac = 2) =>
     n == null || !Number.isFinite(Number(n))
@@ -29,11 +25,7 @@ const fmtInt = (n) =>
         ? "—"
         : Number(n).toLocaleString("pt-BR", { maximumFractionDigits: 0 });
 
-/**
- * Cores dos badges por motivo, calibradas para fundo claro (mesma intenção
- * dos badges de "cadastroEstado" do catálogo). Fundo translúcido + texto
- * sempre escuro para garantir contraste em zebra branca/azul.
- */
+/** Cores dos badges (fundo claro, texto escuro). */
 const MOTIVO_COLOR = {
     ADMIN_STALE: { bg: "rgba(245,158,11,.28)", fg: "#92400e", border: "rgba(245,158,11,.55)" },
     STORE_LEVEL: { bg: "rgba(59,130,246,.25)", fg: "#1e3a8a", border: "rgba(59,130,246,.55)" },
@@ -41,9 +33,8 @@ const MOTIVO_COLOR = {
     ALINHADO: { bg: "rgba(16,185,129,.22)", fg: "#065f46", border: "rgba(16,185,129,.55)" }
 };
 function motivoColors(codigo) {
-    if (!codigo) return { bg: "rgba(148,163,184,.28)", fg: "#334155", border: "rgba(148,163,184,.55)" };
     if (MOTIVO_COLOR[codigo]) return MOTIVO_COLOR[codigo];
-    if (String(codigo).startsWith("MIXED:")) {
+    if (String(codigo || "").startsWith("MIXED:")) {
         return { bg: "rgba(244,114,182,.25)", fg: "#9d174d", border: "rgba(244,114,182,.55)" };
     }
     return { bg: "rgba(148,163,184,.28)", fg: "#334155", border: "rgba(148,163,184,.55)" };
@@ -53,7 +44,6 @@ function motivoBadge(row) {
     const span = document.createElement("span");
     span.textContent = row.motivo || row.motivo_codigo || "—";
     const c = motivoColors(row.motivo_codigo);
-    /* Tamanho/forma alinhados ao catálogo (cadastroEstadoBadge). */
     span.style.fontSize = "12px";
     span.style.fontWeight = "600";
     span.style.padding = "3px 8px";
@@ -81,9 +71,9 @@ function deltaCell(value) {
     span.style.width = "100%";
     span.style.textAlign = "right";
     if (Number.isFinite(n)) {
-        if (n > 0.01) span.style.color = "#9a3412"; // vermelho-laranja escuro p/ Δ positivo
-        else if (n < -0.01) span.style.color = "#991b1b"; // vermelho escuro p/ Δ negativo
-        else span.style.color = "#065f46"; // verde escuro p/ zero
+        if (n > 0.01) span.style.color = "#9a3412";
+        else if (n < -0.01) span.style.color = "#991b1b";
+        else span.style.color = "#065f46";
     } else {
         span.style.color = COL_TEXT_COLOR;
     }
@@ -120,49 +110,22 @@ export async function mount(mainEl) {
     mainEl.classList.add("stockspin-in-app");
     mainEl.innerHTML = `
 <div class="stockspin-panel" style="padding:8px 10px 10px;gap:8px;display:flex;flex-direction:column;flex:1;min-height:0;">
-  <div class="stockspin-panel__head">
-    <h1>Divergências ADMIN × CO-CEO</h1>
-    <p>
-      Diferença entre o <strong>TOTAL CO-CEO</strong> e o <strong>estoque do admin do legado</strong>
-      (produtototalizador quando existe; senão produto.EstoqueTotal+Vitrine).
-      Cada linha tem o <em>motivo</em> classificado e uma descrição com a pista para a tratativa.
-      Use os chips para isolar grupos (ex.: <em>Admin sem reprocessamento</em>) e tratar em lote.
-    </p>
-  </div>
-  <div class="stockspin-controls">
-    <div style="grid-column: span 2;"><label>Busca (código, nome ou descrição)</label><input id="adv-q" type="search" placeholder="ex.: 12220, ILHOS, reprocessamento..." /></div>
-    <div><label>Sinal Δ</label><select id="adv-signal">
-      <option value="">Todos</option>
-      <option value="negative">Δ &lt; 0 (admin abaixo)</option>
-      <option value="positive">Δ &gt; 0 (admin acima)</option>
-      <option value="nonzero">Δ ≠ 0</option>
-    </select></div>
-    <div><label>|Δ| mínimo</label><input id="adv-min" type="number" min="0" step="0.01" value="0" /></div>
-    <div><label>Top N</label><input id="adv-topn" type="number" min="1" max="5000" value="500" /></div>
-    <div><label>&nbsp;</label><button type="button" id="adv-reload">Recarregar dados</button></div>
-    <div><label>&nbsp;</label><button type="button" id="adv-export">Baixar planilha (.csv)</button></div>
-  </div>
-  <div id="adv-chips" class="stockspin-tabs" role="tablist" aria-label="Filtrar por motivo"></div>
-  <div class="stockspin-kpis" id="adv-kpis"></div>
-  <p class="stockspin-meta" id="adv-meta" style="margin:0;"></p>
+  <p id="adv-meta" class="stockspin-meta" style="margin:0;font-size:12px;"></p>
   <div id="adv-grid" class="stockspin-table-root" style="flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;"></div>
+  <div id="adv-toolbar" style="display:flex;gap:8px;align-items:center;justify-content:flex-end;font-size:12px;">
+    <button type="button" id="adv-reload" style="padding:6px 12px;border-radius:6px;border:1px solid rgba(218,177,119,.45);background:rgba(9,28,56,.85);color:var(--color-accent);cursor:pointer;font-weight:600;">Recarregar dados</button>
+    <button type="button" id="adv-export" style="padding:6px 12px;border-radius:6px;border:1px solid rgba(218,177,119,.45);background:rgba(9,28,56,.85);color:var(--color-accent);cursor:pointer;font-weight:600;">Baixar planilha (.csv)</button>
+  </div>
 </div>`;
 
-    const chipsEl = mainEl.querySelector("#adv-chips");
-    const kpisEl = mainEl.querySelector("#adv-kpis");
     const metaEl = mainEl.querySelector("#adv-meta");
     const gridEl = mainEl.querySelector("#adv-grid");
     const exportBtn = mainEl.querySelector("#adv-export");
     const reloadBtn = mainEl.querySelector("#adv-reload");
 
     /**
-     * Tema visual idêntico ao catálogo (Mix de Produtos):
-     *   - cabeçalho com cor primária + texto branco
-     *   - linhas com zebra (#fff / #dbeafe), hover laranja-creme (#edd8bb)
-     *   - texto do corpo preto (#0f172a) 12px
-     *   - rodapé navy escuro com texto dourado (#f5cf96)
-     * Estilo aplicado via <style> escopado em #adv-grid (mesma técnica do
-     * catalogGridView), o que sobrepõe o tema escuro padrão do .stockspin-in-app.
+     * Tema visual idêntico ao catálogo (Mix de Produtos): zebra branca/azul,
+     * cabeçalho azul primário, hover laranja-creme, rodapé navy + dourado.
      */
     const themeFix = document.createElement("style");
     themeFix.textContent = `
@@ -176,12 +139,10 @@ export async function mount(mainEl) {
         width: max-content !important;
         table-layout: fixed !important;
       }
-
       #adv-grid .table-wrapper table thead tr th {
         background-color: var(--color-primary) !important;
         color: #ffffff !important;
       }
-
       #adv-grid .table-wrapper table tbody tr.hoverable-row td {
         background-color: var(--row-bg) !important;
         color: ${COL_TEXT_COLOR} !important;
@@ -201,7 +162,6 @@ export async function mount(mainEl) {
       #adv-grid .table-wrapper table tbody tr.hoverable-row td a {
         color: ${COL_TEXT_COLOR} !important;
       }
-
       #adv-grid .table-footer-summary {
         background: rgba(10,28,52,0.97) !important;
         border-top: 1px solid rgba(218,177,119,0.35) !important;
@@ -221,7 +181,6 @@ export async function mount(mainEl) {
 
     let payload = null;
     let allRows = [];
-    let activeMotivo = "ALL";
 
     async function loadPayload(force) {
         const url = `${base}/data/client/admin_coceo_audit.js`;
@@ -231,8 +190,9 @@ export async function mount(mainEl) {
         } catch (e) {
             metaEl.style.color = "#991b1b";
             metaEl.textContent =
-                "Não foi possível carregar admin_coceo_audit.js. " +
-                "Gere com: node scripts/build_admin_coceo_audit_view.js (após o auditor admin × CO-CEO).";
+                `Não foi possível carregar ${url}. Confirme que o ficheiro existe no servidor ` +
+                "(rode o sincroniza_nuvem_co_ceo.bat) e que o auditor foi gerado " +
+                "(node scripts/build_admin_coceo_audit_view.js).";
             return null;
         }
         const data = window.ADMIN_COCEO_AUDIT;
@@ -245,9 +205,12 @@ export async function mount(mainEl) {
     }
 
     /**
-     * Colunas — ordem alinhada ao catálogo (Código + Descrição sticky à esquerda),
-     * mas adaptada para a auditoria: ERP (sticky), Produto (sticky), Motivo,
-     * quantidades, Δ, sinais por loja, descrição.
+     * Definição das colunas. A ExcelTable já oferece, nativamente:
+     *  - filtro por coluna (clicando no cabeçalho)
+     *  - ordenação por coluna (clique simples no header)
+     *  - busca textual incremental no filtro
+     *
+     * Por isso esta tela NÃO tem barra de filtros customizada.
      */
     const columns = [
         // 1. ERP — sticky
@@ -318,7 +281,7 @@ export async function mount(mainEl) {
             }
         },
 
-        // 3. Motivo
+        // 3. Motivo — texto puro com badge no render (filtro nativo trata a string original)
         {
             key: "motivo",
             label: "Motivo",
@@ -413,8 +376,7 @@ export async function mount(mainEl) {
             align: "center",
             render: (item) => {
                 const s = document.createElement("span");
-                const n = Number(item.n_stores_with_diff) || 0;
-                s.textContent = fmtInt(n);
+                s.textContent = fmtInt(Number(item.n_stores_with_diff) || 0);
                 s.style.color = COL_TEXT_COLOR;
                 s.style.fontSize = "12px";
                 s.style.display = "block";
@@ -485,8 +447,8 @@ export async function mount(mainEl) {
     ];
 
     /**
-     * Totais agregados no rodapé (mesma técnica do catálogo via footerAggregate).
-     * Reflete linhas visíveis após filtros — alinhado com os KPIs do topo.
+     * Totais agregados no rodapé — refletem as linhas visíveis após filtros
+     * nativos da ExcelTable (mesma técnica do catálogo).
      */
     function buildFooterAggregate({ currentData }) {
         const wrap = document.createElement("div");
@@ -541,7 +503,7 @@ export async function mount(mainEl) {
     const excel = new ExcelTable({
         container: gridEl,
         columns,
-        gridId: "admin-coceo-audit-grid-v2",
+        gridId: "admin-coceo-audit-grid-v3",
         projectId: 0,
         endpointPrefix: null,
         enableSelection: false,
@@ -561,7 +523,7 @@ export async function mount(mainEl) {
         }
     });
 
-    /** Mantém o rodapé com texto dourado mesmo após re-render (igual ao catálogo). */
+    /** Mantém o rodapé com texto dourado mesmo após re-render. */
     const paintFooterGold = () => {
         const footer = gridEl.querySelector(".table-footer-summary");
         if (!footer) return;
@@ -580,115 +542,16 @@ export async function mount(mainEl) {
         paintFooterGold();
     };
 
-    function renderChips(groups) {
-        const total = allRows.length;
-        const groupBy = new Map();
-        for (const g of groups || []) groupBy.set(g.motivo_codigo, g);
-        const chipDefs = [
-            { codigo: "ALL", label: `Todos`, n: total }
-        ];
-        const order = [
-            "ADMIN_STALE",
-            "STORE_LEVEL",
-            "ORPHAN_LEGACY"
-        ];
-        for (const code of order) {
-            const g = groupBy.get(code);
-            if (!g) continue;
-            chipDefs.push({ codigo: code, label: g.motivo, n: g.n });
-        }
-        for (const g of groups || []) {
-            if (order.includes(g.motivo_codigo)) continue;
-            chipDefs.push({ codigo: g.motivo_codigo, label: g.motivo, n: g.n });
-        }
-
-        chipsEl.innerHTML = "";
-        for (const def of chipDefs) {
-            const b = document.createElement("button");
-            b.type = "button";
-            b.setAttribute("role", "tab");
-            b.setAttribute("aria-selected", def.codigo === activeMotivo ? "true" : "false");
-            b.dataset.codigo = def.codigo;
-            b.textContent = `${def.label} · ${fmtInt(def.n)}`;
-            const c = motivoColors(def.codigo === "ALL" ? null : def.codigo);
-            if (def.codigo === activeMotivo) {
-                b.style.background = c.bg;
-                b.style.borderColor = c.border;
-                b.style.color = c.fg;
-            }
-            b.addEventListener("click", () => {
-                activeMotivo = def.codigo;
-                refresh();
-            });
-            chipsEl.appendChild(b);
-        }
-    }
-
-    function applyFilters() {
-        const q = (mainEl.querySelector("#adv-q").value || "").toLowerCase().trim();
-        const signal = mainEl.querySelector("#adv-signal").value;
-        const minAbs = Math.max(0, Number(mainEl.querySelector("#adv-min").value) || 0);
-        const topN = Math.max(1, Math.min(5000, Number(mainEl.querySelector("#adv-topn").value) || 500));
-
-        let rows = allRows;
-        if (activeMotivo !== "ALL") {
-            rows = rows.filter((r) => r.motivo_codigo === activeMotivo);
-        }
-        if (q) {
-            rows = rows.filter((r) => {
-                const hay = `${r.erp_code} ${r.name} ${r.descricao} ${r.motivo}`.toLowerCase();
-                return hay.includes(q);
-            });
-        }
-        if (signal === "negative") rows = rows.filter((r) => Number(r.delta_admin_minus_coceo) < -0.01);
-        else if (signal === "positive") rows = rows.filter((r) => Number(r.delta_admin_minus_coceo) > 0.01);
-        else if (signal === "nonzero") rows = rows.filter((r) => Math.abs(Number(r.delta_admin_minus_coceo)) > 0.01);
-        if (minAbs > 0) rows = rows.filter((r) => Math.abs(Number(r.delta_abs) || 0) >= minAbs);
-        return rows.slice(0, topN);
-    }
-
-    function updateKpis(rows) {
-        const n = rows.length;
-        let sumAbs = 0;
-        let nNeg = 0;
-        let nPos = 0;
-        let maxStoreDiffSum = 0;
-        let orphanSum = 0;
-        for (const r of rows) {
-            const d = Number(r.delta_admin_minus_coceo);
-            const a = Number(r.delta_abs);
-            if (Number.isFinite(a)) sumAbs += Math.abs(a);
-            if (Number.isFinite(d)) {
-                if (d < -0.01) nNeg++;
-                else if (d > 0.01) nPos++;
-            }
-            maxStoreDiffSum += Number(r.max_abs_store_diff) || 0;
-            orphanSum += Number(r.orphan_qty) || 0;
-        }
-        kpisEl.innerHTML = `
-      <div class="stockspin-kpi"><div class="k">Linhas exibidas</div><div class="v">${fmtInt(n)}</div></div>
-      <div class="stockspin-kpi"><div class="k">|Δ| total (un)</div><div class="v">${fmtInt(sumAbs)}</div></div>
-      <div class="stockspin-kpi"><div class="k">Δ &lt; 0 (admin abaixo)</div><div class="v">${fmtInt(nNeg)}</div></div>
-      <div class="stockspin-kpi"><div class="k">Δ &gt; 0 (admin acima)</div><div class="v">${fmtInt(nPos)}</div></div>
-      <div class="stockspin-kpi"><div class="k">Σ max |Δ| loja</div><div class="v">${fmtInt(maxStoreDiffSum)}</div></div>
-      <div class="stockspin-kpi"><div class="k">Σ legado órfão</div><div class="v">${fmtInt(orphanSum)}</div></div>`;
-    }
-
-    function refresh() {
-        const rows = applyFilters();
-        const tableRows = rows.map((r) => ({ id: String(r.product_id != null ? r.product_id : r.erp_code), ...r }));
-        updateKpis(rows);
+    function renderAll() {
+        const tableRows = allRows.map((r) => ({
+            id: String(r.product_id != null ? r.product_id : r.erp_code),
+            ...r
+        }));
         excel.render(tableRows);
-        renderChips(payload && payload.groups ? payload.groups : []);
     }
 
     function exportRows() {
-        const rows = applyFilters();
-        if (!rows.length) {
-            metaEl.style.color = "#991b1b";
-            metaEl.textContent = "Nada para exportar com os filtros atuais.";
-            return;
-        }
+        if (!allRows.length) return;
         const headers = [
             "ERP",
             "Produto",
@@ -730,8 +593,7 @@ export async function mount(mainEl) {
             "descricao"
         ];
         const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-        const suffix = activeMotivo === "ALL" ? "todos" : activeMotivo.replace(/[^A-Za-z0-9_]+/g, "_");
-        downloadCsv(`divergencia_admin_coceo_${suffix}_${stamp}.csv`, headers, keys, rows);
+        downloadCsv(`divergencia_admin_coceo_${stamp}.csv`, headers, keys, allRows);
     }
 
     payload = await loadPayload(false);
@@ -747,14 +609,10 @@ export async function mount(mainEl) {
         (meta.divergent_or_reported_count != null
             ? ` ${fmtInt(meta.divergent_or_reported_count)} produto(s) com divergência.`
             : "") +
-        (meta.tolerance_admin != null ? ` Tol. admin=${meta.tolerance_admin}.` : "") +
-        (meta.tolerance_store != null ? ` Tol. loja=${meta.tolerance_store}.` : "");
+        " Use o ícone de filtro em cada cabeçalho da tabela para filtrar por motivo, código, valores etc.";
 
-    refresh();
+    renderAll();
 
-    ["#adv-q", "#adv-signal", "#adv-min", "#adv-topn"].forEach((sel) => {
-        mainEl.querySelector(sel).addEventListener("input", refresh);
-    });
     exportBtn.addEventListener("click", exportRows);
     reloadBtn.addEventListener("click", async () => {
         reloadBtn.disabled = true;
@@ -763,9 +621,9 @@ export async function mount(mainEl) {
         if (fresh) {
             payload = fresh;
             allRows = payload.rows;
+            renderAll();
         }
         reloadBtn.disabled = false;
         reloadBtn.textContent = "Recarregar dados";
-        refresh();
     });
 }
