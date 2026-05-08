@@ -184,9 +184,11 @@ export async function mount(mainEl) {
 
     async function loadPayload(force) {
         const url = `${base}/data/client/admin_coceo_audit.js`;
-        if (force) invalidateClientScript(url);
+        // Esta tela mostra dados que mudam a cada sincronização; sempre fura cache
+        // para evitar exibir versão antiga (ex.: sem categoria/sub-categoria).
+        invalidateClientScript(url);
         try {
-            await loadClientScript(url, { force: !!force });
+            await loadClientScript(url, { force: true });
         } catch (e) {
             metaEl.style.color = "#991b1b";
             metaEl.textContent =

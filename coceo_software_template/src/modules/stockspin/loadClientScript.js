@@ -19,9 +19,14 @@ export function loadClientScript(url, { force = false } = {}) {
     if (force) loaded.delete(url);
     if (loaded.has(url)) return Promise.resolve();
 
+    // Quando force=true, anexa cache-buster para furar cache do navegador/CDN
+    const finalUrl = force
+        ? `${url}${url.includes("?") ? "&" : "?"}v=${Date.now()}`
+        : url;
+
     return new Promise((resolve, reject) => {
         const s = document.createElement("script");
-        s.src = url;
+        s.src = finalUrl;
         s.async = true;
         s.onload = () => {
             loaded.add(url);
