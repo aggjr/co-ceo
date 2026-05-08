@@ -29,6 +29,7 @@ const REPORTS_DIR = path.join(ROOT, "reports");
 const OUT_DIR = path.join(ROOT, "data", "client");
 const OUT_JSON = path.join(OUT_DIR, "admin_coceo_audit.json");
 const OUT_JS = path.join(OUT_DIR, "admin_coceo_audit.js");
+const CATALOG_GRID_PATH = path.join(ROOT, "data", "catalog_grid.js");
 
 const REPORT_PATTERN = /^admin_coceo_store_audit_.*\.json$/;
 
@@ -163,7 +164,38 @@ function buildDescricao(p) {
   return partes.join(" · ");
 }
 
-function summarize(report) {
+/**
+ * Carrega `data/catalog_grid.js` (mesma fonte do "Mix de Produtos") e devolve
+ * um Map<product_id, { category, subcategory }>. Se o ficheiro não existe,
+ * devolve um Map vazio — as colunas saem em branco mas a build continua.
+ */
+function loadCategoryIndex() {
+  const map = new Map();
+  if (!fs.existsSync(CATALOG_GRID_PATH)) return map;
+  let raw = fs.readFileSync(CATALOG_GRID_PATH, "utf8");
+  const eq = raw.indexOf("=");
+  let body = eq >= 0 ? raw.slice(eq + 1).trim() : raw.trim();
+  body = body.replace(/;[\s\n]*$/, "");
+  let arr;
+  try {
+    arr = JSON.parse(body);
+  } catch (e) {
+    console.warn("[build_admin_coceo_audit_view] não foi possível parsear catalog_grid.js:", e.message);
+    return map;
+  }
+  if (!Array.isArray(arr)) return map;
+  for (const row of arr) {
+    const id = Number(row.id);
+    if (!Number.isFinite(id)) continue;
+    map.set(id, {
+      category: String(row.category || ""),
+      subcategory: String(row.subcategory || ""),
+    });
+  }
+  return map;
+}
+
+function summarize(report, categoryIndex) {
   const products = Array.isArray(report.products) ? report.products : [];
   /** Agrega por motivo (KPIs no topo da tela). */
   const groupAgg = new Map();
@@ -173,10 +205,13 @@ function summarize(report) {
     const orphanQ = Array.isArray(p.orphans)
       ? p.orphans.reduce((s, o) => s + (Number(o.q) || 0), 0)
       : 0;
+    const cat = categoryIndex.get(Number(p.product_id)) || { category: "", subcategory: "" };
     const row = {
       product_id: p.product_id,
       erp_code: String(p.erp_code || ""),
       name: String(p.name || ""),
+      category: cat.category,
+      subcategory: cat.subcategory,
       classification: p.classification || "",
       motivo_codigo: codigo,
       motivo,
@@ -232,7 +267,8 @@ function main() {
     throw new Error("Relatório não encontrado: " + reportPath);
   }
   const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
-  const { rows, groups } = summarize(report);
+  const categoryIndex = loadCategoryIndex();
+  const { rows, groups } = summarize(report, categoryIndex);
 
   const out = {
     meta: {

@@ -213,10 +213,10 @@ export async function mount(mainEl) {
      * Por isso esta tela NÃO tem barra de filtros customizada.
      */
     const columns = [
-        // 1. ERP — sticky
+        // 1. Código — sticky
         {
             key: "erp_code",
-            label: "ERP",
+            label: "Código",
             type: "number",
             numberPlain: true,
             width: "90px",
@@ -281,7 +281,45 @@ export async function mount(mainEl) {
             }
         },
 
-        // 3. Motivo — texto puro com badge no render (filtro nativo trata a string original)
+        // 3. Categoria
+        {
+            key: "category",
+            label: "Categoria",
+            type: "text",
+            width: "120px",
+            align: "center",
+            render: (item) => {
+                const s = document.createElement("span");
+                s.textContent = item.category || "—";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "center";
+                return s;
+            }
+        },
+
+        // 4. Sub-Categoria
+        {
+            key: "subcategory",
+            label: "Sub-Categoria",
+            type: "text",
+            width: "130px",
+            align: "center",
+            render: (item) => {
+                const s = document.createElement("span");
+                s.textContent = item.subcategory || "—";
+                s.style.color = COL_TEXT_COLOR;
+                s.style.fontSize = "12px";
+                s.style.display = "block";
+                s.style.width = "100%";
+                s.style.textAlign = "center";
+                return s;
+            }
+        },
+
+        // 5. Motivo — badge no render; o filtro nativo da ExcelTable busca pela string original.
         {
             key: "motivo",
             label: "Motivo",
@@ -503,7 +541,7 @@ export async function mount(mainEl) {
     const excel = new ExcelTable({
         container: gridEl,
         columns,
-        gridId: "admin-coceo-audit-grid-v3",
+        gridId: "admin-coceo-audit-grid-v4",
         projectId: 0,
         endpointPrefix: null,
         enableSelection: false,
@@ -553,8 +591,10 @@ export async function mount(mainEl) {
     function exportRows() {
         if (!allRows.length) return;
         const headers = [
-            "ERP",
+            "Código",
             "Produto",
+            "Categoria",
+            "Sub-Categoria",
             "Motivo",
             "Código motivo",
             "CO-CEO TOTAL",
@@ -575,6 +615,8 @@ export async function mount(mainEl) {
         const keys = [
             "erp_code",
             "name",
+            "category",
+            "subcategory",
             "motivo",
             "motivo_codigo",
             "coceo_total",
