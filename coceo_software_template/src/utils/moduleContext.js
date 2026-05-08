@@ -115,3 +115,36 @@ export function applyModuleContextFromLogin(data) {
     setTenantModuleSettingsForId(data.tenant.id, data.tenant.moduleSettings);
   }
 }
+
+/**
+ * Lista padrão de telas STOCKSPIN visíveis para usuário comum (não super admin),
+ * quando o tenant não declara explicitamente `module_settings.STOCKSPIN.allowedScreens`.
+ * Mantém o cliente focado no que ele realmente opera.
+ */
+export const DEFAULT_TENANT_STOCKSPIN_SCREENS = [
+  "stockspin-apollo-grid",
+  "stockspin-transfer",
+  "stockspin-health",
+  "stockspin-top",
+];
+
+/**
+ * Conjunto de IDs STOCKSPIN visíveis para o usuário corrente.
+ * - Super admin: vê todas (retorna `null`, que o caller interpreta como "sem filtro").
+ * - Tenant user: usa `module_settings.STOCKSPIN.allowedScreens` (se array com itens),
+ *   senão cai no default.
+ */
+export function getAllowedStockspinScreens(user) {
+  const u = user || JSON.parse(localStorage.getItem("user") || "{}");
+  if (u && u.isSuperUser) return null;
+
+  const tid = getActiveTenantIdForModules();
+  const map = getTenantModuleSettingsMap();
+  const row = tid != null ? map[String(tid)] : null;
+  const list =
+    row && row.STOCKSPIN && Array.isArray(row.STOCKSPIN.allowedScreens)
+      ? row.STOCKSPIN.allowedScreens.filter((x) => typeof x === "string" && x.trim())
+      : null;
+  if (list && list.length) return new Set(list);
+  return new Set(DEFAULT_TENANT_STOCKSPIN_SCREENS);
+}

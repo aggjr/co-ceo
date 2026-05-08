@@ -8,6 +8,7 @@ import { getVersion } from "./utils/version.js";
 import { STOCKSPIN_SCREENS } from "./modules/stockspin/screens.js";
 import {
   getActiveTenantIdForModules,
+  getAllowedStockspinScreens,
   getPhysicalArchitectureIndexUrl,
   getStockspinStaticBaseUrl,
 } from "./utils/moduleContext.js";
@@ -31,9 +32,13 @@ function renderLogin() {
 }
 
 function stockspinMenuHtml() {
-  return STOCKSPIN_SCREENS.map(
-    (s) => `<li><a href="#" data-screen="${s.id}">${s.icon} ${s.label}</a></li>`
-  ).join("");
+  const allowed = getAllowedStockspinScreens();
+  const visible = allowed
+    ? STOCKSPIN_SCREENS.filter((s) => allowed.has(s.id))
+    : STOCKSPIN_SCREENS;
+  return visible
+    .map((s) => `<li><a href="#" data-screen="${s.id}">${s.icon} ${s.label}</a></li>`)
+    .join("");
 }
 
 function renderDashboard() {
@@ -154,6 +159,21 @@ async function renderStockspinScreen(screenId) {
     return;
   }
   const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const allowed = getAllowedStockspinScreens(user);
+  if (allowed && !allowed.has(screenId)) {
+    main.classList.add("dashboard-main--cockpit");
+    main.style.padding = "2rem";
+    main.style.display = "";
+    main.innerHTML = `
+      <div style="max-width:48rem;padding:1.4rem 1.6rem;border:1px solid var(--shell-border-soft);border-radius:12px;background:rgba(4,14,26,.62);">
+        <h2 style="margin:0 0 .6rem;color:var(--color-accent);font-size:1.05rem;">Acesso restrito</h2>
+        <p style="margin:0;color:var(--shell-fg-muted);line-height:1.55;">
+          Este usuário não tem permissão para abrir a tela <strong style="color:var(--shell-fg);">${cfg.label}</strong>.
+          Fale com o administrador da conta se precisa deste acesso.
+        </p>
+      </div>`;
+    return;
+  }
   const activeTenantId = getActiveTenantIdForModules();
   if (user.isSuperUser && !activeTenantId) {
     main.classList.add("dashboard-main--cockpit");

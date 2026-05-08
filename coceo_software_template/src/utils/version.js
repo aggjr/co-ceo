@@ -3,7 +3,7 @@
  * Central version management for CO-CEO application
  */
 
-export const APP_VERSION = 'v-0.1.89';
+export const APP_VERSION = 'v-0.1.90';
 
 /**
  * Get the current application version
