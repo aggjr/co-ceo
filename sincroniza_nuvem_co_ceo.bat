@@ -27,12 +27,16 @@ echo.
 ::    https://data.co-ceo.com.br/data/client/<arquivo>. Sem o sufixo "/data" o
 ::    Nginx servia /data/X de uma copia antiga e os ficheiros novos ficavam
 ::    fora do alcance do frontend.
+:: Telas HTML que sao abertas em link direto (ex.: detalhe do produto a partir
+:: do "Mix de Produtos" -> ceo_product_detail_layout.html). Precisam estar na
+:: raiz do volume /root/dados_stockspin para que data.co-ceo.com.br resolva.
 %WINSCP% /command ^
   "option batch abort" ^
   "option confirm off" ^
   "open sftp://%USER%:%SENHA%@%SERVER_IP%/ -hostkey=""*""" ^
   "call mkdir -p /root/dados_stockspin/data" ^
   "synchronize remote C:\co_ceo\data /root/dados_stockspin/data" ^
+  "put -neweronly C:\co_ceo\ceo_product_detail_layout.html /root/dados_stockspin/" ^
   "exit"
 
 set RC=%ERRORLEVEL%
