@@ -1,7 +1,7 @@
 /**
  * dividendsView.js — Proventos (Dividendos, JCP, FII)
  */
-import { ExcelTable } from '../../components/ExcelTable.js';
+import { ExcelTable } from '../../../components/ExcelTable.js';
 
 const API = '/api/invest';
 

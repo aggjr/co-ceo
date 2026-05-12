@@ -2,7 +2,7 @@
  * resultsView.js — Resultados por Ação (Pivot Dinâmico)
  * Renderizado via ExcelTable Component para máxima fidelidade de interface.
  */
-import { ExcelTable } from '../../components/ExcelTable.js';
+import { ExcelTable } from '../../../components/ExcelTable.js';
 
 const API = '/api/invest';
 

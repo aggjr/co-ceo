@@ -2,7 +2,7 @@
  * portfolioView.js — Carteira de Investimentos
  * Tela principal do módulo INVEST: posições abertas com preços em tempo real.
  */
-import { ExcelTable } from '../../components/ExcelTable.js';
+import { ExcelTable } from '../../../components/ExcelTable.js';
 
 const API = '/api/invest';
 
