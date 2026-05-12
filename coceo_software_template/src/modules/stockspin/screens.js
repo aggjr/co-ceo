@@ -30,7 +30,7 @@ export const STOCKSPIN_SCREENS = [
   { id: "stockspin-cd-plan", label: "Plano CD", icon: "🗓️", path: "/cd_purchase_plan.html" },
   { id: "stockspin-arch-stores", label: "Arquitetura Lojas", icon: "🏬", path: "/global_network_view.html" },
   { id: "stockspin-arch-cd", label: "Arquitetura CD", icon: "🏢", path: "/cd_production_divergence.html" },
-  { id: "stockspin-arch-factory", label: "Arquitetura Fábrica", icon: "🏭", path: "/fábrica_view.html" },
+  { id: "stockspin-arch-factory", label: "Arquitetura Fábrica", icon: "🏭", path: "/fabrica_view.html" },
   {
     id: "stockspin-arch-physical",
     label: "Arquitetura Física",

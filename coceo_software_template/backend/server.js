@@ -68,6 +68,8 @@ const planRoutes = require('./routes/plans');
 apiRouter.use('/plans', planRoutes);
 const stockspinRoutes = require('./modules/stockspin/index');
 apiRouter.use('/stockspin', stockspinRoutes);
+const investRoutes = require('./modules/invest/index');
+apiRouter.use('/invest', investRoutes);
 // TODO: Add more routes as modules are implemented
 // apiRouter.use('/produtos', require('./routes/produtos'));
 // apiRouter.use('/fornecedores', require('./routes/fornecedores'));
@@ -83,7 +85,7 @@ app.get('/health', (req, res) => {
         status: 'ok',
         timestamp: new Date(),
         service: 'CO-CEO Backend',
-        version: '0.1.91'
+        version: '0.1.95'
     });
 });
 

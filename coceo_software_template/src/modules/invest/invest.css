@@ -1,0 +1,125 @@
+/* ============================================================
+   INVEST module styles
+   Complementa stockspin-excel.css com especificidades de INVEST
+   ============================================================ */
+
+/* ── Toolbar do módulo ───────────────────────────────────────── */
+.invest-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 1.25rem;
+  background: rgba(4, 14, 26, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+
+.invest-toolbar-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--shell-fg, #e2eaf4);
+  white-space: nowrap;
+}
+
+.invest-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.invest-toolbar-actions button,
+.invest-btn {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(99, 179, 237, 0.35);
+  background: rgba(66, 153, 225, 0.12);
+  color: #90cdf4;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.invest-toolbar-actions button:hover,
+.invest-btn:hover {
+  background: rgba(66, 153, 225, 0.25);
+  border-color: rgba(99, 179, 237, 0.6);
+}
+.invest-btn--primary {
+  background: rgba(72, 187, 120, 0.15);
+  border-color: rgba(72, 187, 120, 0.4);
+  color: #9ae6b4;
+}
+.invest-btn--primary:hover {
+  background: rgba(72, 187, 120, 0.28);
+}
+.invest-btn--danger {
+  background: rgba(245, 101, 101, 0.12);
+  border-color: rgba(245, 101, 101, 0.35);
+  color: #feb2b2;
+}
+
+/* ── Badge de ativo/tipo ─────────────────────────────────────── */
+.invest-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.invest-badge--equity   { background: rgba(66,153,225,.18); color:#90cdf4; }
+.invest-badge--option   { background: rgba(183,148,244,.18); color:#d6bcfa; }
+.invest-badge--fii      { background: rgba(246,173, 85,.18); color:#fbd38d; }
+.invest-badge--fixed    { background: rgba(104,211,145,.18); color:#9ae6b4; }
+.invest-badge--treasury { background: rgba(255,255,255,.08); color:#cbd5e0; }
+
+/* ── Células P&L ─────────────────────────────────────────────── */
+.invest-positive { color: #68d391 !important; }
+.invest-negative { color: #fc8181 !important; }
+.invest-neutral  { color: #a0aec0 !important; }
+
+/* ── Alerta de vencimento ────────────────────────────────────── */
+.invest-expiry-alert {
+  background: rgba(245, 101, 101, 0.15);
+  color: #feb2b2;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+}
+.invest-expiry-soon {
+  background: rgba(246, 173, 85, 0.15);
+  color: #fbd38d;
+}
+
+/* ── Tela de resultados (pivot) ──────────────────────────────── */
+.invest-results-table th.col-total,
+.invest-results-table td.col-total {
+  border-left: 2px solid rgba(255,255,255,0.12);
+  font-weight: 700;
+}
+.invest-results-table tr.row-total td {
+  border-top: 2px solid rgba(255,255,255,0.12);
+  font-weight: 700;
+  background: rgba(255,255,255,0.04);
+}
+
+/* ── Loading / vazio ─────────────────────────────────────────── */
+.invest-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem 2rem;
+  color: var(--shell-fg-muted, #718096);
+  font-size: 0.9rem;
+}
+.invest-empty-icon { font-size: 2.5rem; opacity: 0.5; }
+
+/* ── Quote timestamp ─────────────────────────────────────────── */
+.invest-quote-ts {
+  font-size: 0.65rem;
+  color: #4a5568;
+  margin-top: 0.1rem;
+}

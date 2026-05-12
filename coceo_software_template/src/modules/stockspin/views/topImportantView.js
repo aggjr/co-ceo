@@ -83,6 +83,29 @@ export async function mount(mainEl) {
                 return a;
             }
         },
+        {
+            key: "category",
+            label: "Categoria",
+            type: "text",
+            width: "140px",
+            render: (item) => {
+                const t = document.createElement("span");
+                t.textContent = item.category != null && String(item.category).trim() !== "" ? String(item.category) : "—";
+                return t;
+            }
+        },
+        {
+            key: "subcategory",
+            label: "Subcategoria",
+            type: "text",
+            width: "140px",
+            render: (item) => {
+                const t = document.createElement("span");
+                t.textContent =
+                    item.subcategory != null && String(item.subcategory).trim() !== "" ? String(item.subcategory) : "—";
+                return t;
+            }
+        },
         { key: "total_sales_bundle", label: "Vol. bundle", type: "number", width: "110px", align: "right" },
         { key: "quantidade_vendida", label: "Qtd CD plano", type: "number", width: "110px", align: "right" },
         { key: "valor_bruto_vendas", label: "Valor bruto", type: "number", width: "120px", align: "right" },

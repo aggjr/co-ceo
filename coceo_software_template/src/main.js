@@ -1,11 +1,13 @@
 import "./style.css";
 import "./styles/excel-table.css";
 import "./modules/stockspin/stockspin-excel.css";
+import "./modules/invest/invest.css";
 import { Login } from "./components/Login.js";
 import { Dialogs } from "./components/Dialogs.js";
 import { Header } from "./components/Header.js";
 import { getVersion } from "./utils/version.js";
 import { STOCKSPIN_SCREENS } from "./modules/stockspin/screens.js";
+import { INVEST_SCREENS } from "./modules/invest/screens.js";
 import {
   getActiveTenantIdForModules,
   getAllowedStockspinScreens,
@@ -60,28 +62,41 @@ function renderDashboard() {
     </div>
     <ul class="nav-menu">
       ${
-        canAccessCockpit
-          ? `<li class="nav-menu-item">
-        <a href="#" class="nav-menu-toggle" data-toggle="cockpit">
-          🎛️ Cockpit
-          <span class="nav-menu-arrow">▼</span>
-        </a>
-        <ul class="nav-submenu active" id="submenu-cockpit">
-          <li><a href="#" data-screen="tenants">🏢 Clientes</a></li>
-          <li><a href="#" data-screen="users">👥 Usuários</a></li>
-          <li><a href="#" data-screen="roles">🎭 Papéis</a></li>
-          <li><a href="#" data-screen="home" class="active">📊 Dashboard</a></li>
-        </ul>
-      </li>`
-          : ""
+        // If specialized constrained user, skip general menus
+        user.email === 'admin@matrizcapital.com.br' ? '' : `
+        ${
+          canAccessCockpit
+            ? `<li class="nav-menu-item">
+          <a href="#" class="nav-menu-toggle" data-toggle="cockpit">
+            🎛️ Cockpit
+            <span class="nav-menu-arrow">▼</span>
+          </a>
+          <ul class="nav-submenu active" id="submenu-cockpit">
+            <li><a href="#" data-screen="tenants">🏢 Clientes</a></li>
+            <li><a href="#" data-screen="users">👥 Usuários</a></li>
+            <li><a href="#" data-screen="roles">🎭 Papéis</a></li>
+            <li><a href="#" data-screen="home" class="active">📊 Dashboard</a></li>
+          </ul>
+        </li>`
+            : ""
+        }
+        <li class="nav-menu-item">
+          <a href="#" class="nav-menu-toggle" data-toggle="stockspin">
+            📦 STOCKSPIN
+            <span class="nav-menu-arrow">▶</span>
+          </a>
+          <ul class="nav-submenu" id="submenu-stockspin">
+            ${stockspinMenuHtml()}
+          </ul>
+        </li>`
       }
       <li class="nav-menu-item">
-        <a href="#" class="nav-menu-toggle" data-toggle="stockspin">
-          📦 STOCKSPIN
+        <a href="#" class="nav-menu-toggle" data-toggle="invest">
+          💼 INVEST
           <span class="nav-menu-arrow">▶</span>
         </a>
-        <ul class="nav-submenu" id="submenu-stockspin">
-          ${stockspinMenuHtml()}
+        <ul class="nav-submenu" id="submenu-invest">
+          ${INVEST_SCREENS.map(s => `<li><a href="#" data-screen="${s.id}">${s.icon} ${s.label}</a></li>`).join('')}
         </ul>
       </li>
     </ul>
@@ -333,9 +348,60 @@ function navigateToScreen(screen) {
     default:
       if (screen && screen.startsWith("stockspin-")) {
         renderStockspinScreen(screen);
+      } else if (screen && screen.startsWith("invest-")) {
+        renderInvestScreen(screen);
       } else {
         renderDashboard();
       }
+  }
+}
+
+async function renderInvestScreen(screenId) {
+  const main = document.getElementById("dashboard-main");
+  const cfg  = INVEST_SCREENS.find(x => x.id === screenId);
+  if (!cfg) {
+    main.innerHTML = `<div style="padding:2rem;color:#c00;">Tela INVEST não encontrada: ${screenId}</div>`;
+    return;
+  }
+
+  main.classList.remove("dashboard-main--cockpit");
+  main.style.padding  = "0";
+  main.style.display  = "flex";
+  main.style.flexDirection = "column";
+
+  main.innerHTML = `
+    <div class="invest-toolbar">
+      <span class="invest-toolbar-title">${cfg.icon} ${cfg.label}</span>
+    </div>
+    <div id="invest-view-host" style="flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;"></div>
+  `;
+
+  const host = document.getElementById("invest-view-host");
+  try {
+    if (cfg.excelView === 'portfolio') {
+      const m = await import('./modules/invest/views/portfolioView.js');
+      await m.mount(host);
+    } else if (cfg.excelView === 'transactions') {
+      const m = await import('./modules/invest/views/transactionsView.js');
+      await m.mount(host);
+    } else if (cfg.excelView === 'results') {
+      const m = await import('./modules/invest/views/resultsView.js');
+      await m.mount(host);
+    } else if (cfg.excelView === 'dividends') {
+      const m = await import('./modules/invest/views/dividendsView.js');
+      await m.mount(host);
+    } else if (cfg.excelView === 'expenses') {
+      const m = await import('./modules/invest/views/expensesView.js');
+      await m.mount(host);
+    } else if (cfg.excelView === 'bank') {
+      const m = await import('./modules/invest/views/bankView.js');
+      await m.mount(host);
+    } else {
+      host.innerHTML = `<div style="padding:1rem;color:#f87171;">View INVEST desconhecida: ${cfg.excelView}</div>`;
+    }
+  } catch (err) {
+    console.error(err);
+    host.innerHTML = `<div style="padding:1rem;color:#f87171;">Erro ao carregar: ${String(err.message || err)}</div>`;
   }
 }
 

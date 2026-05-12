@@ -1,7 +1,7 @@
 {
     "name": "co-ceo",
     "private": true,
-    "version": "0.1.91",
+    "version": "0.1.95",
     "type": "module",
     "scripts": {
         "dev": "vite",
