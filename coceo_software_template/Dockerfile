@@ -41,5 +41,5 @@ RUN mkdir -p /dados_stockspin
 # Expõe a porta que a aplicação vai rodar
 EXPOSE 3001
 
-# Inicia o servidor Node
-CMD ["npm", "start"]
+# Node como PID 1 (sem npm como pai) — melhor com SIGTERM/restarts no Docker/Easypanel
+CMD ["node", "server.js"]
