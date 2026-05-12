@@ -6,6 +6,19 @@
 
 const LS_MAP = "tenantModuleSettingsMap";
 
+/** Slug do tenant SARON — só STOCKSPIN (INVEST oculto), alinhado ao backend `tenantModulePolicy.js`. */
+export const SARON_TENANT_SLUG = "saron-cortinas";
+
+function enforceSaronInvestOff(slug, settings, tenantName) {
+  const sSlug = String(slug || "").trim();
+  const tn = String(tenantName || "").trim();
+  const isSaron =
+    sSlug === SARON_TENANT_SLUG || tn === "SARON CORTINAS";
+  if (!isSaron) return settings;
+  const prev = settings.INVEST && typeof settings.INVEST === "object" ? settings.INVEST : {};
+  return { ...settings, INVEST: { ...prev, enabled: false } };
+}
+
 const defaultStockspinBase = () => {
   /** Em dev/preview, servir pela pasta do repo (vite.config → /co-ceo-stockspin-static) para iframes não ficarem em branco sem :8000. */
   if (typeof window !== "undefined") {
@@ -55,7 +68,8 @@ export function syncTenantModuleSettingsFromList(tenants) {
   if (!Array.isArray(tenants)) return;
   const map = getTenantModuleSettingsMap();
   for (const t of tenants) {
-    map[String(t.id)] = parseModuleSettings(t.module_settings);
+    const raw = parseModuleSettings(t.module_settings);
+    map[String(t.id)] = enforceSaronInvestOff(t.slug, raw, t.name);
   }
   localStorage.setItem(LS_MAP, JSON.stringify(map));
 }
@@ -109,10 +123,15 @@ export function getStockspinStaticBaseUrl() {
   return defaultStockspinBase();
 }
 
-/** Resposta do login: { tenant?: { id, moduleSettings } } */
+/** Resposta do login: { tenant?: { id, slug, moduleSettings } } */
 export function applyModuleContextFromLogin(data) {
   if (data && data.tenant && data.tenant.id != null) {
-    setTenantModuleSettingsForId(data.tenant.id, data.tenant.moduleSettings);
+    const merged = enforceSaronInvestOff(
+      data.tenant.slug,
+      parseModuleSettings(data.tenant.moduleSettings),
+      data.tenant.name
+    );
+    setTenantModuleSettingsForId(data.tenant.id, merged);
   }
 }
 
@@ -147,4 +166,32 @@ export function getAllowedStockspinScreens(user) {
       : null;
   if (list && list.length) return new Set(list);
   return new Set(DEFAULT_TENANT_STOCKSPIN_SCREENS);
+}
+
+/**
+ * Exibir o módulo INVEST no menu e permitir rotas invest-*.
+ * - Superusuário sem personificação: sempre visível (visão global).
+ * - Com tenant ativo (personificação ou usuário de cliente): lê `module_settings.INVEST.enabled`;
+ *   valores falsey explícitos (false, 0, "false") ocultam o menu (ex.: SARON).
+ */
+export function isInvestModuleVisibleForUser(user) {
+  const u = user || JSON.parse(localStorage.getItem("user") || "{}");
+  if (u.isSuperUser && getActiveTenantIdForModules() == null) return true;
+
+  const tid = getActiveTenantIdForModules();
+  if (tid == null) return true;
+
+  if (!u.isSuperUser) {
+    const slug = String(u.tenantSlug || u.tenant_slug || "").trim();
+    if (slug === SARON_TENANT_SLUG) return false;
+    const tn = String(u.tenantName || u.tenant_name || "").trim();
+    if (tn === "SARON CORTINAS") return false;
+  }
+
+  const map = getTenantModuleSettingsMap();
+  const row = map[String(tid)] || {};
+  const inv = row.INVEST;
+  const en = inv && typeof inv === "object" ? inv.enabled : undefined;
+  if (en === false || en === 0 || en === "false" || en === "0") return false;
+  return true;
 }

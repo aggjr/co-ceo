@@ -2,6 +2,7 @@ const db = require('../config/database');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const AppError = require('../utils/AppError');
+const { applyTenantModulePolicy } = require('../utils/tenantModulePolicy');
 const { logAudit } = require('../utils/auditLogger');
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
@@ -35,6 +36,7 @@ exports.login = async (req, res, next) => {
                 u.failed_login_attempts,
                 u.locked_until,
                 t.name as tenant_name,
+                t.slug as tenant_slug,
                 t.status as tenant_status
             FROM users u
             LEFT JOIN tenants t ON u.tenant_id = t.id
@@ -148,7 +150,7 @@ exports.login = async (req, res, next) => {
         let tenantContext = null;
         if (!user.is_super_user && user.tenant_id) {
             const [trows] = await db.query(
-                `SELECT id, name, legacy_db_name, module_settings FROM tenants WHERE id = ? LIMIT 1`,
+                `SELECT id, name, slug, legacy_db_name, module_settings FROM tenants WHERE id = ? LIMIT 1`,
                 [user.tenant_id]
             );
             if (trows.length > 0) {
@@ -156,8 +158,9 @@ exports.login = async (req, res, next) => {
                 tenantContext = {
                     id: t.id,
                     name: t.name,
+                    slug: t.slug,
                     legacyDbName: t.legacy_db_name,
-                    moduleSettings: t.module_settings
+                    moduleSettings: applyTenantModulePolicy(t.slug, t.module_settings)
                 };
             }
         }
@@ -174,6 +177,7 @@ exports.login = async (req, res, next) => {
                 isSuperUser: user.is_super_user,
                 tenantId: user.tenant_id,
                 tenantName: user.tenant_name,
+                tenantSlug: user.tenant_slug || null,
                 roles: roles
             }
         });
@@ -405,6 +409,7 @@ exports.me = async (req, res, next) => {
                 u.timezone,
                 u.preferences,
                 t.name as tenant_name,
+                t.slug as tenant_slug,
                 t.plan as tenant_plan
             FROM users u
             LEFT JOIN tenants t ON u.tenant_id = t.id

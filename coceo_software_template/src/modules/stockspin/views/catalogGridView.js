@@ -89,43 +89,92 @@ function applyStockHealthFilterIfAny(rows, filterPack, hintEl) {
     return filtered;
 }
 
-// ── Badge de estado do cadastro (Ativo / Inativo) ──────────────────────────
-function cadastroEstadoBadge(item) {
+// ── Coluna ATIVO (SIM / NÃO / EXCLUÍDO (CADASTRO)) + Status Fábrica (faixa CD/Mira) ──
+function mapCadastroEstadoToAtivoLabel(item) {
     const label = item.cadastroEstado || "—";
-    const span = document.createElement("span");
-    span.textContent = label;
+    if (label === "Ativo") return "SIM";
+    if (label === "Inativo") return "NÃO";
+    if (label === "Excluído (cadastro)") return "EXCLUÍDO (CADASTRO)";
+    return label;
+}
 
-    /* Tamanho e formato idênticos ao restante da tabela */
+function ativoCadastroBadge(item) {
+    const raw = item.cadastroEstado || "—";
+    const display = mapCadastroEstadoToAtivoLabel(item);
+    const span = document.createElement("span");
+    span.textContent = display;
+
     span.style.fontSize = "12px";
     span.style.fontWeight = "600";
     span.style.padding = "3px 8px";
     span.style.borderRadius = "6px";
     span.style.display = "inline-block";
-    span.style.maxWidth = "200px";
-    span.style.whiteSpace = "nowrap";
+    span.style.maxWidth = "220px";
+    span.style.whiteSpace = "normal";
+    span.style.textAlign = "center";
     span.style.lineHeight = "1.35";
 
-    /* Paleta de cor de fundo; fonte sempre escura */
     let bg = "rgba(148,163,184,.25)";
     let fg = "#0f172a";
-    if (label === "Ativo") {
+    if (raw === "Ativo") {
         bg = "rgba(16,185,129,.22)";
         fg = "#065f46";
-    } else if (label === "Inativo") {
+    } else if (raw === "Inativo") {
         bg = "rgba(100,116,139,.35)";
         fg = "#334155";
-    } else if (label === "Excluído (cadastro)") {
+    } else if (raw === "Excluído (cadastro)") {
         bg = "rgba(239,68,68,.25)";
         fg = "#991b1b";
-    } else if (label === "Sendo inativado") {
+    } else if (raw === "Sendo inativado") {
         bg = "rgba(245,158,11,.28)";
         fg = "#92400e";
-    } else if (label === "Sendo inserido" || label.startsWith("Em processamento") || label === "Sendo processado") {
+    } else if (raw === "Sendo inserido" || raw.startsWith("Em processamento") || raw === "Sendo processado") {
         bg = "rgba(59,130,246,.25)";
         fg = "#1e3a8a";
     }
     span.style.background = bg;
     span.style.color = fg;
+    return span;
+}
+
+function fabricaStatusBadge(item) {
+    const st = String(item.curtainStatus || item.statusFabrica || "—").trim() || "—";
+    const span = document.createElement("span");
+    span.textContent = st;
+    span.style.fontSize = "11px";
+    span.style.fontWeight = "700";
+    span.style.padding = "3px 7px";
+    span.style.borderRadius = "6px";
+    span.style.display = "inline-block";
+    span.style.maxWidth = "140px";
+    span.style.whiteSpace = "normal";
+    span.style.textAlign = "center";
+    span.style.lineHeight = "1.3";
+    const u = st.toUpperCase();
+    let bg = "rgba(148,163,184,.2)";
+    let fg = "#0f172a";
+    if (u === "RUPTURA") {
+        bg = "rgba(0,0,0,.35)";
+        fg = "#f8fafc";
+    } else if (u === "CRÍTICO" || u === "CRITICO") {
+        bg = "rgba(239,68,68,.35)";
+        fg = "#450a0a";
+    } else if (u === "ABAIXO") {
+        bg = "rgba(251,191,36,.4)";
+        fg = "#422006";
+    } else if (u === "ACIMA") {
+        bg = "rgba(16,185,129,.35)";
+        fg = "#064e3b";
+    } else if (u === "MUITO ACIMA") {
+        bg = "rgba(56,189,248,.35)";
+        fg = "#0c4a6e";
+    } else if (u.startsWith("ENCALHADO")) {
+        bg = "rgba(124,58,237,.28)";
+        fg = "#3b0764";
+    }
+    span.style.background = bg;
+    span.style.color = fg;
+    span.title = "Faixa de saúde (CD / agregado lojas) — mesmo motor do detalhe CEO / histograma.";
     return span;
 }
 
@@ -201,6 +250,7 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
     let sumL = 0;
     let sumU = 0;
     let sumQ12 = 0;
+    let sumEstoqueCusto = 0;
     let wr = 0;
     let wv = 0;
 
@@ -212,6 +262,7 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
         sumL += Number(r.lucroBruto12m) || 0;
         sumU += Number(r.totalSales) || 0;
         sumQ12 += Number(r.quantidadeVendas12m) || 0;
+        sumEstoqueCusto += Number(r.valorEstoqueCustoTotal) || 0;
         const vi = Number(r.vendaBruta12m) || 0;
         const ri = Number(r.rupturaPonderadaVendasPct);
         if (vi > 0 && Number.isFinite(ri)) {
@@ -257,6 +308,7 @@ function buildCatalogFooterAggregate({ currentData, formatCurrency }) {
         )
     );
     wrap.appendChild(chip("Tot. volume (rede):", `${sumU.toLocaleString("pt-BR", { maximumFractionDigits: 0 })}\u00A0un`));
+    wrap.appendChild(chip("Tot. estoque (custo):", formatCurrency(sumEstoqueCusto)));
     if (shareTop != null && topN >= 1) {
         wrap.appendChild(
             chip(`Top ${topN} SKUs (% venda 12m):`, `${shareTop.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}%`)
@@ -362,6 +414,10 @@ export async function mount(mainEl) {
             row.rupturaPonderadaVendasPct != null && Number.isFinite(Number(row.rupturaPonderadaVendasPct))
                 ? Number(row.rupturaPonderadaVendasPct)
                 : null;
+        row.valorEstoqueCustoTotal =
+            row.valorEstoqueCustoTotal != null && Number.isFinite(Number(row.valorEstoqueCustoTotal))
+                ? Number(row.valorEstoqueCustoTotal)
+                : 0;
     });
     rows = applyStockHealthFilterIfAny(rows, filterPack, hintEl);
 
@@ -372,6 +428,14 @@ export async function mount(mainEl) {
             "Na raiz do projeto execute node apollo_grid_miner.js — mesma base SQL do Plano CD — e recarregue a página.";
         hintEl.style.display = "block";
         hintEl.textContent = hintEl.textContent ? `${staleMsg} ${hintEl.textContent}` : staleMsg;
+    }
+    const hasValorEstoqueCustoField =
+        rows.length > 0 && Object.prototype.hasOwnProperty.call(rows[0], "valorEstoqueCustoTotal");
+    if (!hasValorEstoqueCustoField) {
+        const msg =
+            "Catálogo sem «valorEstoqueCustoTotal» — na raiz do repo execute node apollo_grid_miner.js e volte a publicar data/catalog_grid.js.";
+        hintEl.style.display = "block";
+        hintEl.textContent = hintEl.textContent ? `${hintEl.textContent} ${msg}` : msg;
     }
 
     // ── CSS de tema para o Catálogo Grid ─────────────────────────────────────
@@ -436,7 +500,7 @@ export async function mount(mainEl) {
     gridEl.appendChild(catalogGridThemeFix);
 
     // ── Definição das colunas ─────────────────────────────────────────────────
-    // ORDEM: CÓDIGO (sticky) → DESCRIÇÃO (sticky) → STATUS cadastro → categorias → financeiro 12m (+ qtd legado) → volume bundle (rede)
+    // ORDEM: CÓDIGO → DESCRIÇÃO → ATIVO (SIM/NÃO/…) → STATUS FÁBRICA → R$ estoque (custo) → categorias → financeiro 12m → volume
     const COL_TEXT_COLOR = "#0f172a"; // preto para todos os renders manuais
 
     const columns = [
@@ -539,17 +603,53 @@ export async function mount(mainEl) {
             }
         },
 
-        // 3. STATUS — coluna móvel (reordenável)
+        // 3. ATIVO (cadastro legado)
         {
             key: "cadastroEstado",
-            label: "Status",
+            label: "ATIVO",
             type: "text",
-            width: "88px",
+            width: "108px",
             align: "center",
-            render: (item) => cadastroEstadoBadge(item)
+            render: (item) => ativoCadastroBadge(item)
         },
 
-        // 4. Categoria principal
+        // 4. STATUS FÁBRICA — faixa CD / Mira (curtain_production_data + motor CEO)
+        {
+            key: "curtainStatus",
+            label: "Status<br>Fábrica",
+            type: "text",
+            width: "102px",
+            align: "center",
+            render: (item) => fabricaStatusBadge(item)
+        },
+
+        // 5. Valor total em estoque (custo unitário legado × físico último dia, somado em todas as lojas)
+        {
+            key: "valorEstoqueCustoTotal",
+            label: "R$ Total em<br>Estoque (custo)",
+            type: "currency",
+            width: "128px",
+            align: "center",
+            render: (item) => {
+                const span = document.createElement("span");
+                const n = Number(item.valorEstoqueCustoTotal);
+                span.textContent = Number.isFinite(n) && n > 0
+                    ? n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2 })
+                    : n === 0
+                      ? "R$\u00A00,00"
+                      : "—";
+                span.style.fontWeight = "600";
+                span.style.color = COL_TEXT_COLOR;
+                span.style.fontSize = "12px";
+                span.style.display = "block";
+                span.style.width = "100%";
+                span.style.textAlign = "center";
+                span.title = "Custo unitário em produto (coluna detectada no miner) × soma do físico (último dia) em todas as lojas do bundle.";
+                return span;
+            }
+        },
+
+        // 6. Categoria principal
         {
             key: "category",
             label: "Categoria",
@@ -568,7 +668,7 @@ export async function mount(mainEl) {
             }
         },
 
-        // 5. Sub-categoria
+        // 7. Sub-categoria
         {
             key: "subcategory",
             label: "Sub-Categoria",
@@ -587,7 +687,7 @@ export async function mount(mainEl) {
             }
         },
 
-        // 6–9. Mesma base numérica do Plano CD / apollo_grid_miner (PrecoRealVenda → tabela; ruptura ponderada pelo volume na janela)
+        // 8–11. Mesma base numérica do Plano CD / apollo_grid_miner (PrecoRealVenda → tabela; ruptura ponderada pelo volume na janela)
         {
             key: "vendaBruta12m",
             label: "Venda Bruta<br>(12m)",
@@ -690,7 +790,7 @@ export async function mount(mainEl) {
             }
         },
 
-        // 10. Volume de vendas na rede (timeline bundle, unidades)
+        // 12. Volume de vendas na rede (timeline bundle, unidades)
         {
             key: "totalSales",
             label: "Total Venda<br>Hist.",
@@ -720,7 +820,7 @@ export async function mount(mainEl) {
     const excel = new ExcelTable({
         container: gridEl,
         columns,
-        gridId: 'catalog-grid-v12',
+        gridId: 'catalog-grid-v13',
         projectId: 0,
         endpointPrefix: null,
         enableSelection: false,

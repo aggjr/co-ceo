@@ -319,7 +319,7 @@ INSERT INTO tenants (
   50,
   10000,
   NULL, NULL, NULL, NULL, 'Brasil',
-  NULL
+  CAST('{"INVEST":{"enabled":false}}' AS JSON)
 )
 ON DUPLICATE KEY UPDATE
   name = VALUES(name),

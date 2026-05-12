@@ -9,6 +9,7 @@
 --   1) SELECT id, name, slug, legacy_db_name FROM tenants ORDER BY id;  → id 1 demo, id 2 SARON
 --   2) LEGACY_MYSQL_DATABASE / stockspin .env = mesmo nome que legacy_db_name da SARON (padrão stockspin_core_db_saron)
 --   3) Login admin@saroncortinas.com.br (senha seed 12345678) ou super admin; personificar tenant 2 no header
+--   4) Tenant SARON recebe module_settings com INVEST desligado (só STOCKSPIN no menu). Bases antigas: database/patch_saron_disable_invest_module.sql
 --
 -- Idempotente.
 
@@ -50,7 +51,7 @@ INSERT INTO tenants (
   50,
   10000,
   NULL, NULL, NULL, NULL, 'Brasil',
-  NULL
+  CAST('{"INVEST":{"enabled":false}}' AS JSON)
 )
 ON DUPLICATE KEY UPDATE
   name = VALUES(name),

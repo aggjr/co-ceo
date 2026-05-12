@@ -1,6 +1,7 @@
 const db = require('../config/database');
 const AppError = require('../utils/AppError');
 const { logAudit } = require('../utils/auditLogger');
+const { applyTenantModulePolicy } = require('../utils/tenantModulePolicy');
 
 /** Aceita objeto ou string JSON; undefined = não alterar no UPDATE. */
 function normalizeModuleSettingsInput(raw) {
@@ -94,6 +95,7 @@ exports.getAll = async (req, res, next) => {
         // Add database size to each tenant
         const tenantsWithSize = tenants.map(tenant => ({
             ...tenant,
+            module_settings: applyTenantModulePolicy(tenant.slug, tenant.module_settings),
             database_size: sizeMap[tenant.id]?.size || 0,
             database_size_calculated_at: sizeMap[tenant.id]?.calculated_at || null,
             database_size_days_old: sizeMap[tenant.id]?.days_old || null
@@ -136,7 +138,11 @@ exports.getById = async (req, res, next) => {
             throw new AppError('RES-001', 'Cliente não encontrado');
         }
 
-        res.json(tenants[0]);
+        const row = tenants[0];
+        res.json({
+            ...row,
+            module_settings: applyTenantModulePolicy(row.slug, row.module_settings)
+        });
     } catch (error) {
         next(error);
     }

@@ -84,6 +84,84 @@ function isHubLikeStoreName(name) {
     return n === 'Fábrica' || n === 'CD SARON' || /fábrica|fabrica/i.test(n);
 }
 
+/** Soma do físico no último dia da timeline, em todas as lojas do bundle (alinhado a `physicalStock` / `systemPhysicalStock`). */
+function computeTotalPhysicalLastDayNetwork(skuData) {
+    if (!skuData || !skuData.results) return 0;
+    let sum = 0;
+    for (const storeData of Object.values(skuData.results)) {
+        if (!storeData || !Array.isArray(storeData.timeline) || storeData.timeline.length === 0) continue;
+        const last = storeData.timeline[storeData.timeline.length - 1];
+        if (!last) continue;
+        let p;
+        if (last.systemPhysicalStock != null && last.systemPhysicalStock !== '') {
+            p = Number(last.systemPhysicalStock);
+        } else {
+            p = Number(last.physicalStock);
+        }
+        if (!Number.isFinite(p)) p = 0;
+        sum += Math.max(0, p);
+    }
+    return sum;
+}
+
+/**
+ * Mapa Id → custo unitário atual em `produto` (coluna detectada).
+ * Override: LEGACY_PRODUTO_CUSTO_COLUMN=nome_exato
+ */
+async function loadLegacyUnitCostByProdutoId(c) {
+    const manual = String(process.env.LEGACY_PRODUTO_CUSTO_COLUMN || '').trim();
+    const [dbRow] = await c.query('SELECT DATABASE() AS db');
+    const schema = dbRow[0] && dbRow[0].db ? String(dbRow[0].db) : '';
+    if (!schema) return { map: new Map(), column: null };
+
+    const [colRows] = await c.query(
+        "SELECT COLUMN_NAME AS nm FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'produto'",
+        [schema]
+    );
+    const lower = new Set(colRows.map((r) => String(r.nm).toLowerCase()));
+    const byLower = new Map(colRows.map((r) => [String(r.nm).toLowerCase(), String(r.nm)]));
+    let picked = null;
+    if (manual && /^[A-Za-z0-9_]+$/.test(manual) && lower.has(manual.toLowerCase())) {
+        picked = byLower.get(manual.toLowerCase());
+    }
+    const fixedOrder = [
+        'PrecoCusto',
+        'ValorCusto',
+        'CustoMedio',
+        'CustoUnitario',
+        'ValorCustoMedio',
+        'PrecoMedioCusto',
+        'Custo'
+    ];
+    if (!picked) {
+        for (const name of fixedOrder) {
+            if (lower.has(name.toLowerCase())) {
+                picked = byLower.get(name.toLowerCase());
+                break;
+            }
+        }
+    }
+    if (!picked || !/^[A-Za-z0-9_]+$/.test(picked)) {
+        console.warn(
+            '⚠️ Coluna de custo em `produto` não encontrada — «R$ total em estoque (custo)» fica 0. Defina LEGACY_PRODUTO_CUSTO_COLUMN no .env se necessário.'
+        );
+        return { map: new Map(), column: null };
+    }
+    const col = picked.replace(/`/g, '');
+    const [rows] = await c.query(
+        'SELECT p.Id AS id, CAST(COALESCE(p.`' + col + '`, 0) AS DECIMAL(20,6)) AS unit_cost FROM produto p'
+    );
+    const map = new Map();
+    for (const r of rows) {
+        const id = Number(r.id);
+        if (!Number.isFinite(id) || id <= 0) continue;
+        const v = Number(r.unit_cost);
+        map.set(id, Number.isFinite(v) && v > 0 ? v : 0);
+    }
+    console.log('📦 Custo unitário (valor estoque): produto.`' + col + '` → ' + map.size + ' SKU(s).');
+    return { map, column: col };
+}
+
 /** Mesma subquery de `scripts/build_cd_purchase_plan.js` (PrecoRealVenda → PrecoVenda → histórico). */
 const LEGACY_SALES_DETAIL_SQL = `
       SELECT
@@ -323,6 +401,14 @@ async function runMiner() {
         console.warn('⚠️ Vendas 12m (legado) não agregadas — colunas financeiras ficam zeradas:', e.message || e);
     }
 
+    let costByProdId = new Map();
+    try {
+        const { map: costMap } = await loadLegacyUnitCostByProdutoId(c);
+        costByProdId = costMap;
+    } catch (e) {
+        console.warn('⚠️ Custo legado não carregado — valor em estoque (custo) fica 0:', e.message || e);
+    }
+
     // Estruturar dados final
     const gridData = [];
 
@@ -392,6 +478,10 @@ async function runMiner() {
             noDataCount++;
         }
 
+        const physSum = hasData ? computeTotalPhysicalLastDayNetwork(skuData) : 0;
+        const unitCost = costByProdId.get(prodId) || 0;
+        const valorEstoqueCustoTotal = Number((unitCost * physSum).toFixed(2));
+
         const leg = salesByProdId.get(prodId) || null;
         const vendaBruta12m = leg ? Number(leg.valor_bruto_vendas.toFixed(2)) : 0;
         const quantidadeVendas12m = leg ? Number(Number(leg.quantidade_vendida || 0).toFixed(2)) : 0;
@@ -422,6 +512,7 @@ async function runMiner() {
             lucroBruto12m,
             pctLucro12m,
             rupturaPonderadaVendasPct,
+            valorEstoqueCustoTotal,
             legacyAtivo: asBool(p.ind_ativo !== undefined ? p.ind_ativo : p.IndAtivo),
             /** Legado: produto em descontinuação — não entra em recompra/produção (mesmo IndForaMix da tabela produto). */
             foraMix: asBool(p.ind_fora_mix !== undefined ? p.ind_fora_mix : p.IndForaMix),

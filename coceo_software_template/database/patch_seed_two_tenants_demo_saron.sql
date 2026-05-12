@@ -23,8 +23,16 @@ INSERT IGNORE INTO tenants (
   50,
   10000,
   NULL, NULL, NULL, NULL, 'Brasil',
-  NULL
+  CAST('{"INVEST":{"enabled":false}}' AS JSON)
 );
+
+UPDATE tenants
+SET module_settings = JSON_SET(
+  COALESCE(module_settings, CAST('{}' AS JSON)),
+  '$.INVEST.enabled',
+  CAST('false' AS JSON)
+)
+WHERE slug = 'saron-cortinas';
 
 UPDATE tenants
 SET legacy_db_name = 'stockspin_core_db_saron',

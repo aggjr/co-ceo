@@ -13,6 +13,8 @@ import {
   getAllowedStockspinScreens,
   getPhysicalArchitectureIndexUrl,
   getStockspinStaticBaseUrl,
+  isInvestModuleVisibleForUser,
+  syncTenantModuleSettingsFromList,
 } from "./utils/moduleContext.js";
 
 Dialogs.init();
@@ -28,13 +30,13 @@ function renderLogin() {
   app.innerHTML = "";
   app.appendChild(
     Login(() => {
-      renderDashboard();
+      void renderDashboard().catch((err) => console.error(err));
     })
   );
 }
 
 function stockspinMenuHtml() {
-  const allowed = getAllowedStockspinScreens();
+  const allowed = getAllowedStockspinScreens(JSON.parse(localStorage.getItem("user") || "{}"));
   const visible = allowed
     ? STOCKSPIN_SCREENS.filter((s) => allowed.has(s.id))
     : STOCKSPIN_SCREENS;
@@ -43,8 +45,18 @@ function stockspinMenuHtml() {
     .join("");
 }
 
-function renderDashboard() {
+async function renderDashboard() {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
+  if (user.isSuperUser) {
+    try {
+      const { tenantService } = await import("./services/tenantService.js");
+      const tenants = await tenantService.getTenants();
+      syncTenantModuleSettingsFromList(tenants);
+    } catch (e) {
+      console.warn("CO-CEO: prefetch de clientes (menu INVEST / módulos) falhou:", e);
+    }
+  }
+
   const canAccessCockpit = Boolean(user && user.isSuperUser);
 
   app.innerHTML = "";
@@ -90,15 +102,19 @@ function renderDashboard() {
           </ul>
         </li>`
       }
-      <li class="nav-menu-item">
+      ${
+        isInvestModuleVisibleForUser(user)
+          ? `<li class="nav-menu-item">
         <a href="#" class="nav-menu-toggle" data-toggle="invest">
           💼 INVEST
           <span class="nav-menu-arrow">▶</span>
         </a>
         <ul class="nav-submenu" id="submenu-invest">
-          ${INVEST_SCREENS.map(s => `<li><a href="#" data-screen="${s.id}">${s.icon} ${s.label}</a></li>`).join('')}
+          ${INVEST_SCREENS.map((s) => `<li><a href="#" data-screen="${s.id}">${s.icon} ${s.label}</a></li>`).join("")}
         </ul>
-      </li>
+      </li>`
+          : ""
+      }
     </ul>
     <div class="nav-footer">
       <button class="nav-logout" id="sidebar-logout" style="width: 100%;">🚪 Sair</button>
@@ -343,15 +359,28 @@ function navigateToScreen(screen) {
         renderStockspinScreen("stockspin-apollo-grid");
         break;
       }
-      renderDashboard();
+      void renderDashboard().catch((err) => console.error(err));
       break;
     default:
       if (screen && screen.startsWith("stockspin-")) {
         renderStockspinScreen(screen);
       } else if (screen && screen.startsWith("invest-")) {
+        if (!isInvestModuleVisibleForUser(user)) {
+          main.classList.add("dashboard-main--cockpit");
+          main.style.padding = "2rem";
+          main.style.display = "";
+          main.innerHTML = `
+      <div style="max-width:48rem;padding:1.4rem 1.6rem;border:1px solid var(--shell-border-soft);border-radius:12px;background:rgba(4,14,26,.62);">
+        <h2 style="margin:0 0 .6rem;color:var(--color-accent);font-size:1.05rem;">Módulo indisponível</h2>
+        <p style="margin:0;color:var(--shell-fg-muted);line-height:1.55;">
+          O módulo <strong style="color:var(--shell-fg);">INVEST</strong> não está habilitado para este cliente.
+        </p>
+      </div>`;
+          break;
+        }
         renderInvestScreen(screen);
       } else {
-        renderDashboard();
+        void renderDashboard().catch((err) => console.error(err));
       }
   }
 }
