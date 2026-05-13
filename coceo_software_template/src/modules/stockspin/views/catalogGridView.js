@@ -190,6 +190,50 @@ function readGlobalCurtainData() {
     return undefined;
 }
 
+function readGlobalStockHealthData() {
+    if (typeof window !== "undefined" && typeof window.STOCK_HEALTH_HISTOGRAM_DATA !== "undefined") {
+        return window.STOCK_HEALTH_HISTOGRAM_DATA;
+    }
+    if (typeof STOCK_HEALTH_HISTOGRAM_DATA !== "undefined") return STOCK_HEALTH_HISTOGRAM_DATA;
+    return undefined;
+}
+
+function buildFactoryStatusBySku(stockHealthData) {
+    const byStore = stockHealthData && stockHealthData.by_store;
+    if (!byStore || typeof byStore !== "object") return new Map();
+
+    const storeKey =
+        ["Fábrica", "CD SARON", "Fabrica"].find((k) => byStore[k] && byStore[k].sku_ids_by_status) ||
+        Object.keys(byStore).find((k) => isHubStoreName(k) && byStore[k] && byStore[k].sku_ids_by_status);
+    const buckets = storeKey && byStore[storeKey] ? byStore[storeKey].sku_ids_by_status : null;
+    if (!buckets || typeof buckets !== "object") return new Map();
+
+    const out = new Map();
+    const severityOrder = [
+        "RUPTURA",
+        "CRÍTICO",
+        "CRITICO",
+        "ABAIXO",
+        "ACIMA",
+        "MUITO ACIMA",
+        "ENCALHADO 1",
+        "ENCALHADO 2",
+        "ENCALHADO 3"
+    ];
+    const ordered = [
+        ...severityOrder.filter((status) => Array.isArray(buckets[status])),
+        ...Object.keys(buckets).filter((status) => !severityOrder.includes(status))
+    ];
+
+    ordered.forEach((status) => {
+        buckets[status].forEach((id) => {
+            const skuId = Number(id);
+            if (Number.isFinite(skuId) && skuId > 0 && !out.has(skuId)) out.set(skuId, status);
+        });
+    });
+    return out;
+}
+
 /**
  * Tenta carregar catalog_grid (+ curtain) da origem Vite em dev/preview ou da base STOCKSPIN configurada.
  */
@@ -363,12 +407,12 @@ export async function mount(mainEl) {
     }
 
     const filterPack = readStockHealthFilterFromLocation();
-    if (filterPack.source === "stock_health" && filterPack.status) {
-        try {
-            await loadClientScript(`${catalogDataBase}/data/client/stock_health_histogram.js`);
-        } catch (_) {
-            /* opcional */
-        }
+    let stockHealthData = null;
+    try {
+        await loadClientScript(`${catalogDataBase}/data/client/stock_health_histogram.js`);
+        stockHealthData = readGlobalStockHealthData() || null;
+    } catch (_) {
+        /* opcional: mantém fallback do curtain_production_data */
     }
 
     const curtainData = readGlobalCurtainData();
@@ -378,6 +422,7 @@ export async function mount(mainEl) {
             productionMap[item.id] = item;
         });
     }
+    const factoryStatusBySku = buildFactoryStatusBySku(stockHealthData);
 
     const catalogGrid = readGlobalCatalogGrid();
     if (typeof catalogGrid === "undefined") {
@@ -393,7 +438,8 @@ export async function mount(mainEl) {
 
     rows.forEach((row) => {
         const prod = productionMap[row.id];
-        row.curtainStatus = prod ? prod.status : "—";
+        const factoryStatus = factoryStatusBySku.get(Number(row.id));
+        row.curtainStatus = factoryStatus || (prod ? prod.status : "—");
         row.sugestao = prod ? prod.sugestao : 0;
         row.priority = prod ? prod.priority : 99;
         if (!row.cadastroEstado) {

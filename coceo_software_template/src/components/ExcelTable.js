@@ -714,6 +714,8 @@ export class ExcelTable {
                         td.style.whiteSpace = 'normal';
                         td.style.overflow = 'visible';
                         td.style.textOverflow = 'clip';
+                        td.style.overflowWrap = 'anywhere';
+                        td.style.wordBreak = 'break-word';
                         td.style.verticalAlign = 'top';
                     } else {
                         td.style.whiteSpace = 'nowrap';

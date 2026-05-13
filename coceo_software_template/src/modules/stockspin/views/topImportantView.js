@@ -8,9 +8,31 @@ const TABS = [
     { key: "top_100_composite", label: "Composto (vol + lucro + rupt.)" }
 ];
 
+function userLocales() {
+    return typeof navigator !== "undefined" && navigator.languages && navigator.languages.length
+        ? navigator.languages
+        : undefined;
+}
+
 function fmt(n, d) {
     if (n == null || !Number.isFinite(Number(n))) return "—";
-    return Number(n).toLocaleString("pt-BR", { maximumFractionDigits: d != null ? d : 2 });
+    return Number(n).toLocaleString(userLocales(), { maximumFractionDigits: d != null ? d : 2 });
+}
+
+function fmtCurrency(n) {
+    if (n == null || !Number.isFinite(Number(n))) return "—";
+    return new Intl.NumberFormat(userLocales(), {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(Number(n));
+}
+
+function textSpan(text) {
+    const span = document.createElement("span");
+    span.textContent = text;
+    return span;
 }
 
 export async function mount(mainEl) {
@@ -63,6 +85,7 @@ export async function mount(mainEl) {
             type: "text",
             width: "280px",
             sticky: true,
+            wrap: true,
             render: (item) => {
                 const id = item.id != null ? String(item.id) : "";
                 const a = document.createElement("a");
@@ -88,6 +111,7 @@ export async function mount(mainEl) {
             label: "Categoria",
             type: "text",
             width: "140px",
+            wrap: true,
             render: (item) => {
                 const t = document.createElement("span");
                 t.textContent = item.category != null && String(item.category).trim() !== "" ? String(item.category) : "—";
@@ -99,6 +123,7 @@ export async function mount(mainEl) {
             label: "Subcategoria",
             type: "text",
             width: "140px",
+            wrap: true,
             render: (item) => {
                 const t = document.createElement("span");
                 t.textContent =
@@ -108,8 +133,22 @@ export async function mount(mainEl) {
         },
         { key: "total_sales_bundle", label: "Vol. bundle", type: "number", width: "110px", align: "right" },
         { key: "quantidade_vendida", label: "Qtd CD plano", type: "number", width: "110px", align: "right" },
-        { key: "valor_bruto_vendas", label: "Valor bruto", type: "number", width: "120px", align: "right" },
-        { key: "lucro_bruto", label: "Lucro bruto (R$)", type: "number", width: "130px", align: "right" },
+        {
+            key: "valor_bruto_vendas",
+            label: "Valor bruto",
+            type: "currency",
+            width: "130px",
+            align: "right",
+            render: (item) => textSpan(fmtCurrency(item.valor_bruto_vendas))
+        },
+        {
+            key: "lucro_bruto",
+            label: "Lucro bruto (R$)",
+            type: "currency",
+            width: "130px",
+            align: "right",
+            render: (item) => textSpan(fmtCurrency(item.lucro_bruto))
+        },
         {
             key: "margem_contrib_pct",
             label: "Margem %",
@@ -160,6 +199,7 @@ export async function mount(mainEl) {
         enableSelection: false,
         summaryLabels: { total: "Linhas:", selected: "" }
     });
+    excel.formatCurrency = fmtCurrency;
 
     function buildRows(key) {
         const list = payload[key] || [];

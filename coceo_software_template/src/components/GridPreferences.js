@@ -1,6 +1,6 @@
 /**
  * GridPreferences — persiste preferências de layout do grid por usuário.
- * Chave de storage: `grid_prefs_<gridId>_<userId>`
+ * Chave de storage: `grid_prefs_<gridId>_<userId>_<tenantId>`
  *
  * Estrutura salva:
  * {
@@ -20,7 +20,7 @@ export class GridPreferences {
     }
 
     _resolveUserId() {
-        // Tenta pegar o userId do token JWT ou de um campo exposto globalmente
+        // Tenta pegar o userId do token JWT, do objeto de login ou de campos expostos globalmente.
         try {
             const token = localStorage.getItem('token');
             if (token) {
@@ -29,6 +29,14 @@ export class GridPreferences {
                 const padded = normalized + '='.repeat((4 - (normalized.length % 4 || 4)) % 4);
                 const payload = JSON.parse(atob(padded));
                 return payload.sub || payload.id || payload.userId || payload.email || payload.username || 'anon';
+            }
+        } catch (_) { /* ignore */ }
+        try {
+            const userRaw = localStorage.getItem('user');
+            if (userRaw) {
+                const user = JSON.parse(userRaw);
+                const id = user && (user.id || user.userId || user.email || user.username);
+                if (id != null && String(id).trim() !== '') return String(id);
             }
         } catch (_) { /* ignore */ }
         return localStorage.getItem('userId') || localStorage.getItem('userEmail') || 'anon';
